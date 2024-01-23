@@ -3,3 +3,6 @@
 
 # mac
 .DS_Store
+
+# testing
+/test
