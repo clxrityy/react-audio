@@ -4,6 +4,10 @@
   "description": "A simple audio player for React",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {},
   "repository": {
     "type": "git",
