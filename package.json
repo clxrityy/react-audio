@@ -5,10 +5,14 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "private": false,
   "files": [
     "dist"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev": "rollup -c --watch",
+    "build": "rollup -c"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/clxrityy/react-audio.git"
@@ -44,6 +48,7 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.48",
     "rollup": "^4.9.6",
-    "rollup-plugin-dts": "^6.1.0"
+    "rollup-plugin-dts": "^6.1.0",
+    "tslib": "^2.6.2"
   }
 }
