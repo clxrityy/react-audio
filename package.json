@@ -1,0 +1,45 @@
+{
+  "name": "@clxrity/react-audio",
+  "version": "0.0.1",
+  "description": "A simple audio player for React",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clxrityy/react-audio.git"
+  },
+  "keywords": [
+    "react",
+    "audio",
+    "typescript",
+    "wav",
+    "mp3",
+    "ogg",
+    "media"
+  ],
+  "author": {
+    "name": "MJ Anglin",
+    "email": "contact@mjanglin.com",
+    "url": "https://mjanglin.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clxrityy/react-audio/issues"
+  },
+  "homepage": "https://github.com/clxrityy/react-audio#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/clxrityy"
+  },
+  "dependencies": {
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.48",
+    "rollup": "^4.9.6",
+    "rollup-plugin-dts": "^6.1.0"
+  }
+}
