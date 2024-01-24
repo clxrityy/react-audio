@@ -1,5 +1,12 @@
 # @clxrityy/react-audio
 
+## 0.4.0
+
+### Minor Changes
+
+- d184bff: made component export & import into applications properly, `<AudioPlayer />` component is now (semi) functional and visible
+- f5c0d15: structuring `AudioPlayer` component. began exporting compatible types for the (optional) options (styling so far)
+
 ## 0.3.0
 
 ### Minor Changes
