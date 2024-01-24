@@ -2,9 +2,9 @@ type Props = {
     audio: string
 }
 
-const Player: React.FC<Props> = ({ audio }) => {
+const Player: React.FC<Props> = ({ audio }, ...props) => {
     return (
-        <audio src={audio} />
+        <h1 {...props} className="text-xl">{audio}</h1>
     );
 }
 
