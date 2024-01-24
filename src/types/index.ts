@@ -1,0 +1,1 @@
+export { type AudioPlayerOptions } from '@/types/AudioPlayer';
