@@ -1,3 +1,3 @@
-export * from "@/components";
+export { AudioPlayer } from "@/components";
 
-export type * from "@/types"
+// export type * from "@/types"

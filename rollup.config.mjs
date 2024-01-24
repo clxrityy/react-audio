@@ -4,9 +4,11 @@ import typescript from "@rollup/plugin-typescript";
 import { dts } from "rollup-plugin-dts";
 import packageJson from './package.json' assert { type: 'json' };
 import postcss from 'rollup-plugin-postcss';
+import autoprefixer from "autoprefixer";
 
 export default [
     {
+        preserveModules: true,
         input: "src/index.ts",
         output: [
             {
@@ -25,7 +27,8 @@ export default [
             commonjs(),
             typescript({ tsconfig: "./tsconfig.json" }),
             postcss({
-                extensions: ['.css'],
+                plugins: [autoprefixer()],
+                extract: true,
                 minimize: true,
                 sourceMap: true,
                 modules: true,

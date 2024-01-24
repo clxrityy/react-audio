@@ -10,10 +10,7 @@ const Audio = forwardRef<HTMLAudioElement, AudioProps>(({ file, className, ...pr
             className={className}
             {...props}
             ref={ref}
-            src={file.webkitRelativePath}
-        >
-            
-        </audio>
+            src={file.webkitRelativePath} />
     );
 })
 

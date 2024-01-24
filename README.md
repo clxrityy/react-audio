@@ -2,6 +2,10 @@
 
 ##### by [@clxrityy](https://github.com/clxrityy)
 
+- ##### (BETA)
+- ##### [changelogs](/CHANGELOG.md)
+
+
 an audio player component library.
 
 ```zsh
@@ -23,6 +27,9 @@ import { AudioPlayer } from '@clxrityy/react-audio';
 
 export default function Home() {
 
+  /* 
+    example of a file object
+  */
   const buffer = new Buffer("test");
   const file = new File([buffer.buffer], 'test');
 

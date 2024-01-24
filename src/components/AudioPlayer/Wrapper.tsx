@@ -1,14 +1,13 @@
-import { ComponentPropsWithRef, forwardRef } from "react";
+import { ComponentProps, forwardRef } from "react";
 import Audio from "./Audio";
 
-type AudioWrapperProps = ComponentPropsWithRef<"div"> & {
+type AudioWrapperProps = ComponentProps<"div"> & {
     file: File;
 }
 
-const AudioWrapper = forwardRef<HTMLDivElement, AudioWrapperProps>(({ file, className, children, ...props }, ref) => {
+const AudioWrapper = forwardRef<HTMLDivElement, AudioWrapperProps>(({ file, className, children, ...props }) => {
     return <div
         {...props}
-        ref={ref}
         className={className}
     >
         <Audio file={file} />
