@@ -41,6 +41,9 @@
   },
   "dependencies": {
     "@changesets/cli": "^2.27.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
@@ -48,6 +51,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.48",
+    "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
     "rollup": "^4.9.6",
     "rollup-plugin-dts": "^6.1.0",
