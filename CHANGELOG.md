@@ -1,5 +1,17 @@
 # @clxrityy/react-audio
 
+## 0.5.0
+
+### Minor Changes
+
+- 3dc1f94: add background color param
+- df5f580: add license and npmignore
+
+### Patch Changes
+
+- fc106f5: it works now
+- df5f580: make changeset a dev dependency
+
 ## 0.4.0
 
 ### Minor Changes

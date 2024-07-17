@@ -1,6 +1,6 @@
 {
   "name": "@clxrityy/react-audio",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A simple audio player for React",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
