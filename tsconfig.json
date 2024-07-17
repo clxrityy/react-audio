@@ -35,9 +35,9 @@
 
     /* Completeness */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    // "paths": {
+    //   "@/*": ["./src/*"]
+    // }
   },
   "exclude": ["./test/*"]
 }

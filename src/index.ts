@@ -1,3 +1,3 @@
-export { AudioPlayer } from "@/components";
+import AudioPlayer from "./components/AudioPlayer";
 
-// export type * from "@/types"
+export { AudioPlayer };
