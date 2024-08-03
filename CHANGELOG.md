@@ -1,5 +1,11 @@
 # @clxrityy/react-audio
 
+## 0.6.0
+
+### Minor Changes
+
+- 6e7d46f: updated visuals to `<AudioPlayer />`, began `<JustPlayer />`
+
 ## 0.5.0
 
 ### Minor Changes
