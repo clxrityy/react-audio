@@ -5,5 +5,8 @@ export type Track = {
     title?: string;
     src: string;
     thumbnail?: string;
-    author?: string;
+    author?: {
+        name: string;
+        url?: string;
+    };
 };

@@ -71,15 +71,20 @@ export default function Controls({ audioRef, progressBarRef, setTimeProgress, du
                 marginTop: "20px",
             }}
         >
-            <div>
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "row",
+                gap: "5px"
+            }}>
+                <button style={controlButtonStyle} onClick={skipBackward}>
+                    <FaBackward size={20} />
+                </button>
                 <button style={controlButtonStyle} onClick={togglePlay}>
                     {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
                 </button>
                 <button style={controlButtonStyle} onClick={skipForward}>
                     <FaForward size={20} />
-                </button>
-                <button style={controlButtonStyle} onClick={skipBackward}>
-                    <FaBackward size={20} />
                 </button>
             </div>
             <div style={{

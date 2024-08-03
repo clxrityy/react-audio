@@ -10,18 +10,16 @@ type Props = {
 
 export default function AudioTrack({ track, audioRef, setDuration, progressBarRef}: Props) {
 
-    const onLoadedMetadata = () => {
-        const seconds = audioRef!.current!.duration;
-        setDuration(seconds);
-        progressBarRef.current.max = seconds.toString();
-    };
-
     return (
         <div>
             <audio
                 src={track.src}
                 ref={audioRef}
-                onLoadedMetadata={onLoadedMetadata}
+                onLoadedMetadata={(e) => {
+                    const seconds = e.currentTarget.duration;
+                    setDuration(seconds);
+                    progressBarRef.current.max = String(seconds);
+                }}
             />
             <div>
                 {track.thumbnail ? (
@@ -51,15 +49,23 @@ export default function AudioTrack({ track, audioRef, setDuration, progressBarRe
                     style={{
                         marginRight: "5px",
                         padding: 0,
-                        fontSize: "16px",
+                        fontSize: "20px",
                         fontWeight: "bold",
                     }}
                 >
                     {track.title}
                 </p>
-                <p>
-                    {track.author}
-                </p>
+                <a
+                    href={track.author?.url}
+                    style={{
+                        padding: 0,
+                        fontSize: "14px",
+                        fontWeight: "normal",
+                        cursor: "pointer",
+                    }}
+                >
+                    {track.author?.name && `${track.author.name}`}
+                </a>
             </div>
         </div>
     )

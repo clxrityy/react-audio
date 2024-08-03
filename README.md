@@ -1,12 +1,16 @@
-# [`@clxrityy/react-audio`]()
+# `@clxrityy/react-audio`
+## [ BETA ]
 
-##### by [@clxrityy](https://github.com/clxrityy)
+> ##### by [@clxrityy](https://github.com/clxrityy)
+> A react audio player component library.
 
-- ##### (BETA)
+- [`<AudioPlayer />`](#audioplayer)
+- [`<JustPlayer />`](#justplayer)
+
 
 ### [CHANGELOG 🪵](/CHANGELOG.md)
 
-an audio player component library.
+---
 
 ```zsh
 npm install @clxrityy/react-audio
@@ -19,10 +23,19 @@ yarn add @clxrityy/react-audio
 ```zsh
 pnpm add @clxrityy/react-audio
 ```
-
 ---
 
-#### example
+### `<AudioPlayer />`
+
+#### Features
+- Controls
+- Progress bar
+- Volume control
+- Mobile responsive
+- Customizable style
+
+#### Use-case
+- Best for fully displaying a track and all its details
 
 ```tsx
 "use client";
@@ -32,9 +45,44 @@ export default function Component() {
   return (
     <AudioPlayer
       track={{
-        src="/audio.wav"
+        src: "/audio.wav",
+        title: "test",
+        thumbnail: "/favicon.ico",
+        author: {
+          name: "clxrity",
+        },
       }}
-    >
+      style={{
+        backgroundColor: "transparent",
+      }}
+    />
+  );
+}
+```
+
+![example-audio-player](https://i.gyazo.com/1526afdae87ead8a9ead560248ad6ab3.png)
+
+---
+
+### `<JustPlayer />`
+
+#### Features
+- Just a play button
+
+#### Use-case
+- Best for mapping over audio files in a visually small listed component
+
+```tsx
+"use client";
+import { JustPlayer } from "@clxrityy/react-audio";
+
+export default function Component() {
+  return (
+    <JustPlayer
+      track={{
+        src = "/audio.wav",
+      }}
+    />
   );
 }
 ```

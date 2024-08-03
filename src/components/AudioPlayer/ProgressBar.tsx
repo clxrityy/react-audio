@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 type Props = {
     audioRef: React.MutableRefObject<HTMLAudioElement>;
     progressBarRef: React.MutableRefObject<HTMLInputElement>;
@@ -7,19 +9,35 @@ type Props = {
 
 
 export default function ProgressBar({ audioRef, progressBarRef, timeProgress, duration }: Props) {
-    const handleProgressChange = () => {
+    useEffect(() => {
         audioRef.current.currentTime = Number(progressBarRef.current.value);
-    }
+
+    }, [audioRef, progressBarRef]);
 
     const formatTime = (time: number): string => {
+        let result = `00:00`;
+
         if (time && !isNaN(time)) {
             const minutes = Math.floor(time / 60);
             const formatMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
             const seconds = Math.floor(time % 60);
             const formatSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-            return `${formatMinutes}:${formatSeconds}`;
+            result = `${formatMinutes}:${formatSeconds}`;
         }
-        return `00:00`;
+        return result;
+    }
+
+    const rangeProgressStyle = { "--range-progress": `${(timeProgress / duration) * 100}%` } as React.CSSProperties;
+
+    const inputStyle: React.CSSProperties = {
+        WebkitAppearance: "none",
+        position: "relative",
+        width: "100%",
+        height: "2px",
+        backgroundColor: "#c1b6bc",
+        borderRadius: "4px",
+        cursor: "pointer",
+        ...rangeProgressStyle
     }
 
     return (
@@ -31,32 +49,27 @@ export default function ProgressBar({ audioRef, progressBarRef, timeProgress, du
         }}>
             <span
                 style={{
-                    color: "#f50",
-                    fontSize: "14px",
-                    lineHeight: "46px",
+                    color: "inherit",
+                    fontSize: "inherit",
+                    opacity: 0.7
                 }}
             >
                 {formatTime(timeProgress)}
             </span>
-            <input style={{
-                WebkitAppearance: "none",
-                position: "relative",
-                width: "100%",
-                height: "2px",
-                backgroundColor: "#c1b6bc",
-                borderRadius: "4px",
-                cursor: "pointer",
-            }}
+            <input
+                style={inputStyle}
                 ref={progressBarRef}
-                defaultValue="0"
                 type="range"
-                onChange={handleProgressChange}
+                defaultValue={timeProgress}
+                onChange={(e) => {
+                    audioRef.current.currentTime = Number(e.target.value);
+                }}
             />
             <span
                 style={{
-                    color: "#333",
-                    fontSize: "14px",
-                    lineHeight: "46px",
+                    color: "inherit",
+                    fontSize: "inherit",
+                    opacity: 0.7
                 }}
             >
                 {formatTime(duration)}
