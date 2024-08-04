@@ -1,5 +1,15 @@
 # @clxrityy/react-audio
 
+## 0.7.0
+
+### Minor Changes
+
+- 62c85bf: update packages
+
+### Patch Changes
+
+- 443185b: `<JustPlayer />` now works (plays audio)
+
 ## 0.6.0
 
 ### Minor Changes
