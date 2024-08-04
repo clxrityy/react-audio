@@ -68,6 +68,7 @@ export default function Component() {
 
 #### Features
 - Just a play button
+- Customizable style
 
 #### Use-case
 - Best for mapping over audio files in a visually small listed component
@@ -80,7 +81,7 @@ export default function Component() {
   return (
     <JustPlayer
       track={{
-        src = "/audio.wav",
+        src: "/audio.wav",
       }}
     />
   );

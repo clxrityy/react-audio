@@ -17,9 +17,8 @@ export default function AudioPlayer({ track, style, ...props }: Props): ReactEle
 
     const [duration, setDuration] = useState<number>(0);
     const [timeProgress, setTimeProgress] = useState<number>(0);
-
-    const audioRef = useRef<HTMLAudioElement>();
     const progressBarRef = useRef<HTMLInputElement>();
+    const audioRef = useRef<HTMLAudioElement>(new Audio(track.src));
 
 
     return <div {...props} style={
