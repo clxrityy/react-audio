@@ -1,6 +1,6 @@
 {
   "name": "@clxrityy/react-audio",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A simple audio player for React",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -42,6 +42,8 @@
   },
   "dependencies": {
     "react-icons": "^5.2.1",
+    "styled-components": "^6.1.12",
+    "test": "link:/Users/mjanglin/code/packages/react-audio/test",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
@@ -51,11 +53,17 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.3.3",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.41",
     "rollup": "^4.20.0",
     "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "tailwindcss": "^3.4.7",
-    "tslib": "^2.6.3"
+    "tslib": "^2.6.3",
+    "typescript-plugin-css-modules": "^5.1.0"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

@@ -1,5 +1,16 @@
 # @clxrityy/react-audio
 
+## 0.8.0
+
+### Minor Changes
+
+- 469f488: add / begin <LibraryPlayer /> component
+- aec2e66: add styled-components
+
+### Patch Changes
+
+- 60d76fd: <LibraryPlayer /> now works (somewhat)
+
 ## 0.7.0
 
 ### Minor Changes
