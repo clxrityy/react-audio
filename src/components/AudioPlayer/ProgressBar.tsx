@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import styled from "styled-components";
 
 type Props = {
     audioRef: React.MutableRefObject<HTMLAudioElement>;
@@ -40,6 +41,26 @@ export default function ProgressBar({ audioRef, progressBarRef, timeProgress, du
         ...rangeProgressStyle
     }
 
+    const ProgressInput = styled.input`
+        --range-progress: 0;
+        -webkit-appearance: none;
+        position: relative;
+        width: 100%;
+        height: 2px;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            height: 2px;
+            width: var(--range-progress);
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+        }
+    `
+
     return (
         <div style={{
             display: "flex",
@@ -56,7 +77,7 @@ export default function ProgressBar({ audioRef, progressBarRef, timeProgress, du
             >
                 {formatTime(timeProgress)}
             </span>
-            <input
+            <ProgressInput
                 style={inputStyle}
                 ref={progressBarRef}
                 type="range"

@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement, useCallback, useEffect, useRef, useState } from "react";
+import { ComponentProps, ReactElement, useEffect, useState } from "react";
 import { Track } from "../../types";
 import { FaPlay, FaPause } from "react-icons/fa";
 

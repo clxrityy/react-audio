@@ -10,6 +10,7 @@ interface Props extends ComponentProps<'div'> {
 }
 
 /**
+ * @param track - Track object
  * @param style - React CSS properties
  */
 
@@ -18,7 +19,7 @@ export default function AudioPlayer({ track, style, ...props }: Props): ReactEle
     const [duration, setDuration] = useState<number>(0);
     const [timeProgress, setTimeProgress] = useState<number>(0);
     const progressBarRef = useRef<HTMLInputElement>();
-    const audioRef = useRef<HTMLAudioElement>(new Audio(track.src));
+    const audioRef = useRef<HTMLAudioElement>();
 
 
     return <div {...props} style={

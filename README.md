@@ -6,6 +6,7 @@
 
 - [`<AudioPlayer />`](#audioplayer)
 - [`<JustPlayer />`](#justplayer)
+- [`<LibraryPlayer />`](#libraryplayer)
 
 
 ### [CHANGELOG 🪵](/CHANGELOG.md)
@@ -85,5 +86,57 @@ export default function Component() {
       }}
     />
   );
+}
+```
+
+---
+
+### `<LibraryPlayer />`
+
+#### Features
+- A visualized audio library with multiple tracks
+- Controls
+- Progress bar
+- Volume control
+- Mobile responsive
+- Autoplay next song
+
+#### Use-case
+- Best for displaying collections of audio files
+
+```tsx
+"use client";
+import { LibraryPlayer, LibraryTrackItem } from "@clxrityy/react-audio";
+import { tracks } from "./data";
+
+export default function Component() {
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(-1);
+
+  const currentTrack = tracks[currentTrackIndex];
+
+  return (
+    <div>
+      <h1>My Songs</h1>
+      <ul>
+        {tracks.map((track, index) => (
+          <LibraryTrackItem
+            key={index}
+            selected={index === currentTrackIndex}
+            track={track}
+            trackNumberLabel={index}
+            onClick={() => setCurrentTrackIndex(index)}
+          />
+        ))}
+      </ul>
+      <LibraryPlayer 
+        key={currentTrackIndex}
+        currentTrack={currentTrack}
+        trackIndex={current}
+        trackCount={tracks.length}
+        onNext={() => setCurrentTrackIndex((i) => i + 1)}
+        onPrev={() => setCurrentTrackIndex((i) => i - 1)}
+      />
+    </div>
+  )
 }
 ```
