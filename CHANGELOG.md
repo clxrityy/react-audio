@@ -1,5 +1,12 @@
 # @clxrityy/react-audio
 
+## 0.9.0
+
+### Minor Changes
+
+- 4f368d5: **AudioLibrary** is fully functional and styled nicely for now, updated readme & package.json
+- 1f5711c: change library component to **AudioLibrary** with states and styles inside
+
 ## 0.8.0
 
 ### Minor Changes

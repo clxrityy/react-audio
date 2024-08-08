@@ -1,6 +1,6 @@
 {
   "name": "@clxrityy/react-audio",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "A simple audio player for React",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -25,7 +25,22 @@
     "wav",
     "mp3",
     "ogg",
-    "media"
+    "media",
+    "player",
+    "music",
+    "sound",
+    "play",
+    "pause",
+    "stop",
+    "volume",
+    "seek",
+    "progress",
+    "time",
+    "duration",
+    "metadata",
+    "loading",
+    "error",
+    "next"
   ],
   "author": {
     "name": "MJ Anglin",
@@ -43,7 +58,6 @@
   "dependencies": {
     "react-icons": "^5.2.1",
     "styled-components": "^6.1.12",
-    "test": "link:/Users/mjanglin/code/packages/react-audio/test",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
