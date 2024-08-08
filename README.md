@@ -6,21 +6,12 @@
 
 - [`<AudioPlayer />`](#audioplayer)
 - [`<JustPlayer />`](#justplayer)
-- [`<LibraryPlayer />`](#libraryplayer)
+- [`<AudioLibrary />`](#audiolibrary)
 
 
-### [CHANGELOG 🪵](/CHANGELOG.md)
+# [🗒️ CHANGELOG](/CHANGELOG.md)
 
 ---
-
-```zsh
-npm install @clxrityy/react-audio
-```
-
-```zsh
-yarn add @clxrityy/react-audio
-```
-
 ```zsh
 pnpm add @clxrityy/react-audio
 ```
@@ -91,7 +82,7 @@ export default function Component() {
 
 ---
 
-### `<LibraryPlayer />`
+### `<AudioLibrary />`
 
 #### Features
 - A visualized audio library with multiple tracks
@@ -106,8 +97,45 @@ export default function Component() {
 
 ```tsx
 "use client";
-import { LibraryPlayer, LibraryTrackItem } from "@clxrityy/react-audio";
+import { AudioLibrary } from "@clxrityy/react-audio";
 import { tracks } from "./data";
+
+export default function Component() {
+
+  return (
+    <div>
+      <AudioLibrary tracks={tracks} />
+    </div>
+  )
+}
+```
+
+![audio library image](https://i.gyazo.com/29f40fe844eedea54f6577cd52d7ea78.png)
+
+#### Construct the audio library yourself
+
+If you'd like further customization, import the base components:
+
+```tsx
+import { 
+  LibraryPlayer, // The player component
+  LibraryTrackItem, // Individual track component
+} from "@clxrityy/react-audio";
+```
+
+- Define states yourself
+
+```tsx
+"use client";
+import {
+  type Track,
+  // ...
+} from "@clxrityy/react-audio";
+import { useState } from "react";
+
+const tracks: Track[] = [
+  // ...
+];
 
 export default function Component() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(-1);
@@ -116,7 +144,7 @@ export default function Component() {
 
   return (
     <div>
-      <h1>My Songs</h1>
+      <h1>My songs</h1>
       <ul>
         {tracks.map((track, index) => (
           <LibraryTrackItem

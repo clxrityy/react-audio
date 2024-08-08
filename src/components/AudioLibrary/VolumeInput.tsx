@@ -1,4 +1,5 @@
 import { ComponentProps, ReactElement } from "react";
+import CONFIG from "../../config";
 
 interface VolumeInputProps extends ComponentProps<"input"> { 
     volume: number;
@@ -22,9 +23,10 @@ export default function VolumeInput({ volume,  volumeChange, ...props }: VolumeI
             margin: 0,
             height: "12px",
             borderRadius: "30px",
-            accentColor: "#007bff",
+            accentColor: CONFIG.colors.primary,
             appearance: "none",
             cursor: "pointer",
+            backgroundColor: "gray"
         }}
         {...props}
     />

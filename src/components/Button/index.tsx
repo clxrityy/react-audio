@@ -1,14 +1,13 @@
 import { ComponentPropsWithoutRef } from "react";
 import styled from "styled-components";
+import CONFIG from "../../config";
 
-interface ButtonProps extends ComponentPropsWithoutRef<"button"> { 
-    variant?: "primary" | "secondary";
+interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
+    variation?: "primary" | "secondary";
     size?: "sm" | "md" | "lg";
 }
 
-export default function Button({ variant = "primary", size = "md", children, ...props }: ButtonProps) {
-    
-    const ButtonElement = styled.button<ButtonProps>`
+const ButtonElement = styled.button<ButtonProps>`
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border-radius: 0.75rem;
@@ -16,26 +15,33 @@ export default function Button({ variant = "primary", size = "md", children, ...
     cursor: pointer;
     &:focus {
         outline: none;
-        ring: 2px solid #007bff;
+        ring: 2px solid ${CONFIG.colors.primary};
     }
     &:hover {
         scale: 1.05;
     }
-    ${({ variant }) => {
-        switch (variant) {
+    &:active {
+        scale: 0.95;
+    }
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    ${({ variation }) => {
+        switch (variation) {
             case "primary":
                 return `
-                    background-color: #007bff;
+                    background-color: ${CONFIG.colors.primary};
                     color: white;
                 `;
             case "secondary":
                 return `
-                    background-color: #6c757d;
+                    background-color: ${CONFIG.colors.secondary};
                     color: white;
                 `;
             default:
                 return `
-                    background-color: #007bff;
+                    background-color: ${CONFIG.colors.primary};
                     color: white;
                 `;
         }
@@ -66,8 +72,11 @@ export default function Button({ variant = "primary", size = "md", children, ...
         }
     }}
 `;
+
+export default function Button({ variation = "primary", size = "md", children, ...props }: ButtonProps) {
+
     return (
-        <ButtonElement variant={variant} size={size} {...props}>
+        <ButtonElement variation={variation} size={size} {...props}>
             {children}
         </ButtonElement>
     );
