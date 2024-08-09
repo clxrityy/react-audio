@@ -3,19 +3,34 @@ import styled from "styled-components";
 import CONFIG from "../../config";
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
-    variation?: "primary" | "secondary";
+    variation?: "primary" | "secondary" | "outline";
     size?: "sm" | "md" | "lg";
+    rounded?: "none" | "sm" | "md" | "lg";
+    color?: string;
+    theme?: "light" | "dark";
 }
 
 const ButtonElement = styled.button<ButtonProps>`
     padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 0.75rem;
+    border-radius: ${({ rounded }) => {
+        switch (rounded) {
+            case "none":
+                return "0rem";
+            case "sm":
+                return "0.25rem";
+            case "md":
+                return "0.5rem";
+            case "lg":
+                return "1rem";
+            default:
+                return "0.75rem";
+        }
+    }}
     border: none;
     cursor: pointer;
     &:focus {
         outline: none;
-        ring: 2px solid ${CONFIG.colors.primary};
+        ring: 2px solid ${({ color, variation }) => color || variation === "primary" && CONFIG.colors.primary || CONFIG.colors.secondary};
     }
     &:hover {
         scale: 1.05;
@@ -27,22 +42,28 @@ const ButtonElement = styled.button<ButtonProps>`
         opacity: 0.5;
         cursor: not-allowed;
     }
-    ${({ variation }) => {
+    ${({ variation, color, theme }) => {
         switch (variation) {
             case "primary":
                 return `
-                    background-color: ${CONFIG.colors.primary};
-                    color: white;
+                    background-color: ${color || CONFIG.colors.primary};
+                    color: ${theme ? theme === "dark" ? CONFIG.themes.dark.textColor : CONFIG.themes.light.textColor : CONFIG.themes.dark.textColor};
                 `;
             case "secondary":
                 return `
-                    background-color: ${CONFIG.colors.secondary};
-                    color: white;
+                    background-color: ${color || CONFIG.colors.secondary};
+                    color: ${theme ? theme === "dark" ? CONFIG.themes.dark.textColor : CONFIG.themes.light.textColor : CONFIG.themes.dark.textColor};
+                `;
+            case "outline":
+                return `
+                    background-color: transparent;
+                    border: 2px solid ${color || CONFIG.colors.primary};
+                    color: ${theme ? theme === "dark" ? CONFIG.themes.dark.textColor : CONFIG.themes.light.textColor : CONFIG.themes.dark.textColor};
                 `;
             default:
                 return `
-                    background-color: ${CONFIG.colors.primary};
-                    color: white;
+                    background-color: ${color || CONFIG.colors.primary};
+                    color: ${theme ? theme === "dark" ? CONFIG.themes.dark.textColor : CONFIG.themes.light.textColor : CONFIG.themes.dark.textColor};
                 `;
         }
     }}
@@ -73,10 +94,17 @@ const ButtonElement = styled.button<ButtonProps>`
     }}
 `;
 
-export default function Button({ variation = "primary", size = "md", children, ...props }: ButtonProps) {
+/**
+ * 
+ * @param variation - primary, secondary, outline (default: primary)
+ * @param size - sm, md, lg (default: md)
+ * @param rounded - none, sm, md, lg (default: custom) 
+ */
+
+export default function Button({ variation = "primary", size = "md", children, rounded, color, ...props }: ButtonProps) {
 
     return (
-        <ButtonElement variation={variation} size={size} {...props}>
+        <ButtonElement variation={variation} rounded={rounded} size={size} {...props}>
             {children}
         </ButtonElement>
     );

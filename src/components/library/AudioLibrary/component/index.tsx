@@ -1,8 +1,8 @@
 import { ComponentPropsWithRef, useState } from "react";
 import styled from "styled-components";
-import { LibraryStyles, Track } from "../../types";
-import LibraryPlayer from "./Player";
-import LibraryTrackItem from "./TrackItem";
+import { LibraryStyles, Track } from "../../../../types";
+import LibraryPlayer from "../elements/Player";
+import LibraryTrackItem from "../elements/TrackItem";
 
 interface AudioLibraryProps extends ComponentPropsWithRef<"div"> {
     tracks: Track[];
@@ -21,7 +21,7 @@ const ContainerDiv = styled.div<{ styles?: LibraryStyles }>`
     max-width: 800px;
     border-radius: 0.5rem;
     background-color: ${({ styles }) => styles?.backgroundColor || "transparent"};
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: ${({ styles }) => styles?.border || "1px solid rgba(240, 240, 240, 0.4)"};
     backdrop-filter: blur(10px);
 `;
 

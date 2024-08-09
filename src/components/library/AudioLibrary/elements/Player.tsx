@@ -1,11 +1,11 @@
 import { ComponentPropsWithRef, ElementRef, ReactElement, ReactEventHandler, useEffect, useRef, useState } from "react";
-import { Track } from "../../types";
-import { FaPlay, FaPause, FaVolumeOff, FaVolumeUp, FaForward, FaBackward } from "react-icons/fa";
-import VolumeInput from "./VolumeInput";
-import ProgressBar from "./ProgressBar";
-import formatDurationDisplay from "../../utils/formatDuration";
-import Button from "../Button";
 import styled from "styled-components";
+import CONFIG from "../../../../config";
+import { Track } from "../../../../types";
+import formatDurationDisplay from "../../../../utils/formatDuration";
+import Button from "../../../Button";
+import ProgressBar from "./ProgressBar";
+import VolumeInput from "./VolumeInput";
 
 interface AudioLibraryProps extends ComponentPropsWithRef<"div"> {
     currentTrack?: Track;
@@ -176,8 +176,6 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
 
     const handleBufferProgress: ReactEventHandler<HTMLAudioElement> = (e) => {
 
-        console.log("buffered", e.currentTarget.buffered); // debug
-
         const audio = e.currentTarget;
         const dur = audio.duration;
 
@@ -269,7 +267,7 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
                         disabled={trackIndex === 0}
                         onClick={onPrevious}
                     >
-                        <FaBackward size={20} />
+                        <CONFIG.icons.backward size={20} />
                     </Button>
                     {/**
                  * PLAY/PAUSE BUTTON
@@ -278,7 +276,7 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
                         disabled={!isReady}
                         onClick={togglePlayPause}
                     >
-                        {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
+                        {isPlaying ? <CONFIG.icons.pause size={20} /> : <CONFIG.icons.play size={20} />}
                     </Button>
                     {/* 
                     NEXT BUTTON
@@ -288,7 +286,7 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
                         disabled={trackIndex === trackCount - 1}
                         onClick={onNext}
                     >
-                        <FaForward size={20} />
+                        <CONFIG.icons.forward size={20} />
                     </Button>
                 </ButtonsDivContainer>
 
@@ -297,7 +295,7 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
                         onClick={handleMuteUnmute}
                         aria-label={volume === 0 ? "Unmute" : "Mute"}
                     >
-                        {volume === 0 ? <FaVolumeOff size={20} /> : <FaVolumeUp size={20} />}
+                        {volume === 0 ? <CONFIG.icons.volumeOff size={20} /> : <CONFIG.icons.volumeUp size={20} />}
                     </Button>
                     <VolumeInput volume={volume} volumeChange={handleVolumeChange} />
                 </BottomDiv>

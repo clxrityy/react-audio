@@ -1,4 +1,5 @@
 import { GoDotFill } from "react-icons/go";
+import { FaBackward, FaForward, FaPause, FaPlay, FaVolumeOff, FaVolumeUp, FaSpinner } from "react-icons/fa";
 
 const CONFIG = {
     colors: {
@@ -17,6 +18,13 @@ const CONFIG = {
     },
     icons: {
         dot: GoDotFill,
+        play: FaPlay,
+        pause: FaPause,
+        volumeUp: FaVolumeUp,
+        volumeOff: FaVolumeOff,
+        forward: FaForward,
+        backward: FaBackward,
+        loading: FaSpinner,
     }
 } as const;
 

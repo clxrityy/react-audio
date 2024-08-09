@@ -16,8 +16,7 @@ export type Track = {
 export interface LibraryStyles extends React.CSSProperties {
     backgroundColor?: string;
     textColor?: string;
-    borderColor?: string;
     boxShadow?: string;
     theme?: "light" | "dark";
-    
+    border?: string;
 }

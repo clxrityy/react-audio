@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentPropsWithoutRef, ReactElement } from "react";
 import styled from "styled-components";
+import { ProgressInput } from "../../../../styles/elements";
 
 interface ProgressBarCSSProps extends React.CSSProperties {
     "--progress-width": number;
@@ -26,22 +27,6 @@ const ProgressDiv = styled.div<ProgressBarProps>`
             margin: 0 1rem;
         }
 `;
-
-const ProgressInput = styled.input`
-        &::webkit-slider-thumb {
-            z-index: 4;
-            position: relative;
-        }
-        &::before {
-            transform: scaleX(var(progress-width));
-            z-index: 3;
-        }
-        &::after {
-            transform: scaleX(var(buffered-width));
-            z-index: 2;
-            tranform-origin: left;
-        }
-    `;
 
 export default function ProgressBar({ duration, currentProgress, buffered, ...props }: ProgressBarProps): ReactElement<ProgressBarProps, "div"> {
 

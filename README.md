@@ -4,7 +4,6 @@
 > ##### by [@clxrityy](https://github.com/clxrityy)
 > A react audio player component library.
 
-- [`<AudioPlayer />`](#audioplayer)
 - [`<JustPlayer />`](#justplayer)
 - [`<AudioLibrary />`](#audiolibrary)
 
@@ -15,52 +14,15 @@
 ```zsh
 pnpm add @clxrityy/react-audio
 ```
----
-
-### `<AudioPlayer />`
-
-#### Features
-- Controls
-- Progress bar
-- Volume control
-- Mobile responsive
-- Customizable style
-
-#### Use-case
-- Best for fully displaying a track and all its details
-
-```tsx
-"use client";
-import { AudioPlayer } from "@clxrityy/react-audio";
-
-export default function Component() {
-  return (
-    <AudioPlayer
-      track={{
-        src: "/audio.wav",
-        title: "test",
-        thumbnail: "/favicon.ico",
-        author: {
-          name: "clxrity",
-        },
-      }}
-      style={{
-        backgroundColor: "transparent",
-      }}
-    />
-  );
-}
-```
-
-![example-audio-player](https://i.gyazo.com/1526afdae87ead8a9ead560248ad6ab3.png)
 
 ---
 
-### `<JustPlayer />`
+## `<JustPlayer />`
 
 #### Features
-- Just a play button
+- *Just a play button*
 - Customizable style
+- Loading state
 
 #### Use-case
 - Best for mapping over audio files in a visually small listed component
@@ -80,11 +42,31 @@ export default function Component() {
 }
 ```
 
+#### Styling
+
+```tsx
+<JustPlayer 
+  track={tracks[0]} 
+  size={50} {/* ICON SIZE */}
+  style={{
+    backgroundColor: "red",
+    padding: "1rem",
+    borderRadius: "1rem",
+    boxShadow: "0 0 1rem rgba(0, 0, 0, 0.1)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  }} {/* REACT CSS PROPERTIES */}  
+/>
+```
+
+![styled JustPlayer example](https://i.gyazo.com/162d4c8c077928b7d3e463a5c2cbf4ea.png)
+
 ---
 
-### `<AudioLibrary />`
+## `<AudioLibrary />`
 
-#### Features
+### Features
 - A visualized audio library with multiple tracks
 - Controls
 - Progress bar
@@ -92,7 +74,7 @@ export default function Component() {
 - Mobile responsive
 - Autoplay next song
 
-#### Use-case
+### Use-case
 - Best for displaying collections of audio files
 
 ```tsx
@@ -112,7 +94,22 @@ export default function Component() {
 
 ![audio library image](https://i.gyazo.com/29f40fe844eedea54f6577cd52d7ea78.png)
 
-#### Construct the audio library yourself
+#### Styling
+
+```tsx
+<AudioLibrary
+  tracks={tracks}
+  styles={{
+    backgroundColor: "transparent",
+    textColor: "white",
+    boxShadow: "10px 5px 5px red",
+    theme: "dark",
+    border: "1px solid white",
+  }}
+/>
+```
+
+### Construct the audio library yourself
 
 If you'd like further customization, import the base components:
 
