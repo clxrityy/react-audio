@@ -6,15 +6,15 @@
 
 ### Components
 
-- [`<JustPlayer />`](#justplayer)
+- [`<JustPlayer />`](#justplayer-)
   - Just a play/pause button
-- [`<AudioPlayer />`](#audioplayer)
+- [`<AudioPlayer />`](#audioplayer-)
   - Visualized audio player
   - Controls
     - Volume bar & mute/unmute
     - Progress bar
   - Screen responsive
-- [`<AudioLibrary />`](#audiolibrary)
+- [`<AudioLibrary />`](#audiolibrary-)
   - Visualized audio player with multiple tracks
   - Controls
     - Volume bar & mute/unmute
