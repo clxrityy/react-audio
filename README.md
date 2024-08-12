@@ -4,10 +4,24 @@
 > ##### by [@clxrityy](https://github.com/clxrityy)
 > A react audio player component library.
 
-- [`<JustPlayer />`](#justplayer)
-- [`<AudioPlayer />`](#audioplayer)
-- [`<AudioLibrary />`](#audiolibrary)
+### Components
 
+- #### [`<JustPlayer />`](#justplayer)
+  - Just a play/pause button
+- #### [`<AudioPlayer />`](#audioplayer)
+  - Visualized audio player
+  - Controls
+    - Volume bar & mute/unmute
+    - Progress bar
+  - Screen responsive
+- #### [`<AudioLibrary />`](#audiolibrary)
+  - Visualized audio player with multiple tracks
+  - Controls
+    - Volume bar & mute/unmute
+    - Progress bar
+    - Next/previous track
+  - Autoplay next track
+  - Screen responsive
 
 
 # [🗒️ CHANGELOG](/CHANGELOG.md)
