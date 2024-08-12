@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c",
-    "test": "cd test && pnpm dev"
+    "test": "cd test && pnpm dev",
+    "release": "pnpm build && changeset publish"
   },
   "repository": {
     "type": "git",
