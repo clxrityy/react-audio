@@ -96,8 +96,8 @@ export default function Component() {
 }
 ```
 
-![audio player example 1](https://i.gyazo.com/39711cba228a89bc7afd4417ff566e78.png)
-![audio player example 2](https://i.gyazo.com/5b9e7f2308653d23b81564b1a54a7145.png)
+<img src="https://i.gyazo.com/39711cba228a89bc7afd4417ff566e78.png" alt="audio player example 1" style="display:inline-block;"  />
+<img src="https://i.gyazo.com/5b9e7f2308653d23b81564b1a54a7145.png" alt="audio player example 2" height="400px" style="display:inline-block;" />
 
 
 ---
@@ -130,7 +130,7 @@ export default function Component() {
 }
 ```
 
-![audio library image](https://i.gyazo.com/29f40fe844eedea54f6577cd52d7ea78.png)
+<img src="https://i.gyazo.com/29f40fe844eedea54f6577cd52d7ea78.png" alt="audio library example image" />
 
 #### Styling
 
