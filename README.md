@@ -5,7 +5,9 @@
 > A react audio player component library.
 
 - [`<JustPlayer />`](#justplayer)
+- [`<AudioPlayer />`](#audioplayer)
 - [`<AudioLibrary />`](#audiolibrary)
+
 
 
 # [🗒️ CHANGELOG](/CHANGELOG.md)
@@ -64,6 +66,42 @@ export default function Component() {
 
 ---
 
+## `<AudioPlayer />`
+
+### Features
+- Visualized audio player
+- Screen responsive
+- Volume controls
+- Progress bar
+
+### Use-case
+- Best for displaying a singular audio track
+
+```tsx
+"use client"
+import { type Track, AudioPlayer } from "@clxrityy/react/audio";
+
+const track: Track = {
+  src: "/audio.wav",
+  title: "Track Title",
+  author: {
+    name: "Track Author",
+    url: "https://www.someurl.com"
+  },
+  thumbnail: "./favicon.ico"
+}
+
+export default function Component() {
+  return <AudioPlayer track={track} />
+}
+```
+
+![audio player example 1](https://i.gyazo.com/39711cba228a89bc7afd4417ff566e78.png)
+![audio player example 2](https://i.gyazo.com/5b9e7f2308653d23b81564b1a54a7145.png)
+
+
+---
+
 ## `<AudioLibrary />`
 
 ### Features
@@ -71,7 +109,7 @@ export default function Component() {
 - Controls
 - Progress bar
 - Volume control
-- Mobile responsive
+- Screen responsive
 - Autoplay next song
 
 ### Use-case

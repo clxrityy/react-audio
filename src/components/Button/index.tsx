@@ -3,7 +3,6 @@ import styled from "styled-components";
 import CONFIG from "../../config";
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
-    variation?: "primary" | "secondary" | "outline";
     size?: "sm" | "md" | "lg";
     rounded?: "none" | "sm" | "md" | "lg";
     color?: string;
@@ -30,7 +29,7 @@ const ButtonElement = styled.button<ButtonProps>`
     cursor: pointer;
     &:focus {
         outline: none;
-        ring: 2px solid ${({ color, variation }) => color || variation === "primary" && CONFIG.colors.primary || CONFIG.colors.secondary};
+        ring: 2px solid ${({ color }) => color || CONFIG.colors.primary};
     }
     &:hover {
         scale: 1.05;
@@ -42,8 +41,8 @@ const ButtonElement = styled.button<ButtonProps>`
         opacity: 0.5;
         cursor: not-allowed;
     }
-    ${({ variation, color, theme }) => {
-        switch (variation) {
+    ${({ color, theme }) => {
+        switch (color) {
             case "primary":
                 return `
                     background-color: ${color || CONFIG.colors.primary};
@@ -101,10 +100,10 @@ const ButtonElement = styled.button<ButtonProps>`
  * @param rounded - none, sm, md, lg (default: custom) 
  */
 
-export default function Button({ variation = "primary", size = "md", children, rounded, color, ...props }: ButtonProps) {
+export default function Button({ size = "md", children, rounded, color, ...props }: ButtonProps) {
 
     return (
-        <ButtonElement variation={variation} rounded={rounded} size={size} {...props}>
+        <ButtonElement rounded={rounded} size={size} {...props}>
             {children}
         </ButtonElement>
     );

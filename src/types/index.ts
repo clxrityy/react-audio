@@ -20,3 +20,4 @@ export interface LibraryStyles extends React.CSSProperties {
     theme?: "light" | "dark";
     border?: string;
 }
+

@@ -6,6 +6,7 @@ import formatDurationDisplay from "../../../../utils/formatDuration";
 import Button from "../../../Button";
 import ProgressBar from "./ProgressBar";
 import VolumeInput from "./VolumeInput";
+import { TimeSpan } from "../../../../styles/elements";
 
 interface AudioLibraryProps extends ComponentPropsWithRef<"div"> {
     currentTrack?: Track;
@@ -28,17 +29,13 @@ const MainContainerDivElement = styled.div`
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     padding: 1rem;
     align-items: center;
     justify-items: center;
     position: relative;
     width: 100%;
     max-width: 800px;
-
-    @media only screen and (max-width: 600px) {
-        gap: 0.5rem;
-    }
 `;
 
 const ButtonsDivContainer = styled.div`
@@ -72,19 +69,6 @@ const TextDivElement = styled.div`
     white-space: nowrap;
 `;
 
-const TimeSpan = styled.span`
-    font-size: 0.8em;
-    font-weight: 600;
-    opacity: 0.75;
-    z-index: 2;
-    padding: 0.5rem;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0.25rem;
-`;
 
 const BottomDiv = styled.div`
     display: flex;
