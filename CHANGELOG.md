@@ -1,5 +1,18 @@
 # @clxrityy/react-audio
 
+## 0.10.0
+
+### Minor Changes
+
+- c1c9610: removed **AudioPlayer** for now
+- 9bb0c8d: added (begun) **<AudioPlayer />**
+
+### Patch Changes
+
+- 8cd2ac2: fix "Audio is not defined" error in **<JustPlayer />**
+- 4af6757: fix **JustPlayer**: no more useEffect issue
+- 213a90c: fixed "variant" unknown prop in **<Button />**, will find better ways to update styles and theming
+
 ## 0.9.0
 
 ### Minor Changes
