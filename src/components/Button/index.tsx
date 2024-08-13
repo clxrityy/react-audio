@@ -4,15 +4,15 @@ import CONFIG from "../../config";
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
     size?: "sm" | "md" | "lg";
-    rounded?: "none" | "sm" | "md" | "lg";
+    borderRadius?: "none" | "sm" | "md" | "lg";
     color?: string;
     theme?: "light" | "dark";
 }
 
 const ButtonElement = styled.button<ButtonProps>`
     padding: 0.5rem 1rem;
-    border-radius: ${({ rounded }) => {
-        switch (rounded) {
+    border-radius: ${({ borderRadius }) => {
+        switch (borderRadius) {
             case "none":
                 return "0rem";
             case "sm":
@@ -100,10 +100,10 @@ const ButtonElement = styled.button<ButtonProps>`
  * @param rounded - none, sm, md, lg (default: custom) 
  */
 
-export default function Button({ size = "md", children, rounded, color, ...props }: ButtonProps) {
+export default function Button({ size = "md", children, borderRadius = "lg", color, ...props }: ButtonProps) {
 
     return (
-        <ButtonElement rounded={rounded} size={size} {...props}>
+        <ButtonElement borderRadius={borderRadius} size={size} {...props}>
             {children}
         </ButtonElement>
     );

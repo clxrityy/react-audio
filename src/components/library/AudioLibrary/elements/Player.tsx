@@ -6,7 +6,7 @@ import formatDurationDisplay from "../../../../utils/formatDuration";
 import Button from "../../../Button";
 import ProgressBar from "./ProgressBar";
 import VolumeInput from "./VolumeInput";
-import { TimeSpan } from "../../../../styles/elements";
+import { Loading, TimeSpan } from "../../../../styles/elements";
 
 interface AudioLibraryProps extends ComponentPropsWithRef<"div"> {
     currentTrack?: Track;
@@ -206,7 +206,9 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
 
         }
 
-        <Container>
+        {
+            isReady ?
+            <Container>
             <TextDivElement>
                 <p
                     style={{
@@ -291,6 +293,6 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
                     onChange={handleProgressBarChange}
                 /> : null}
             </PlayerDivElement>
-        </Container>
+        </Container> : <Loading />}
     </MainContainerDivElement>
 }

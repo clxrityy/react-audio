@@ -7,7 +7,7 @@ import Button from "../../../Button";
 import CONFIG from "../../../../config";
 import Volume from "../elements/Volume";
 import ProgressBar from "../elements/Progress";
-import { TimeSpan } from "../../../../styles/elements";
+import { Loading, TimeSpan } from "../../../../styles/elements";
 
 
 interface AudioPlayerProps extends ComponentPropsWithRef<"div"> {
@@ -165,7 +165,7 @@ export default function AudioPlayer({ track, ...props }: AudioPlayerProps) {
             >
                 <source src={track.src} type="audio/mpeg" />
             </audio>
-            <Container>
+            {isReady ? <Container>
                 <TrackInfo track={track} />
                 <PlayerDivElement>
                     <TimeSpan>
@@ -186,7 +186,7 @@ export default function AudioPlayer({ track, ...props }: AudioPlayerProps) {
                     }
                 </PlayerDivElement>
 
-            </Container>
+            </Container> : <Loading />}
         </AudioPlayerDiv>
     );
 }
