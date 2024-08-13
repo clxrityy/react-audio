@@ -1,5 +1,15 @@
 # @clxrityy/react-audio
 
+## 0.11.0
+
+### Minor Changes
+
+- 39ed441: add loading states to every component
+
+### Patch Changes
+
+- 7a5aca2: fix error "rounded is not defined" prop with **Button**
+
 ## 0.10.0
 
 ### Minor Changes
