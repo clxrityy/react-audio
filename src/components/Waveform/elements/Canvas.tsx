@@ -1,0 +1,50 @@
+import { ComponentPropsWithRef, ElementRef, useEffect, useRef } from "react";
+import { AnalyzerData } from "../../../types";
+import animateBars from "../../../utils/animateBars";
+
+interface CanvasProps extends ComponentPropsWithRef<"canvas"> { 
+    analyzerdData: AnalyzerData;
+    color: string;
+}
+
+
+export default function Canvas({ analyzerdData, color, ...props }: CanvasProps) {
+    const { analyzer, bufferLength, dataArray } = analyzerdData;
+
+    const canvasRef = useRef<ElementRef<"canvas">>(null);
+
+    const draw = (analyzerNode: AnalyserNode, bufferLengthCount: number, dataArrayDigits: Uint8Array) => { 
+        const canvas = canvasRef.current;
+        if (!canvas || !analyzerNode) return;
+        const canvasCtx = canvas.getContext("2d");
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+            canvas.width = canvas.width;
+            animateBars({ analyzer: analyzerNode, canvas, canvasCtx: canvasCtx!, dataArray: dataArrayDigits, bufferLength: bufferLengthCount, color: color });
+        }
+
+        animate();
+    }
+
+    useEffect(() => {
+        draw(analyzer, bufferLength, dataArray);
+    }, [dataArray, analyzer, bufferLength, color]);
+
+    return (
+        <canvas
+            ref={canvasRef}
+            width={window.innerWidth}
+            height={window.innerHeight}
+            style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                zIndex: -10,
+                ...props.style
+            }}
+            {...props}
+        />
+    );
+
+}

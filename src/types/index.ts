@@ -21,3 +21,9 @@ export interface LibraryStyles extends React.CSSProperties {
     border?: string;
 }
 
+export type AnalyzerData = {
+    analyzer: AnalyserNode;
+    bufferLength: number;
+    dataArray: Uint8Array;
+};
+
