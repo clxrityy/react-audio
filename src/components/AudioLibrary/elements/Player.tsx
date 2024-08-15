@@ -1,12 +1,12 @@
 import { ComponentPropsWithRef, ElementRef, ReactElement, ReactEventHandler, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import CONFIG from "../../../../config";
-import { Track } from "../../../../types";
-import formatDurationDisplay from "../../../../utils/formatDuration";
-import Button from "../../../Button";
+import CONFIG from "../../../config";
+import { Loading, TimeSpan } from "../../../styles/elements";
+import { Track } from "../../../types";
+import formatDurationDisplay from "../../../utils/formatDuration";
+import Button from "../../Button";
 import ProgressBar from "./ProgressBar";
 import VolumeInput from "./VolumeInput";
-import { Loading, TimeSpan } from "../../../../styles/elements";
 
 interface AudioLibraryProps extends ComponentPropsWithRef<"div"> {
     currentTrack?: Track;
@@ -78,6 +78,29 @@ const BottomDiv = styled.div`
 
     @media only screen and (max-width: 600px) {
         flex-direction: column;
+    }
+`;
+
+const BottomVolumeDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    flex-direction: row;
+`;
+
+const ProgressTimeDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    flex-direction: row;
+    padding: 0.5rem;
+
+    @media only screen and (min-width: 1000px) {
+        flex-direction: column;
+        align-items: start;
     }
 `;
 
@@ -208,91 +231,96 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
 
         {
             isReady ?
-            <Container>
-            <TextDivElement>
-                <p
-                    style={{
-                        fontWeight: "bold",
-                    }}
-                >
-                    {currentTrack?.title ?? "Select a track"}
-                </p>
-                <p style={{
-                    fontSize: "0.8em"
-                }}>
-                    {currentTrack?.author && <span>
-                        by <a href={currentTrack.author.url} rel="noreferrer" style={{
-                            cursor: "pointer"
-                        }}>{currentTrack.author.name}</a>
-                    </span>}
-                </p>
-            </TextDivElement>
+                <Container>
+                    <TextDivElement>
+                        <p
+                            style={{
+                                fontWeight: "bold",
+                            }}
+                        >
+                            {currentTrack?.title ?? "Select a track"}
+                        </p>
+                        <p style={{
+                            fontSize: "0.8em"
+                        }}>
+                            {currentTrack?.author && <span>
+                                by <a href={currentTrack.author.url} rel="noreferrer" style={{
+                                    cursor: "pointer"
+                                }}>{currentTrack.author.name}</a>
+                            </span>}
+                        </p>
+                    </TextDivElement>
 
-            <PlayerDivElement
-            >
-
-
-                <TimeSpan>
-                    {/* {`${elapsedDisplay} / ${durationDisplay}`} */}
-                    <span>
-                        {elapsedDisplay}
-                    </span>
-                    <span>
-                        /
-                    </span>
-                    <span>
-                        {durationDisplay}
-                    </span>
-                </TimeSpan>
-                <ButtonsDivContainer>
-                    {/* 
+                    <PlayerDivElement
+                    >
+                        <ButtonsDivContainer>
+                            {/* 
                     PREVIOUS BUTTON
                 */}
-                    <Button
-                        aria-label="Previous"
-                        disabled={trackIndex === 0}
-                        onClick={onPrevious}
-                    >
-                        <CONFIG.icons.backward size={20} />
-                    </Button>
-                    {/**
+                            <Button
+                                aria-label="Previous"
+                                disabled={trackIndex === 0}
+                                onClick={onPrevious}
+                            >
+                                <CONFIG.icons.backward size={20} />
+                            </Button>
+                            {/**
                  * PLAY/PAUSE BUTTON
                  */}
-                    <Button
-                        disabled={!isReady}
-                        onClick={togglePlayPause}
-                    >
-                        {isPlaying ? <CONFIG.icons.pause size={20} /> : <CONFIG.icons.play size={20} />}
-                    </Button>
-                    {/* 
+                            <Button
+                                disabled={!isReady}
+                                onClick={togglePlayPause}
+                            >
+                                {isPlaying ? <CONFIG.icons.pause size={20} /> : <CONFIG.icons.play size={20} />}
+                            </Button>
+                            {/* 
                     NEXT BUTTON
                 */}
-                    <Button
-                        aria-label="Next"
-                        disabled={trackIndex === trackCount - 1}
-                        onClick={onNext}
-                    >
-                        <CONFIG.icons.forward size={20} />
-                    </Button>
-                </ButtonsDivContainer>
+                            <Button
+                                aria-label="Next"
+                                disabled={trackIndex === trackCount - 1}
+                                onClick={onNext}
+                            >
+                                <CONFIG.icons.forward size={20} />
+                            </Button>
+                        </ButtonsDivContainer>
 
-                <BottomDiv>
-                    <Button
-                        onClick={handleMuteUnmute}
-                        aria-label={volume === 0 ? "Unmute" : "Mute"}
-                    >
-                        {volume === 0 ? <CONFIG.icons.volumeOff size={20} /> : <CONFIG.icons.volumeUp size={20} />}
-                    </Button>
-                    <VolumeInput volume={volume} volumeChange={handleVolumeChange} />
-                </BottomDiv>
+                        <BottomDiv>
+                            <BottomVolumeDiv>
+                                <Button
+                                    onClick={handleMuteUnmute}
+                                    aria-label={volume === 0 ? "Unmute" : "Mute"}
+                                >
+                                    {volume === 0 ? <CONFIG.icons.volumeOff size={20} /> : <CONFIG.icons.volumeUp size={20} />}
+                                </Button>
+                                <VolumeInput volume={volume} volumeChange={handleVolumeChange} />
+                            </BottomVolumeDiv>
+                            <ProgressTimeDiv>
+                                {buffered ? <ProgressBar
+                                    duration={duration}
+                                    currentProgress={currentProgress}
+                                    buffered={buffered}
+                                    onChange={handleProgressBarChange}
+                                /> : null}
+                                <TimeSpan>
+                                    {/* {`${elapsedDisplay} / ${durationDisplay}`} */}
+                                    <span>
+                                        {elapsedDisplay}
+                                    </span>
+                                    <span>
+                                        /
+                                    </span>
+                                    <span>
+                                        {durationDisplay}
+                                    </span>
+                                </TimeSpan>
+                            </ProgressTimeDiv>
+                        </BottomDiv>
 
-                {buffered ? <ProgressBar
-                    duration={duration}
-                    currentProgress={currentProgress}
-                    buffered={buffered}
-                    onChange={handleProgressBarChange}
-                /> : null}
-            </PlayerDivElement>
-        </Container> : <Loading />}
+                    </PlayerDivElement>
+                </Container>
+                : <Loading />
+        }
+
     </MainContainerDivElement>
 }

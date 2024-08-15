@@ -22,7 +22,7 @@ const ButtonElement = styled.button<ButtonProps>`
             case "lg":
                 return "1rem";
             default:
-                return "0.75rem";
+                return "0.85rem";
         }
     }}
     border: none;

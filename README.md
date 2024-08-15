@@ -217,3 +217,17 @@ export default function Component() {
   )
 }
 ```
+
+#### Further customization
+
+
+![audio-library](https://i.gyazo.com/0eea9eac4243013f67b9c2d33aa1c9e5.gif)
+
+> Example from [**clxrity.xyz**](https://clxrity.xyz)
+
+- Uploads with [react-hook-form](https://react-hook-form.com/)
+- Store audio files with [firebase](https://firebase.google.com/)
+- Hover card with [shadcnui](https://ui.shadcn.com/)
+
+
+##### See [examples](/examples/README.md) for more specific usage demonstrations

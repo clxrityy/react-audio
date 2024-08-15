@@ -1,6 +1,6 @@
 import { ComponentPropsWithRef, useState } from "react";
 import styled from "styled-components";
-import { LibraryStyles, Track } from "../../../../types";
+import { LibraryStyles, Track } from "../../../types";
 import LibraryPlayer from "../elements/Player";
 import LibraryTrackItem from "../elements/TrackItem";
 

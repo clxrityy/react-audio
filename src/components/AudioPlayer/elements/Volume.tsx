@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 import styled from "styled-components";
-import CONFIG from "../../../../config";
-import Button from "../../../Button";
+import CONFIG from "../../../config";
+import Button from "../../Button";
 
 const VolumeDiv = styled.div`
     display: flex;

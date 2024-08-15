@@ -1,8 +1,8 @@
 import { ComponentProps, ReactElement, useState } from "react";
 import { FaPause, FaPlay } from "react-icons/fa";
-import CONFIG from "../../../../config";
-import { Loading } from "../../../../styles/elements";
-import { Track } from "../../../../types";
+import CONFIG from "../../../config";
+import { Loading } from "../../../styles/elements";
+import { Track } from "../../../types";
 
 interface Props extends ComponentProps<'div'> {
     track: Track;

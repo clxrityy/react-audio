@@ -1,13 +1,13 @@
 import { ComponentPropsWithRef, ElementRef, ReactEventHandler, useEffect, useRef, useState } from "react";
-import { Track } from "../../../../types";
 import styled from "styled-components";
-import formatDurationDisplay from "../../../../utils/formatDuration";
-import TrackInfo from "../elements/TrackInfo";
-import Button from "../../../Button";
-import CONFIG from "../../../../config";
-import Volume from "../elements/Volume";
+import CONFIG from "../../../config";
+import { Loading, TimeSpan } from "../../../styles/elements";
+import { Track } from "../../../types";
+import formatDurationDisplay from "../../../utils/formatDuration";
+import Button from "../../Button";
 import ProgressBar from "../elements/Progress";
-import { Loading, TimeSpan } from "../../../../styles/elements";
+import TrackInfo from "../elements/TrackInfo";
+import Volume from "../elements/Volume";
 
 
 interface AudioPlayerProps extends ComponentPropsWithRef<"div"> {

@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, ReactElement } from "react";
 import styled from "styled-components";
-import CONFIG from "../../../../config";
-import { Track } from "../../../../types";
+import CONFIG from "../../../config";
+import { Track } from "../../../types";
 
 interface TrackItemProps extends ComponentPropsWithoutRef<"li"> {
     track: Track;

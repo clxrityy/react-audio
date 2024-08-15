@@ -1,7 +1,6 @@
-import React from "react";
-import { ComponentPropsWithoutRef, ReactElement } from "react";
+import React, { ComponentPropsWithoutRef, ReactElement } from "react";
 import styled from "styled-components";
-import { ProgressInput } from "../../../../styles/elements";
+import { ProgressInput } from "../../../styles/elements";
 
 interface ProgressBarCSSProps extends React.CSSProperties {
     "--progress-width": number;
@@ -15,17 +14,13 @@ interface ProgressBarProps extends ComponentPropsWithoutRef<"input"> {
 }
 
 const ProgressDiv = styled.div<ProgressBarProps>`
-        position: absolute;
+        position: relative;
         height: 4px;
-        top: -4px;
+        display: flex;
+        align-items: center;
         left: 0;
         right: 0;
         background-color: rgba(0, 0, 0, 0.1);
-
-        @media only screen and (max-width: 1000px) {
-            top: -8px;
-            margin: 0 1rem;
-        }
 `;
 
 export default function ProgressBar({ duration, currentProgress, buffered, ...props }: ProgressBarProps): ReactElement<ProgressBarProps, "div"> {

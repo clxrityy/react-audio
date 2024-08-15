@@ -34,4 +34,5 @@ export const TimeSpan = styled.span`
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
+    font-family: "Space Mono", monospace;
 `;
