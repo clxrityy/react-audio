@@ -1,5 +1,12 @@
 # @clxrityy/react-audio
 
+## 0.13.0
+
+### Minor Changes
+
+- 1659bd6: begin **Waveform** component, existing error: "Uncaught DOMException: Failed to execute 'createMediaElementSource' on 'AudioContext': HTMLMediaElement already connected previously to a different MediaElementSourceNode."
+- fdf559b: style updates to library player
+
 ## 0.11.0
 
 ### Minor Changes
