@@ -18,7 +18,7 @@ const AudioPlayerDiv = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
-    gap: 0.25rem;
+    gap: 0.5rem;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -33,7 +33,7 @@ const AudioPlayerDiv = styled.div`
 const Container = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 0.25rem;
+    gap: 0.75rem;
     padding: 0.25rem;
     align-items: center;
     justify-items: center;
@@ -42,7 +42,7 @@ const Container = styled.div`
     max-width: 300px;
 
     @media only screen and (max-width: 600px) {
-        gap: 0.25rem;
+        gap: 0.5rem;
         flex-direction: column;
     }
 `;
@@ -50,11 +50,18 @@ const Container = styled.div`
 const PlayerDivElement = styled.div`
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
-`
+`;
+
+const PlayerButtonAndVolume = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: center;
+`;
 
 
 export default function AudioPlayer({ track, ...props }: AudioPlayerProps) {
@@ -165,9 +172,16 @@ export default function AudioPlayer({ track, ...props }: AudioPlayerProps) {
             >
                 <source src={track.src} type="audio/mpeg" />
             </audio>
-            {isReady ? <Container>
+            {isReady ?
+                <Container>
                 <TrackInfo track={track} />
                 <PlayerDivElement>
+                    <PlayerButtonAndVolume>
+                        <Button disabled={!isReady} onClick={togglePlayPause}>
+                            {isPlaying ? <CONFIG.icons.pause /> : <CONFIG.icons.play />}
+                        </Button>
+                        <Volume handleMute={handleMuteUnmute} volume={volume} volumeChange={handleVolumeChange} />
+                    </PlayerButtonAndVolume>
                     <TimeSpan>
                         <span>
                             {elapsedDisplay}
@@ -179,8 +193,6 @@ export default function AudioPlayer({ track, ...props }: AudioPlayerProps) {
                             {durationDisplay}
                         </span>
                     </TimeSpan>
-                    <Button disabled={!isReady} onClick={togglePlayPause}>{isPlaying ? <CONFIG.icons.pause /> : <CONFIG.icons.play />}</Button>
-                    <Volume handleMute={handleMuteUnmute} volume={volume} volumeChange={handleVolumeChange} />
                     {
                         buffered ? <ProgressBar duration={duration} currentProgress={currentProgress} buffered={buffered} /> : null
                     }

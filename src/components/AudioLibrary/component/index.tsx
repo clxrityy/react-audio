@@ -32,10 +32,13 @@ const TrackListUl = styled.ul`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0rem;
     align-self: center;
     justify-self: center;
     min-width: 100%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 `;
 
 export default function AudioLibrary({ tracks, styles, ...props }: AudioLibraryProps) {

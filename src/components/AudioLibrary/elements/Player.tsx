@@ -236,6 +236,10 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
                         <p
                             style={{
                                 fontWeight: "bold",
+                                fontSize: "1rem",
+                                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                                padding: "0.25rem 0.5rem",
+                                borderRadius: "0.5rem"
                             }}
                         >
                             {currentTrack?.title ?? "Select a track"}
@@ -287,13 +291,17 @@ export default function LibraryPlayer({ currentTrack, trackIndex, trackCount, on
 
                         <BottomDiv>
                             <BottomVolumeDiv>
+                                <VolumeInput
+                                    volume={volume}
+                                    volumeChange={handleVolumeChange}
+                                />
                                 <Button
                                     onClick={handleMuteUnmute}
                                     aria-label={volume === 0 ? "Unmute" : "Mute"}
                                 >
                                     {volume === 0 ? <CONFIG.icons.volumeOff size={20} /> : <CONFIG.icons.volumeUp size={20} />}
                                 </Button>
-                                <VolumeInput volume={volume} volumeChange={handleVolumeChange} />
+
                             </BottomVolumeDiv>
                             <ProgressTimeDiv>
                                 {buffered ? <ProgressBar

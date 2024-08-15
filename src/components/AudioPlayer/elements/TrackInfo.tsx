@@ -61,7 +61,7 @@ interface TrackInfoProps extends ComponentPropsWithRef<"div"> {
 export default function TrackInfo({ track, ...props }: TrackInfoProps) {
     return (
         <TrackInfoContainer {...props}>
-            <Thumbnail src={track.thumbnail} width={50} height={50}  alt="Track thumbnail" />
+            {track.thumbnail && <Thumbnail src={track.thumbnail} alt={track.title} />}
             <TrackInfoDiv>
                 <TrackTitle>{track.title}</TrackTitle>
                 <TrackAuthorLink href={track.author?.url}>{track?.author?.name}</TrackAuthorLink>

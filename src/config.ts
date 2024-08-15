@@ -4,7 +4,7 @@ import { FaBackward, FaForward, FaPause, FaPlay, FaVolumeOff, FaVolumeUp, FaSpin
 const CONFIG = {
     colors: {
         primary: "#007bff",
-        secondary: "#242323",
+        secondary: "rgba(0, 0, 0, 0.6)",
     },
     themes: {
         light: {

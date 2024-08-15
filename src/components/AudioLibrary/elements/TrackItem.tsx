@@ -17,14 +17,15 @@ const LiElement = styled.li<{ selected: boolean, color?: string }>`
         z-index: 1;
         opacity: ${({ selected }) => (selected ? 1 : 0.7)};
         border-radius: 0.5rem;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
         background-color: ${({ selected, color }) => (selected ? color || CONFIG.colors.secondary : "transparent")};
         margin: 0.5rem 0;
         cursor: pointer;
         transition: all 0.2s;
         &:hover {
             opacity: 1;
+            background-color: ${({selected, color}) => (selected ? color || CONFIG.colors.secondary : "rgba(0, 0, 0, 0.25)")};
         }
         flex-direction: row;
         justify-content: space-between;
@@ -36,8 +37,8 @@ const LiElement = styled.li<{ selected: boolean, color?: string }>`
 const SpanElement = styled.span`
         flex: 1;
         text-align: center;
-        font-size: 0.8em;
-        font-weight: 700;
+        font-size: 0.9em;
+        font-weight: 600;
         opacity: 0.9;
         z-index: 2;
     `;
