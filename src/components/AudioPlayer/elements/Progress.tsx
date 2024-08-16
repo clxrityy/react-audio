@@ -8,7 +8,7 @@ interface ProgressBarCSSProps extends React.CSSProperties {
 
 interface ProgressBarProps extends React.ComponentPropsWithoutRef<"input"> {
     duration: number;
-    currentProgress: number;
+    current_progress: number;
     buffered: number;
 }
 
@@ -26,8 +26,8 @@ const ProgressDiv = styled.div<ProgressBarProps>`
     }
 `;
 
-export default function ProgressBar({ duration, currentProgress, buffered, ...props }: ProgressBarProps) {
-    const progressBarWidth = isNaN(currentProgress / duration) ? 0 : (currentProgress / duration);
+export default function ProgressBar({ duration, current_progress, buffered, ...props }: ProgressBarProps) {
+    const progressBarWidth = isNaN(current_progress / duration) ? 0 : (current_progress / duration);
     const bufferedWidth = isNaN(buffered / duration) ? 0 : (buffered / duration);
 
     const progressStyles: ProgressBarCSSProps = {
@@ -38,7 +38,7 @@ export default function ProgressBar({ duration, currentProgress, buffered, ...pr
     return (
         <ProgressDiv
             duration={duration}
-            currentProgress={currentProgress}
+            current_progress={current_progress}
             buffered={buffered}
             {...props}
         >
@@ -48,7 +48,7 @@ export default function ProgressBar({ duration, currentProgress, buffered, ...pr
                 style={progressStyles}
                 min={0}
                 max={duration}
-                value={currentProgress && currentProgress}
+                value={current_progress && current_progress}
             />
         </ProgressDiv>
     )

@@ -194,7 +194,7 @@ export default function AudioPlayer({ track, ...props }: AudioPlayerProps) {
                         </span>
                     </TimeSpan>
                     {
-                        buffered ? <ProgressBar duration={duration} currentProgress={currentProgress} buffered={buffered} /> : null
+                        buffered ? <ProgressBar duration={duration} current_progress={currentProgress} buffered={buffered} /> : null
                     }
                 </PlayerDivElement>
 

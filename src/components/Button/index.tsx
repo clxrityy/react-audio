@@ -4,27 +4,13 @@ import CONFIG from "../../config";
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
     size?: "sm" | "md" | "lg";
-    borderRadius?: "none" | "sm" | "md" | "lg";
     color?: string;
     theme?: "light" | "dark";
 }
 
 const ButtonElement = styled.button<ButtonProps>`
     padding: 0.5rem 1rem;
-    border-radius: ${({ borderRadius }) => {
-        switch (borderRadius) {
-            case "none":
-                return "0rem";
-            case "sm":
-                return "0.25rem";
-            case "md":
-                return "0.5rem";
-            case "lg":
-                return "1rem";
-            default:
-                return "0.85rem";
-        }
-    }}
+    border-radius: 0.25rem;
     border: none;
     cursor: pointer;
     &:focus {
@@ -100,10 +86,10 @@ const ButtonElement = styled.button<ButtonProps>`
  * @param rounded - none, sm, md, lg (default: custom) 
  */
 
-export default function Button({ size = "md", children, borderRadius = "lg", color, ...props }: ButtonProps) {
+export default function Button({ size = "md", children, color, ...props }: ButtonProps) {
 
     return (
-        <ButtonElement borderRadius={borderRadius} size={size} {...props}>
+        <ButtonElement size={size} {...props}>
             {children}
         </ButtonElement>
     );
