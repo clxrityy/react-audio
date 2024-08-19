@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 import styled from "styled-components";
 import CONFIG from "../../../config";
-import Button from "../../Button";
+import Button from "../Button";
 
 const VolumeDiv = styled.div`
     display: flex;
@@ -46,9 +46,7 @@ export default function Volume({ volume, volumeChange, handleMute, ...props }: V
         step={0.05}
         max={1}
         value={volume}
-        onChange={(e) =>
-            volumeChange(e.currentTarget.valueAsNumber)
-        }
+        onChange={(e) => volumeChange(parseFloat(e.target.value))}
         />
         <Button onClick={handleMute}
             aria-label={volume > 0 ? "Mute" : "Unmute"}

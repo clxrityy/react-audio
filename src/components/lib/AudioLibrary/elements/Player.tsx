@@ -1,10 +1,10 @@
 import { ComponentPropsWithRef, ElementRef, ReactElement, ReactEventHandler, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import CONFIG from "../../../config";
-import { Loading, TimeSpan } from "../../../styles/elements";
-import { Track } from "../../../types";
-import formatDurationDisplay from "../../../utils/formatDuration";
-import Button from "../../Button";
+import CONFIG from "../../../../config";
+import { Loading, TimeSpan } from "../../../../styles/elements";
+import { Track } from "../../../../types";
+import formatDurationDisplay from "../../../../utils/formatDuration";
+import Button from "../../../ui/Button";
 import ProgressBar from "./ProgressBar";
 import VolumeInput from "./VolumeInput";
 

@@ -1,5 +1,6 @@
-import AudioLibrary, { LibraryPlayer, LibraryTrackItem, ProgressBar, VolumeInput } from "./AudioLibrary";
-import JustPlayer from "./JustPlayer";
-import AudioPlayer from "./AudioPlayer";
+import AudioLibrary, { LibraryPlayer, LibraryTrackItem, ProgressBar, VolumeInput } from "./lib/AudioLibrary";
+import AudioPlayer from "./lib/AudioPlayer";
+import JustPlayer from "./lib/JustPlayer";
+import Waveform from "./lib/Waveform";
 
-export { AudioLibrary, LibraryPlayer, LibraryTrackItem, ProgressBar, VolumeInput, JustPlayer, AudioPlayer };
+export { AudioLibrary, AudioPlayer, JustPlayer, LibraryPlayer, LibraryTrackItem, ProgressBar, VolumeInput, Waveform };

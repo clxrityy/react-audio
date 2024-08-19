@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef } from "react";
 import styled from "styled-components";
-import CONFIG from "../../config";
+import CONFIG from "../../../config";
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
     size?: "sm" | "md" | "lg";

@@ -1,31 +1,33 @@
-import React, { ComponentPropsWithoutRef, ReactElement } from "react";
 import styled from "styled-components";
 import { ProgressInput } from "../../../styles/elements";
 
-interface ProgressBarCSSProps extends React.CSSProperties {
+interface ProgressBarCSSProps extends React.CSSProperties { 
     "--progress-width": number;
     "--buffered-width": number;
 }
 
-interface ProgressBarProps extends ComponentPropsWithoutRef<"input"> {
+interface ProgressBarProps extends React.ComponentPropsWithoutRef<"input"> {
     duration: number;
-    currentProgress: number;
+    current_progress: number;
     buffered: number;
 }
 
 const ProgressDiv = styled.div<ProgressBarProps>`
-        position: relative;
-        height: 4px;
-        display: flex;
-        align-items: center;
-        left: 0;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 4px;
+    top: -4px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    @media only screen and (max-width: 1000px) {
+        top: -8px;
+        margin: 0 1rem;
+    }
 `;
 
-export default function ProgressBar({ duration, currentProgress, buffered, ...props }: ProgressBarProps): ReactElement<ProgressBarProps, "div"> {
-
-    const progressBarWidth = isNaN(currentProgress / duration) ? 0 : (currentProgress / duration);
+export default function ProgressBar({ duration, current_progress, buffered, ...props }: ProgressBarProps) {
+    const progressBarWidth = isNaN(current_progress / duration) ? 0 : (current_progress / duration);
     const bufferedWidth = isNaN(buffered / duration) ? 0 : (buffered / duration);
 
     const progressStyles: ProgressBarCSSProps = {
@@ -36,10 +38,9 @@ export default function ProgressBar({ duration, currentProgress, buffered, ...pr
     return (
         <ProgressDiv
             duration={duration}
-            currentProgress={currentProgress}
+            current_progress={current_progress}
             buffered={buffered}
             {...props}
-            
         >
             <ProgressInput
                 type="range"
@@ -47,7 +48,8 @@ export default function ProgressBar({ duration, currentProgress, buffered, ...pr
                 style={progressStyles}
                 min={0}
                 max={duration}
-                value={currentProgress && currentProgress}
+                value={current_progress && current_progress}
+                onChange={(e) => props.onChange && props.onChange(e)}
             />
         </ProgressDiv>
     )

@@ -1,35 +1,23 @@
 # `@clxrityy/react-audio`
 ## [ BETA ]
 
-> ##### by [@clxrityy](https://github.com/clxrityy)
-> A react audio player component library.
+A react audio player component library.
 
-### Components
-
-- [`<JustPlayer />`](#justplayer-)
-  - Just a play/pause button
-- [`<AudioPlayer />`](#audioplayer-)
-  - Visualized audio player
-  - Controls
-    - Volume bar & mute/unmute
-    - Progress bar
-  - Screen responsive
-- [`<AudioLibrary />`](#audiolibrary-)
-  - Visualized audio player with multiple tracks
-  - Controls
-    - Volume bar & mute/unmute
-    - Progress bar
-    - Next/previous track
-  - Autoplay next track
-  - Screen responsive
-
+```zsh
+pnpm add @clxrityy/react-audio
+```
 
 # [🗒️ CHANGELOG](/CHANGELOG.md)
 
 ---
-```zsh
-pnpm add @clxrityy/react-audio
-```
+
+## Components
+
+| Component | Controls  | Customizable |
+|----------|----------|:----------:|
+| [**`<JustPlayer/>`**](#justplayer) | Play/pause | ✅ |
+| [**`<AudioPlayer/>`**](#audioplayer) | Play/pause, volume, progress, mute/unmute | ✅ |
+| [**`<AudioLibrary/>`**](#audiolibrary) | Play/pause, volume, progress, mute/unmute, next/previous | ✅ |
 
 ---
 
@@ -80,6 +68,41 @@ export default function Component() {
 
 ---
 
+## `<Waveform />` (unfinished)
+
+### Features
+- Audio wave visualizer
+- Screen responsive
+- Volume controls
+- Progress bar
+
+### Use-case
+- Best for displaying the audio wave
+
+```tsx
+"use client"
+import { type Track, Waveform } from "@clxrityy/react-audio";
+
+const track: Track = {
+  // ...
+}
+
+export default function Component() {
+  return <Waveform 
+  track={track} 
+  size={{
+    width: window.innerWidth,
+    height: window.innerHeight
+  }}
+  color="#ff0000"
+  />
+}
+```
+
+<img src="https://i.gyazo.com/66ce09fea80e6c1ac5fc71a3b2e4dca4.gif" width="500px" height="150px" />
+
+---
+
 ## `<AudioPlayer />`
 
 ### Features
@@ -93,7 +116,7 @@ export default function Component() {
 
 ```tsx
 "use client"
-import { type Track, AudioPlayer } from "@clxrityy/react/audio";
+import { type Track, AudioPlayer } from "@clxrityy/react-audio";
 
 const track: Track = {
   src: "/audio.wav",
