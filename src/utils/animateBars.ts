@@ -13,7 +13,7 @@ export default function animateBars({ analyzer, canvas, canvasCtx, dataArray, bu
 
     canvasCtx.fillStyle = color;
 
-    const HEIGHT = canvas.height / 2;
+    const HEIGHT = canvas.height;
 
     const barWidth = Math.ceil(canvas.width / bufferLength) * 2.5;
 

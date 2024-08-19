@@ -1,4 +1,5 @@
 # `@clxrityy/react-audio`
+
 ## [ BETA ]
 
 A react audio player component library.
@@ -13,23 +14,25 @@ pnpm add @clxrityy/react-audio
 
 ## Components
 
-| Component | Controls  | Customizable |
-|----------|----------|:----------:|
-| [**`<JustPlayer/>`**](#justplayer) | Play/pause | ✅ |
-| [**`<Waveform />`**](#waveform) | Play/pause, volume, progress, mute/unmute | ✅ |
-| [**`<AudioPlayer/>`**](#audioplayer) | Play/pause, volume, progress, mute/unmute | ✅ |
-| [**`<AudioLibrary/>`**](#audiolibrary) | Play/pause, volume, progress, mute/unmute, next/previous | ✅ |
+| Component                              | Controls                                                 | Customizable |
+| -------------------------------------- | -------------------------------------------------------- | :----------: |
+| [**`<JustPlayer/>`**](#justplayer)     | Play/pause                                               |      ✅      |
+| [**`<Waveform />`**](#waveform)        | Play/pause, volume, progress, mute/unmute                |      ✅      |
+| [**`<AudioPlayer/>`**](#audioplayer)   | Play/pause, volume, progress, mute/unmute                |      ✅      |
+| [**`<AudioLibrary/>`**](#audiolibrary) | Play/pause, volume, progress, mute/unmute, next/previous |      ✅      |
 
 ---
 
 ## `<JustPlayer />`
 
 #### Features
-- *Just a play button*
+
+- _Just a play button_
 - Customizable style
 - Loading state
 
 #### Use-case
+
 - Best for mapping over audio files in a visually small listed component
 
 ```tsx
@@ -50,8 +53,8 @@ export default function Component() {
 #### Styling
 
 ```tsx
-<JustPlayer 
-  track={tracks[0]} 
+<JustPlayer
+  track={tracks[0]}
   size={50} {/* ICON SIZE */}
   style={{
     backgroundColor: "red",
@@ -61,7 +64,7 @@ export default function Component() {
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
-  }} {/* REACT CSS PROPERTIES */}  
+  }} {/* REACT CSS PROPERTIES */}
 />
 ```
 
@@ -72,51 +75,81 @@ export default function Component() {
 ## `<Waveform />`
 
 ### Features
+
 - Audio wave visualizer
 - Screen responsive
 - Volume controls
 - Progress bar
 
 ### Use-case
+
 - Best for displaying the audio wave
 
 ```tsx
-"use client"
+"use client";
 import { type Track, Waveform } from "@clxrityy/react-audio";
 
 const track: Track = {
   // ...
-}
+};
 
 export default function Component() {
-  return <Waveform 
-  track={track} 
-  size={{
-    width: window.innerWidth,
-    height: window.innerHeight
-  }}
-  color="#ff0000"
-  />
+  return (
+    <Waveform
+      track={track}
+      size={{
+        width: window.innerWidth,
+        height: window.innerHeight,
+      }}
+      color="#ff0000"
+    />
+  );
 }
 ```
 
 <img src="https://i.gyazo.com/66ce09fea80e6c1ac5fc71a3b2e4dca4.gif" width="500px" height="150px" />
+
+#### Styling
+
+```tsx
+"use client";
+
+export default function Component() {
+  return (
+    <Waveform
+      track={track}
+      canvasStyles={{
+        borderRadius: "0.5rem",
+        border: "1px solid #333",
+      }}
+      size={{
+        width: 300,
+        height: 120,
+      }}
+    />
+  );
+}
+```
+
+![styled waveform example](https://i.gyazo.com/04caba85aff7ae3bb1b4a7579e861851.gif)
 
 ---
 
 ## `<AudioPlayer />`
 
 ### Features
+
 - Visualized audio player
 - Screen responsive
 - Volume controls
 - Progress bar
 
 ### Use-case
+
 - Best for displaying a singular audio track
 
 ```tsx
-"use client"
+"use client";
 import { type Track, AudioPlayer } from "@clxrityy/react-audio";
 
 const track: Track = {
@@ -124,25 +157,25 @@ const track: Track = {
   title: "Track Title",
   author: {
     name: "Track Author",
-    url: "https://www.someurl.com"
+    url: "https://www.someurl.com",
   },
-  thumbnail: "./favicon.ico"
-}
+  thumbnail: "./favicon.ico",
+};
 
 export default function Component() {
-  return <AudioPlayer track={track} />
+  return <AudioPlayer track={track} />;
 }
 ```
 
 <img src="https://i.gyazo.com/39711cba228a89bc7afd4417ff566e78.png" alt="audio player example 1" style="display:inline-block;"  />
 <img src="https://i.gyazo.com/5b9e7f2308653d23b81564b1a54a7145.png" alt="audio player example 2" height="400px" style="display:inline-block;" />
 
-
 ---
 
 ## `<AudioLibrary />`
 
 ### Features
+
 - A visualized audio library with multiple tracks
 - Controls
 - Progress bar
@@ -151,6 +184,7 @@ export default function Component() {
 - Autoplay next song
 
 ### Use-case
+
 - Best for displaying collections of audio files
 
 ```tsx
@@ -159,12 +193,11 @@ import { AudioLibrary } from "@clxrityy/react-audio";
 import { tracks } from "./data";
 
 export default function Component() {
-
   return (
     <div>
       <AudioLibrary tracks={tracks} />
     </div>
-  )
+  );
 }
 ```
 
@@ -190,7 +223,7 @@ export default function Component() {
 If you'd like further customization, import the base components:
 
 ```tsx
-import { 
+import {
   LibraryPlayer, // The player component
   LibraryTrackItem, // Individual track component
 } from "@clxrityy/react-audio";
@@ -229,7 +262,7 @@ export default function Component() {
           />
         ))}
       </ul>
-      <LibraryPlayer 
+      <LibraryPlayer
         key={currentTrackIndex}
         currentTrack={currentTrack}
         trackIndex={current}
@@ -238,12 +271,11 @@ export default function Component() {
         onPrev={() => setCurrentTrackIndex((i) => i - 1)}
       />
     </div>
-  )
+  );
 }
 ```
 
 #### Further customization
-
 
 ![audio-library](https://i.gyazo.com/0eea9eac4243013f67b9c2d33aa1c9e5.gif)
 
@@ -252,6 +284,5 @@ export default function Component() {
 - Uploads with [react-hook-form](https://react-hook-form.com/)
 - Store audio files with [firebase](https://firebase.google.com/)
 - Hover card with [shadcnui](https://ui.shadcn.com/)
-
 
 ##### See [examples](/examples/README.md) for more specific usage demonstrations

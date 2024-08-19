@@ -2,6 +2,7 @@ import { ComponentPropsWithRef, ElementRef, RefObject, useEffect, useRef, useSta
 import { AnalyzerData, Track } from "../../../types";
 import Canvas from "./elements/Canvas";
 import Player from "./elements/Player";
+import styled from "styled-components";
 
 interface WaveformProps extends ComponentPropsWithRef<"div"> {
     track: Track;
@@ -10,14 +11,35 @@ interface WaveformProps extends ComponentPropsWithRef<"div"> {
         width: number;
         height: number;
     };
+    canvasStyles?: React.CSSProperties;
 }
 
-export default function Waveform({ track, color, size, ...props }: WaveformProps) {
+const WaveformDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5rem;
+    position: relative;
+    border-radius: 0.5rem;
+    background-color: transparent;
+`
+
+export default function Waveform({ track, color, size, canvasStyles, ...props }: WaveformProps) {
 
     const [analyzerData, setAnalyzerData] = useState<AnalyzerData>();
     const [audioCtx, setAudioCtx] = useState<AudioContext>();
     const audioElement = useRef<ElementRef<"audio">>(null);
     const sourceNode = useRef<MediaElementAudioSourceNode | null>();
+
+    const handleUserGesture = () => { 
+        if (audioCtx && audioCtx.state === "suspended") { 
+            audioCtx.resume();
+        }
+    }
 
     const audioAnalyzer = () => {
         if (!audioElement.current) {
@@ -58,19 +80,22 @@ export default function Waveform({ track, color, size, ...props }: WaveformProps
             if (audioElement.current.played) {
                 audioAnalyzer();
             }
+
+            window.addEventListener("click", handleUserGesture);
         }
 
         return () => {
             audioElement.current?.removeEventListener("play", audioAnalyzer);
+            window.removeEventListener("click", handleUserGesture);
         }
 
     }, [audioCtx, audioElement]);
 
     return (
-        <div {...props}>
+        <WaveformDiv {...props}>
             <Player audioElement={audioElement} track={track} />
-            {analyzerData && <Canvas size={size} analyzerdData={analyzerData} color={color ? color : "#ff0000"} />}
-        </div>
+            {analyzerData && <Canvas size={size} style={canvasStyles && canvasStyles} analyzerdData={analyzerData} color={color ? color : "#ff0000"} />}
+        </WaveformDiv>
     );
 
 }

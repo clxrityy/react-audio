@@ -21,15 +21,14 @@ const PlayerDiv = styled.div`
     justify-content: center;
     width: 100%;
     max-width: 300px;
-    padding: 0.5rem;
-    position: relative;
+    position: absolute;
     border-radius: 0.5rem;
     background-color: transparent;
 `;
 
 const Container = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.75rem;
     padding: 0.25rem;
     align-items: center;
@@ -38,9 +37,8 @@ const Container = styled.div`
     width: 100%;
     max-width: 300px;
 
-    @media only screen and (max-width: 600px) {
-        gap: 0.5rem;
-        flex-direction: column;
+    & > * {
+        width: 100%;
     }
 `;
 
@@ -50,11 +48,13 @@ const PlayerDivElement = styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 const PlayerButtonAndVolume = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.25rem;
     align-items: center;
     justify-content: center;

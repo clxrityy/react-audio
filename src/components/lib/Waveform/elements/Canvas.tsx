@@ -1,6 +1,7 @@
 import { ComponentPropsWithRef, ElementRef, useEffect, useRef } from "react";
 import { AnalyzerData } from "../../../../types";
 import animateBars from "../../../../utils/animateBars";
+import styled from "styled-components";
 
 interface CanvasProps extends ComponentPropsWithRef<"canvas"> {
     analyzerdData: AnalyzerData;
@@ -10,6 +11,14 @@ interface CanvasProps extends ComponentPropsWithRef<"canvas"> {
         height: number;
     };
 }
+
+const Container = styled.canvas<CanvasProps>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+`;
 
 
 export default function Canvas({ analyzerdData, color, size, ...props }: CanvasProps) {
@@ -38,13 +47,12 @@ export default function Canvas({ analyzerdData, color, size, ...props }: CanvasP
 
 
     return (
+
         <canvas
             ref={canvasRef}
             width={size?.width || window.innerWidth}
             height={size?.height || window.innerHeight}
             style={{
-                top: 0,
-                left: 0,
                 position: "absolute",
                 zIndex: -10,
                 ...props.style
