@@ -11,7 +11,6 @@ import Volume from "../../../ui/Volume";
 interface Props extends ComponentProps<"div"> {
     audioElement: RefObject<HTMLAudioElement>;
     track: Track;
-    whenPlayed: () => void;
 }
 
 const PlayerDiv = styled.div`
@@ -61,7 +60,7 @@ const PlayerButtonAndVolume = styled.div`
     justify-content: center;
 `;
 
-export default function Player({ audioElement, track, whenPlayed, ...props }: Props) {
+export default function Player({ audioElement, track, ...props }: Props) {
     const [duration, setDuration] = useState<number>(0);
     const [isReady, setIsReady] = useState<boolean>(false);
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -132,7 +131,6 @@ export default function Player({ audioElement, track, whenPlayed, ...props }: Pr
 
     const handleOnPlaying: ReactEventHandler<HTMLAudioElement> = () => {
         setIsPlaying(true);
-        whenPlayed(); //
     }
 
     const handleOnPause: ReactEventHandler<HTMLAudioElement> = () => {

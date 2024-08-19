@@ -16,6 +16,7 @@ pnpm add @clxrityy/react-audio
 | Component | Controls  | Customizable |
 |----------|----------|:----------:|
 | [**`<JustPlayer/>`**](#justplayer) | Play/pause | ✅ |
+| [**`<Waveform />`**](#waveform) | Play/pause, volume, progress, mute/unmute | ✅ |
 | [**`<AudioPlayer/>`**](#audioplayer) | Play/pause, volume, progress, mute/unmute | ✅ |
 | [**`<AudioLibrary/>`**](#audiolibrary) | Play/pause, volume, progress, mute/unmute, next/previous | ✅ |
 
@@ -68,7 +69,7 @@ export default function Component() {
 
 ---
 
-## `<Waveform />` (unfinished)
+## `<Waveform />`
 
 ### Features
 - Audio wave visualizer

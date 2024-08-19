@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, ElementRef, useRef, useState } from "react";
+import { ComponentPropsWithRef, ElementRef, RefObject, useEffect, useRef, useState } from "react";
 import { AnalyzerData, Track } from "../../../types";
 import Canvas from "./elements/Canvas";
 import Player from "./elements/Player";
@@ -17,36 +17,58 @@ export default function Waveform({ track, color, size, ...props }: WaveformProps
     const [analyzerData, setAnalyzerData] = useState<AnalyzerData>();
     const [audioCtx, setAudioCtx] = useState<AudioContext>();
     const audioElement = useRef<ElementRef<"audio">>(null);
+    const sourceNode = useRef<MediaElementAudioSourceNode | null>();
 
     const audioAnalyzer = () => {
-        if (!audioElement.current) return;
-
+        if (!audioElement.current) {
+            return;
+        }
         if (!audioCtx) {
             setAudioCtx(new window.AudioContext());
         } else {
-            const analyser = audioCtx.createAnalyser();
-            analyser.fftSize = 2048;
-            const bufferLengthNumber = analyser.frequencyBinCount;
-            const dataArray = new Uint8Array(bufferLengthNumber);
+            if (sourceNode.current) {
+                return;
+            } else {
+                const analyzer = audioCtx.createAnalyser();
+                analyzer.fftSize = 2048;
 
-            const source = audioCtx.createMediaElementSource(audioElement.current!);
+                const bufferLengthNumber = analyzer.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLengthNumber);
 
-            source.connect(analyser);
-            source.connect(audioCtx.destination);
-            analyser.connect(audioCtx.destination);
+                sourceNode.current = audioCtx.createMediaElementSource(audioElement.current);
 
-            source.addEventListener(("ended"), () => {
-                source.disconnect();
-                analyser.disconnect();
-            });
+                sourceNode.current.connect(analyzer);
+                sourceNode.current.connect(audioCtx.destination);
+                analyzer.connect(audioCtx.destination);
 
-            setAnalyzerData({ analyzer: analyser, bufferLength: bufferLengthNumber, dataArray: dataArray });
+                sourceNode.current.addEventListener(("ended"), () => {
+                    sourceNode.current?.disconnect();
+                    analyzer.disconnect();
+                });
+
+                setAnalyzerData({ analyzer, bufferLength: bufferLengthNumber, dataArray });
+            }
         }
     }
 
+    useEffect(() => {
+        if (audioElement.current) {
+            audioElement.current.addEventListener(("play"), audioAnalyzer);
+
+            if (audioElement.current.played) {
+                audioAnalyzer();
+            }
+        }
+
+        return () => {
+            audioElement.current?.removeEventListener("play", audioAnalyzer);
+        }
+
+    }, [audioCtx, audioElement]);
+
     return (
         <div {...props}>
-            <Player audioElement={audioElement} track={track} whenPlayed={audioAnalyzer} />
+            <Player audioElement={audioElement} track={track} />
             {analyzerData && <Canvas size={size} analyzerdData={analyzerData} color={color ? color : "#ff0000"} />}
         </div>
     );
