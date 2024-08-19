@@ -1,5 +1,20 @@
 # @clxrityy/react-audio
 
+## 0.14.0
+
+### Minor Changes
+
+- cd32bde: more styling updates to library
+- 2061b0b: update readme
+- 596d485: add other components to **Waveform**
+- e95dde9: updated styles for **AudioPlayer** (removed unused thumbnail)
+
+### Patch Changes
+
+- cb432a6: **Waveform** is functional, no errors, need to add other component parts
+- 8ef7746: waveform now works
+- ce890a9: fix dom errors
+
 ## 0.13.0
 
 ### Minor Changes
