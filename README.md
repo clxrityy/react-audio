@@ -1,11 +1,17 @@
-# `@clxrityy/react-audio`
+# `@clxrity/react-audio`
 
 ## [ BETA ]
 
 A react audio player component library.
 
 ```zsh
-pnpm add @clxrityy/react-audio
+npm i @clxrity/react-audio
+```
+```zsh
+pnpm add @clxrity/react-audio
+```
+```zsh
+yarn add @clxrity/react-audio
 ```
 
 # [🗒️ CHANGELOG](/CHANGELOG.md)
@@ -37,7 +43,7 @@ pnpm add @clxrityy/react-audio
 
 ```tsx
 "use client";
-import { JustPlayer } from "@clxrityy/react-audio";
+import { JustPlayer } from "@clxrity/react-audio";
 
 export default function Component() {
   return (
@@ -87,7 +93,7 @@ export default function Component() {
 
 ```tsx
 "use client";
-import { type Track, Waveform } from "@clxrityy/react-audio";
+import { type Track, Waveform } from "@clxrity/react-audio";
 
 const track: Track = {
   // ...
@@ -150,7 +156,7 @@ export default function Component() {
 
 ```tsx
 "use client";
-import { type Track, AudioPlayer } from "@clxrityy/react-audio";
+import { type Track, AudioPlayer } from "@clxrity/react-audio";
 
 const track: Track = {
   src: "/audio.wav",
@@ -189,7 +195,7 @@ export default function Component() {
 
 ```tsx
 "use client";
-import { AudioLibrary } from "@clxrityy/react-audio";
+import { AudioLibrary } from "@clxrity/react-audio";
 import { tracks } from "./data";
 
 export default function Component() {
@@ -226,7 +232,7 @@ If you'd like further customization, import the base components:
 import {
   LibraryPlayer, // The player component
   LibraryTrackItem, // Individual track component
-} from "@clxrityy/react-audio";
+} from "@clxrity/react-audio";
 ```
 
 - Define states yourself
@@ -236,7 +242,7 @@ import {
 import {
   type Track,
   // ...
-} from "@clxrityy/react-audio";
+} from "@clxrity/react-audio";
 import { useState } from "react";
 
 const tracks: Track[] = [
