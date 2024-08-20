@@ -1,7 +1,5 @@
 # `@clxrity/react-audio`
 
-## [ BETA ]
-
 A react audio player component library.
 
 ```zsh
