@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, ElementRef, RefObject, useEffect, useRef, useState } from "react";
+import { ComponentPropsWithRef, ElementRef, useEffect, useRef, useState } from "react";
 import { AnalyzerData, Track } from "../../../types";
 import Canvas from "./elements/Canvas";
 import Player from "./elements/Player";

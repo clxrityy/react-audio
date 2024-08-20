@@ -1,13 +1,13 @@
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
-import { dts } from "rollup-plugin-dts";
-import packageJson from './package.json' assert { type: 'json' };
-import postcss from 'rollup-plugin-postcss';
 import autoprefixer from "autoprefixer";
-import tailwindConfig from "./tailwind.config.js";
-import tailwindcss from "tailwindcss";
+import { dts } from "rollup-plugin-dts";
 import external from "rollup-plugin-peer-deps-external";
+import postcss from 'rollup-plugin-postcss';
+import tailwindcss from "tailwindcss";
+import tailwindConfig from "./tailwind.config.js";
+
 
 export default [
     {
@@ -15,12 +15,12 @@ export default [
         input: "src/index.ts",
         output: [
             {
-                file: packageJson.main,
+                file: "dist/cjs/index.js",
                 format: 'cjs',
                 sourcemap: true
             },
             {
-                file: packageJson.module,
+                file:  "dist/esm/index.js",
                 format: "esm",
                 sourcemap: true,
             }
