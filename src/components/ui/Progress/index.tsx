@@ -1,18 +1,20 @@
-import styled from "styled-components";
-import { ProgressInput } from "../../../styles/elements";
+import styled from 'styled-components'
+import { ProgressInput } from '../../../styles/elements'
 
-interface ProgressBarCSSProps extends React.CSSProperties { 
-    "--progress-width": number;
-    "--buffered-width": number;
+interface ProgressBarCSSProps extends React.CSSProperties {
+    '--progress-width': number
+    '--buffered-width': number
 }
 
-interface ProgressBarProps extends React.ComponentPropsWithoutRef<"input"> {
-    duration: number;
-    current_progress: number;
-    buffered: number;
+interface ProgressBarProps extends React.ComponentPropsWithoutRef<'input'> {
+    duration: number
+    current_progress: number
+    buffered: number
 }
 
-const ProgressDiv = styled.div<ProgressBarProps>`
+const ProgressDiv = styled.div.withConfig({
+    shouldForwardProp: (prop) => prop !== 'buffered',
+})<ProgressBarProps>`
     position: relative;
     height: 4px;
     top: -4px;
@@ -24,15 +26,22 @@ const ProgressDiv = styled.div<ProgressBarProps>`
         top: -8px;
         margin: 0 1rem;
     }
-`;
+`
 
-export default function ProgressBar({ duration, current_progress, buffered, ...props }: ProgressBarProps) {
-    const progressBarWidth = isNaN(current_progress / duration) ? 0 : (current_progress / duration);
-    const bufferedWidth = isNaN(buffered / duration) ? 0 : (buffered / duration);
+export default function ProgressBar({
+    duration,
+    current_progress,
+    buffered,
+    ...props
+}: ProgressBarProps) {
+    const progressBarWidth = isNaN(current_progress / duration)
+        ? 0
+        : current_progress / duration
+    const bufferedWidth = isNaN(buffered / duration) ? 0 : buffered / duration
 
     const progressStyles: ProgressBarCSSProps = {
-        "--progress-width": progressBarWidth || 0,
-        "--buffered-width": bufferedWidth || 0,
+        '--progress-width': progressBarWidth || 0,
+        '--buffered-width': bufferedWidth || 0,
     }
 
     return (

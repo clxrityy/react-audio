@@ -1,17 +1,23 @@
-import { ComponentPropsWithRef, ElementRef, useEffect, useRef, useState } from "react";
-import { AnalyzerData, Track } from "../../../types";
-import Canvas from "./elements/Canvas";
-import Player from "./elements/Player";
-import styled from "styled-components";
+import {
+    ComponentPropsWithRef,
+    ElementRef,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
+import { AnalyzerData, Track } from '../../../types'
+import Canvas from './elements/Canvas'
+import Player from './elements/Player'
+import styled from 'styled-components'
 
-interface WaveformProps extends ComponentPropsWithRef<"div"> {
-    track: Track;
-    color?: string;
+interface WaveformProps extends ComponentPropsWithRef<'div'> {
+    track: Track
+    color?: string
     size?: {
-        width: number;
-        height: number;
-    };
-    canvasStyles?: React.CSSProperties;
+        width: number
+        height: number
+    }
+    canvasStyles?: React.CSSProperties
 }
 
 const WaveformDiv = styled.div`
@@ -28,74 +34,89 @@ const WaveformDiv = styled.div`
     background-color: transparent;
 `
 
-export default function Waveform({ track, color, size, canvasStyles, ...props }: WaveformProps) {
+export default function Waveform({
+    track,
+    color,
+    size,
+    canvasStyles,
+    ...props
+}: WaveformProps) {
+    const [analyzerData, setAnalyzerData] = useState<AnalyzerData>()
+    const [audioCtx, setAudioCtx] = useState<AudioContext>()
+    const audioElement = useRef<ElementRef<'audio'>>(null)
+    const sourceNode = useRef<MediaElementAudioSourceNode | null>()
 
-    const [analyzerData, setAnalyzerData] = useState<AnalyzerData>();
-    const [audioCtx, setAudioCtx] = useState<AudioContext>();
-    const audioElement = useRef<ElementRef<"audio">>(null);
-    const sourceNode = useRef<MediaElementAudioSourceNode | null>();
-
-    const handleUserGesture = () => { 
-        if (audioCtx && audioCtx.state === "suspended") { 
-            audioCtx.resume();
+    const handleUserGesture = () => {
+        if (!audioCtx) {
+            setAudioCtx(new AudioContext())
+        }
+        if (audioCtx && audioCtx.state === 'closed') {
+            audioCtx.resume()
         }
     }
 
     const audioAnalyzer = () => {
         if (!audioElement.current) {
-            return;
+            return
         }
-        if (!audioCtx) {
-            setAudioCtx(new window.AudioContext());
-        } else {
-            if (sourceNode.current) {
-                return;
-            } else {
-                const analyzer = audioCtx.createAnalyser();
-                analyzer.fftSize = 2048;
 
-                const bufferLengthNumber = analyzer.frequencyBinCount;
-                const dataArray = new Uint8Array(bufferLengthNumber);
+        if (sourceNode.current) {
+            return
+        } else if (audioCtx) {
+            const analyzer = audioCtx.createAnalyser()
+            analyzer.fftSize = 2048
 
-                sourceNode.current = audioCtx.createMediaElementSource(audioElement.current);
+            const bufferLengthNumber = analyzer.frequencyBinCount
+            const dataArray = new Uint8Array(bufferLengthNumber)
 
-                sourceNode.current.connect(analyzer);
-                sourceNode.current.connect(audioCtx.destination);
-                analyzer.connect(audioCtx.destination);
+            sourceNode.current = audioCtx.createMediaElementSource(
+                audioElement.current
+            )
 
-                sourceNode.current.addEventListener(("ended"), () => {
-                    sourceNode.current?.disconnect();
-                    analyzer.disconnect();
-                });
+            sourceNode.current.connect(analyzer)
+            sourceNode.current.connect(audioCtx.destination)
+            analyzer.connect(audioCtx.destination)
 
-                setAnalyzerData({ analyzer, bufferLength: bufferLengthNumber, dataArray });
-            }
+            sourceNode.current.addEventListener('ended', () => {
+                sourceNode.current?.disconnect()
+                analyzer.disconnect()
+            })
+
+            setAnalyzerData({
+                analyzer,
+                bufferLength: bufferLengthNumber,
+                dataArray,
+            })
         }
     }
 
     useEffect(() => {
         if (audioElement.current) {
-            audioElement.current.addEventListener(("play"), audioAnalyzer);
+            audioElement.current.addEventListener('play', audioAnalyzer)
 
             if (audioElement.current.played) {
-                audioAnalyzer();
+                audioAnalyzer()
             }
-
-            window.addEventListener("click", handleUserGesture);
         }
 
+        window.addEventListener('click', handleUserGesture)
         return () => {
-            audioElement.current?.removeEventListener("play", audioAnalyzer);
-            window.removeEventListener("click", handleUserGesture);
+            audioElement.current?.removeEventListener('play', audioAnalyzer)
+            window.removeEventListener('click', handleUserGesture)
         }
-
-    }, [audioCtx, audioElement]);
+    }, [audioCtx, audioElement, handleUserGesture])
 
     return (
         <WaveformDiv {...props}>
             <Player audioElement={audioElement} track={track} />
-            {analyzerData && <Canvas size={size} style={canvasStyles && canvasStyles} analyzerdData={analyzerData} color={color ? color : "#ff0000"} />}
+            {analyzerData && (
+                <Canvas
+                    size={size}
+                    style={canvasStyles && canvasStyles}
+                    analyzerdData={analyzerData}
+                    color={color ? color : '#ff0000'}
+                />
+            )}
         </WaveformDiv>
-    );
-
+    )
 }

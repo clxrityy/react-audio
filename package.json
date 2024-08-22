@@ -1,6 +1,6 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A simple audio player for React",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -12,8 +12,9 @@
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c",
+    "release": "pnpm build && changeset version && changeset publish",
     "test": "cd test && pnpm dev",
-    "release": "pnpm build && changeset version && changeset publish"
+    "lint": "prettier -c --write ./src/*"
   },
   "repository": {
     "type": "git",
@@ -67,6 +68,7 @@
     "@types/rollup-plugin-peer-deps-external": "^2.2.5",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
+    "prettier": "3.3.3",
     "rollup": "^4.21.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",

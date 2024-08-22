@@ -1,3 +1,3 @@
-import JustPlayer from "./component";
+import JustPlayer from './component'
 
-export default JustPlayer;
+export default JustPlayer

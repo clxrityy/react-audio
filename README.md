@@ -1,13 +1,15 @@
-# `@clxrity/react-audio`
+# `@clxrity/react-audio` <img src="./icon.png" width="32px" height="32px" style="display:inline-block;" />
 
 A react audio player component library.
 
 ```zsh
 npm i @clxrity/react-audio
 ```
+
 ```zsh
 pnpm add @clxrity/react-audio
 ```
+
 ```zsh
 yarn add @clxrity/react-audio
 ```
@@ -18,12 +20,12 @@ yarn add @clxrity/react-audio
 
 ## Components
 
-| Component                              | Controls                                                 | Customizable |
-| -------------------------------------- | -------------------------------------------------------- | :----------: |
-| [**`<JustPlayer/>`**](#justplayer)     | Play/pause                                               |      ✅      |
-| [**`<Waveform />`**](#waveform)        | Play/pause, volume, progress, mute/unmute                |      ✅      |
-| [**`<AudioPlayer/>`**](#audioplayer)   | Play/pause, volume, progress, mute/unmute                |      ✅      |
-| [**`<AudioLibrary/>`**](#audiolibrary) | Play/pause, volume, progress, mute/unmute, next/previous |      ✅      |
+| Component                              | Controls                                                 | Customizable | Display Track Info |
+| -------------------------------------- | -------------------------------------------------------- | :----------: | :----------------: |
+| [**`<JustPlayer/>`**](#justplayer)     | Play/pause                                               |      ✅      |         ❌         |
+| [**`<Waveform />`**](#waveform)        | Play/pause, volume, progress, mute/unmute                |      ✅      |         ❌         |
+| [**`<AudioPlayer/>`**](#audioplayer)   | Play/pause, volume, progress, mute/unmute                |      ✅      |         ✅         |
+| [**`<AudioLibrary/>`**](#audiolibrary) | Play/pause, volume, progress, mute/unmute, next/previous |      ✅      |         ✅         |
 
 ---
 
@@ -31,26 +33,26 @@ yarn add @clxrity/react-audio
 
 #### Features
 
-- _Just a play button_
-- Customizable style
-- Loading state
+-   _Just a play button_
+-   Customizable style
+-   Loading state
 
 #### Use-case
 
-- Best for mapping over audio files in a visually small listed component
+-   Best for mapping over audio files in a visually small listed component
 
 ```tsx
-"use client";
-import { JustPlayer } from "@clxrity/react-audio";
+'use client'
+import { JustPlayer } from '@clxrity/react-audio'
 
 export default function Component() {
-  return (
-    <JustPlayer
-      track={{
-        src: "/audio.wav",
-      }}
-    />
-  );
+    return (
+        <JustPlayer
+            track={{
+                src: '/audio.wav',
+            }}
+        />
+    )
 }
 ```
 
@@ -80,34 +82,34 @@ export default function Component() {
 
 ### Features
 
-- Audio wave visualizer
-- Screen responsive
-- Volume controls
-- Progress bar
+-   Audio wave visualizer
+-   Screen responsive
+-   Volume controls
+-   Progress bar
 
 ### Use-case
 
-- Best for displaying the audio wave
+-   Best for displaying the audio wave
 
 ```tsx
-"use client";
-import { type Track, Waveform } from "@clxrity/react-audio";
+'use client'
+import { type Track, Waveform } from '@clxrity/react-audio'
 
 const track: Track = {
-  // ...
-};
+    // ...
+}
 
 export default function Component() {
-  return (
-    <Waveform
-      track={track}
-      size={{
-        width: window.innerWidth,
-        height: window.innerHeight,
-      }}
-      color="#ff0000"
-    />
-  );
+    return (
+        <Waveform
+            track={track}
+            size={{
+                width: window.innerWidth,
+                height: window.innerHeight,
+            }}
+            color="#ff0000"
+        />
+    )
 }
 ```
 
@@ -116,22 +118,22 @@ export default function Component() {
 #### Styling
 
 ```tsx
-"use client";
+'use client'
 
 export default function Component() {
-  return (
-    <Waveform
-      track={track}
-      canvasStyles={{
-        borderRadius: "0.5rem",
-        border: "1px solid #333",
-      }}
-      size={{
-        width: 300,
-        height: 120,
-      }}
-    />
-  );
+    return (
+        <Waveform
+            track={track}
+            canvasStyles={{
+                borderRadius: '0.5rem',
+                border: '1px solid #333',
+            }}
+            size={{
+                width: 300,
+                height: 120,
+            }}
+        />
+    )
 }
 ```
 
@@ -143,31 +145,31 @@ export default function Component() {
 
 ### Features
 
-- Visualized audio player
-- Screen responsive
-- Volume controls
-- Progress bar
+-   Visualized audio player
+-   Screen responsive
+-   Volume controls
+-   Progress bar
 
 ### Use-case
 
-- Best for displaying a singular audio track
+-   Best for displaying a singular audio track
 
 ```tsx
-"use client";
-import { type Track, AudioPlayer } from "@clxrity/react-audio";
+'use client'
+import { type Track, AudioPlayer } from '@clxrity/react-audio'
 
 const track: Track = {
-  src: "/audio.wav",
-  title: "Track Title",
-  author: {
-    name: "Track Author",
-    url: "https://www.someurl.com",
-  },
-  thumbnail: "./favicon.ico",
-};
+    src: '/audio.wav',
+    title: 'Track Title',
+    author: {
+        name: 'Track Author',
+        url: 'https://www.someurl.com',
+    },
+    thumbnail: './favicon.ico',
+}
 
 export default function Component() {
-  return <AudioPlayer track={track} />;
+    return <AudioPlayer track={track} />
 }
 ```
 
@@ -180,28 +182,28 @@ export default function Component() {
 
 ### Features
 
-- A visualized audio library with multiple tracks
-- Controls
-- Progress bar
-- Volume control
-- Screen responsive
-- Autoplay next song
+-   A visualized audio library with multiple tracks
+-   Controls
+-   Progress bar
+-   Volume control
+-   Screen responsive
+-   Autoplay next song
 
 ### Use-case
 
-- Best for displaying collections of audio files
+-   Best for displaying collections of audio files
 
 ```tsx
-"use client";
-import { AudioLibrary } from "@clxrity/react-audio";
-import { tracks } from "./data";
+'use client'
+import { AudioLibrary } from '@clxrity/react-audio'
+import { tracks } from './data'
 
 export default function Component() {
-  return (
-    <div>
-      <AudioLibrary tracks={tracks} />
-    </div>
-  );
+    return (
+        <div>
+            <AudioLibrary tracks={tracks} />
+        </div>
+    )
 }
 ```
 
@@ -211,14 +213,14 @@ export default function Component() {
 
 ```tsx
 <AudioLibrary
-  tracks={tracks}
-  styles={{
-    backgroundColor: "transparent",
-    textColor: "white",
-    boxShadow: "10px 5px 5px red",
-    theme: "dark",
-    border: "1px solid white",
-  }}
+    tracks={tracks}
+    styles={{
+        backgroundColor: 'transparent',
+        textColor: 'white',
+        boxShadow: '10px 5px 5px red',
+        theme: 'dark',
+        border: '1px solid white',
+    }}
 />
 ```
 
@@ -228,54 +230,54 @@ If you'd like further customization, import the base components:
 
 ```tsx
 import {
-  LibraryPlayer, // The player component
-  LibraryTrackItem, // Individual track component
-} from "@clxrity/react-audio";
+    LibraryPlayer, // The player component
+    LibraryTrackItem, // Individual track component
+} from '@clxrity/react-audio'
 ```
 
-- Define states yourself
+-   Define states yourself
 
 ```tsx
-"use client";
+'use client'
 import {
-  type Track,
-  // ...
-} from "@clxrity/react-audio";
-import { useState } from "react";
+    type Track,
+    // ...
+} from '@clxrity/react-audio'
+import { useState } from 'react'
 
 const tracks: Track[] = [
-  // ...
-];
+    // ...
+]
 
 export default function Component() {
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(-1);
+    const [currentTrackIndex, setCurrentTrackIndex] = useState(-1)
 
-  const currentTrack = tracks[currentTrackIndex];
+    const currentTrack = tracks[currentTrackIndex]
 
-  return (
-    <div>
-      <h1>My songs</h1>
-      <ul>
-        {tracks.map((track, index) => (
-          <LibraryTrackItem
-            key={index}
-            selected={index === currentTrackIndex}
-            track={track}
-            trackNumberLabel={index}
-            onClick={() => setCurrentTrackIndex(index)}
-          />
-        ))}
-      </ul>
-      <LibraryPlayer
-        key={currentTrackIndex}
-        currentTrack={currentTrack}
-        trackIndex={current}
-        trackCount={tracks.length}
-        onNext={() => setCurrentTrackIndex((i) => i + 1)}
-        onPrev={() => setCurrentTrackIndex((i) => i - 1)}
-      />
-    </div>
-  );
+    return (
+        <div>
+            <h1>My songs</h1>
+            <ul>
+                {tracks.map((track, index) => (
+                    <LibraryTrackItem
+                        key={index}
+                        selected={index === currentTrackIndex}
+                        track={track}
+                        trackNumberLabel={index}
+                        onClick={() => setCurrentTrackIndex(index)}
+                    />
+                ))}
+            </ul>
+            <LibraryPlayer
+                key={currentTrackIndex}
+                currentTrack={currentTrack}
+                trackIndex={current}
+                trackCount={tracks.length}
+                onNext={() => setCurrentTrackIndex((i) => i + 1)}
+                onPrev={() => setCurrentTrackIndex((i) => i - 1)}
+            />
+        </div>
+    )
 }
 ```
 
@@ -285,8 +287,8 @@ export default function Component() {
 
 > Example from [**clxrity.xyz**](https://clxrity.xyz)
 
-- Uploads with [react-hook-form](https://react-hook-form.com/)
-- Store audio files with [firebase](https://firebase.google.com/)
-- Hover card with [shadcnui](https://ui.shadcn.com/)
+-   Uploads with [react-hook-form](https://react-hook-form.com/)
+-   Store audio files with [firebase](https://firebase.google.com/)
+-   Hover card with [shadcnui](https://ui.shadcn.com/)
 
 ##### See [examples](/examples/README.md) for more specific usage demonstrations

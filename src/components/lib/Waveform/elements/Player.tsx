@@ -1,16 +1,22 @@
-import { ComponentProps, ReactEventHandler, RefObject, useEffect, useState } from "react";
-import styled from "styled-components";
-import CONFIG from "../../../../config";
-import { Loading, TimeSpan } from "../../../../styles/elements";
-import { Track } from "../../../../types";
-import formatDurationDisplay from "../../../../utils/formatDuration";
-import Button from "../../../ui/Button";
-import ProgressBar from "../../../ui/Progress";
-import Volume from "../../../ui/Volume";
+import {
+    ComponentProps,
+    ReactEventHandler,
+    RefObject,
+    useEffect,
+    useState,
+} from 'react'
+import styled from 'styled-components'
+import CONFIG from '../../../../config'
+import { Loading, TimeSpan } from '../../../../styles/elements'
+import { Track } from '../../../../types'
+import formatDurationDisplay from '../../../../utils/formatDuration'
+import Button from '../../../ui/Button'
+import ProgressBar from '../../../ui/Progress'
+import Volume from '../../../ui/Volume'
 
-interface Props extends ComponentProps<"div"> {
-    audioElement: RefObject<HTMLAudioElement>;
-    track: Track;
+interface Props extends ComponentProps<'div'> {
+    audioElement: RefObject<HTMLAudioElement>
+    track: Track
 }
 
 const PlayerDiv = styled.div`
@@ -24,7 +30,7 @@ const PlayerDiv = styled.div`
     position: absolute;
     border-radius: 0.5rem;
     background-color: transparent;
-`;
+`
 
 const Container = styled.div`
     display: flex;
@@ -40,7 +46,7 @@ const Container = styled.div`
     & > * {
         width: 100%;
     }
-`;
+`
 
 const PlayerDivElement = styled.div`
     display: flex;
@@ -50,7 +56,7 @@ const PlayerDivElement = styled.div`
     gap: 0.25rem;
     margin-left: auto;
     margin-right: auto;
-`;
+`
 
 const PlayerButtonAndVolume = styled.div`
     display: flex;
@@ -58,96 +64,102 @@ const PlayerButtonAndVolume = styled.div`
     gap: 0.25rem;
     align-items: center;
     justify-content: center;
-`;
+`
 
 export default function Player({ audioElement, track, ...props }: Props) {
-    const [duration, setDuration] = useState<number>(0);
-    const [isReady, setIsReady] = useState<boolean>(false);
-    const [isPlaying, setIsPlaying] = useState<boolean>(false);
-    const [volume, setVolume] = useState<number>(0.2);
-    const [currentProgress, setCurrentProgress] = useState<number>(0);
-    const [buffered, setBuffered] = useState<number>(0);
+    const [duration, setDuration] = useState<number>(0)
+    const [isReady, setIsReady] = useState<boolean>(false)
+    const [isPlaying, setIsPlaying] = useState<boolean>(false)
+    const [volume, setVolume] = useState<number>(0.2)
+    const [currentProgress, setCurrentProgress] = useState<number>(0)
+    const [buffered, setBuffered] = useState<number>(0)
 
-    const durationDisplay = formatDurationDisplay(duration);
-    const elapsedDisplay = formatDurationDisplay(currentProgress);
+    const durationDisplay = formatDurationDisplay(duration)
+    const elapsedDisplay = formatDurationDisplay(currentProgress)
 
     const handleVolumeChange = (value: number) => {
-        if (!audioElement.current) return;
-        audioElement.current.volume = value;
-        setVolume(value);
+        if (!audioElement.current) return
+        audioElement.current.volume = value
+        setVolume(value)
     }
 
     const handleMuteUnmute = () => {
-        if (!audioElement.current) return;
+        if (!audioElement.current) return
 
         if (audioElement.current.volume !== 0) {
-            audioElement.current.volume = 0;
+            audioElement.current.volume = 0
         } else {
-            audioElement.current.volume = 1;
+            audioElement.current.volume = 1
         }
     }
 
-    const togglePlayPause = () => {
-
-        if (!audioElement.current) return;
+    const togglePlayPause = async () => {
+        if (!audioElement.current) return
 
         if (isPlaying) {
-            audioElement.current.pause();
-            setIsPlaying(false);
+            audioElement.current.pause()
+            setIsPlaying(false)
         } else {
-            audioElement.current.play();
-            setIsPlaying(true);
+            try {
+                await audioElement.current.play()
+                setIsPlaying(true)
+            } catch (e) {
+                console.error(e)
+            }
         }
     }
 
     const handleCanPlay: ReactEventHandler<HTMLAudioElement> = (e) => {
-        e.currentTarget.volume = volume;
-        setIsReady(true);
+        e.currentTarget.volume = volume
+        setIsReady(true)
     }
 
     const handleBufferProgress: ReactEventHandler<HTMLAudioElement> = (e) => {
-        const audio = e.currentTarget;
-        const dur = audio.duration;
+        const audio = e.currentTarget
+        const dur = audio.duration
 
         if (dur > 0) {
             for (let i = 0; i < audio.buffered.length; i++) {
-                if (audio.buffered.start(audio.buffered.length - 1 - i) < audio.currentTime) {
-                    setBuffered(audio.buffered.end(audio.buffered.length - 1 - i));
-                    break;
+                if (
+                    audio.buffered.start(audio.buffered.length - 1 - i) <
+                    audio.currentTime
+                ) {
+                    setBuffered(
+                        audio.buffered.end(audio.buffered.length - 1 - i)
+                    )
+                    break
                 }
             }
         }
     }
 
     const handleTimeUpdate: ReactEventHandler<HTMLAudioElement> = (e) => {
-        setCurrentProgress(e.currentTarget.currentTime);
-        handleBufferProgress(e);
+        setCurrentProgress(e.currentTarget.currentTime)
+        handleBufferProgress(e)
     }
 
     const handleOnVolumeChange: ReactEventHandler<HTMLAudioElement> = (e) => {
-        setVolume(e.currentTarget.volume);
-        return e.currentTarget.volume;
+        setVolume(e.currentTarget.volume)
+        return e.currentTarget.volume
     }
 
     const handleOnPlaying: ReactEventHandler<HTMLAudioElement> = () => {
-        setIsPlaying(true);
+        setIsPlaying(true)
     }
 
     const handleOnPause: ReactEventHandler<HTMLAudioElement> = () => {
-        setIsPlaying(false);
+        setIsPlaying(false)
     }
 
     const handleDurationChange: ReactEventHandler<HTMLAudioElement> = (e) => {
-        setDuration(e.currentTarget.duration);
+        setDuration(e.currentTarget.duration)
     }
 
     useEffect(() => {
-        if (!audioElement.current) return;
-        setIsReady(true);
+        if (!audioElement.current) return
 
-        
-    }, [track.src, audioElement, isReady]);
-
+        setIsReady(true)
+    }, [track.src, audioElement, isReady, track.src])
 
     return (
         <PlayerDiv {...props}>
@@ -159,6 +171,9 @@ export default function Player({ audioElement, track, ...props }: Props) {
                 onPlaying={handleOnPlaying}
                 onPause={handleOnPause}
                 onDurationChange={handleDurationChange}
+                crossOrigin="anonymous"
+                autoPlay={false}
+                preload="false"
             >
                 <source src={track.src} type="audio/mpeg" />
             </audio>
@@ -169,28 +184,42 @@ export default function Player({ audioElement, track, ...props }: Props) {
                      */}
                     <PlayerDivElement>
                         <PlayerButtonAndVolume>
-                            <Button disabled={!isReady} onClick={togglePlayPause}>
-                                {isPlaying ? <CONFIG.icons.pause /> : <CONFIG.icons.play />}
+                            <Button
+                                disabled={!isReady}
+                                onClick={togglePlayPause}
+                            >
+                                {isPlaying ? (
+                                    <CONFIG.icons.pause />
+                                ) : (
+                                    <CONFIG.icons.play />
+                                )}
                             </Button>
-                            <Volume handleMute={handleMuteUnmute} volume={volume} volumeChange={handleVolumeChange} />
+                            <Volume
+                                handleMute={handleMuteUnmute}
+                                volume={volume}
+                                volumeChange={handleVolumeChange}
+                            />
                         </PlayerButtonAndVolume>
                         <TimeSpan>
-                            <span>
-                                {elapsedDisplay}
-                            </span>
-                            <span>
-                                /
-                            </span>
-                            <span>
-                                {durationDisplay}
-                            </span>
+                            <span>{elapsedDisplay}</span>
+                            <span>/</span>
+                            <span>{durationDisplay}</span>
                         </TimeSpan>
-                        {
-                            buffered ? <ProgressBar onChange={(e) => setCurrentProgress(e.target.valueAsNumber)} duration={duration} current_progress={currentProgress} buffered={buffered} /> : null
-                        }
+                        {buffered ? (
+                            <ProgressBar
+                                onChange={(e) =>
+                                    setCurrentProgress(e.target.valueAsNumber)
+                                }
+                                duration={duration}
+                                current_progress={currentProgress}
+                                buffered={buffered}
+                            />
+                        ) : null}
                     </PlayerDivElement>
                 </Container>
-            ) : <Loading />}
+            ) : (
+                <Loading />
+            )}
         </PlayerDiv>
     )
 }
