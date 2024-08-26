@@ -5,8 +5,6 @@ import autoprefixer from 'autoprefixer'
 import { dts } from 'rollup-plugin-dts'
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
-import tailwindcss from 'tailwindcss'
-import tailwindConfig from './tailwind.config.js'
 
 export default [
   {
@@ -30,7 +28,7 @@ export default [
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss({
-        plugins: [autoprefixer(), tailwindcss(tailwindConfig)],
+        plugins: [autoprefixer()],
         config: {
           path: './postcss.config.js',
         },

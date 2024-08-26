@@ -13,8 +13,8 @@ import { Track } from '../../../../types'
 import formatDurationDisplay from '../../../../utils/formatDuration'
 import Button from '../../../ui/Button'
 import ProgressBar from '../../../ui/Progress'
+import TrackInfo from '../../../ui/TrackInfo'
 import Volume from '../../../ui/Volume'
-import TrackInfo from '../elements/TrackInfo'
 
 interface AudioPlayerProps extends ComponentPropsWithRef<'div'> {
     track: Track

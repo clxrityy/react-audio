@@ -103,8 +103,8 @@ export default function Player({ audioElement, track, ...props }: Props) {
             try {
                 await audioElement.current.play()
                 setIsPlaying(true)
-            } catch (e) {
-                console.error(e)
+            } catch (err) {
+                console.error(err)
             }
         }
     }
@@ -158,6 +158,8 @@ export default function Player({ audioElement, track, ...props }: Props) {
     useEffect(() => {
         if (!audioElement.current) return
 
+        audioElement.current.src = track.src
+
         setIsReady(true)
     }, [track.src, audioElement, isReady, track.src])
 
@@ -171,9 +173,8 @@ export default function Player({ audioElement, track, ...props }: Props) {
                 onPlaying={handleOnPlaying}
                 onPause={handleOnPause}
                 onDurationChange={handleDurationChange}
+                onProgress={handleBufferProgress}
                 crossOrigin="anonymous"
-                autoPlay={false}
-                preload="false"
             >
                 <source src={track.src} type="audio/mpeg" />
             </audio>
@@ -214,7 +215,9 @@ export default function Player({ audioElement, track, ...props }: Props) {
                                 current_progress={currentProgress}
                                 buffered={buffered}
                             />
-                        ) : null}
+                        ) : (
+                            <Loading />
+                        )}
                     </PlayerDivElement>
                 </Container>
             ) : (

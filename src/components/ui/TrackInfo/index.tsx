@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef } from 'react'
 import styled from 'styled-components'
-import CONFIG from '../../../../config'
-import { Track } from '../../../../types'
+import CONFIG from '../../../config'
+import { Track } from '../../../types'
 
 const TrackInfoContainer = styled.div`
     display: flex;

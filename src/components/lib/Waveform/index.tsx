@@ -9,6 +9,7 @@ import { AnalyzerData, Track } from '../../../types'
 import Canvas from './elements/Canvas'
 import Player from './elements/Player'
 import styled from 'styled-components'
+import TrackInfo from '../../ui/TrackInfo'
 
 interface WaveformProps extends ComponentPropsWithRef<'div'> {
     track: Track
@@ -18,6 +19,7 @@ interface WaveformProps extends ComponentPropsWithRef<'div'> {
         height: number
     }
     canvasStyles?: React.CSSProperties
+    showTrackInfo?: boolean
 }
 
 const WaveformDiv = styled.div`
@@ -39,27 +41,35 @@ export default function Waveform({
     color,
     size,
     canvasStyles,
+    showTrackInfo,
     ...props
 }: WaveformProps) {
     const [analyzerData, setAnalyzerData] = useState<AnalyzerData>()
     const [audioCtx, setAudioCtx] = useState<AudioContext>()
+    const [audioSrc, setAudioSrc] = useState<string>()
     const audioElement = useRef<ElementRef<'audio'>>(null)
     const sourceNode = useRef<MediaElementAudioSourceNode | null>()
+
+    useEffect(() => {
+        if (track.src) {
+            setAudioSrc(track.src)
+            audioElement.current?.load()
+        }
+    }, [track.src, audioElement])
 
     const handleUserGesture = () => {
         if (!audioCtx) {
             setAudioCtx(new AudioContext())
         }
-        if (audioCtx && audioCtx.state === 'closed') {
+        if (audioCtx && audioCtx.state === 'suspended') {
             audioCtx.resume()
         }
     }
 
     const audioAnalyzer = () => {
-        if (!audioElement.current) {
+        if (!audioElement.current || !audioCtx) {
             return
         }
-
         if (sourceNode.current) {
             return
         } else if (audioCtx) {
@@ -91,24 +101,36 @@ export default function Waveform({
     }
 
     useEffect(() => {
-        if (audioElement.current) {
-            audioElement.current.addEventListener('play', audioAnalyzer)
+        const current = audioElement.current
 
-            if (audioElement.current.played) {
-                audioAnalyzer()
-            }
+        if (current) {
+            audioElement.current.src = audioSrc!
+            current.addEventListener('play', audioAnalyzer)
+
+            // if (current.played) {
+            //     audioAnalyzer();
+            // }
+            audioAnalyzer()
         }
 
         window.addEventListener('click', handleUserGesture)
         return () => {
             audioElement.current?.removeEventListener('play', audioAnalyzer)
             window.removeEventListener('click', handleUserGesture)
+            audioCtx?.close()
         }
-    }, [audioCtx, audioElement, handleUserGesture])
+    }, [audioCtx])
 
     return (
         <WaveformDiv {...props}>
-            <Player audioElement={audioElement} track={track} />
+            {showTrackInfo && <TrackInfo track={track} />}
+            <Player
+                audioElement={audioElement}
+                track={{
+                    src: track.src,
+                }}
+            />
+
             {analyzerData && (
                 <Canvas
                     size={size}
