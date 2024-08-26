@@ -1,116 +1,129 @@
 # @clxrityy/react-audio
 
+## 1.3.0
+
+### Minor Changes
+
+-   48caa05: change styled-components to devDependency
+-   7560f63: update packages
+-   0dff7df: add **showTrackInfo** prop to **Waveform**
+
+### Patch Changes
+
+-   aa2aaa1: remove tailwindcss dependency
+-   3bd6fe5: fix progress bar on waveform
+
 ## 0.14.0
 
 ### Minor Changes
 
-- cd32bde: more styling updates to library
-- 2061b0b: update readme
-- 596d485: add other components to **Waveform**
-- e95dde9: updated styles for **AudioPlayer** (removed unused thumbnail)
+-   cd32bde: more styling updates to library
+-   2061b0b: update readme
+-   596d485: add other components to **Waveform**
+-   e95dde9: updated styles for **AudioPlayer** (removed unused thumbnail)
 
 ### Patch Changes
 
-- cb432a6: **Waveform** is functional, no errors, need to add other component parts
-- 8ef7746: waveform now works
-- ce890a9: fix dom errors
+-   cb432a6: **Waveform** is functional, no errors, need to add other component parts
+-   8ef7746: waveform now works
+-   ce890a9: fix dom errors
 
 ## 0.13.0
 
 ### Minor Changes
 
-- 1659bd6: begin **Waveform** component, existing error: "Uncaught DOMException: Failed to execute 'createMediaElementSource' on 'AudioContext': HTMLMediaElement already connected previously to a different MediaElementSourceNode."
-- fdf559b: style updates to library player
+-   1659bd6: begin **Waveform** component, existing error: "Uncaught DOMException: Failed to execute 'createMediaElementSource' on 'AudioContext': HTMLMediaElement already connected previously to a different MediaElementSourceNode."
+-   fdf559b: style updates to library player
 
 ## 0.11.0
 
 ### Minor Changes
 
-- 39ed441: add loading states to every component
+-   39ed441: add loading states to every component
 
 ### Patch Changes
 
-- 7a5aca2: fix error "rounded is not defined" prop with **Button**
+-   7a5aca2: fix error "rounded is not defined" prop with **Button**
 
 ## 0.10.0
 
 ### Minor Changes
 
-- c1c9610: removed **AudioPlayer** for now
-- 9bb0c8d: added (begun) **<AudioPlayer />**
+-   c1c9610: removed **AudioPlayer** for now
+-   9bb0c8d: added (begun) **<AudioPlayer />**
 
 ### Patch Changes
 
-- 8cd2ac2: fix "Audio is not defined" error in **<JustPlayer />**
-- 4af6757: fix **JustPlayer**: no more useEffect issue
-- 213a90c: fixed "variant" unknown prop in **<Button />**, will find better ways to update styles and theming
+-   8cd2ac2: fix "Audio is not defined" error in **<JustPlayer />**
+-   4af6757: fix **JustPlayer**: no more useEffect issue
+-   213a90c: fixed "variant" unknown prop in **<Button />**, will find better ways to update styles and theming
 
 ## 0.9.0
 
 ### Minor Changes
 
-- 4f368d5: **AudioLibrary** is fully functional and styled nicely for now, updated readme & package.json
-- 1f5711c: change library component to **AudioLibrary** with states and styles inside
+-   4f368d5: **AudioLibrary** is fully functional and styled nicely for now, updated readme & package.json
+-   1f5711c: change library component to **AudioLibrary** with states and styles inside
 
 ## 0.8.0
 
 ### Minor Changes
 
-- 469f488: add / begin <LibraryPlayer /> component
-- aec2e66: add styled-components
+-   469f488: add / begin <LibraryPlayer /> component
+-   aec2e66: add styled-components
 
 ### Patch Changes
 
-- 60d76fd: <LibraryPlayer /> now works (somewhat)
+-   60d76fd: <LibraryPlayer /> now works (somewhat)
 
 ## 0.7.0
 
 ### Minor Changes
 
-- 62c85bf: update packages
+-   62c85bf: update packages
 
 ### Patch Changes
 
-- 443185b: `<JustPlayer />` now works (plays audio)
+-   443185b: `<JustPlayer />` now works (plays audio)
 
 ## 0.6.0
 
 ### Minor Changes
 
-- 6e7d46f: updated visuals to `<AudioPlayer />`, began `<JustPlayer />`
+-   6e7d46f: updated visuals to `<AudioPlayer />`, began `<JustPlayer />`
 
 ## 0.5.0
 
 ### Minor Changes
 
-- 3dc1f94: add background color param
-- df5f580: add license and npmignore
+-   3dc1f94: add background color param
+-   df5f580: add license and npmignore
 
 ### Patch Changes
 
-- fc106f5: it works now
-- df5f580: make changeset a dev dependency
+-   fc106f5: it works now
+-   df5f580: make changeset a dev dependency
 
 ## 0.4.0
 
 ### Minor Changes
 
-- d184bff: made component export & import into applications properly, `<AudioPlayer />` component is now (semi) functional and visible
-- f5c0d15: structuring `AudioPlayer` component. began exporting compatible types for the (optional) options (styling so far)
+-   d184bff: made component export & import into applications properly, `<AudioPlayer />` component is now (semi) functional and visible
+-   f5c0d15: structuring `AudioPlayer` component. began exporting compatible types for the (optional) options (styling so far)
 
 ## 0.3.0
 
 ### Minor Changes
 
-- af6c419: test tailwindcss
-- 7cacb07: begin functionality of audio component
+-   af6c419: test tailwindcss
+-   7cacb07: begin functionality of audio component
 
 ### Patch Changes
 
-- 7cacb07: change name of `Player` to `AudioPlayer`
+-   7cacb07: change name of `Player` to `AudioPlayer`
 
 ## 0.2.0
 
 ### Minor Changes
 
-- begin testing, add changeset, begin development process
+-   begin testing, add changeset, begin development process
