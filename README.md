@@ -1,4 +1,12 @@
-# `@clxrity/react-audio` <img src="./icon.png" width="32px" height="32px" style="display:inline-block;" />
+# @clxrity/react-audio <img src="./icon.png" width="32px" height="32px" style="display:inline-block;" />
+
+[![view on npm](https://badgen.net/npm/v/@clxrity/react-audio)](https://www.npmjs.org/package/@clxrity/react-audio)
+[![npm module downloads](https://badgen.net/npm/dt/@clxrity/react-audio)](https://www.npmjs.org/package/@clxrity/react-audio)
+[![Gihub repo dependents](https://badgen.net/github/dependents-repo/clxrityy/react-audio)](https://github.com/clxrityy/react-audio/network/dependents?dependent_type=REPOSITORY)
+[![Gihub package dependents](https://badgen.net/github/dependents-pkg/clxrityy/react-audio)](https://github.com/clxrityy/react-audio/network/dependents?dependent_type=PACKAGE)
+[![Node.js CI](https://github.com/clxrityy/react-audio/actions/workflows/main.yml/badge.svg)](https://github.com/clxrityy/react-audio/actions/workflows/main.yml)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/clxrityy/react-audio)
+[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/clxrityy/react-audio/blob/main/LICENSE)
 
 A react audio player component library.
 
@@ -18,7 +26,7 @@ yarn add @clxrity/react-audio
 
 ---
 
-## Components
+## Components 
 
 | Component                              | Controls                                                 | Customizable | Display Track Info |
 | -------------------------------------- | -------------------------------------------------------- | :----------: | :----------------: |
@@ -27,6 +35,69 @@ yarn add @clxrity/react-audio
 | [**`<AudioPlayer/>`**](#audioplayer)   | Play/pause, volume, progress, mute/unmute                |      ✅      |         ✅         |
 | [**`<AudioLibrary/>`**](#audiolibrary) | Play/pause, volume, progress, mute/unmute, next/previous |      ✅      |         ✅         |
 
+## Waveform Images API (Experimental)
+
+- Install with optional dependencies to use the waveform image generation API.
+    - [`fluent-ffmpeg`](https://www.npmjs.com/package/fluent-ffmpeg)
+    - [`shelljs`](https://www.npmjs.com/package/shelljs)
+
+```zsh
+npm i @clxrity/react-audio --save-optional
+```
+
+> Works **ONLY** with [Nextjs App Router](https://nextjs.org/docs/app)
+
+You can generate an image of an audio file's waveform by using the `setup-waveform-api` script.
+
+```zsh
+npx setup-waveform-api
+```
+
+-   This will create a `app/api/generate-waveform/route.ts` file.
+    ```ts
+    import fluentFfmpeg from 'fluent-ffmpeg';
+    import path from 'path';
+    import { NextRequest, NextResponse } from 'next/server';
+
+    export async function GET(req: NextRequest) {
+    const url = new URL(req.url);
+    const audioUrl = url.searchParams.get('url');
+
+    if (!audioUrl) {
+        return NextResponse.json({ error: 'Missing URL query parameter' }, { status: 400 });
+    }
+
+    const waveformPath = path.join(process.cwd(), 'public', 'waveform.png');
+
+    const promise = new Promise((resolve, reject) => {
+        fluentFfmpeg(audioUrl)
+        .audioFilters('aformat=channel_layouts=stereo')
+        .outputOptions('-filter_complex', 'aformat=channel_layouts=stereo,showwavespic=s=600x120')
+        .output(waveformPath)
+        .on('end', () => {
+            resolve(NextResponse.json({ message: `Waveform image at ${waveformPath}` }, { status: 200 }));
+        })
+        .on('error', (err) => {
+            reject(NextResponse.json({ error: err }, { status: 500 }));
+        })
+        .run();
+    });
+
+    return promise;
+    }
+    ```
+- You can then use this route to generate waveform images.
+    - **Note**: If you are using `fetch()` to handle the API request, make sure to pass the absolute URL of the audio file.
+```tsx
+/**
+ * In this example, the audio file is within the public/ directory.
+ * `/public/audio.wav` = `http://localhost:3000/audio.wav`
+ * @see https://nextjs.org/docs/app/building-your-application/optimizing/static-assets
+ */
+await fetch('http://localhost:3000/api/generate-waveform?url=http://localhost:3000/audio.wav')
+```
+
+- This will generate a waveform image in the `public/` directory. (e.g. `public/waveform.png`)
 ---
 
 ## `<JustPlayer />`

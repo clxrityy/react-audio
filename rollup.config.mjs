@@ -8,7 +8,6 @@ import postcss from 'rollup-plugin-postcss'
 
 export default [
   {
-    preserveModules: true,
     input: 'src/index.ts',
     output: [
       {
