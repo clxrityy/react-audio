@@ -7,16 +7,15 @@ const TrackInfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: center;
     width: 100%;
     max-width: 640px;
 `
 
 const Thumbnail = styled.img`
     width: 100%;
-    max-width: 100px;
+    max-width: 25px;
+    height: auto;
     border-radius: 0.5rem;
-    transition: transform 0.2s ease-in-out;
 
     @media only screen and (max-width: 600px) {
         max-width: 100%;
@@ -30,7 +29,7 @@ const TrackInfoDiv = styled.div`
     align-items: center;
     justify-items: center;
     width: 100%;
-    max-width: 640px;
+    max-width: 100px;
 `
 
 const TrackTitle = styled.h3`
@@ -45,8 +44,9 @@ const TrackAuthorLink = styled.a`
     text-align: center;
     color: ${CONFIG.colors.primary};
     text-decoration: none;
-    opacity: 0.75;
+    opacity: 0.5;
     transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
 
     &:hover {
         opacity: 1;

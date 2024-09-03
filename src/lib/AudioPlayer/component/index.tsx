@@ -1,40 +1,44 @@
 import {
-    ComponentProps,
+    ComponentPropsWithRef,
+    ElementRef,
     ReactEventHandler,
-    RefObject,
     useEffect,
+    useRef,
     useState,
 } from 'react'
 import styled from 'styled-components'
-import CONFIG from '../../../../config'
-import { Loading, TimeSpan } from '../../../../styles/elements'
-import { Track } from '../../../../types'
-import formatDurationDisplay from '../../../../utils/formatDuration'
-import Button from '../../../ui/Button'
-import ProgressBar from '../../../ui/Progress'
-import Volume from '../../../ui/Volume'
+import Button from '../../../components/ui/Button'
+import ProgressBar from '../../../components/ui/Progress'
+import TrackInfo from '../../../components/ui/TrackInfo'
+import Volume from '../../../components/ui/Volume'
+import CONFIG from '../../../config'
+import { Loading, TimeSpan } from '../../../styles/elements'
+import { Track } from '../../../types'
+import formatDurationDisplay from '../../../utils/formatDuration'
 
-interface Props extends ComponentProps<'div'> {
-    audioElement: RefObject<HTMLAudioElement>
+interface AudioPlayerProps extends ComponentPropsWithRef<'div'> {
     track: Track
 }
 
-const PlayerDiv = styled.div`
+const AudioPlayerDiv = styled.div`
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
     align-items: center;
     justify-content: center;
     width: 100%;
     max-width: 300px;
-    position: absolute;
+    padding: 0.5rem;
+    position: relative;
     border-radius: 0.5rem;
     background-color: transparent;
+    backdrop-filter: blur(10px);
 `
 
 const Container = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.75rem;
     padding: 0.25rem;
     align-items: center;
@@ -43,8 +47,9 @@ const Container = styled.div`
     width: 100%;
     max-width: 300px;
 
-    & > * {
-        width: 100%;
+    @media only screen and (max-width: 600px) {
+        gap: 0.5rem;
+        flex-direction: column;
     }
 `
 
@@ -54,19 +59,18 @@ const PlayerDivElement = styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
-    margin-left: auto;
-    margin-right: auto;
 `
 
 const PlayerButtonAndVolume = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.25rem;
     align-items: center;
     justify-content: center;
 `
 
-export default function Player({ audioElement, track, ...props }: Props) {
+export default function AudioPlayer({ track, ...props }: AudioPlayerProps) {
+    // states
     const [duration, setDuration] = useState<number>(0)
     const [isReady, setIsReady] = useState<boolean>(false)
     const [isPlaying, setIsPlaying] = useState<boolean>(false)
@@ -74,8 +78,12 @@ export default function Player({ audioElement, track, ...props }: Props) {
     const [currentProgress, setCurrentProgress] = useState<number>(0)
     const [buffered, setBuffered] = useState<number>(0)
 
+    const audioElement = useRef<ElementRef<'audio'>>(null)
+
     const durationDisplay = formatDurationDisplay(duration)
     const elapsedDisplay = formatDurationDisplay(currentProgress)
+
+    // handlers
 
     const handleVolumeChange = (value: number) => {
         if (!audioElement.current) return
@@ -93,19 +101,15 @@ export default function Player({ audioElement, track, ...props }: Props) {
         }
     }
 
-    const togglePlayPause = async () => {
+    const togglePlayPause = () => {
         if (!audioElement.current) return
 
         if (isPlaying) {
             audioElement.current.pause()
             setIsPlaying(false)
         } else {
-            try {
-                await audioElement.current.play()
-                setIsPlaying(true)
-            } catch (err) {
-                console.error(err)
-            }
+            audioElement.current.play()
+            setIsPlaying(true)
         }
     }
 
@@ -140,7 +144,6 @@ export default function Player({ audioElement, track, ...props }: Props) {
 
     const handleOnVolumeChange: ReactEventHandler<HTMLAudioElement> = (e) => {
         setVolume(e.currentTarget.volume)
-        return e.currentTarget.volume
     }
 
     const handleOnPlaying: ReactEventHandler<HTMLAudioElement> = () => {
@@ -155,16 +158,14 @@ export default function Player({ audioElement, track, ...props }: Props) {
         setDuration(e.currentTarget.duration)
     }
 
+    // effects
     useEffect(() => {
-        if (!audioElement.current) return
-
-        audioElement.current.src = track.src
-
+        audioElement!.current!.src = track.src
         setIsReady(true)
-    }, [track.src, audioElement, isReady, track.src])
+    }, [track.src, audioElement, isReady])
 
     return (
-        <PlayerDiv {...props}>
+        <AudioPlayerDiv {...props}>
             <audio
                 ref={audioElement}
                 onCanPlay={handleCanPlay}
@@ -173,16 +174,12 @@ export default function Player({ audioElement, track, ...props }: Props) {
                 onPlaying={handleOnPlaying}
                 onPause={handleOnPause}
                 onDurationChange={handleDurationChange}
-                onProgress={handleBufferProgress}
-                crossOrigin="anonymous"
             >
                 <source src={track.src} type="audio/mpeg" />
             </audio>
             {isReady ? (
                 <Container>
-                    {/**
-                     * Track info here
-                     */}
+                    <TrackInfo track={track} />
                     <PlayerDivElement>
                         <PlayerButtonAndVolume>
                             <Button
@@ -208,21 +205,16 @@ export default function Player({ audioElement, track, ...props }: Props) {
                         </TimeSpan>
                         {buffered ? (
                             <ProgressBar
-                                onChange={(e) =>
-                                    setCurrentProgress(e.target.valueAsNumber)
-                                }
                                 duration={duration}
                                 current_progress={currentProgress}
                                 buffered={buffered}
                             />
-                        ) : (
-                            <Loading />
-                        )}
+                        ) : null}
                     </PlayerDivElement>
                 </Container>
             ) : (
                 <Loading />
             )}
-        </PlayerDiv>
+        </AudioPlayerDiv>
     )
 }

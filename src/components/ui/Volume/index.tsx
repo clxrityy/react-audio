@@ -15,7 +15,6 @@ const VolumeDiv = styled.div`
     position: relative;
     border-radius: 0.5rem;
     background-color: transparent;
-    backdrop-filter: blur(10px);
 `
 
 const VolumeInput = styled.input`

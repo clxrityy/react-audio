@@ -26,7 +26,12 @@ export default [
       external(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({
+        tsconfig: './tsconfig.json',
+        declaration: true,
+        declarationDir: "dist",
+        sourceMap: true,
+      }),
       postcss({
         plugins: [autoprefixer()],
         config: {
@@ -36,9 +41,21 @@ export default [
     ],
   },
   {
-    input: 'dist/esm/types/index.d.ts',
+    input: 'dist/esm/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
     external: ['react', 'react/jsx-runtime'],
   },
+  // ({
+  //   makeAbsoluteExternalsRelative: true,
+  //   preserveEntrySignatures: 'strict',
+  //   output: {
+  //     esModule: true,
+  //     generatedCode: {
+  //       reservedNamesAsProps: false
+  //     },
+  //     interop: 'compat',
+  //     systemNullSetters: false
+  //   },
+  // }),
 ]

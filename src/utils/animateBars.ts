@@ -17,7 +17,7 @@ export default function animateBars({
 }: AnimateBarsParams) {
     analyzer.getByteFrequencyData(dataArray)
 
-    canvasCtx.fillStyle = color
+    canvasCtx.fillStyle = color;
 
     const HEIGHT = canvas.height
 
@@ -29,17 +29,17 @@ export default function animateBars({
     for (let i = 0; i < bufferLength; i++) {
         barHeight = (dataArray[i]! / 255) * HEIGHT
 
-        const maximum = 10
-        const minimum = -10
+        // const maximum = 10
+        // const minimum = -10
 
-        const r =
-            242 + Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
-        const g =
-            104 + Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
-        const b =
-            65 + Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+        // const r =
+        //     242 + Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+        // const g =
+        //     104 + Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+        // const b =
+        //     65 + Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
 
-        canvasCtx.fillStyle = `rgb(${r}, ${g}, ${b})`
+        // canvasCtx.fillStyle = `rgb(${r}, ${g}, ${b})`
 
         canvasCtx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight)
 

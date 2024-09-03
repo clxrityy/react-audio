@@ -4,12 +4,11 @@ import {
     useEffect,
     useRef,
     useState,
-} from 'react'
-import { AnalyzerData, Track } from '../../../types'
-import Canvas from './elements/Canvas'
-import Player from './elements/Player'
-import styled from 'styled-components'
-import TrackInfo from '../../ui/TrackInfo'
+} from 'react';
+import styled from 'styled-components';
+import { AnalyzerData, Track } from '../../types';
+import Canvas from './elements/Canvas';
+import Player from './elements/Player';
 
 interface WaveformProps extends ComponentPropsWithRef<'div'> {
     track: Track
@@ -24,8 +23,8 @@ interface WaveformProps extends ComponentPropsWithRef<'div'> {
 
 const WaveformDiv = styled.div`
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: row;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -61,8 +60,8 @@ export default function Waveform({
         if (!audioCtx) {
             setAudioCtx(new AudioContext())
         }
-        if (audioCtx && audioCtx.state === 'suspended') {
-            audioCtx.resume()
+        if (audioCtx?.state === 'suspended') { 
+            audioCtx.resume();
         }
     }
 
@@ -113,32 +112,33 @@ export default function Waveform({
             audioAnalyzer()
         }
 
-        window.addEventListener('click', handleUserGesture)
+        window.addEventListener('click', handleUserGesture);
+
         return () => {
             audioElement.current?.removeEventListener('play', audioAnalyzer)
             window.removeEventListener('click', handleUserGesture)
             audioCtx?.close()
         }
-    }, [audioCtx])
+    }, [audioCtx, audioElement, audioSrc]);
 
     return (
         <WaveformDiv {...props}>
-            {showTrackInfo && <TrackInfo track={track} />}
             <Player
                 audioElement={audioElement}
                 track={{
                     src: track.src,
                 }}
+                showTrackInfo={showTrackInfo}
             />
-
             {analyzerData && (
                 <Canvas
-                    size={size}
-                    style={canvasStyles && canvasStyles}
                     analyzerdData={analyzerData}
-                    color={color ? color : '#ff0000'}
+                    color={color || 'red'}
+                    size={size}
+                    style={canvasStyles}
                 />
             )}
+
         </WaveformDiv>
     )
 }

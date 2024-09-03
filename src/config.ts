@@ -12,7 +12,8 @@ import {
 const CONFIG = {
     colors: {
         primary: '#007bff',
-        secondary: 'rgba(0, 0, 0, 0.6)',
+        secondary: 'rgba(0, 0, 0, 0.4)',
+        tertiary: '#6c757d',
     },
     themes: {
         light: {

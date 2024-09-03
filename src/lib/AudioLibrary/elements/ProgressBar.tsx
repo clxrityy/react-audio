@@ -1,6 +1,6 @@
 import React, { ComponentPropsWithoutRef, ReactElement } from 'react'
 import styled from 'styled-components'
-import { ProgressInput } from '../../../../styles/elements'
+import { ProgressInput } from '../../../styles/elements'
 
 interface ProgressBarCSSProps extends React.CSSProperties {
     '--progress-width': number

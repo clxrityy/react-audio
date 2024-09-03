@@ -9,7 +9,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
 }
 
 const ButtonElement = styled.button<ButtonProps>`
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 0.25rem;
     border: none;
     cursor: pointer;

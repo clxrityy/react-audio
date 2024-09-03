@@ -1,9 +1,9 @@
-import { ComponentPropsWithRef, ElementRef, useEffect, useRef } from 'react'
-import { AnalyzerData } from '../../../../types'
-import animateBars from '../../../../utils/animateBars'
+import { ComponentPropsWithRef, ElementRef, useEffect, useRef } from 'react';
+import { AnalyzerData } from '../../../types';
+import animateBars from '../../../utils/animateBars';
 
 interface CanvasProps extends ComponentPropsWithRef<'canvas'> {
-    analyzerdData: AnalyzerData
+    analyzerdData: AnalyzerData;
     color: string
     size?: {
         width: number
@@ -17,7 +17,7 @@ export default function Canvas({
     size,
     ...props
 }: CanvasProps) {
-    const { analyzer, bufferLength, dataArray } = analyzerdData
+    const { analyzer, bufferLength, dataArray } = analyzerdData;
 
     const canvasRef = useRef<ElementRef<'canvas'>>(null)
 
@@ -43,7 +43,7 @@ export default function Canvas({
             })
         }
 
-        animate()
+        animate();
     }
 
     useEffect(() => {
@@ -57,7 +57,8 @@ export default function Canvas({
             height={size?.height || window.innerHeight}
             style={{
                 position: 'absolute',
-                zIndex: -10,
+                zIndex: -1,
+                color: color,
                 ...props.style,
             }}
             {...props}

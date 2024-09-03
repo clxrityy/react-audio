@@ -4,6 +4,4 @@ import ProgressBar from './elements/ProgressBar'
 import LibraryTrackItem from './elements/TrackItem'
 import VolumeInput from './elements/VolumeInput'
 
-export default AudioLibrary
-
-export { LibraryPlayer, LibraryTrackItem, ProgressBar, VolumeInput }
+export default { AudioLibrary, LibraryPlayer, LibraryTrackItem, ProgressBar, VolumeInput }

@@ -1,5 +1,5 @@
 import { ComponentProps, ReactElement } from 'react'
-import CONFIG from '../../../../config'
+import CONFIG from '../../../config'
 
 interface VolumeInputProps extends ComponentProps<'input'> {
     volume: number
