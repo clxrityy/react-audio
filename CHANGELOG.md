@@ -1,5 +1,18 @@
 # @clxrityy/react-audio
 
+## 1.4.0
+
+### Minor Changes
+
+-   832989e: added jest, testing ffmpeg features to create waveforms
+-   f7f4d6f: restructure files (exports in src/lib/)
+
+### Patch Changes
+
+-   c650b27: make all exports default
+-   610d33d: fixed jest interfering with rollup build
+-   3a33cf0: ability to change color in waveforms actually works now
+
 ## 1.3.0
 
 ### Minor Changes
