@@ -1,5 +1,13 @@
 # @clxrityy/react-audio
 
+## 1.5.0
+
+### Minor Changes
+
+-   dbc2980: add docs
+-   7d930b0: add nextjs app to docs
+-   e56a5f9: added a script that generates an api route for creating a waveform image
+
 ## 1.4.0
 
 ### Minor Changes

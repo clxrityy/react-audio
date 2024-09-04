@@ -1,6 +1,6 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A simple audio player for React",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -18,7 +18,8 @@
     "release": "pnpm build && changeset version && changeset publish",
     "test": "jest ./src/test --config=jest.config.ts",
     "lint": "prettier -c --write ./src/*",
-    "start": "cd test && pnpm dev"
+    "start:test": "cd test && pnpm dev",
+    "start": "cd web && pnpm dev"
   },
   "repository": {
     "type": "git",
