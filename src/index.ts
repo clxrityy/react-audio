@@ -1,4 +1,4 @@
-import { default as AudioLibrary, default as LibraryPlayer, default as LibraryTrackItem } from './lib/AudioLibrary';
+import AudioLibrary from './lib/AudioLibrary/component';
 import AudioPlayer from './lib/AudioPlayer';
 import JustPlayer from './lib/JustPlayer';
 // import ProgressBar from './components/lib/AudioLibrary';
@@ -12,8 +12,8 @@ export {
     AudioLibrary,
     AudioPlayer,
     JustPlayer,
-    LibraryPlayer,
-    LibraryTrackItem,
+    // LibraryPlayer,
+    // LibraryTrackItem,
     // ProgressBar,
     // VolumeInput,
     Waveform,

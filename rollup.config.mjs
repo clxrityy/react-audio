@@ -5,6 +5,7 @@ import autoprefixer from 'autoprefixer'
 import { dts } from 'rollup-plugin-dts'
 import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
+import ignore from "rollup-plugin-ignore";
 
 export default [
   {
@@ -30,7 +31,9 @@ export default [
         declaration: true,
         declarationDir: "dist",
         sourceMap: true,
+        exclude: ["./web/**", "./docs/**"],
       }),
+      ignore(["./web/**", "./docs/**"]),
       postcss({
         plugins: [autoprefixer()],
         config: {

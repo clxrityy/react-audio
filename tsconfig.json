@@ -40,5 +40,5 @@
     // }
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "exclude": ["./test/*", "./node_modules/*", "./src/test/*", "./dist/*", "jest.config.ts"],
+  "exclude": ["./test/*", "./node_modules/*", "./src/test/*", "./dist/*", "jest.config.ts", "./web/*"],
 }
