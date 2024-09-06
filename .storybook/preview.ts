@@ -9,6 +9,22 @@ const preview: Preview = {
             },
         },
     },
+    tags: ['autodocs'],
+    argTypes: {
+        style: { control: 'object' },
+        track: { 
+            control: 'object',
+        },
+        size: {
+            control: "number"
+        },
+        btnStyleProps: {
+            control: 'object',
+        },
+        autoplay: {
+            control: 'boolean',
+        }
+    },
 }
 
 export default preview

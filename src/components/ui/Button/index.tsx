@@ -1,12 +1,6 @@
-import { ComponentPropsWithoutRef } from 'react'
 import styled from 'styled-components'
 import CONFIG from '../../../config'
-
-interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
-    size?: 'sm' | 'md' | 'lg'
-    color?: string
-    theme?: 'light' | 'dark'
-}
+import { ButtonProps } from '../../../types'
 
 const ButtonElement = styled.button<ButtonProps>`
     padding: 0.5rem 0.5rem;
@@ -93,7 +87,7 @@ export default function Button({
     ...props
 }: ButtonProps) {
     return (
-        <ButtonElement size={size} {...props}>
+        <ButtonElement color={color} size={size} {...props}>
             {children}
         </ButtonElement>
     )

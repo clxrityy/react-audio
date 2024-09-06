@@ -20,7 +20,7 @@ const LiElement = styled.li<{ selected: boolean; color?: string }>`
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     background-color: ${({ selected, color }) =>
-        selected ? color || CONFIG.colors.secondary : 'transparent'};
+        selected ? color : 'transparent'};
     margin: 0.5rem 0;
     cursor: pointer;
     transition: all 0.2s;
@@ -28,8 +28,7 @@ const LiElement = styled.li<{ selected: boolean; color?: string }>`
         opacity: 1;
         background-color: ${({ selected, color }) =>
             selected
-                ? color || CONFIG.colors.secondary
-                : 'rgba(0, 0, 0, 0.25)'};
+                ? color : 'rgba(0, 0, 0, 0.1)'};
     }
     flex-direction: row;
     justify-content: space-between;

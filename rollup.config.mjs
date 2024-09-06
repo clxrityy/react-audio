@@ -33,7 +33,7 @@ export default [
         sourceMap: true,
         exclude: ["./web/**", "./docs/**"],
       }),
-      ignore(["./web/**", "./docs/**"]),
+      ignore(["./web/**", "./docs/**", "./src/stories/**", "./.storybook/**"]),
       postcss({
         plugins: [autoprefixer()],
         config: {

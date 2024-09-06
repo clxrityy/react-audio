@@ -6,12 +6,20 @@ const config: StorybookConfig = {
         '@storybook/addon-onboarding',
         '@storybook/addon-links',
         '@storybook/addon-essentials',
-        '@chromatic-com/storybook',
         '@storybook/addon-interactions',
+        '@storybook/addon-mdx-gfm',
     ],
     framework: {
         name: '@storybook/react-vite',
-        options: {},
+        options: {
+
+        },
     },
+    typescript: {
+        reactDocgen: 'react-docgen-typescript'
+    },
+    staticDirs: [
+        "../src/stories/assets",
+    ],
 }
 export default config

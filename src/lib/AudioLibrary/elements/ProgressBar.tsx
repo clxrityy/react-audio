@@ -1,6 +1,7 @@
 import React, { ComponentPropsWithoutRef, ReactElement } from 'react'
 import styled from 'styled-components'
 import { ProgressInput } from '../../../styles/elements'
+import { ButtonProps } from '../../../types'
 
 interface ProgressBarCSSProps extends React.CSSProperties {
     '--progress-width': number
@@ -11,6 +12,7 @@ interface ProgressBarProps extends ComponentPropsWithoutRef<'input'> {
     duration: number
     currentProgress: number
     buffered: number
+    btnStyleProps?: ButtonProps
 }
 
 const ProgressDiv = styled.div<ProgressBarProps>`
@@ -27,6 +29,7 @@ export default function ProgressBar({
     duration,
     currentProgress,
     buffered,
+    btnStyleProps,
     ...props
 }: ProgressBarProps): ReactElement<ProgressBarProps, 'div'> {
     const progressBarWidth = isNaN(currentProgress / duration)
@@ -47,6 +50,7 @@ export default function ProgressBar({
             {...props}
         >
             <ProgressInput
+                color={btnStyleProps?.color}
                 type="range"
                 name="progress"
                 style={progressStyles}

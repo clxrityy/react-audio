@@ -1,0 +1,1 @@
+const o={parameters:{controls:{matchers:{color:/(background|color)$/i,date:/Date$/i}}},tags:["autodocs"],argTypes:{style:{control:"object"},track:{control:"object"},size:{control:"number"},btnStyleProps:{control:"object"},autoplay:{control:"boolean"}}};export{o as default};

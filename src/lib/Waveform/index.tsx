@@ -1,25 +1,14 @@
 import {
-    ComponentPropsWithRef,
     ElementRef,
     useEffect,
     useRef,
     useState,
 } from 'react';
 import styled from 'styled-components';
-import { AnalyzerData, Track } from '../../types';
+import { AnalyzerData } from '../../types';
 import Canvas from './elements/Canvas';
 import Player from './elements/Player';
-
-interface WaveformProps extends ComponentPropsWithRef<'div'> {
-    track: Track
-    color?: string
-    size?: {
-        width: number
-        height: number
-    }
-    canvasStyles?: React.CSSProperties
-    showTrackInfo?: boolean
-}
+import { WaveformProps } from '../../types';
 
 const WaveformDiv = styled.div`
     display: flex;
@@ -41,6 +30,8 @@ export default function Waveform({
     size,
     canvasStyles,
     showTrackInfo,
+    btnStyleProps,
+    autoplay,
     ...props
 }: WaveformProps) {
     const [analyzerData, setAnalyzerData] = useState<AnalyzerData>()
@@ -124,6 +115,8 @@ export default function Waveform({
     return (
         <WaveformDiv {...props}>
             <Player
+                autoplay={autoplay}
+                btnStyleProps={btnStyleProps}
                 audioElement={audioElement}
                 track={{
                     src: track.src,

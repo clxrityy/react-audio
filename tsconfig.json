@@ -38,7 +38,7 @@
     // "paths": {
     //   "@/*": ["./src/*"]
     // }
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
   },
-  "exclude": ["./test/*", "./node_modules/*", "./src/test/*", "./dist/*", "jest.config.ts", "./web/*"],
+  "exclude": ["./test/*", "./node_modules/*", "./src/test/*", "./dist/*", "jest.config.ts", "./src/**/*.stories.tsx", "./.storybook/*"],
 }

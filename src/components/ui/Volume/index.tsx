@@ -2,6 +2,7 @@ import { ComponentProps } from 'react'
 import styled from 'styled-components'
 import CONFIG from '../../../config'
 import Button from '../Button'
+import { ButtonProps } from '../../../types'
 
 const VolumeDiv = styled.div`
     display: flex;
@@ -32,12 +33,14 @@ interface VolumeProps extends ComponentProps<'div'> {
     volume: number
     volumeChange: (volume: number) => void
     handleMute: () => void
+    btnStyleProps?: ButtonProps;
 }
 
 export default function Volume({
     volume,
     volumeChange,
     handleMute,
+    btnStyleProps,
     ...props
 }: VolumeProps) {
     return (
@@ -53,6 +56,9 @@ export default function Volume({
                 onChange={(e) => volumeChange(parseFloat(e.target.value))}
             />
             <Button
+                color={btnStyleProps?.color}
+                theme={btnStyleProps?.theme}
+                size={btnStyleProps?.size}
                 onClick={handleMute}
                 aria-label={volume > 0 ? 'Mute' : 'Unmute'}
             >

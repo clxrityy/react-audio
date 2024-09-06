@@ -11,7 +11,7 @@ import styled from 'styled-components'
 import Button from '../../../components/ui/Button'
 import CONFIG from '../../../config'
 import { Loading, TimeSpan } from '../../../styles/elements'
-import { Track } from '../../../types'
+import { ButtonProps, Track } from '../../../types'
 import formatDurationDisplay from '../../../utils/formatDuration'
 import ProgressBar from './ProgressBar'
 import VolumeInput from './VolumeInput'
@@ -22,6 +22,8 @@ interface AudioLibraryProps extends ComponentPropsWithRef<'div'> {
     trackCount: number
     onNext: () => void
     onPrevious: () => void
+    autoplay?: boolean
+    btnStyleProps?: ButtonProps
 }
 
 const MainContainerDivElement = styled.div`
@@ -117,6 +119,8 @@ export default function LibraryPlayer({
     trackCount,
     onNext,
     onPrevious,
+    autoplay,
+    btnStyleProps,
     ...props
 }: AudioLibraryProps): ReactElement<AudioLibraryProps, 'div'> {
     // states
@@ -235,6 +239,7 @@ export default function LibraryPlayer({
                     onTimeUpdate={handleTimeUpdate}
                     onProgress={handleBufferProgress}
                     onVolumeChange={(e) => handleOnVolumeChange(e)}
+                    autoPlay={autoplay}
                 >
                     <source src={currentTrack!.src} type="audio/mpeg" />
                 </audio>
@@ -247,7 +252,7 @@ export default function LibraryPlayer({
                             style={{
                                 fontWeight: 'bold',
                                 fontSize: '1rem',
-                                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                                backgroundColor: 'rgba(0, 0, 0, 0.1)',
                                 padding: '0.25rem 0.5rem',
                                 borderRadius: '0.5rem',
                             }}
@@ -282,6 +287,9 @@ export default function LibraryPlayer({
                     PREVIOUS BUTTON
                 */}
                             <Button
+                                color={btnStyleProps?.color}
+                                theme={btnStyleProps?.theme}
+                                size={btnStyleProps?.size}
                                 aria-label="Previous"
                                 disabled={trackIndex === 0}
                                 onClick={onPrevious}
@@ -294,6 +302,9 @@ export default function LibraryPlayer({
                             <Button
                                 disabled={!isReady}
                                 onClick={togglePlayPause}
+                                theme={btnStyleProps?.theme}
+                                size={btnStyleProps?.size}
+                                color={btnStyleProps?.color}
                             >
                                 {isPlaying ? (
                                     <CONFIG.icons.pause size={20} />
@@ -305,6 +316,9 @@ export default function LibraryPlayer({
                     NEXT BUTTON
                 */}
                             <Button
+                                color={btnStyleProps?.color}
+                                theme={btnStyleProps?.theme}
+                                size={btnStyleProps?.size}
                                 aria-label="Next"
                                 disabled={trackIndex === trackCount - 1}
                                 onClick={onNext}
@@ -320,6 +334,9 @@ export default function LibraryPlayer({
                                     volumeChange={handleVolumeChange}
                                 />
                                 <Button
+                                    theme={btnStyleProps?.theme}
+                                    size={btnStyleProps?.size}
+                                    color={btnStyleProps?.color}
                                     onClick={handleMuteUnmute}
                                     aria-label={
                                         volume === 0 ? 'Unmute' : 'Mute'

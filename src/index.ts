@@ -1,4 +1,4 @@
-import AudioLibrary from './lib/AudioLibrary/component';
+import AudioLibrary from './lib/AudioLibrary';
 import AudioPlayer from './lib/AudioPlayer';
 import JustPlayer from './lib/JustPlayer';
 // import ProgressBar from './components/lib/AudioLibrary';
