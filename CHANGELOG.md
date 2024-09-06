@@ -1,5 +1,16 @@
 # @clxrityy/react-audio
 
+## 1.6.0
+
+### Minor Changes
+
+-   9ba3169: update props setup, all now have specific inherited props
+-   0422a54: update storybook
+
+### Patch Changes
+
+-   ad13785: fix imports and props passing on
+
 ## 1.5.0
 
 ### Minor Changes
