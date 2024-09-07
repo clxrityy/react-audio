@@ -1,6 +1,6 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "A simple audio player for React",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -15,7 +15,8 @@
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c",
-    "release": "pnpm build && changeset version && changeset publish",
+    "release": "pnpm build && changeset version && build-storybook && deploy-storybook && changeset publish",
+    "patch:publish": "pnpm build && changeset publish",
     "test": "jest ./src/test --config=jest.config.ts",
     "lint": "prettier -c --write ./src/*",
     "start:test": "cd test && pnpm dev",

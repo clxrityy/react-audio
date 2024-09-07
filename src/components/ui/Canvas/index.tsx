@@ -53,11 +53,10 @@ export default function Canvas({
     return (
         <canvas
             ref={canvasRef}
-            width={size?.width || window.innerWidth}
-            height={size?.height || window.innerHeight}
+            width={size?.width || 1000}
+            height={size?.height || 1000}
             style={{
                 position: 'absolute',
-                zIndex: -1,
                 color: color,
                 ...props.style,
             }}

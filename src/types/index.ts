@@ -63,3 +63,17 @@ export interface WaveformProps extends ComponentProps<"div">, Props {
     canvasStyles?: React.CSSProperties;
     showTrackInfo?: boolean;
 }
+
+export interface WaveformImageProps extends ComponentProps<"div">, Props {
+}
+
+export interface AudioUploaderProps extends ComponentProps<"div"> {
+    btnStyleProps?: ButtonProps;
+    onAudioUpload?: (file: File, url: string) => any;
+    canvasStyles?: React.CSSProperties;
+    color?: string;
+    size?: {
+        width: number;
+        height: number;
+    }
+}

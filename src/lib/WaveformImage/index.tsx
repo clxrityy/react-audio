@@ -1,33 +1,23 @@
-import { ComponentPropsWithRef, useEffect, useState } from "react";
-import { Track } from "../../types";
-import { generateWaveformImage } from "../../utils/ffmpeg";
+import styled from "styled-components";
+import { WaveformImageProps } from "../../types";
 
-interface Props extends ComponentPropsWithRef<"div"> {
-    track: Track;
-    output: string;
-}
 
-export default function WaveformImage({ track, output }: Props) {
+const Container = styled.div<WaveformImageProps>`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export default function WaveformImage({ track, ...props }: WaveformImageProps): JSX.Element {
+
     
-    const [waveformUrl, setWaveformUrl] = useState<string>("");
-
-    useEffect(() => {
-        const fetchWaveform = async () => {
-            try {
-                await generateWaveformImage(track.src, output);
-
-                setWaveformUrl(output);
-            } catch (error) {
-                console.error(`Error generating waveform image: ${error}`);
-            }
-        }
-
-        fetchWaveform();
-    }, [track.src]);
 
     return (
-        <div>
-            <img src={waveformUrl} alt={track.title || "Waveform"} />
-        </div>
+        <Container track={track} {...props}>
+            
+        </Container>
     )
 }

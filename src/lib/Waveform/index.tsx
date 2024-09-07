@@ -6,7 +6,7 @@ import {
 } from 'react';
 import styled from 'styled-components';
 import { AnalyzerData } from '../../types';
-import Canvas from './elements/Canvas';
+import Canvas from '../../components/ui/Canvas';
 import Player from './elements/Player';
 import { WaveformProps } from '../../types';
 

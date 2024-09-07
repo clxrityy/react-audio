@@ -2,7 +2,8 @@ import { default as AudioLibrary, default as LibraryPlayer, default as LibraryTr
 import AudioPlayer from './AudioPlayer'
 import JustPlayer from './JustPlayer'
 import Waveform from './Waveform'
-import WaveformImage from './WaveformImage'
+// import WaveformImage from './WaveformImage'
+import AudioUploader from './AudioUploader'
 
 export default {
     AudioLibrary,
@@ -13,5 +14,6 @@ export default {
     // ProgressBar,
     // VolumeInput,
     Waveform,
-    WaveformImage,
+    // WaveformImage,
+    AudioUploader,
 }
