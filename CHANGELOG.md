@@ -1,5 +1,19 @@
 # @clxrityy/react-audio
 
+## 1.7.0
+
+### Minor Changes
+
+-   f5abd36: added **AudioUploader** functional with no UI display yet
+-   d89e093: add **resize()** function to **Waveform**'s canvas if no size prop is present
+-   23839c0: **AudioInputVisualizer** works fully functional
+-   ba70a93: began **AudioInput** component where you can input audio mic/guitar
+-   bb9f2b5: added prop to **Waveform** & **AudioInputVisualizer**: fftsize
+
+### Patch Changes
+
+-   be63b43: re-added imports for libraryplayer & librarytrackitem
+
 ## 1.6.0
 
 ### Minor Changes
