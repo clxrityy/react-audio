@@ -1,4 +1,4 @@
-import { Meta, Description } from "@storybook/blocks";
+import { Meta } from "@storybook/blocks";
 
 
 <Meta title="Home" />
@@ -12,9 +12,7 @@ import { Meta, Description } from "@storybook/blocks";
     [![view on npm](https://badgen.net/npm/v/@clxrity/react-audio)](https://www.npmjs.org/package/@clxrity/react-audio)
     [![npm module downloads](https://badgen.net/npm/dt/@clxrity/react-audio)](https://www.npmjs.org/package/@clxrity/react-audio)
     [![Gihub repo dependents](https://badgen.net/github/dependents-repo/clxrityy/react-audio)](https://github.com/clxrityy/react-audio/network/dependents?dependent_type=REPOSITORY)
-    [![Gihub package dependents](https://badgen.net/github/dependents-pkg/clxrityy/react-audio)](https://github.com/clxrityy/react-audio/network/dependents?dependent_type=PACKAGE)
     [![Node.js CI](https://github.com/clxrityy/react-audio/actions/workflows/main.yml/badge.svg)](https://github.com/clxrityy/react-audio/actions/workflows/main.yml)
-    [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/clxrityy/react-audio)
     [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/clxrityy/react-audio/blob/main/LICENSE)
   </div>
   <div className="sb-section">
@@ -40,6 +38,8 @@ import { Meta, Description } from "@storybook/blocks";
       </h3>
       <p className="sb-section-item-paragraph">
         The component must be marked as a **client** component to be used in the browser.
+
+        > Read more about [client components](https://nextjs.org/docs/app/building-your-application/rendering/client-components)
       </p>
       <div className="snippet">
         ```tsx
@@ -69,16 +69,17 @@ import { Meta, Description } from "@storybook/blocks";
         | Component                              | Controls                                                 | Customizable | Display Track Info |
 | -------------------------------------- | -------------------------------------------------------- | :----------: | :----------------: |
 | **`<JustPlayer/>`**     | Play/pause                                               |      ✅      |         ❌         |
-| **`<Waveform />`**       | Play/pause, volume, progress, mute/unmute                |      ✅      |         ❌         |
+| **`<Waveform/>`**       | Play/pause, volume, progress, mute/unmute                |      ✅      |         ❌         |
 | **`<AudioPlayer/>`**   | Play/pause, volume, progress, mute/unmute                |      ✅      |         ✅         |
 | **`<AudioLibrary/>`** | Play/pause, volume, progress, mute/unmute, next/previous |      ✅      |         ✅         |
+| **`<AudioInputVisualizer/>`** | Volume, bass, mid, treble |      ✅      |         ❌         |
       </div>
     </div>
     <div className="sb-section-item">
       <h4 className="sb-section-item-heading">
         Props
       </h4>
-      <p className="sb-section=item-paragraph">
+      <p className="sb-section-item-paragraph">
         Every component has its own set of props, however the following are common to all components:
 
         - `track`/`tracks` - The source of the audio file(s).
@@ -134,6 +135,17 @@ import { Meta, Description } from "@storybook/blocks";
           ```
           
         </div>
+
+        Along with those base props, components with a waveform/visualizer ([Waveform](https://clxrityy.github.io/react-audio/?path=/docs/components-waveform--docs) / [AudioInputVisualizer](https://clxrityy.github.io/react-audio/?path=/docs/components-waveform--docs)) also have additional props such as [fftsize](https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/fftSize):
+
+        <div className="snippet">
+
+          ```ts
+          export type FFTSize = 32 | 64 | 128 | 256 | 512 | 1024 | 2048 | 4096 | 8192 | 16384 | 32768;
+          ```
+        </div>
+
+        Additional props will be in the documentation of each component.
       </p>
     </div>
   </div>
@@ -301,6 +313,10 @@ import { Meta, Description } from "@storybook/blocks";
       margin-bottom: -40px;
       margin-left: -24px;
     }
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
   `}
 </style>

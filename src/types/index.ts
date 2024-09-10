@@ -13,6 +13,8 @@ export type Track = {
     }
 }
 
+export type FFTSize = 32 | 64 | 128 | 256 | 512 | 1024 | 2048 | 4096 | 8192 | 16384 | 32768;
+
 export interface LibraryStyles extends React.CSSProperties {
     backgroundColor?: string
     textColor?: string
@@ -62,6 +64,7 @@ export interface WaveformProps extends ComponentProps<"div">, Props {
     };
     canvasStyles?: React.CSSProperties;
     showTrackInfo?: boolean;
+    fftsize?: FFTSize;
 }
 
 export interface WaveformImageProps extends ComponentProps<"div">, Props {
@@ -76,4 +79,14 @@ export interface AudioUploaderProps extends ComponentProps<"div"> {
         width: number;
         height: number;
     }
+}
+
+export interface AudioInputProps extends ComponentProps<"div"> { 
+    btnStyleProps?: ButtonProps;
+    inputAudioSettings?: {
+        echoCancellation?: boolean;
+        noiseSuppression?: boolean;
+        autoGainControl?: boolean;
+    }
+    fftsize?: FFTSize;
 }

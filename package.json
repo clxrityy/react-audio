@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c",
-    "release": "pnpm build && changeset version && build-storybook && deploy-storybook && changeset publish",
+    "release": "pnpm build && changeset version && pnpm build-storybook && pnpm deploy-storybook && changeset publish",
     "patch:publish": "pnpm build && changeset publish",
     "test": "jest ./src/test --config=jest.config.ts",
     "lint": "prettier -c --write ./src/*",

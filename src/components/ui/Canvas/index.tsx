@@ -1,6 +1,7 @@
 import { ComponentPropsWithRef, ElementRef, useEffect, useRef } from 'react';
 import { AnalyzerData } from '../../../types';
 import animateBars from '../../../utils/animateBars';
+import resizeCanvas from '../../../utils/resizeCanvas';
 
 interface CanvasProps extends ComponentPropsWithRef<'canvas'> {
     analyzerdData: AnalyzerData;
@@ -46,9 +47,16 @@ export default function Canvas({
         animate();
     }
 
+    function resize() {
+        resizeCanvas(canvasRef.current);
+    }
+
     useEffect(() => {
-        draw(analyzer, bufferLength, dataArray)
-    }, [dataArray, analyzer, bufferLength, color])
+        draw(analyzer, bufferLength, dataArray);
+        if (!size) {
+            resize();
+        }
+    }, [dataArray, analyzer, bufferLength, color]);
 
     return (
         <canvas

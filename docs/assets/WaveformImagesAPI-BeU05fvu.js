@@ -1,4 +1,5 @@
-import{j as e}from"./jsx-runtime-DEdD30eg.js";import{useMDXComponents as o}from"./index-CcnH5Kt0.js";import"./index-RYns6xqu.js";function r(s){const n={a:"a",blockquote:"blockquote",code:"code",h1:"h1",img:"img",li:"li",p:"p",pre:"pre",ul:"ul",...o(),...s.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{id:"waveform-images-api-experimental",children:"Waveform Images API (Experimental)"}),`
+import{j as e}from"./jsx-runtime-DEdD30eg.js";import{useMDXComponents as r}from"./index-CcnH5Kt0.js";import{ae as o}from"./index-CdasD5Mb.js";import"./index-RYns6xqu.js";import"./iframe-BGzDl9H1.js";import"../sb-preview/runtime.js";import"./index-D16Yfzz8.js";import"./index-D-8MO0q_.js";import"./index-B23dhaOI.js";import"./index-DrFu-skq.js";function t(s){const n={a:"a",blockquote:"blockquote",code:"code",h1:"h1",h2:"h2",img:"img",li:"li",p:"p",pre:"pre",ul:"ul",...r(),...s.components};return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"Waveform Images API"}),`
+`,e.jsx(n.h1,{id:"waveform-images-api-experimental",children:"Waveform Images API (Experimental)"}),`
 `,e.jsxs(n.ul,{children:[`
 `,e.jsxs(n.li,{children:["Install with optional dependencies to use the waveform image API generation.",`
 `,e.jsxs(n.ul,{children:[`
@@ -62,4 +63,9 @@ await fetch('http://localhost:3000/api/generate-waveform?url=http://localhost/au
 `,e.jsxs(n.ul,{children:[`
 `,e.jsxs(n.li,{children:["This will generate a waveform image at ",e.jsx(n.code,{children:"public/waveform.png"}),":"]}),`
 `]}),`
-`,e.jsx(n.p,{children:e.jsx(n.img,{src:"/waveform.png",alt:"Waveform Image"})})]})}function l(s={}){const{wrapper:n}={...o(),...s.components};return n?e.jsx(n,{...s,children:e.jsx(r,{...s})}):r(s)}export{l as default};
+`,e.jsx(n.p,{children:e.jsx(n.img,{src:"https://raw.githubusercontent.com/clxrityy/react-audio/main/src/stories/assets/waveform.png",alt:"Waveform Image"})}),`
+`,e.jsxs(n.blockquote,{children:[`
+`,e.jsxs(n.p,{children:["Note: The waveform image is generated in the public/ directory and can be accessed at ",e.jsx(n.code,{children:"http://localhost:3000/waveform.png"}),"."]}),`
+`]}),`
+`,e.jsx(n.h2,{id:"plans",children:"Plans"}),`
+`,e.jsx(n.p,{children:"The ideal plan is to serve the images asynchronously along with a component that can be used to display the audio through the waveform image. This will be done in the future releases."})]})}function f(s={}){const{wrapper:n}={...r(),...s.components};return n?e.jsx(n,{...s,children:e.jsx(t,{...s})}):t(s)}export{f as default};

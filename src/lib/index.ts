@@ -1,9 +1,10 @@
-import { default as AudioLibrary, default as LibraryPlayer, default as LibraryTrackItem } from './AudioLibrary'
-import AudioPlayer from './AudioPlayer'
-import JustPlayer from './JustPlayer'
-import Waveform from './Waveform'
+import { default as AudioLibrary, default as LibraryPlayer, default as LibraryTrackItem } from './AudioLibrary';
+import AudioPlayer from './AudioPlayer';
+import JustPlayer from './JustPlayer';
+import Waveform from './Waveform';
 // import WaveformImage from './WaveformImage'
-import AudioUploader from './AudioUploader'
+import AudioInputVisualizer from './AudioInputVisualizer';
+import AudioUploader from './AudioUploader';
 
 export default {
     AudioLibrary,
@@ -16,4 +17,5 @@ export default {
     Waveform,
     // WaveformImage,
     AudioUploader,
+    AudioInputVisualizer,
 }

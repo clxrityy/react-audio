@@ -9,6 +9,7 @@ import { AnalyzerData } from '../../types';
 import Canvas from '../../components/ui/Canvas';
 import Player from './elements/Player';
 import { WaveformProps } from '../../types';
+import { audioAnalyzer as analyzer } from '../../utils/audioAnalyzer';
 
 const WaveformDiv = styled.div`
     display: flex;
@@ -32,6 +33,7 @@ export default function Waveform({
     showTrackInfo,
     btnStyleProps,
     autoplay,
+    fftsize,
     ...props
 }: WaveformProps) {
     const [analyzerData, setAnalyzerData] = useState<AnalyzerData>()
@@ -57,36 +59,11 @@ export default function Waveform({
     }
 
     const audioAnalyzer = () => {
-        if (!audioElement.current || !audioCtx) {
-            return
-        }
         if (sourceNode.current) {
             return
-        } else if (audioCtx) {
-            const analyzer = audioCtx.createAnalyser()
-            analyzer.fftSize = 2048
-
-            const bufferLengthNumber = analyzer.frequencyBinCount
-            const dataArray = new Uint8Array(bufferLengthNumber)
-
-            sourceNode.current = audioCtx.createMediaElementSource(
-                audioElement.current
-            )
-
-            sourceNode.current.connect(analyzer)
-            sourceNode.current.connect(audioCtx.destination)
-            analyzer.connect(audioCtx.destination)
-
-            sourceNode.current.addEventListener('ended', () => {
-                sourceNode.current?.disconnect()
-                analyzer.disconnect()
-            })
-
-            setAnalyzerData({
-                analyzer,
-                bufferLength: bufferLengthNumber,
-                dataArray,
-            })
+        }
+        if (audioElement.current && audioCtx) {
+            setAnalyzerData(analyzer(audioElement.current, audioCtx, sourceNode, fftsize));
         }
     }
 
