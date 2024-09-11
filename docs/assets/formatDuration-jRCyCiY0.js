@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-DEdD30eg.js";import{d}from"./styled-components.browser.esm-DIbKh39u.js";import{C as e}from"./elements-D4M0jGhh.js";const i=d.button`
+import{j as n}from"./jsx-runtime-DEdD30eg.js";import{d}from"./styled-components.browser.esm-DiIrWxKB.js";import{C as e}from"./elements-CJf5SMqm.js";const i=d.button`
     padding: 0.5rem 0.5rem;
     border-radius: 0.25rem;
     border: none;

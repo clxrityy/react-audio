@@ -54,7 +54,11 @@ export default function Canvas({
     useEffect(() => {
         draw(analyzer, bufferLength, dataArray);
         if (!size) {
-            resize();
+            window.addEventListener('resize', resize);
+        }
+
+        return () => {
+            window.removeEventListener('resize', resize);
         }
     }, [dataArray, analyzer, bufferLength, color]);
 

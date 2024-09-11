@@ -81,7 +81,7 @@ export interface AudioUploaderProps extends ComponentProps<"div"> {
     }
 }
 
-export interface AudioInputProps extends ComponentProps<"div"> { 
+export interface AudioInputVisualizerProps extends ComponentProps<"div"> { 
     btnStyleProps?: ButtonProps;
     inputAudioSettings?: {
         echoCancellation?: boolean;

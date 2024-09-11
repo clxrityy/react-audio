@@ -57,7 +57,11 @@ export default function Canvas({ analyzernode, ...props }: CanvasProps) {
 
     useEffect(() => {
         drawVisualizer();
-        resize();
+        window.addEventListener('resize', resize);
+
+        return () => {
+            window.removeEventListener('resize', resize);
+        }
     }, [canvasRef]);
 
     return <CanvasElement ref={canvasRef} analyzernode={analyzernode} {...props} />;

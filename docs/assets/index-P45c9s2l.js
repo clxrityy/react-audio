@@ -1,4 +1,4 @@
-import{j as i}from"./jsx-runtime-DEdD30eg.js";import{d as o}from"./styled-components.browser.esm-DIbKh39u.js";import{C as l,P as h}from"./elements-D4M0jGhh.js";import{B as f}from"./formatDuration-PdJL874n.js";const g=o.div`
+import{j as i}from"./jsx-runtime-DEdD30eg.js";import{d as o}from"./styled-components.browser.esm-DiIrWxKB.js";import{C as l,P as h}from"./elements-CJf5SMqm.js";import{B as f}from"./formatDuration-jRCyCiY0.js";const g=o.div`
     display: flex;
     flex-direction: column;
     align-items: center;
