@@ -34,15 +34,11 @@
     "test": "vitest",
     "lint": "prettier -c --write ./src/*",
     "dev": "ladle serve",
-    "dev:debug": "storybook --debug",
     "build:ladle": "ladle build",
     "deploy-docs": "gh-pages -d docs",
-    "clean:install": "rm -rf node_modules pnpm-lock.yaml && pnpm install",
+    "clean:install": "rm -rf node_modules pnpm-lock.yaml docs && pnpm install && pnpm build:ladle",
     "start": "ladle preview",
     "coverage": "vitest run --coverage"
-  },
-  "optionalDependencies": {
-    "exclude": "link:@mdx-js/react"
   },
   "repository": {
     "type": "git",
