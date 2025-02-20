@@ -1,43 +1,30 @@
 name: Run tests and upload coverage
 
-on: 
-  push
+on: [push, pull_request]
 
 jobs:
   test:
-    name: Run tests and collect coverage
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      actions: read
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    - uses: actions/checkout@v2
 
-      - name: Set up Node.js and pnpm
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm'
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: pnpm
 
-      - name: Install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-          pnpm --version
+    - name: Install pnpm
+      run: npm install -g pnpm
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+    - name: Install dependencies
+      run: pnpm install
 
-      - name: Run coverage tests
-        run: pnpm coverage
+    - name: Run tests
+      run: pnpm test
 
-      - name: Upload coverage results to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
-          verbose: true
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v2
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
