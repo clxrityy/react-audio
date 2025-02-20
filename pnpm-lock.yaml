@@ -80,6 +80,7 @@ importers:
         specifier: ^8.5.3
         version: 8.5.3
       prettier:
+
         specifier: 3.5.1
         version: 3.5.1
       tailwind-merge:
@@ -1080,6 +1081,7 @@ packages:
 
   '@rollup/rollup-win32-x64-msvc@4.34.8':
     resolution: {integrity: sha512-U0FaE5O1BCpZSeE6gBl3c5ObhePQSfk9vDRToMmTkbhCOgW4jqvtS5LGyQ76L1fH8sM0keRp4uDTsbjiUyjk0g==}
+
     cpu: [x64]
     os: [win32]
 
@@ -2417,7 +2419,6 @@ packages:
   koa-convert@2.0.0:
     resolution: {integrity: sha512-asOvN6bFlSnxewce2e/DK3p4tltyfC4VM7ZwuTuepI7dEQVcvpyFuBcEARu1+Hxg8DIwytce2n7jrZtRlPrARA==}
     engines: {node: '>= 10'}
-
   koa@2.15.4:
     resolution: {integrity: sha512-7fNBIdrU2PEgLljXoPWoyY4r1e+ToWCmzS/wwMPbUNs7X+5MMET1ObhJBlUkF5uZG9B6QhM2zS1TsH6adegkiQ==}
     engines: {node: ^4.8.4 || ^6.10.1 || ^7.10.1 || >= 8.1.4}
@@ -4669,6 +4670,7 @@ snapshots:
       rollup: 4.34.8
 
   '@rollup/pluginutils@5.1.4(rollup@4.34.8)':
+
     dependencies:
       '@types/estree': 1.0.6
       estree-walker: 2.0.2
@@ -6239,7 +6241,6 @@ snapshots:
       lightningcss-linux-x64-musl: 1.29.1
       lightningcss-win32-arm64-msvc: 1.29.1
       lightningcss-win32-x64-msvc: 1.29.1
-
   lines-and-columns@1.2.4: {}
 
   local-pkg@0.5.1:
@@ -6906,6 +6907,8 @@ snapshots:
 
   picocolors@1.1.1: {}
 
+  picocolors@1.1.1: {}
+
   picomatch@2.3.1: {}
 
   picomatch@4.0.2: {}
@@ -7152,6 +7155,7 @@ snapshots:
       fsevents: 2.3.3
 
   rrweb-cssom@0.8.0: {}
+
 
   run-applescript@7.0.0: {}
 
