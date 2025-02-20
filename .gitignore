@@ -10,3 +10,8 @@
 /src/test
 test.md
 *storybook.log
+
+.env
+.env.*
+
+/coverage
