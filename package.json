@@ -42,7 +42,7 @@
     "coverage": "vitest run --coverage"
   },
   "optionalDependencies": {
-    "exclude": "@mdx-js/react"
+    "exclude": "link:@mdx-js/react"
   },
   "repository": {
     "type": "git",
@@ -88,13 +88,15 @@
   },
   "homepage": "https://clxrityy.github.io/react-audio/",
   "devDependencies": {
-    "@changesets/cli": "^2.28.0",
+    "@changesets/cli": "^2.28.1",
     "@codecov/vite-plugin": "^1.9.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@ladle/react": "^5.0.1",
     "@mui/icons-material": "^6.4.5",
     "@mui/material": "^6.4.5",
+    "@octokit/plugin-paginate-rest": "^11.4.2",
+    "@octokit/request": "^9.2.2",
     "@tailwindcss/postcss": "^4.0.7",
     "@testing-library/react": "^16.2.0",
     "@types/react": "^19.0.10",
@@ -102,6 +104,7 @@
     "@vitest/coverage-v8": "^3.0.6",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
+    "esbuild": "^0.25.0",
     "gh-pages": "^6.3.0",
     "jsdom": "^26.0.0",
     "postcss": "^8.5.3",

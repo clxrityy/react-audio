@@ -10,8 +10,8 @@
       "levels": [
         "Changelog"
       ],
-      "locStart": 19,
-      "locEnd": 27,
+      "locStart": 22,
+      "locEnd": 30,
       "filePath": "src/stories/Changelog.stories.mdx",
       "namedExport": "MDXContent",
       "meta": {}
