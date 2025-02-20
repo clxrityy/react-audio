@@ -3,23 +3,28 @@ name: Run tests and upload coverage
 on: [push, pull_request]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Install Node.js
-      uses: actions/setup-node@v4
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - uses: pnpm/action-setup@v2
       with:
-        node-version: 20
+        version: 7
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 21.x
         cache: pnpm
 
     - name: Install pnpm
       run: npm install -g pnpm
 
     - name: Install dependencies
-      run: pnpm install
+      run: pnpm install --no-frozen-lockfile
 
     - name: Run tests
       run: pnpm test
