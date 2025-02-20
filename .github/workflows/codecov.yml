@@ -7,29 +7,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      
-    - uses: pnpm/action-setup@v2
-      with:
-        version: 7
+      - uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 21.x
-        cache: pnpm
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
 
-    - name: Install pnpm
-      run: npm install -g pnpm
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21.x
+          cache: pnpm
 
-    - name: Install dependencies
-      run: pnpm install --no-frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
 
-    - name: Run tests
-      run: pnpm test
+      - name: Run tests
+        run: pnpm test
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
