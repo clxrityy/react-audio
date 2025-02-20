@@ -7,28 +7,37 @@ jobs:
   test:
     name: Run tests and collect coverage
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Node and pnpm
+      - name: Set up Node.js and pnpm
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
 
       - name: Install pnpm
-        run: corepack enable && corepack prepare pnpm@latest --activate
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm --version
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run converate tests
-        run: pnpm converage
+      - name: Run coverage tests
+        run: pnpm coverage
 
-      - name: Upload results to Codecov
+      - name: Upload coverage results to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true

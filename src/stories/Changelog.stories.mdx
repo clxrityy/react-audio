@@ -2,6 +2,68 @@ import '../index.css'
 
 # @clxrity/react-audio
 
+## 2.0.0
+
+### Major Changes
+
+- b82ecec: - Switched from [storybook](https://storybook.js.org/) to [ladle](https://ladle.dev/) - Much more lightweight and faster - A lot more of a simple UI to work with
+
+    - Text and colors are automatically inherited by the theme.
+        - Dark background = white text
+        - Light background = black text
+    - Components in new working new version so far:
+        - `<Player />` - Replaces `<JustPlayer />` & `<AudioPlayer />`
+        - `<ShufflePlayer />` - Replaces `<LibraryPlayer />`
+        - `<Waveform />`
+
+    Working structure:
+
+    ```yaml
+    ~:
+        __tests__/: # Tests with vitest
+        .changeset/: # Changeset version management
+        .github/: # Github workflows
+        .ladle/: # Ladle setup for documenation
+        docs/: # Output from ladle for github pages
+        public/: # Public static directory
+        src/:
+            components/ui/: # Reusable UI components
+            hooks/: # Reusable hooks
+            lib/: # The package exports
+                - ...
+                - index.ts # Main entry point
+            stories/: # Ladle stories
+            util/: # Utility functions
+            - config.ts # Default configurations
+            - index.css # Global CSS
+        ...
+    ```
+
+- 22f001e: - Update all dependencies
+    - Begin restructuring code
+    - Switch to Vite
+    - Switch from styled components to tailwind
+    - Add new logo
+    - Add new landing page
+    - Add new documentation
+    - Add new examples
+    - Add new audio player
+
+### Minor Changes
+
+- e8d4166: update all packages to latest version
+- 149e841: Added the Player component which will replace JustPlayer & AudioPlayer into one component (with props for customization)
+- e155be4: add functionality to EQ & volume knobs (**AudioInputVisualizer**)
+- 6f1c415: Added a code coverage workflow that indicates whether all [`vitest`](https://vitest.dev/) tests are passing.
+
+    - Utilizes [Codecov](https://about.codecov.io/) to provide an interactive UI for test coverage.
+    - Added an environment variable `CODECOV_TOKEN` to the repository's secrets and local `.env` file.
+    - Added a new script `npm run coverage` to generate and upload the coverage report.
+
+- 8172042: added the Waveform component, working perfectly. might need some style tweaks and configurations down the road
+- f1a1c48: Add a new \***\*tests\*\*** directory to contain public tests
+- f102a1f: Finished the Player component with a progress bar, autoplay feature, ability to disable progress bar and track info display
+
 ## 1.7.0
 
 ### Minor Changes
@@ -104,7 +166,7 @@ import '../index.css'
 
 - 8cd2ac2: fix "Audio is not defined" error in **`<JustPlayer />`**
 - 4af6757: fix **JustPlayer**: no more useEffect issue
-- 213a90c: fixed "variant" unknown prop in **`<Button />`**, will find better ways to update styles and theming
+- 213a90c: fixed "variant" unknown prop in **`<Button /`>**, will find better ways to update styles and theming
 
 ## 0.9.0
 
