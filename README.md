@@ -3,13 +3,11 @@
 #### A react audio player component library.
 
 [![MIT license](https://img.shields.io/npm/l/%40clxrity%2Freact-audio?style=for-the-badge&label=LICENSE
-)](https://github.com/clxrityy/react-audio/blob/main/LICENSE)
+)](https://github.com/clxrityy/react-audio/blob/main/LICENSE) [![view on npm](https://img.shields.io/npm/v/%40clxrity%2Freact-audio?style=for-the-badge&logo=npm&logoColor=%23CB3837&logoSize=auto&label=NPM
+)](https://www.npmjs.org/package/@clxrity/react-audio) 
 
 [![BUILD](https://img.shields.io/github/actions/workflow/status/clxrityy/react-audio/.github%2Fworkflows%2Fmain.yml?branch=main&event=push&style=for-the-badge&logo=github&logoColor=%23181717&logoSize=auto&label=BUILD&color=%232dba4e
-)](https://github.com/clxrityy/react-audio/actions/workflows/main.yml)  [![codecov.io Code Coverage](https://img.shields.io/codecov/c/github/clxrityy/react-audio?token=4c9504fd-c584-412e-9430-31e729f966b0&style=for-the-badge&logo=codecov&logoColor=%23F01F7A&logoSize=auto&label=COVERAGE&labelColor=%23F01F7A)](https://codecov.io/github/clxrity/react-audio?branch=main) 
-[![view on npm](https://img.shields.io/npm/v/%40clxrity%2Freact-audio?style=for-the-badge&logo=npm&logoColor=%23CB3837&logoSize=auto&label=NPM
-)](https://www.npmjs.org/package/@clxrity/react-audio) 
-[![npm module downloads](https://img.shields.io/npm/dm/%40clxrity%2Freact-audio?style=for-the-badge&logo=npm&logoColor=%23CB3837&logoSize=auto&label=DOWNLOADS)](https://www.npmjs.org/package/@clxrity/react-audio)
+)](https://github.com/clxrityy/react-audio/actions/workflows/main.yml)  [![npm module downloads](https://img.shields.io/npm/dm/%40clxrity%2Freact-audio?style=for-the-badge&logo=npm&logoColor=%23CB3837&logoSize=auto&label=DOWNLOADS)](https://www.npmjs.org/package/@clxrity/react-audio)
 
 ---
 
