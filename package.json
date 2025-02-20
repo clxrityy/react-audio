@@ -86,7 +86,7 @@
   "bugs": {
     "url": "https://github.com/clxrityy/react-audio/issues"
   },
-  "homepage": "https://clxrityy.github.io/react-audio/",
+  "homepage": "https://clxrityy.github.io/react-audio",
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
     "@codecov/vite-plugin": "^1.9.0",

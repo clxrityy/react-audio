@@ -10,6 +10,8 @@ export default {
   },
   viteConfig: process.cwd() + "/vite.ladle.config.ts",
   previewPort: 3000,
+  host: "clxrityy.github.io/react-audio",
+  staticDirs: ['public'],
   appendToHead: `
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
