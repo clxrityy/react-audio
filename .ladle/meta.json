@@ -1,0 +1,17 @@
+{
+    "about": {
+      "homepage": "https://mjanglin.com",
+      "github": "https://github.com/clxrityy/react-audio",
+      "version": 2
+    },
+    "stories": {
+        "directory": "../src/stories",
+        "title": "Documentation"
+    },
+    "assets": {
+        "images": {
+            "directory": "./",
+            "publicPath": "/"
+        }
+    }
+  }

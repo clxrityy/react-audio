@@ -1,194 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ladle: Playground for your React Components."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/assets/favicon-gjFwcFbF.svg" />
+    <link rel="mask-icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20%3e%3cpath%20d='M22,14H9V5A4,4,0,0,0,1,5V8A1,1,0,0,0,3,8V5A2,2,0,0,1,7,5V15a8,8,0,0,0,16,0A1,1,0,0,0,22,14Zm-7,7a6.01,6.01,0,0,1-5.917-5H20.917A6.01,6.01,0,0,1,15,21Z'/%3e%3c/svg%3e" color="#000000" />
+    <link rel="apple-touch-icon" href="/assets/touch-icon-ByyUZD7t.png" />
+    <link
+      rel="manifest"
+      href="/assets/manifest-B-VxemCC.webmanifest"
+      crossorigin="use-credentials"
+    />
+    <title>Ladle</title>
+    <script type="module" crossorigin src="/assets/index-BndVsEdy.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D1UjFS2q.css">
+  
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <title>@clxrity/react-audio</title>
+    </head>
 
-    <title>@storybook/core - Storybook</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-    
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-    
-    <style>
-      @font-face {
-        font-family: 'Nunito Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('./sb-common-assets/nunito-sans-regular.woff2') format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Nunito Sans';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url('./sb-common-assets/nunito-sans-italic.woff2') format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Nunito Sans';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url('./sb-common-assets/nunito-sans-bold.woff2') format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Nunito Sans';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url('./sb-common-assets/nunito-sans-bold-italic.woff2') format('woff2');
-      }
-    </style>
-
-    <link href="./sb-manager/runtime.js" rel="modulepreload" />
-
-    
-    <link href="./sb-addons/storybook-core-core-server-presets-0/common-manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/onboarding-1/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/links-2/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/essentials-controls-3/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/essentials-actions-4/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/essentials-backgrounds-5/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/essentials-viewport-6/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/essentials-toolbars-7/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/essentials-measure-8/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/essentials-outline-9/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/interactions-10/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/storybook-11/manager-bundle.js" rel="modulepreload" />
-      <meta name="mobile-web-app-capable" content="yes" />
-<link rel="icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-<link rel="manifest" href="/manifest.json" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta content="width=device-width, initial-scale=1" name="viewport" />
-<meta name="theme-color" content="currentColor" />
-<title>react-audio</title> 
-
-    <style>
-      #storybook-root[hidden] {
-        display: none !important;
-      }
-    </style>
-
-    
-  </head>
   <body>
-    <div id="root"></div>
-
-    
-    <script>
-      
-        
-          window['FEATURES'] = {
-  "argTypeTargetsV7": true,
-  "legacyDecoratorFileOrder": false,
-  "disallowImplicitActionsInRenderV8": true
-};
-        
-      
-        
-          window['REFS'] = {};
-        
-      
-        
-          window['LOGLEVEL'] = "info";
-        
-      
-        
-          window['DOCS_OPTIONS'] = {
-  "defaultName": "Docs",
-  "autodocs": "tag"
-};
-        
-      
-        
-          window['CONFIG_TYPE'] = "PRODUCTION";
-        
-      
-        
-      
-        
-      
-        
-          window['TAGS_OPTIONS'] = {
-  "dev-only": {
-    "excludeFromDocsStories": true
-  },
-  "docs-only": {
-    "excludeFromSidebar": true
-  },
-  "test-only": {
-    "excludeFromSidebar": true,
-    "excludeFromDocsStories": true
-  }
-};
-        
-      
-        
-          window['STORYBOOK_RENDERER'] = "react";
-        
-      
-        
-          window['STORYBOOK_BUILDER'] = "@storybook/builder-vite";
-        
-      
-        
-          window['STORYBOOK_FRAMEWORK'] = "@storybook/react-vite";
-        
-      
-    </script>
-    
-
-    <script type="module">
-      import './sb-manager/globals-runtime.js';
-      
-      
-        import './sb-addons/storybook-core-core-server-presets-0/common-manager-bundle.js';
-      
-        import './sb-addons/onboarding-1/manager-bundle.js';
-      
-        import './sb-addons/links-2/manager-bundle.js';
-      
-        import './sb-addons/essentials-controls-3/manager-bundle.js';
-      
-        import './sb-addons/essentials-actions-4/manager-bundle.js';
-      
-        import './sb-addons/essentials-backgrounds-5/manager-bundle.js';
-      
-        import './sb-addons/essentials-viewport-6/manager-bundle.js';
-      
-        import './sb-addons/essentials-toolbars-7/manager-bundle.js';
-      
-        import './sb-addons/essentials-measure-8/manager-bundle.js';
-      
-        import './sb-addons/essentials-outline-9/manager-bundle.js';
-      
-        import './sb-addons/interactions-10/manager-bundle.js';
-      
-        import './sb-addons/storybook-11/manager-bundle.js';
-      
-      
-      import './sb-manager/runtime.js';
-    </script>
-
-    
-    <link href="./sb-preview/runtime.js" rel="prefetch" as="script" />
-    
+    <div class="ladle-background"></div>
+    <div id="ladle-root" class="ladle-wrapper"></div>
   </body>
 </html>

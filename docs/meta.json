@@ -1,0 +1,163 @@
+{
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
+  },
+  "stories": {
+    "changelog--readme": {
+      "name": "Readme",
+      "levels": [
+        "Changelog"
+      ],
+      "locStart": 22,
+      "locEnd": 30,
+      "filePath": "src/stories/Changelog.stories.mdx",
+      "namedExport": "MDXContent",
+      "meta": {}
+    },
+    "home--readme": {
+      "name": "Readme",
+      "levels": [
+        "Home"
+      ],
+      "locStart": 21,
+      "locEnd": 29,
+      "filePath": "src/stories/Home.stories.mdx",
+      "namedExport": "MDXContent",
+      "meta": {}
+    },
+    "player--auto-play": {
+      "name": "Auto play",
+      "levels": [
+        "Player"
+      ],
+      "locStart": 17,
+      "locEnd": 17,
+      "filePath": "src/stories/Player.stories.tsx",
+      "namedExport": "AutoPlay",
+      "meta": {}
+    },
+    "player--custom-color": {
+      "name": "Custom color",
+      "levels": [
+        "Player"
+      ],
+      "locStart": 16,
+      "locEnd": 16,
+      "filePath": "src/stories/Player.stories.tsx",
+      "namedExport": "CustomColor",
+      "meta": {}
+    },
+    "player--default": {
+      "name": "Default",
+      "levels": [
+        "Player"
+      ],
+      "locStart": 14,
+      "locEnd": 14,
+      "filePath": "src/stories/Player.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "player--no-track-info": {
+      "name": "No track info",
+      "levels": [
+        "Player"
+      ],
+      "locStart": 15,
+      "locEnd": 15,
+      "filePath": "src/stories/Player.stories.tsx",
+      "namedExport": "NoTrackInfo",
+      "meta": {}
+    },
+    "shuffleplayer--default": {
+      "name": "Default",
+      "levels": [
+        "Shuffleplayer"
+      ],
+      "locStart": 20,
+      "locEnd": 20,
+      "filePath": "src/stories/ShufflePlayer.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "waveform--custom-color": {
+      "name": "Custom color",
+      "levels": [
+        "Waveform"
+      ],
+      "locStart": 24,
+      "locEnd": 24,
+      "filePath": "src/stories/Waveform.stories.tsx",
+      "namedExport": "CustomColor",
+      "meta": {}
+    },
+    "waveform--default": {
+      "name": "Default",
+      "levels": [
+        "Waveform"
+      ],
+      "locStart": 14,
+      "locEnd": 14,
+      "filePath": "src/stories/Waveform.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "waveform--higher-fft-size": {
+      "name": "Higher fft size",
+      "levels": [
+        "Waveform"
+      ],
+      "locStart": 26,
+      "locEnd": 26,
+      "filePath": "src/stories/Waveform.stories.tsx",
+      "namedExport": "HigherFFTSize",
+      "meta": {}
+    },
+    "waveform--large": {
+      "name": "Large",
+      "levels": [
+        "Waveform"
+      ],
+      "locStart": 18,
+      "locEnd": 20,
+      "filePath": "src/stories/Waveform.stories.tsx",
+      "namedExport": "Large",
+      "meta": {}
+    },
+    "waveform--lower-fft-size": {
+      "name": "Lower fft size",
+      "levels": [
+        "Waveform"
+      ],
+      "locStart": 25,
+      "locEnd": 25,
+      "filePath": "src/stories/Waveform.stories.tsx",
+      "namedExport": "LowerFFTSize",
+      "meta": {}
+    },
+    "waveform--no-track-info": {
+      "name": "No track info",
+      "levels": [
+        "Waveform"
+      ],
+      "locStart": 21,
+      "locEnd": 23,
+      "filePath": "src/stories/Waveform.stories.tsx",
+      "namedExport": "NoTrackInfo",
+      "meta": {}
+    },
+    "waveform--small": {
+      "name": "Small",
+      "levels": [
+        "Waveform"
+      ],
+      "locStart": 15,
+      "locEnd": 17,
+      "filePath": "src/stories/Waveform.stories.tsx",
+      "namedExport": "Small",
+      "meta": {}
+    }
+  }
+}

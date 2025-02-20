@@ -1,14 +1,25 @@
 # @clxrity/react-audio <img src="./icon.png" width="32px" height="32px" style="display:inline-block;" />
 
-[![view on npm](https://badgen.net/npm/v/@clxrity/react-audio)](https://www.npmjs.org/package/@clxrity/react-audio)
-[![npm module downloads](https://badgen.net/npm/dt/@clxrity/react-audio)](https://www.npmjs.org/package/@clxrity/react-audio)
-[![Gihub repo dependents](https://badgen.net/github/dependents-repo/clxrityy/react-audio)](https://github.com/clxrityy/react-audio/network/dependents?dependent_type=REPOSITORY)
-[![Gihub package dependents](https://badgen.net/github/dependents-pkg/clxrityy/react-audio)](https://github.com/clxrityy/react-audio/network/dependents?dependent_type=PACKAGE)
-[![Node.js CI](https://github.com/clxrityy/react-audio/actions/workflows/main.yml/badge.svg)](https://github.com/clxrityy/react-audio/actions/workflows/main.yml)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/clxrityy/react-audio)
-[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/clxrityy/react-audio/blob/main/LICENSE)
+#### A react audio player component library.
 
-A react audio player component library.
+[![MIT license](https://img.shields.io/npm/l/%40clxrity%2Freact-audio?style=for-the-badge&label=LICENSE
+)](https://github.com/clxrityy/react-audio/blob/main/LICENSE)
+
+[![BUILD](https://img.shields.io/github/actions/workflow/status/clxrityy/react-audio/.github%2Fworkflows%2Fmain.yml?branch=main&event=push&style=for-the-badge&logo=github&logoColor=%23181717&logoSize=auto&label=BUILD&color=%232dba4e
+)](https://github.com/clxrityy/react-audio/actions/workflows/main.yml)  [![codecov.io Code Coverage](https://img.shields.io/codecov/c/github/clxrityy/react-audio?token=4c9504fd-c584-412e-9430-31e729f966b0&style=for-the-badge&logo=codecov&logoColor=%23F01F7A&logoSize=auto&label=COVERAGE&labelColor=%23F01F7A)](https://codecov.io/github/clxrity/react-audio?branch=main) 
+[![view on npm](https://img.shields.io/npm/v/%40clxrity%2Freact-audio?style=for-the-badge&logo=npm&logoColor=%23CB3837&logoSize=auto&label=NPM
+)](https://www.npmjs.org/package/@clxrity/react-audio) 
+[![npm module downloads](https://img.shields.io/npm/dm/%40clxrity%2Freact-audio?style=for-the-badge&logo=npm&logoColor=%23CB3837&logoSize=auto&label=DOWNLOADS)](https://www.npmjs.org/package/@clxrity/react-audio)
+
+---
+
+[![Node version](https://img.shields.io/node/v-lts/%40clxrity%2Freact-audio?style=for-the-badge&logo=nodedotjs&logoColor=%235FA04E&logoSize=auto&label=NODE
+)](https://github.com/clxrityy/react-audio/blob/main/.nvmrc)
+
+#### Peer Dependencies:
+
+[![react](https://img.shields.io/npm/dependency-version/%40clxrity%2Freact-audio/peer/react?style=for-the-badge&logo=react&logoColor=%2361DAFB&logoSize=auto&label=react)](https://www.npmjs.com/package/react) [![react-dom](https://img.shields.io/npm/dependency-version/%40clxrity%2Freact-audio/peer/react-dom?style=for-the-badge&logo=react&logoColor=%2361DAFB&logoSize=auto&label=react-dom)](https://www.npmjs.com/package/react-dom) 
+
 
 ```zsh
 npm i @clxrity/react-audio
@@ -24,14 +35,35 @@ yarn add @clxrity/react-audio
 
 ---
 
-- #### [🗒️ CHANGELOG](/CHANGELOG.md) 
-- #### [📄 DOCUMENTATION](https://clxrityy.github.io/react-audio/)
+[![Documentation](https://img.shields.io/badge/clxrityy.github.io%2Freact-audio?style=for-the-badge&logo=readme&logoColor=%23617ab1&logoSize=auto&label=DOCS&color=%23617ab1)
+](https://clxrityy.github.io/react-audio/)
+[![Changelog](https://img.shields.io/badge/clxrityy.github.io%2Freact-audio%2F%3Fstory%3Dchangelog--readme?style=for-the-badge&logo=stackexchange&logoColor=%23617ab1&logoSize=auto&label=CHANGELOG&color=%23617ab1
+)](https://clxrityy.github.io/react-audio/?story=changelog--readme)
 
 ---
 
-![audio-library](https://i.gyazo.com/0eea9eac4243013f67b9c2d33aa1c9e5.gif)
+## Dynamic import example with Next.js
 
-> Example from [clxrity.xyz](https://clxrity.xyz)
+```tsx
+'use client' // (REQUIRED)
+import dynamic from 'next/dynamic'
+import '@clxrity/react-audio/dist/index.css' // (optional) import the styles
 
+const Player = dynamic(
+    () => import('@clxrity/react-audio').then((mod) => mod.Player),
+    { ssr: false }
+)
 
-##### See [examples](/examples/README.md) for more specific usage demonstrations
+export default function Component() {
+    const track = {
+        src: '/loop.wav', // (REQUIRED) audio file path (public/loop.wav)
+        title: 'Loop',
+        artist: {
+            name: 'Clxrity',
+            url: 'https://wav.clxrity.xyz',
+        },
+    }
+
+    return <Player track={track} showTrackInfo={true} />
+}
+```

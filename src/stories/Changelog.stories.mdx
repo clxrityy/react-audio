@@ -1,0 +1,239 @@
+import '../index.css'
+
+# @clxrity/react-audio
+
+## 2.0.0
+
+### Major Changes
+
+- b82ecec: - Switched from [storybook](https://storybook.js.org/) to [ladle](https://ladle.dev/) - Much more lightweight and faster - A lot more of a simple UI to work with
+
+    - Text and colors are automatically inherited by the theme.
+        - Dark background = white text
+        - Light background = black text
+    - Components in new working new version so far:
+        - `<Player />` - Replaces `<JustPlayer />` & `<AudioPlayer />`
+        - `<ShufflePlayer />` - Replaces `<LibraryPlayer />`
+        - `<Waveform />`
+
+    Working structure:
+
+    ```yaml
+    ~:
+        __tests__/: # Tests with vitest
+        .changeset/: # Changeset version management
+        .github/: # Github workflows
+        .ladle/: # Ladle setup for documenation
+        docs/: # Output from ladle for github pages
+        public/: # Public static directory
+        src/:
+            components/ui/: # Reusable UI components
+            hooks/: # Reusable hooks
+            lib/: # The package exports
+                - ...
+                - index.ts # Main entry point
+            stories/: # Ladle stories
+            util/: # Utility functions
+            - config.ts # Default configurations
+            - index.css # Global CSS
+        ...
+    ```
+
+- 22f001e: - Update all dependencies
+    - Begin restructuring code
+    - Switch to Vite
+    - Switch from styled components to tailwind
+    - Add new logo
+    - Add new landing page
+    - Add new documentation
+    - Add new examples
+    - Add new audio player
+
+### Minor Changes
+
+- e8d4166: update all packages to latest version
+- 149e841: Added the Player component which will replace JustPlayer & AudioPlayer into one component (with props for customization)
+- e155be4: add functionality to EQ & volume knobs (**AudioInputVisualizer**)
+- 6f1c415: Added a code coverage workflow that indicates whether all [`vitest`](https://vitest.dev/) tests are passing.
+
+    - Utilizes [Codecov](https://about.codecov.io/) to provide an interactive UI for test coverage.
+    - Added an environment variable `CODECOV_TOKEN` to the repository's secrets and local `.env` file.
+    - Added a new script `npm run coverage` to generate and upload the coverage report.
+
+- 8172042: added the Waveform component, working perfectly. might need some style tweaks and configurations down the road
+- f1a1c48: Add a new \***\*tests\*\*** directory to contain public tests
+- f102a1f: Finished the Player component with a progress bar, autoplay feature, ability to disable progress bar and track info display
+
+## 1.7.0
+
+### Minor Changes
+
+- f5abd36: added **AudioUploader** functional with no UI display yet
+- d89e093: add **resize()** function to **Waveform**'s canvas if no size prop is present
+- 23839c0: **AudioInputVisualizer** works fully functional
+- ba70a93: began **AudioInput** component where you can input audio mic/guitar
+- bb9f2b5: added prop to **Waveform** & **AudioInputVisualizer**: fftsize
+
+### Patch Changes
+
+- be63b43: re-added imports for libraryplayer & librarytrackitem
+
+## 1.6.0
+
+### Minor Changes
+
+- 9ba3169: update props setup, all now have specific inherited props
+- 0422a54: update storybook
+
+### Patch Changes
+
+- ad13785: fix imports and props passing on
+
+## 1.5.0
+
+### Minor Changes
+
+- dbc2980: add docs
+- 7d930b0: add nextjs app to docs
+- e56a5f9: added a script that generates an api route for creating a waveform image
+
+## 1.4.0
+
+### Minor Changes
+
+- 832989e: added jest, testing ffmpeg features to create waveforms
+- f7f4d6f: restructure files (exports in src/lib/)
+
+### Patch Changes
+
+- c650b27: make all exports default
+- 610d33d: fixed jest interfering with rollup build
+- 3a33cf0: ability to change color in waveforms actually works now
+
+## 1.3.0
+
+### Minor Changes
+
+- 48caa05: change styled-components to devDependency
+- 7560f63: update packages
+- 0dff7df: add **showTrackInfo** prop to **Waveform**
+
+### Patch Changes
+
+- aa2aaa1: remove tailwindcss dependency
+- 3bd6fe5: fix progress bar on waveform
+
+## 0.14.0
+
+### Minor Changes
+
+- cd32bde: more styling updates to library
+- 2061b0b: update readme
+- 596d485: add other components to **Waveform**
+- e95dde9: updated styles for **AudioPlayer** (removed unused thumbnail)
+
+### Patch Changes
+
+- cb432a6: **Waveform** is functional, no errors, need to add other component parts
+- 8ef7746: waveform now works
+- ce890a9: fix dom errors
+
+## 0.13.0
+
+### Minor Changes
+
+- 1659bd6: begin **Waveform** component, existing error: "Uncaught DOMException: Failed to execute 'createMediaElementSource' on 'AudioContext': HTMLMediaElement already connected previously to a different MediaElementSourceNode."
+- fdf559b: style updates to library player
+
+## 0.11.0
+
+### Minor Changes
+
+- 39ed441: add loading states to every component
+
+### Patch Changes
+
+- 7a5aca2: fix error "rounded is not defined" prop with **Button**
+
+## 0.10.0
+
+### Minor Changes
+
+- c1c9610: removed **AudioPlayer** for now
+- 9bb0c8d: added (begun) **`<AudioPlayer />`**
+
+### Patch Changes
+
+- 8cd2ac2: fix "Audio is not defined" error in **`<JustPlayer />`**
+- 4af6757: fix **JustPlayer**: no more useEffect issue
+- 213a90c: fixed "variant" unknown prop in **`<Button /`>**, will find better ways to update styles and theming
+
+## 0.9.0
+
+### Minor Changes
+
+- 4f368d5: **AudioLibrary** is fully functional and styled nicely for now, updated readme & package.json
+- 1f5711c: change library component to **AudioLibrary** with states and styles inside
+
+## 0.8.0
+
+### Minor Changes
+
+- 469f488: add / begin `<LibraryPlayer />` component
+- aec2e66: add styled-components
+
+### Patch Changes
+
+- 60d76fd: `<LibraryPlayer />` now works (somewhat)
+
+## 0.7.0
+
+### Minor Changes
+
+- 62c85bf: update packages
+
+### Patch Changes
+
+- 443185b: `<JustPlayer />` now works (plays audio)
+
+## 0.6.0
+
+### Minor Changes
+
+- 6e7d46f: updated visuals to `<AudioPlayer />`, began `<JustPlayer />`
+
+## 0.5.0
+
+### Minor Changes
+
+- 3dc1f94: add background color param
+- df5f580: add license and npmignore
+
+### Patch Changes
+
+- fc106f5: it works now
+- df5f580: make changeset a dev dependency
+
+## 0.4.0
+
+### Minor Changes
+
+- d184bff: made component export & import into applications properly, `<AudioPlayer />` component is now (semi) functional and visible
+- f5c0d15: structuring `AudioPlayer` component. began exporting compatible types for the (optional) options (styling so far)
+
+## 0.3.0
+
+### Minor Changes
+
+- af6c419: test tailwindcss
+- 7cacb07: begin functionality of audio component
+
+### Patch Changes
+
+- 7cacb07: change name of `Player` to `AudioPlayer`
+
+## 0.2.0
+
+### Minor Changes
+
+- begin testing, add changeset, begin development process

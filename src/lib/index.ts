@@ -1,21 +1,17 @@
-import { default as AudioLibrary, default as LibraryPlayer, default as LibraryTrackItem } from './AudioLibrary';
-import AudioPlayer from './AudioPlayer';
-import JustPlayer from './JustPlayer';
-import Waveform from './Waveform';
-// import WaveformImage from './WaveformImage'
-import AudioInputVisualizer from './AudioInputVisualizer';
-import AudioUploader from './AudioUploader';
+import '../index.css'
 
-export default {
-    AudioLibrary,
-    AudioPlayer,
-    JustPlayer,
-    LibraryPlayer,
-    LibraryTrackItem,
-    // ProgressBar,
-    // VolumeInput,
+import { Player, type PlayerProps } from './Player'
+import { type Track, type FFTSize } from './types'
+import { Waveform, type WaveformProps } from './Waveform'
+import { ShufflePlayer, type ShufflePlayerProps } from './ShufflePlayer'
+
+export {
+    Player,
+    type PlayerProps,
+    type Track,
+    type FFTSize,
     Waveform,
-    // WaveformImage,
-    AudioUploader,
-    AudioInputVisualizer,
+    type WaveformProps,
+    ShufflePlayer,
+    type ShufflePlayerProps,
 }
