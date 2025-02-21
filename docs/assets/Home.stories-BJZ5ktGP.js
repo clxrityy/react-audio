@@ -1,4 +1,4 @@
-import{u as s,j as a}from"./index-VhSYc8xl.js";import"./dialog-DwA6s8Ds.js";function o(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h4:"h4",hr:"hr",img:"img",p:"p",pre:"pre",...s(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsxs(e.h1,{className:"ladle-markdown",children:["@clxrity/react-audio ",a.jsx(e.img,{src:"/favicon-32x32.png",alt:"logo",className:"ladle-markdown"})]}),`
+import{u as s,j as a}from"./index-B5LCmekF.js";import"./dialog-CCFSiqdr.js";function o(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h4:"h4",hr:"hr",img:"img",p:"p",pre:"pre",...s(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsxs(e.h1,{className:"ladle-markdown",children:["@clxrity/react-audio ",a.jsx(e.img,{src:"https://clxrityy.github.io/react-audio/favicon-32x32.png",alt:"logo",className:"ladle-markdown"})]}),`
 `,a.jsx(e.h4,{className:"ladle-markdown",children:"A react audio player component library."}),`
 `,a.jsx(e.p,{className:"ladle-markdown",children:a.jsx(e.a,{href:"https://github.com/clxrityy/react-audio/blob/main/LICENSE",className:"ladle-markdown",children:a.jsx(e.img,{src:"https://img.shields.io/npm/l/%40clxrity%2Freact-audio?style=for-the-badge&label=LICENSE",alt:"MIT license",className:"ladle-markdown"})})}),`
 `,a.jsxs(e.p,{className:"ladle-markdown",children:[a.jsx(e.a,{href:"https://github.com/clxrityy/react-audio/actions/workflows/main.yml",className:"ladle-markdown",children:a.jsx(e.img,{src:"https://img.shields.io/github/actions/workflow/status/clxrityy/react-audio/.github%2Fworkflows%2Fmain.yml?branch=main&event=push&style=for-the-badge&logo=github&logoColor=%23181717&logoSize=auto&label=BUILD&color=%232dba4e",alt:"BUILD",className:"ladle-markdown"})})," ",a.jsx(e.a,{href:"https://codecov.io/github/clxrity/react-audio?branch=main",className:"ladle-markdown",children:a.jsx(e.img,{src:"https://img.shields.io/codecov/c/github/clxrityy/react-audio?token=4c9504fd-c584-412e-9430-31e729f966b0&style=for-the-badge&logo=codecov&logoColor=%23F01F7A&logoSize=auto&label=COVERAGE&labelColor=%23F01F7A",alt:"codecov.io Code Coverage",className:"ladle-markdown"})}),`
@@ -22,7 +22,14 @@ import{u as s,j as a}from"./index-VhSYc8xl.js";import"./dialog-DwA6s8Ds.js";func
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"Dynamic import example with Next.js"}),`
 `,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-tsx ladle-markdown",children:`'use client' // (REQUIRED)
 import dynamic from 'next/dynamic'
-import '@clxrity/react-audio/dist/index.css' // (optional) import the styles
+import '@clxrity/react-audio/index.css' // (optional) import the styles
+
+/**
+ * You can also import the CSS within your \`globals.css\` or \`index.css\` file like so:
+ * \`\`\`css
+ * @import "@clxrity/react-audio/index.css";
+ * \`\`\`
+ */
 
 const Player = dynamic(
     () => import('@clxrity/react-audio').then((mod) => mod.Player),

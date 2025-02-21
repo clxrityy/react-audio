@@ -1,4 +1,71 @@
-import{u as s,j as a}from"./index-VhSYc8xl.js";import"./dialog-DwA6s8Ds.js";function n(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...s(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+import{u as s,j as a}from"./index-B5LCmekF.js";import"./dialog-CCFSiqdr.js";function n(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...s(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+`,a.jsx(e.h2,{className:"ladle-markdown",children:"2.0.2"}),`
+`,a.jsx(e.h3,{className:"ladle-markdown",children:"Patch Changes"}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"4853714: ##### Fix the ability to import the package's css file."}),`
+`,a.jsxs(e.p,{className:"ladle-markdown",children:["Before it was bundling into ",a.jsx(e.code,{className:"ladle-markdown",children:"dist/src/index.css"}),` which was not being imported correctly.
+Upon trying to fix it, it would bundle as `,a.jsx(e.code,{className:"ladle-markdown",children:"react-audio.css"})," which was not the desired output."]}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.p,{className:"ladle-markdown",children:["Altered ",a.jsx(e.code,{className:"ladle-markdown",children:"vite.config.ts"})," to output the css to ",a.jsx(e.code,{className:"ladle-markdown",children:"dist/index.css"})]}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:["Added a custom ",a.jsx(e.code,{className:"ladle-markdown",children:"rename-css-plugin"})," to vite plugins:"]}),`
+`]}),`
+`,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-ts ladle-markdown",children:`import { UserConfigExport } from 'vite'
+import { renameSync } from 'fs' // NEW
+import path from 'path'
+import { defineConfig } from 'vitest/config'
+// ...
+
+const app = async (): Promise<UserConfigExport> => {
+    return defineConfig({
+        plugins: [
+            //.. prev plugins,
+            {
+                name: 'rename-css-plugin',
+                closeBundle() {
+                    const oldPath = path.resolve(
+                        __dirname,
+                        'dist/react-audio.css'
+                    )
+                    const newPath = path.resolve(
+                        __dirname,
+                        'dist/index.css'
+                    )
+
+                    try {
+                        renameSync(oldPath, newPath) // FIX
+                    } catch (error) {
+                        console.error(error)
+                    }
+                },
+            },
+        ],
+    })
+}
+`})}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.p,{className:"ladle-markdown",children:["Also added a way to import within css by updating ",a.jsx(e.code,{className:"ladle-markdown",children:"css.preprocessorOptions"})," in ",a.jsx(e.code,{className:"ladle-markdown",children:"vite.config.ts"}),":"]}),`
+`,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-ts ladle-markdown",children:`css: {
+    preprocessorOptions: {
+        scss: {
+            additionalData: \`@import "@clxrity/react-audio/index.css";\`
+        }
+    }
+}
+`})}),`
+`]}),`
+`]}),`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"You can now import within your css file like so:"}),`
+`,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-css ladle-markdown",children:`@import '@clxrity/react-audio/index.css';
+`})}),`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"And within your js/ts file like so:"}),`
+`,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-ts ladle-markdown",children:`import '@clxrity/react-audio/index.css'
+`})}),`
+`]}),`
+`]}),`
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"2.0.0"}),`
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Major Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
