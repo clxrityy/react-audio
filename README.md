@@ -34,7 +34,7 @@ yarn add @clxrity/react-audio
 ---
 
 [![Documentation](https://img.shields.io/badge/clxrityy.github.io%2Freact-audio?style=for-the-badge&logo=readme&logoColor=%23617ab1&logoSize=auto&label=DOCS&color=%23617ab1)
-](https://clxrityy.github.io/react-audio/)
+](https://clxrityy.github.io/react-audio/?story=home--readme)
 [![Changelog](https://img.shields.io/badge/clxrityy.github.io%2Freact-audio%2F%3Fstory%3Dchangelog--readme?style=for-the-badge&logo=stackexchange&logoColor=%23617ab1&logoSize=auto&label=CHANGELOG&color=%23617ab1
 )](https://clxrityy.github.io/react-audio/?story=changelog--readme)
 
