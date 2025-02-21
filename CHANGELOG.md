@@ -1,5 +1,76 @@
 # @clxrity/react-audio
 
+## 2.0.2
+
+### Patch Changes
+
+- 4853714: ##### Fix the ability to import the package's css file.
+
+    Before it was bundling into `dist/src/index.css` which was not being imported correctly.
+    Upon trying to fix it, it would bundle as `react-audio.css` which was not the desired output.
+
+    - Altered `vite.config.ts` to output the css to `dist/index.css`
+
+        - Added a custom `rename-css-plugin` to vite plugins:
+
+        ```ts
+        import { UserConfigExport } from 'vite'
+        import { renameSync } from 'fs' // NEW
+        import path from 'path'
+        import { defineConfig } from 'vitest/config'
+        // ...
+
+        const app = async (): Promise<UserConfigExport> => {
+            return defineConfig({
+                plugins: [
+                    //.. prev plugins,
+                    {
+                        name: 'rename-css-plugin',
+                        closeBundle() {
+                            const oldPath = path.resolve(
+                                __dirname,
+                                'dist/react-audio.css'
+                            )
+                            const newPath = path.resolve(
+                                __dirname,
+                                'dist/index.css'
+                            )
+
+                            try {
+                                renameSync(oldPath, newPath) // FIX
+                            } catch (error) {
+                                console.error(error)
+                            }
+                        },
+                    },
+                ],
+            })
+        }
+        ```
+
+    - Also added a way to import within css by updating `css.preprocessorOptions` in `vite.config.ts`:
+        ```ts
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: `@import "@clxrity/react-audio/index.css";`
+                }
+            }
+        }
+        ```
+
+    You can now import within your css file like so:
+
+    ```css
+    @import '@clxrity/react-audio/index.css';
+    ```
+
+    And within your js/ts file like so:
+
+    ```ts
+    import '@clxrity/react-audio/index.css'
+    ```
+
 ## 2.0.0
 
 ### Major Changes
@@ -59,7 +130,7 @@
     - Added a new script `npm run coverage` to generate and upload the coverage report.
 
 - 8172042: added the Waveform component, working perfectly. might need some style tweaks and configurations down the road
-- f1a1c48: Add a new ****tests**** directory to contain public tests
+- f1a1c48: Add a new \***\*tests\*\*** directory to contain public tests
 - f102a1f: Finished the Player component with a progress bar, autoplay feature, ability to disable progress bar and track info display
 
 ## 1.7.0

@@ -1,6 +1,6 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "A simple audio player for React",
   "main": "./dist/index.cjs",
   "module": "./dist/index.es.js",
@@ -11,7 +11,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./index.css": "./dist/index.css"
   },
   "private": false,
   "files": [
@@ -29,7 +30,7 @@
   },
   "scripts": {
     "build": "vite build",
-    "release": "pnpm build && changeset version && pnpm build:ladle && pnpm lint && pnpm deploy-docs && changeset publish",
+    "release": "pnpm build && changeset version && pnpm build:ladle && pnpm test && pnpm coverage && pnpm lint && changeset publish",
     "patch:publish": "pnpm build && changeset publish",
     "test": "vitest",
     "lint": "prettier -c --write ./src/*",
@@ -98,7 +99,6 @@
     "@types/react": "^19.0.10",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^3.0.6",
-
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "esbuild": "^0.25.0",
