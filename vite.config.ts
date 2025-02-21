@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/postcss';
 import wasm from "vite-plugin-wasm";
 import topLevelAwait from "vite-plugin-top-level-await";
 import { codecovVitePlugin } from '@codecov/vite-plugin';
+import { renameSync } from 'fs';
 
 
 const app = async (): Promise<UserConfigExport> => {
@@ -25,6 +26,21 @@ const app = async (): Promise<UserConfigExport> => {
         bundleName: "react-audio",
         uploadToken: process.env.CODECOV_TOKEN,
       }),
+      {
+        name: "rename-css-plugin",
+        closeBundle() {
+            const oldPath = path.resolve(__dirname, 'dist/react-audio.css');
+            const newPath = path.resolve(__dirname, 'dist/index.css');
+
+            try {
+              renameSync(oldPath, newPath);
+              console.log(`Renamed ${oldPath} to ${newPath}`);
+            } catch (e) {
+              console.error(`Error renaming ${oldPath} to ${newPath}`);
+              console.error(e);
+            }
+        },
+      }
     ],
     // css: {
     //   postcss: {
@@ -33,6 +49,13 @@ const app = async (): Promise<UserConfigExport> => {
     //     ],
     //   },
     // },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@clxrity/react-audio/index.css";`
+        }
+      }
+    },
     resolve: {
       alias: {
         "lightningcss": "lightningcss-wasm"
@@ -64,7 +87,7 @@ const app = async (): Promise<UserConfigExport> => {
           {
             entryFileNames: `index.es.js`,
             format: 'es',
-            preserveModules: true,
+            preserveModules: false,
           },
           {
             entryFileNames: `index.cjs`,
@@ -73,16 +96,16 @@ const app = async (): Promise<UserConfigExport> => {
         ],
         input: "src/lib/index.ts",
       },
-      outDir: 'dist',
-      cssCodeSplit: true,
-      reportCompressedSize: true,
-    },
-    test: {
-      globals: true,
-      environment: 'jsdom',
-    },
-    publicDir: 'public',
-  })
+        outDir: 'dist',
+        cssCodeSplit: false,
+        reportCompressedSize: true,
+      },
+      test: {
+        globals: true,
+        environment: 'jsdom',
+      },
+      publicDir: 'public',
+    })
 }
 // https://vitejs.dev/config/
 export default app

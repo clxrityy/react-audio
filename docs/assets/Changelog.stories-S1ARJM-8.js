@@ -1,4 +1,4 @@
-import{u as s,j as a}from"./index-BndVsEdy.js";import"./dialog-CBeI--Cp.js";function n(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...s(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+import{u as s,j as a}from"./index-VhSYc8xl.js";import"./dialog-DwA6s8Ds.js";function n(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...s(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"2.0.0"}),`
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Major Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`

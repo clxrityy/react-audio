@@ -45,7 +45,14 @@ yarn add @clxrity/react-audio
 ```tsx
 'use client' // (REQUIRED)
 import dynamic from 'next/dynamic'
-import '@clxrity/react-audio/dist/index.css' // (optional) import the styles
+import '@clxrity/react-audio/index.css' // (optional) import the styles
+
+/**
+ * You can also import the CSS within your `globals.css` or `index.css` file like so:
+ * ```css
+ * @import "@clxrity/react-audio/index.css";
+ * ```
+ */
 
 const Player = dynamic(
     () => import('@clxrity/react-audio').then((mod) => mod.Player),
