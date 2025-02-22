@@ -1,6 +1,6 @@
 {
     "about": {
-      "homepage": "https://mjanglin.com",
+      "homepage": "https://clxrityy.github.io/react-audio/?story=home--readme",
       "github": "https://github.com/clxrityy/react-audio",
       "version": 2
     },
@@ -11,7 +11,7 @@
     "assets": {
         "images": {
             "directory": "./",
-            "publicPath": "/"
+            "publicPath": "/public"
         }
     }
   }

@@ -1,5 +1,8 @@
 import React from 'react'
 import { Waveform, type Track } from '../lib'
+import { Meta } from '@ladle/react'
+
+;<Meta title="Components/Waveform" />
 
 export default {
     title: 'Waveform',

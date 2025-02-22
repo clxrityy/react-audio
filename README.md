@@ -1,4 +1,4 @@
-# @clxrity/react-audio <img src="./icon.png" width="32px" height="32px" style="display:inline-block;" />
+# @clxrity/react-audio <img src="https://clxrityy.github.io/react-audio/apple-touch-icon.png" width="32px" height="32px" style="display:inline-block;" />
 
 #### A react audio player component library.
 

@@ -5,13 +5,13 @@
     "version": 1
   },
   "stories": {
-    "changelog--readme": {
-      "name": "Readme",
+    "documentation--changelog": {
+      "name": "Changelog",
       "levels": [
-        "Changelog"
+        "Documentation"
       ],
-      "locStart": 22,
-      "locEnd": 30,
+      "locStart": 10,
+      "locEnd": 18,
       "filePath": "src/stories/Changelog.stories.mdx",
       "namedExport": "MDXContent",
       "meta": {}
@@ -21,8 +21,8 @@
       "levels": [
         "Home"
       ],
-      "locStart": 21,
-      "locEnd": 29,
+      "locStart": 10,
+      "locEnd": 18,
       "filePath": "src/stories/Home.stories.mdx",
       "namedExport": "MDXContent",
       "meta": {}
@@ -32,8 +32,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 17,
-      "locEnd": 17,
+      "locStart": 20,
+      "locEnd": 20,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "AutoPlay",
       "meta": {}
@@ -43,8 +43,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 16,
-      "locEnd": 16,
+      "locStart": 19,
+      "locEnd": 19,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "CustomColor",
       "meta": {}
@@ -54,8 +54,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 14,
-      "locEnd": 14,
+      "locStart": 17,
+      "locEnd": 17,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "Default",
       "meta": {}
@@ -65,10 +65,32 @@
       "levels": [
         "Player"
       ],
-      "locStart": 15,
-      "locEnd": 15,
+      "locStart": 18,
+      "locEnd": 18,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "NoTrackInfo",
+      "meta": {}
+    },
+    "shuffleplayer--custom-border": {
+      "name": "Custom border",
+      "levels": [
+        "Shuffleplayer"
+      ],
+      "locStart": 26,
+      "locEnd": 26,
+      "filePath": "src/stories/ShufflePlayer.stories.tsx",
+      "namedExport": "CustomBorder",
+      "meta": {}
+    },
+    "shuffleplayer--custom-color": {
+      "name": "Custom color",
+      "levels": [
+        "Shuffleplayer"
+      ],
+      "locStart": 25,
+      "locEnd": 25,
+      "filePath": "src/stories/ShufflePlayer.stories.tsx",
+      "namedExport": "CustomColor",
       "meta": {}
     },
     "shuffleplayer--default": {
@@ -76,10 +98,21 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 20,
-      "locEnd": 20,
+      "locStart": 23,
+      "locEnd": 23,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "Default",
+      "meta": {}
+    },
+    "shuffleplayer--dont-show-tracks": {
+      "name": "Dont show tracks",
+      "levels": [
+        "Shuffleplayer"
+      ],
+      "locStart": 24,
+      "locEnd": 24,
+      "filePath": "src/stories/ShufflePlayer.stories.tsx",
+      "namedExport": "DontShowTracks",
       "meta": {}
     },
     "waveform--custom-color": {
@@ -87,8 +120,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 24,
-      "locEnd": 24,
+      "locStart": 27,
+      "locEnd": 27,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "CustomColor",
       "meta": {}
@@ -98,8 +131,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 14,
-      "locEnd": 14,
+      "locStart": 17,
+      "locEnd": 17,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "Default",
       "meta": {}
@@ -109,8 +142,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 26,
-      "locEnd": 26,
+      "locStart": 29,
+      "locEnd": 29,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "HigherFFTSize",
       "meta": {}
@@ -120,8 +153,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 18,
-      "locEnd": 20,
+      "locStart": 21,
+      "locEnd": 23,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "Large",
       "meta": {}
@@ -131,8 +164,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 25,
-      "locEnd": 25,
+      "locStart": 28,
+      "locEnd": 28,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "LowerFFTSize",
       "meta": {}
@@ -142,8 +175,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 21,
-      "locEnd": 23,
+      "locStart": 24,
+      "locEnd": 26,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "NoTrackInfo",
       "meta": {}
@@ -153,8 +186,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 15,
-      "locEnd": 17,
+      "locStart": 18,
+      "locEnd": 20,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "Small",
       "meta": {}

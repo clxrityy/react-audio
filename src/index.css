@@ -27,13 +27,13 @@
     @apply text-[var(--color-text)];
 }
 
-nav {
+/* nav {
     @apply bg-[var(--color-background)] text-[var(--color-text)] border-b border-[var(--color-border)] transition-colors duration-300 relative z-10;
 }
 
 nav {
     @apply bg-gradient-to-bl from-[var(--color-background)] to-[var(--color-background-secondary)] text-[var(--color-text)] border-b border-[var(--color-border)] transition-colors duration-300 relative z-10;
-}
+} */
 
 .ladle-background {
     @apply bg-gradient-to-r from-[var(--color-background)] to-[var(--color-background-secondary)] text-[var(--color-text)];
@@ -80,22 +80,22 @@ nav {
 }
 
 .docs-main h1 {
-    @apply text-3xl font-[800] my-6;
+    @apply text-3xl font-[800] my-8;
 }
 
 .docs-main h2 {
-    @apply text-2xl font-[600] my-4;
+    @apply text-2xl font-[600] my-6;
 }
 
 .docs-main h3 {
     @apply text-xl font-[500] my-4;
 }
 
-code {
+/* code {
     @apply bg-[var(--color-background-tertiary)] text-[var(--color-text-secondary)] px-1 rounded;
     font-family: 'Source Code Pro', monospace;
     font-size: 0.9em;
-}
+} */
 
 .docs-main img {
     @apply px-1 py-2 inline mx-1 my-1 h-11 w-auto rounded-xl;
@@ -105,25 +105,30 @@ code {
     @apply my-2;
 }
 
-.docs-main code {
-    font-family: 'Source Code Pro', monospace;
-    margin-left: 0.2rem;
-    margin-right: 0.2rem;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-    font-size: 0.8em;
-    line-height: 1.2em;
-    vertical-align: 0.1em;
-    white-space: nowrap;
-    border-radius: 0.3rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    overflow-x: scroll;
-    width: fit-content;
+.docs-main pre {
+    max-width: fit-content;
+    /* Ensures it doesn't exceed the container */
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    padding: 10px;
+    /* background-color: var(--color-background-tertiary); */
+    /* Light background for visibility */
+    border-radius: 5px;
+    white-space: pre;
+    /* Prevents wrapping */
+}
 
-    @apply bg-[var(--color-background-tertiary)] text-[var(--color-text-secondary)] px-1 rounded;
+.docs-main code {
+    display: block;
+    /* Makes sure it behaves properly */
+    white-space: pre;
+    /* Prevents auto-wrapping */
+    word-wrap: normal;
+    /* Ensures words don't break */
+    overflow-wrap: normal;
+    /* Avoids forced breaks */
+    font-family: monospace;
+    /* Uses a proper coding font */
 }
 
 .docs-main a {

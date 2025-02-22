@@ -29,7 +29,7 @@ export function Waveform({
     showTrackInfo = false,
     showVolume = false,
     showProgress = true,
-    color,
+    color = COLORS.primary,
     ...props
 }: WaveformProps) {
     const [audioContext, setAudioContext] = useState<AudioContext | null>(null)
@@ -102,7 +102,6 @@ export function Waveform({
             if (!audioContext) {
                 initializeAudio()
             } else if (audioContext.state === 'suspended') {
-                console.log('▶️ Resuming AudioContext...')
                 audioContext.resume()
             }
         }
@@ -140,7 +139,7 @@ export function Waveform({
                                 analyserData.frequencyBinCount
                             ),
                         }}
-                        color={color || COLORS.primary}
+                        color={color}
                         width={size}
                         height={size}
                         style={{

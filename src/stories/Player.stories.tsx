@@ -1,5 +1,8 @@
 import React from 'react'
 import { Player, Track } from '../lib'
+import { Meta } from '@ladle/react'
+
+;<Meta title="Components/Player" />
 
 export default {
     title: 'Player',

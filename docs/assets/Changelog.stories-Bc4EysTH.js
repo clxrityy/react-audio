@@ -1,9 +1,9 @@
-import{u as s,j as a}from"./index-B5LCmekF.js";import"./dialog-CCFSiqdr.js";function n(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...s(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+import{u as n,b as a}from"./index-BOXrQlaR.js";import{M as r}from"./exports-B8Xy2Xjl.js";import"./dialog-BLhiEUtv.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"2.0.2"}),`
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Patch Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
 `,a.jsxs(e.li,{className:"ladle-markdown",children:[`
-`,a.jsx(e.p,{className:"ladle-markdown",children:"4853714: ##### Fix the ability to import the package's css file."}),`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"4853714: Fix the ability to import the package's css file."}),`
 `,a.jsxs(e.p,{className:"ladle-markdown",children:["Before it was bundling into ",a.jsx(e.code,{className:"ladle-markdown",children:"dist/src/index.css"}),` which was not being imported correctly.
 Upon trying to fix it, it would bundle as `,a.jsx(e.code,{className:"ladle-markdown",children:"react-audio.css"})," which was not the desired output."]}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
@@ -72,13 +72,13 @@ const app = async (): Promise<UserConfigExport> => {
 `,a.jsxs(e.li,{className:"ladle-markdown",children:[`
 `,a.jsxs(e.p,{className:"ladle-markdown",children:["b82ecec: - Switched from ",a.jsx(e.a,{href:"https://storybook.js.org/",className:"ladle-markdown",children:"storybook"})," to ",a.jsx(e.a,{href:"https://ladle.dev/",className:"ladle-markdown",children:"ladle"})," - Much more lightweight and faster - A lot more of a simple UI to work with"]}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
-`,a.jsxs(e.li,{className:"ladle-markdown",children:["Text and colors are automatically inherited by the theme.",`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`Text and colors are automatically inherited by the theme.
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
 `,a.jsx(e.li,{className:"ladle-markdown",children:"Dark background = white text"}),`
 `,a.jsx(e.li,{className:"ladle-markdown",children:"Light background = black text"}),`
 `]}),`
 `]}),`
-`,a.jsxs(e.li,{className:"ladle-markdown",children:["Components in new working new version so far:",`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`Components in new working new version so far:
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
 `,a.jsxs(e.li,{className:"ladle-markdown",children:[a.jsx(e.code,{className:"ladle-markdown",children:"<Player />"})," - Replaces ",a.jsx(e.code,{className:"ladle-markdown",children:"<JustPlayer />"})," & ",a.jsx(e.code,{className:"ladle-markdown",children:"<AudioPlayer />"})]}),`
 `,a.jsxs(e.li,{className:"ladle-markdown",children:[a.jsx(e.code,{className:"ladle-markdown",children:"<ShufflePlayer />"})," - Replaces ",a.jsx(e.code,{className:"ladle-markdown",children:"<LibraryPlayer />"})]}),`
@@ -306,4 +306,5 @@ const app = async (): Promise<UserConfigExport> => {
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Minor Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
 `,a.jsx(e.li,{className:"ladle-markdown",children:"begin testing, add changeset, begin development process"}),`
-`]})]})}function d(l={}){const{wrapper:e}={...s(),...l.components};return e?a.jsx(e,{...l,children:a.jsx(n,{...l})}):n(l)}d.storyName="Readme";typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{d as MDXContent};
+`]})]})}function c(l={}){const{wrapper:e}={...n(),...l.components};return e?a.jsx(e,{...l,children:a.jsx(s,{...l})}):s(l)}function d(l){return a.jsxs(a.Fragment,{children:[a.jsx(r,{title:"Documentation/Changelog"}),`
+`,a.jsx(c,{})]})}function o(l={}){const{wrapper:e}={...n(),...l.components};return e?a.jsx(e,{...l,children:a.jsx(d,{...l})}):d()}const h={title:"Documentation"};o.storyName="Changelog";typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{o as MDXContent,h as default};

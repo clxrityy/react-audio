@@ -4,7 +4,7 @@ import { Loading } from '../../components/ui/Loading'
 import { Progress } from '../../components/ui/Progress'
 import { TrackInfo } from '../../components/ui/TrackInfo'
 import { VolumeSlider } from '../../components/ui/VolumeSlider'
-import { ICONS } from '../../config'
+import { COLORS, ICONS } from '../../config'
 import { cn } from '../../util/cn'
 import { Track } from '../types'
 import {
@@ -50,7 +50,7 @@ export function Player({
     audioRef,
     onNext,
     onPrev,
-    color,
+    color = COLORS.primary,
     ...props
 }: PlayerProps) {
     const [canPlay, setCanPlay] = useState<boolean>(false)
