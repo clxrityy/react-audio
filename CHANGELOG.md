@@ -1,10 +1,131 @@
 # @clxrity/react-audio
 
+## 2.1.0
+
+### Minor Changes
+
+- 910a28d: Add a **border** prop to ShufflePlayer
+- ed9308c: Add more stories for `<ShufflePlayer />`
+
+    - **Dont show tracks** - Example not displaying the track information
+    - **Custom color** - Example of changing the color of the player
+    - **Custom border** - Example of changing the border of the player
+
+- c802826: Add some development dependencies to optimize the visibility of the docs, make the default mode dark.
+
+    **New Dependencies:**
+
+    - [`baseui`](https://github.com/uber/baseweb#readme)
+    - [`styletron-react`](https://www.npmjs.com/package/styletron-react)
+    - [`styletron-engine-monolithic`](https://www.npmjs.com/package/styletron-engine-monolithic)
+
+    **Changes:**
+
+    ```mjs
+    // .ladle/config.mjs
+
+    /** @type {import('@ladle/react').UserConfig} */
+    export default {
+        // ...
+        addons: {
+            // ...
+            theme: {
+                enabled: true,
+                defaultState: 'dark',
+            },
+        },
+    }
+    ```
+
+    ```tsx
+    // .ladle/components.tsx
+    import { Provider as StyletronProvider } from 'styletron-react'
+    import { Client as Styletron } from 'styletron-engine-monolithic'
+    import { LightTheme, DarkTheme, BaseProvider } from 'baseui'
+    import type { GlobalProvider } from '@ladle/react'
+
+    const engine = new Styletron()
+
+    export const Provider: GlobalProvider = ({ children, globalState }) => (
+        <StyletronProvider value={engine}>
+            <BaseProvider
+                theme={{
+                    ...(globalState.theme === 'dark' ? DarkTheme : LightTheme),
+                    direction: globalState.rtl ? 'rtl' : 'ltr',
+                }}
+            >
+                <div className="docs-container">
+                    <div className="docs-main">{children}</div>
+                </div>
+            </BaseProvider>
+        </StyletronProvider>
+    )
+    ```
+
+- 1f6297b: Update **ShufflePlayer** props to include showTracks which can optionally hide the display of all the tracks
+
+### Patch Changes
+
+- 218df0a: Fix docs output (default story, output directory)
+- 11ec0e2: Add a script to run after building the documentation to fix the metadata.
+
+    Before, the `<link />` tags were being generated with the wrong `href` attribute. This script will fix the `href` attribute to point to the correct location.
+
+    - The `href` attribute was being generated as `/assets/...` instead of `./assets/...`
+
+    ```json
+    {
+        "scripts": {
+            "build:ladle": "ladle build && node scripts/docs-postbuild.cjs"
+        }
+    }
+    ```
+
+    ```cjs
+    const fs = require('fs')
+    const path = require('path')
+
+    const indexPath = path.join(__dirname, '../docs', 'index.html')
+
+    fs.readFile(indexPath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading index.html', err)
+            process.exit(1)
+        }
+
+        // Replace absolute asset paths with relative ones (e.g., '/assets' to './assets')
+        let updatedData = data
+            .replace(/href="\/assets/g, 'href="./assets')
+            .replace(/src="\/assets/g, 'src="./assets')
+
+        updatedData = updatedData.replace(
+            /<meta name="dscription"[^>]*>/,
+            '<meta name="description" content="A collection of audio components for React applications" />'
+        )
+        updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, '')
+        updatedData = updatedData.replace(
+            /<link rel="apple-touch-icon"[^>]*>/,
+            ''
+        )
+        updatedData = updatedData.replace(/<link rel="manifest"[^>]*>/, '')
+        updatedData = updatedData.replace(/<title>Ladle<\/title>/, '')
+
+        fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
+            if (err) {
+                console.error('Error writing index.html', err)
+                process.exit(1)
+            } else {
+                console.log('index.html updated successfully')
+            }
+        })
+    })
+    ```
+
 ## 2.0.2
 
 ### Patch Changes
 
-- 4853714: ##### Fix the ability to import the package's css file.
+- 4853714: Fix the ability to import the package's css file.
 
     Before it was bundling into `dist/src/index.css` which was not being imported correctly.
     Upon trying to fix it, it would bundle as `react-audio.css` which was not the desired output.
