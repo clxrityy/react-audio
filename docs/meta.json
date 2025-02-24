@@ -76,8 +76,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 26,
-      "locEnd": 26,
+      "locStart": 30,
+      "locEnd": 32,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "CustomBorder",
       "meta": {}
@@ -87,8 +87,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 25,
-      "locEnd": 25,
+      "locStart": 27,
+      "locEnd": 29,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "CustomColor",
       "meta": {}
@@ -110,9 +110,86 @@
         "Shuffleplayer"
       ],
       "locStart": 24,
-      "locEnd": 24,
+      "locEnd": 26,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "DontShowTracks",
+      "meta": {}
+    },
+    "spectrogram--custom-color-map": {
+      "name": "Custom color map",
+      "levels": [
+        "Spectrogram"
+      ],
+      "locStart": 33,
+      "locEnd": 33,
+      "filePath": "src/stories/Spectrogram.stories.tsx",
+      "namedExport": "CustomColorMap",
+      "meta": {}
+    },
+    "spectrogram--custom-fft-size": {
+      "name": "Custom fft size",
+      "levels": [
+        "Spectrogram"
+      ],
+      "locStart": 61,
+      "locEnd": 61,
+      "filePath": "src/stories/Spectrogram.stories.tsx",
+      "namedExport": "CustomFFTSize",
+      "meta": {}
+    },
+    "spectrogram--custom-fill-style": {
+      "name": "Custom fill style",
+      "levels": [
+        "Spectrogram"
+      ],
+      "locStart": 40,
+      "locEnd": 40,
+      "filePath": "src/stories/Spectrogram.stories.tsx",
+      "namedExport": "CustomFillStyle",
+      "meta": {}
+    },
+    "spectrogram--custom-size": {
+      "name": "Custom size",
+      "levels": [
+        "Spectrogram"
+      ],
+      "locStart": 26,
+      "locEnd": 26,
+      "filePath": "src/stories/Spectrogram.stories.tsx",
+      "namedExport": "CustomSize",
+      "meta": {}
+    },
+    "spectrogram--custom-smoothing-time-constant": {
+      "name": "Custom smoothing time constant",
+      "levels": [
+        "Spectrogram"
+      ],
+      "locStart": 54,
+      "locEnd": 54,
+      "filePath": "src/stories/Spectrogram.stories.tsx",
+      "namedExport": "CustomSmoothingTimeConstant",
+      "meta": {}
+    },
+    "spectrogram--default": {
+      "name": "Default",
+      "levels": [
+        "Spectrogram"
+      ],
+      "locStart": 18,
+      "locEnd": 18,
+      "filePath": "src/stories/Spectrogram.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "spectrogram--loop": {
+      "name": "Loop",
+      "levels": [
+        "Spectrogram"
+      ],
+      "locStart": 47,
+      "locEnd": 47,
+      "filePath": "src/stories/Spectrogram.stories.tsx",
+      "namedExport": "Loop",
       "meta": {}
     },
     "waveform--custom-color": {
