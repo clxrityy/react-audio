@@ -150,3 +150,47 @@ nav {
 .docs-main ol {
     @apply list-decimal ml-4;
 }
+
+.docs-main table {
+    @apply w-full border-collapse border border-[var(--color-border)] my-4;
+}
+
+.docs-main th {
+    @apply border border-[var(--color-border)] bg-[var(--color-background-tertiary)] px-4 py-2;
+}
+
+.docs-main tr {
+    @apply border border-[var(--color-border)] px-4 py-2 bg-[var(--color-background-secondary)]/65;
+}
+
+.docs-main td {
+    @apply border border-[var(--color-border)] px-4 py-2;
+}
+
+.docs-main blockquote {
+    @apply border-l-4 border-[var(--color-primary)] bg-[var(--color-background-tertiary)] p-2 my-4;
+}
+
+.docs-main blockquote p {
+    @apply my-0;
+}
+
+.docs-main blockquote p:last-child {
+    @apply mb-0;
+}
+
+.docs-main blockquote p:first-child {
+    @apply mt-0;
+}
+
+.docs-main blockquote p:not(:first-child):not(:last-child) {
+    @apply my-0;
+}
+
+.docs-main blockquote p:not(:first-child):not(:last-child) {
+    @apply my-0;
+}
+
+.docs-main blockquote p:not(:first-child):not(:last-child) {
+    @apply my-0;
+}
