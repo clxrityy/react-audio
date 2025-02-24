@@ -151,9 +151,8 @@ export function SpectrogramDisplay({
         }
 
         if (isPlaying) {
-            drawSpectrogram();
+            drawSpectrogram()
         }
-
     }, [colorMap, fillStyle, isPlaying, onFrameUpdate])
 
     return (

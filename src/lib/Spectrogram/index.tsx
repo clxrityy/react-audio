@@ -43,25 +43,23 @@ export function Spectrogram({
             <audio ref={audioRef}>
                 <AudioSource src={track.src} />
             </audio>
-            {
-                audioRef.current && (
-                    <SpectrogramDisplay
-                        audioRef={audioRef}
-                        fftSize={fftSize}
-                        width={width}
-                        height={height}
-                        minDecibels={minDecibels}
-                        maxDecibels={maxDecibels}
-                        colorMap={colorMap}
-                        smoothingTimeConstant={smoothingTimeConstant}
-                        realTime={realTime}
-                        logarithmicScale={logarithmicScale}
-                        onFrameUpdate={onFrameUpdate}
-                        loop={loop}
-                        fillStyle={fillStyle}
-                    />
-                )
-            }
+            {audioRef.current && (
+                <SpectrogramDisplay
+                    audioRef={audioRef}
+                    fftSize={fftSize}
+                    width={width}
+                    height={height}
+                    minDecibels={minDecibels}
+                    maxDecibels={maxDecibels}
+                    colorMap={colorMap}
+                    smoothingTimeConstant={smoothingTimeConstant}
+                    realTime={realTime}
+                    logarithmicScale={logarithmicScale}
+                    onFrameUpdate={onFrameUpdate}
+                    loop={loop}
+                    fillStyle={fillStyle}
+                />
+            )}
         </div>
     )
 }

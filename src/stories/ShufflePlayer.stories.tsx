@@ -1,7 +1,6 @@
 import React from 'react'
 import { ShufflePlayer, type Track } from '../lib'
 import { Meta } from '@ladle/react'
-
 ;<Meta title="Components/ShufflePlayer" />
 
 export default {
