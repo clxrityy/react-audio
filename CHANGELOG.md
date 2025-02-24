@@ -1,5 +1,11 @@
 # @clxrity/react-audio
 
+## 2.2.1
+
+### Patch Changes
+
+- 6959472: fix spectrogram
+
 ## 2.2.0
 
 ### Minor Changes
