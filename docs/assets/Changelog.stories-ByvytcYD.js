@@ -1,4 +1,136 @@
-import{u as n,b as a}from"./index-QQteKcub.js";import{M as r}from"./exports-D1IMO9CT.js";import"./dialog-Bx1rcXiD.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+import{u as n,b as a}from"./index-D4QDkaZQ.js";import{M as r}from"./exports-CRgqC1QV.js";import"./dialog-C9q3Mh8B.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+`,a.jsx(e.h2,{className:"ladle-markdown",children:"2.2.0"}),`
+`,a.jsx(e.h3,{className:"ladle-markdown",children:"Minor Changes"}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.p,{className:"ladle-markdown",children:["13b68de: Add the ",a.jsx(e.code,{className:"ladle-markdown",children:"<Spectrogram />"})," component."]}),`
+`,a.jsx(e.h4,{className:"ladle-markdown",children:"Parameters"}),`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`,a.jsxs(e.table,{className:"ladle-markdown",children:[a.jsx(e.thead,{className:"ladle-markdown",children:a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.th,{className:"ladle-markdown",children:"Param"}),a.jsx(e.th,{className:"ladle-markdown",children:"Type"}),a.jsx(e.th,{className:"ladle-markdown",children:"Description"}),a.jsx(e.th,{className:"ladle-markdown",children:"Default"}),a.jsx(e.th,{className:"ladle-markdown",children:"Required"})]})}),a.jsxs(e.tbody,{className:"ladle-markdown",children:[a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"track"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"Track"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The track to display the spectrogram of."}),a.jsx(e.td,{className:"ladle-markdown",children:"N/A"}),a.jsx(e.td,{className:"ladle-markdown",children:"✅"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"fftSize"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"FFTSize"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The size of the FFT to use."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"1024"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"width"}),a.jsxs(e.td,{className:"ladle-markdown",children:[a.jsx(e.code,{className:"ladle-markdown",children:"number"}),"/",a.jsx(e.code,{className:"ladle-markdown",children:"string"})]}),a.jsx(e.td,{className:"ladle-markdown",children:"The width of the spectrogram."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"100%"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"height"}),a.jsxs(e.td,{className:"ladle-markdown",children:[a.jsx(e.code,{className:"ladle-markdown",children:"number"}),"/",a.jsx(e.code,{className:"ladle-markdown",children:"string"})]}),a.jsx(e.td,{className:"ladle-markdown",children:"The height of the spectrogram."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"25%"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"minDecibels"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The minimum decibels to display."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"-100"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"maxDecibels"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The maximum decibels to display."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"-30"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"colorMap"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"Array<string>"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The color map to use."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:'["#000000", "#ff0000", "#ffff00", "#ffffff"]'})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"smoothingTimeConstant"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The smoothing time constant to use."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"0.8"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"realTime"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"boolean"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Whether to display the spectrogram in real time."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"true"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"logarithmicScale"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"boolean"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Whether to use a logarithmic scale."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"true"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"onFrameUpdate"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"Function"})}),a.jsxs(e.td,{className:"ladle-markdown",children:["A callback to be called when a new frame is available. Accepts a data array (",a.jsx(e.code,{className:"ladle-markdown",children:"Uint8Array"}),") as a parameter."]}),a.jsx(e.td,{className:"ladle-markdown",children:"N/A"}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"loop"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"boolean"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Whether to loop the audio."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"false"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"fillStyle"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"string"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The background fill of the canvas"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"#000000"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]})]})]}),`
+`,a.jsx(e.h4,{className:"ladle-markdown",children:"Example"}),`
+`,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-tsx ladle-markdown",children:`<Spectrogram
+    track={track}
+    fftSize={1024}
+    width={500}
+    height={300}
+    minDecibels={-100}
+    maxDecibels={-30}
+    colorMap={['#000000', '#ff0000', '#ffff00', '#ffffff']}
+    smoothingTimeConstant={0.8}
+    realTime={true}
+    logarithmicScale={true}
+    onFrameUpdate={() => {}}
+    loop={true}
+    fillStyle="rgba(0, 0, 0, 0.5)"
+/>
+`})}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"9540893: Update dependencies"}),`
+`]}),`
+`]}),`
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"2.1.0"}),`
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Minor Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`

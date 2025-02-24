@@ -11,7 +11,7 @@ export default {
 
 const defaultProps: SpectrogramProps = {
     track: {
-        src: '/dreamy-guitar-loop.mp3',
+        src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     },
 }
 

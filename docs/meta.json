@@ -76,8 +76,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 30,
-      "locEnd": 32,
+      "locStart": 28,
+      "locEnd": 30,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "CustomBorder",
       "meta": {}
@@ -87,8 +87,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 27,
-      "locEnd": 29,
+      "locStart": 25,
+      "locEnd": 27,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "CustomColor",
       "meta": {}
@@ -98,8 +98,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 23,
-      "locEnd": 23,
+      "locStart": 21,
+      "locEnd": 21,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "Default",
       "meta": {}
@@ -109,8 +109,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 24,
-      "locEnd": 26,
+      "locStart": 22,
+      "locEnd": 24,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "DontShowTracks",
       "meta": {}
@@ -131,8 +131,8 @@
       "levels": [
         "Spectrogram"
       ],
-      "locStart": 61,
-      "locEnd": 61,
+      "locStart": 63,
+      "locEnd": 63,
       "filePath": "src/stories/Spectrogram.stories.tsx",
       "namedExport": "CustomFFTSize",
       "meta": {}
@@ -165,7 +165,7 @@
         "Spectrogram"
       ],
       "locStart": 54,
-      "locEnd": 54,
+      "locEnd": 56,
       "filePath": "src/stories/Spectrogram.stories.tsx",
       "namedExport": "CustomSmoothingTimeConstant",
       "meta": {}

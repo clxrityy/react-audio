@@ -10,13 +10,11 @@ export default {
 }
 
 const tracks: Track[] = Array.from({ length: 4 }, (_, i) => ({
-    src: '/dreamy-guitar-loop.mp3',
-    title: `Dreamy Guitar Loop ${i + 1}`,
-    thumbnail: '/apple-touch-icon.png',
+    src: `https://www.soundhelix.com/examples/mp3/SoundHelix-Song-${i + 1}.mp3`,
+    title: `Soundhelix ${i + 1}`,
     artist: {
         name: 'clxrity',
         url: 'https://wav.clxrity.xyz',
-        thumbnail: '/apple-touch-icon.png',
     },
 }))
 
