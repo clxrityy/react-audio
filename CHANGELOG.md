@@ -1,5 +1,51 @@
 # @clxrity/react-audio
 
+## 2.2.0
+
+### Minor Changes
+
+- 13b68de: Add the `<Spectrogram />` component.
+
+    #### Parameters
+
+    | Param                 | Type              | Description                                                                                                | Default                                        | Required |
+    | --------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | -------- |
+    | track                 | `Track`           | The track to display the spectrogram of.                                                                   | N/A                                            | ✅       |
+    | fftSize               | `FFTSize`         | The size of the FFT to use.                                                                                | `1024`                                         | ❌       |
+    | width                 | `number`/`string` | The width of the spectrogram.                                                                              | `100%`                                         | ❌       |
+    | height                | `number`/`string` | The height of the spectrogram.                                                                             | `25%`                                          | ❌       |
+    | minDecibels           | `number`          | The minimum decibels to display.                                                                           | `-100`                                         | ❌       |
+    | maxDecibels           | `number`          | The maximum decibels to display.                                                                           | `-30`                                          | ❌       |
+    | colorMap              | `Array<string>`   | The color map to use.                                                                                      | `["#000000", "#ff0000", "#ffff00", "#ffffff"]` | ❌       |
+    | smoothingTimeConstant | `number`          | The smoothing time constant to use.                                                                        | `0.8`                                          | ❌       |
+    | realTime              | `boolean`         | Whether to display the spectrogram in real time.                                                           | `true`                                         | ❌       |
+    | logarithmicScale      | `boolean`         | Whether to use a logarithmic scale.                                                                        | `true`                                         | ❌       |
+    | onFrameUpdate         | `Function`        | A callback to be called when a new frame is available. Accepts a data array (`Uint8Array`) as a parameter. | N/A                                            | ❌       |
+    | loop                  | `boolean`         | Whether to loop the audio.                                                                                 | `false`                                        | ❌       |
+    | fillStyle             | `string`          | The background fill of the canvas                                                                          | `#000000`                                      | ❌       |
+
+    #### Example
+
+    ```tsx
+    <Spectrogram
+        track={track}
+        fftSize={1024}
+        width={500}
+        height={300}
+        minDecibels={-100}
+        maxDecibels={-30}
+        colorMap={['#000000', '#ff0000', '#ffff00', '#ffffff']}
+        smoothingTimeConstant={0.8}
+        realTime={true}
+        logarithmicScale={true}
+        onFrameUpdate={() => {}}
+        loop={true}
+        fillStyle="rgba(0, 0, 0, 0.5)"
+    />
+    ```
+
+- 9540893: Update dependencies
+
 ## 2.1.0
 
 ### Minor Changes
