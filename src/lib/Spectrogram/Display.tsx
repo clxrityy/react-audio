@@ -39,7 +39,6 @@ export function SpectrogramDisplay({
     const analyserRef = useRef<AnalyserNode | null>(null)
     const [isPlaying, setIsPlaying] = useState<boolean>(false)
     const [clicked, setClicked] = useState<boolean>(false)
-    const [animation, setAnimation] = useState<number | null>(null)
 
     const startAudio = () => {
         if (isPlaying) {
@@ -147,18 +146,15 @@ export function SpectrogramDisplay({
                 ctx.fillRect(i * barWidth, offset, barWidth, height)
             }
 
-            setAnimation(requestAnimationFrame(drawSpectrogram))
+            requestAnimationFrame(drawSpectrogram)
             onFrameUpdate?.(dataArray)
         }
 
         if (isPlaying) {
-            drawSpectrogram()
+            drawSpectrogram();
         }
 
-        return () => {
-            cancelAnimationFrame(animation!)
-        }
-    }, [isPlaying, colorMap, fillStyle])
+    }, [colorMap, fillStyle, isPlaying, onFrameUpdate])
 
     return (
         <canvas

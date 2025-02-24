@@ -36,28 +36,32 @@ export function Spectrogram({
     fillStyle,
     ...props
 }: SpectrogramProps) {
-    const audioRef = useRef<HTMLAudioElement>(new Audio(track.src))
+    const audioRef = useRef<HTMLAudioElement>(new Audio())
 
     return (
         <div {...props} className={cn('', props.className)}>
             <audio ref={audioRef}>
                 <AudioSource src={track.src} />
             </audio>
-            <SpectrogramDisplay
-                audioRef={audioRef}
-                fftSize={fftSize}
-                width={width}
-                height={height}
-                minDecibels={minDecibels}
-                maxDecibels={maxDecibels}
-                colorMap={colorMap}
-                smoothingTimeConstant={smoothingTimeConstant}
-                realTime={realTime}
-                logarithmicScale={logarithmicScale}
-                onFrameUpdate={onFrameUpdate}
-                loop={loop}
-                fillStyle={fillStyle}
-            />
+            {
+                audioRef.current && (
+                    <SpectrogramDisplay
+                        audioRef={audioRef}
+                        fftSize={fftSize}
+                        width={width}
+                        height={height}
+                        minDecibels={minDecibels}
+                        maxDecibels={maxDecibels}
+                        colorMap={colorMap}
+                        smoothingTimeConstant={smoothingTimeConstant}
+                        realTime={realTime}
+                        logarithmicScale={logarithmicScale}
+                        onFrameUpdate={onFrameUpdate}
+                        loop={loop}
+                        fillStyle={fillStyle}
+                    />
+                )
+            }
         </div>
     )
 }

@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 
-/* @custom-variant dark (&:where(.dark, .dark *)); */
-
 :root {
     font-family:
         system-ui,
@@ -26,14 +24,6 @@
 .docs-main {
     @apply text-[var(--color-text)];
 }
-
-/* nav {
-    @apply bg-[var(--color-background)] text-[var(--color-text)] border-b border-[var(--color-border)] transition-colors duration-300 relative z-10;
-}
-
-nav {
-    @apply bg-gradient-to-bl from-[var(--color-background)] to-[var(--color-background-secondary)] text-[var(--color-text)] border-b border-[var(--color-border)] transition-colors duration-300 relative z-10;
-} */
 
 .ladle-background {
     @apply bg-gradient-to-r from-[var(--color-background)] to-[var(--color-background-secondary)] text-[var(--color-text)];
@@ -102,7 +92,7 @@ nav {
 }
 
 .docs-main hr {
-    @apply my-2;
+    @apply my-2 bg-[var(--color-border)] h-1 rounded-md;
 }
 
 .docs-main pre {

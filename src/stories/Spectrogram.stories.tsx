@@ -2,7 +2,7 @@ import React from 'react'
 import { Spectrogram, type SpectrogramProps } from '../lib'
 import { Meta } from '@ladle/react'
 
-;<Meta title="Components/Spectrogram" />
+<Meta title="Components/Spectrogram" />
 
 export default {
     title: 'Spectrogram',
@@ -11,7 +11,7 @@ export default {
 
 const defaultProps: SpectrogramProps = {
     track: {
-        src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+        src: './dreamy-guitar-loop.mp3',
     },
 }
 
