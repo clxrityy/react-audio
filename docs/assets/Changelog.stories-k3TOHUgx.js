@@ -1,4 +1,90 @@
-import{u as n,b as a}from"./index-gzyuxFYO.js";import{M as r}from"./exports-DkUcVNFq.js";import"./dialog-C2LGh85s.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+import{u as n,b as a}from"./index-C5WLzH7S.js";import{M as r}from"./exports-DTAI5qOV.js";import"./dialog-CHJ2Wxbh.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+`,a.jsx(e.h2,{className:"ladle-markdown",children:"2.4.0"}),`
+`,a.jsx(e.h3,{className:"ladle-markdown",children:"Minor Changes"}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.p,{className:"ladle-markdown",children:["96b7a45: Add ",a.jsx(e.code,{className:"ladle-markdown",children:"<Oscillator />"})," component"]}),`
+`,a.jsxs(e.p,{className:"ladle-markdown",children:["This produces periodic signal with the type of wave specified by the ",a.jsx(e.code,{className:"ladle-markdown",children:"type"})," (",a.jsx(e.a,{href:"https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/type",className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"OscillatorType"})}),") prop. The component is a wrapper around the Web Audio API's ",a.jsx(e.a,{href:"https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode",className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"OscillatorNode"})}),"."]}),`
+`,a.jsxs(e.p,{className:"ladle-markdown",children:["You must pass the ",a.jsx(e.code,{className:"ladle-markdown",children:"isPlaying"})," boolean prop to start and stop the oscillator."]}),`
+`,a.jsx(e.h3,{className:"ladle-markdown",children:"Parameters"}),`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`,a.jsxs(e.table,{className:"ladle-markdown",children:[a.jsx(e.thead,{className:"ladle-markdown",children:a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.th,{className:"ladle-markdown",children:"Param"}),a.jsx(e.th,{className:"ladle-markdown",children:"Type"}),a.jsx(e.th,{className:"ladle-markdown",children:"Description"}),a.jsx(e.th,{className:"ladle-markdown",children:"Default"}),a.jsx(e.th,{className:"ladle-markdown",children:"Required"})]})}),a.jsxs(e.tbody,{className:"ladle-markdown",children:[a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"type"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"OscillatorType"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The type of wave to produce"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"'sine'"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"isPlaying"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"boolean"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Whether the oscillator should be playing"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"false"})}),a.jsx(e.td,{className:"ladle-markdown",children:"✅"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"frequency"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The frequency of the oscillator in hertz"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"440"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"gain"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The gain of the oscillator"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"0.5"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"onFrequencyChange"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"(frequency: number) => void"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Callback when the frequency changes"}),a.jsx(e.td,{className:"ladle-markdown",children:"N/A"}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"onGainChange"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"(gain: number) => void"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Callback when the gain changes"}),a.jsx(e.td,{className:"ladle-markdown",children:"N/A"}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]})]})]}),`
+`,a.jsx(e.h4,{className:"ladle-markdown",children:"Example with Next.js"}),`
+`,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-tsx ladle-markdown",children:`'use client'
+import { Oscillator, type OscillatorProps } from '@clxrity/react-audio'
+
+export default function Home() {
+    const [isPlaying, setIsPlaying] = useState(false)
+
+    return (
+        <div>
+            <button onClick={() => setIsPlaying(!isPlaying)}>
+                {isPlaying ? 'Stop' : 'Start'}
+            </button>
+            <Oscillator type="sine" isPlaying={isPlaying} />
+        </div>
+    )
+}
+`})}),`
+`]}),`
+`]}),`
+`,a.jsx(e.h3,{className:"ladle-markdown",children:"Patch Changes"}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsx(e.li,{className:"ladle-markdown",children:"72089dd: Fix development environment to support the latest version of pnpm"}),`
+`]}),`
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"2.2.1"}),`
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Patch Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`

@@ -9,7 +9,7 @@ export default {
 }
 
 const track: Track = {
-    src: '/dreamy-guitar-loop.mp3',
+    src: './dreamy-guitar-loop.mp3',
     title: 'Dreamy Guitar Loop',
 }
 
