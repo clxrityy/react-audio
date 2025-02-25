@@ -1,5 +1,50 @@
 # @clxrity/react-audio
 
+## 2.4.0
+
+### Minor Changes
+
+- 96b7a45: Add `<Oscillator />` component
+
+    This produces periodic signal with the type of wave specified by the `type` ([`OscillatorType`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/type)) prop. The component is a wrapper around the Web Audio API's [`OscillatorNode`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode).
+
+    You must pass the `isPlaying` boolean prop to start and stop the oscillator.
+
+    ### Parameters
+
+    | Param             | Type                          | Description                              | Default  | Required |
+    | ----------------- | ----------------------------- | ---------------------------------------- | -------- | -------- |
+    | type              | `OscillatorType`              | The type of wave to produce              | `'sine'` | ❌       |
+    | isPlaying         | `boolean`                     | Whether the oscillator should be playing | `false`  | ✅       |
+    | frequency         | `number`                      | The frequency of the oscillator in hertz | `440`    | ❌       |
+    | gain              | `number`                      | The gain of the oscillator               | `0.5`    | ❌       |
+    | onFrequencyChange | `(frequency: number) => void` | Callback when the frequency changes      | N/A      | ❌       |
+    | onGainChange      | `(gain: number) => void`      | Callback when the gain changes           | N/A      | ❌       |
+
+    #### Example with Next.js
+
+    ```tsx
+    'use client'
+    import { Oscillator, type OscillatorProps } from '@clxrity/react-audio'
+
+    export default function Home() {
+        const [isPlaying, setIsPlaying] = useState(false)
+
+        return (
+            <div>
+                <button onClick={() => setIsPlaying(!isPlaying)}>
+                    {isPlaying ? 'Stop' : 'Start'}
+                </button>
+                <Oscillator type="sine" isPlaying={isPlaying} />
+            </div>
+        )
+    }
+    ```
+
+### Patch Changes
+
+- 72089dd: Fix development environment to support the latest version of pnpm
+
 ## 2.2.1
 
 ### Patch Changes
