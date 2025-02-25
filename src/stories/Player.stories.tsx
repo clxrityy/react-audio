@@ -11,6 +11,11 @@ export default {
 const track: Track = {
     src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     title: 'SoundHelix Song 1',
+    artist: {
+        name: 'SoundHelix',
+        url: 'https://www.soundhelix.com/',
+        thumbnail: 'https://www.soundhelix.com/sites/default/files/SoundHelix-logo.png',
+    }
 }
 
 export const Default = () => <Player track={track} showTrackInfo={true} />

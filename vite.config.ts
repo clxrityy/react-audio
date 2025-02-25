@@ -32,6 +32,11 @@ const app = async (): Promise<UserConfigExport> => {
             const oldPath = path.resolve(__dirname, 'dist/react-audio.css');
             const newPath = path.resolve(__dirname, 'dist/index.css');
 
+            if (newPath) {
+              console.log("New path exists");
+              return;
+            }
+
             try {
               renameSync(oldPath, newPath);
               console.log(`Renamed ${oldPath} to ${newPath}`);
@@ -103,6 +108,11 @@ const app = async (): Promise<UserConfigExport> => {
       test: {
         globals: true,
         environment: 'jsdom',
+        coverage: {
+          reportsDirectory: "./coverage",
+          reporter: ["text", "json-summary", "json", "html"],
+          reportOnFailure: true,
+        }
       },
       publicDir: 'public',
     })

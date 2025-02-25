@@ -1,4 +1,9 @@
-import{u as n,b as a}from"./index-Ds1TvoHZ.js";import{M as r}from"./exports-xooEIi-v.js";import"./dialog-Drk9IhKs.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+import{u as n,b as a}from"./index-gzyuxFYO.js";import{M as r}from"./exports-DkUcVNFq.js";import"./dialog-C2LGh85s.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+`,a.jsx(e.h2,{className:"ladle-markdown",children:"2.2.1"}),`
+`,a.jsx(e.h3,{className:"ladle-markdown",children:"Patch Changes"}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsx(e.li,{className:"ladle-markdown",children:"6959472: fix spectrogram"}),`
+`]}),`
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"2.2.0"}),`
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Minor Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`

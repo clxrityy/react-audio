@@ -13,20 +13,17 @@
         'Open Sans',
         'Helvetica Neue',
         sans-serif;
-}
 
+    background-image: linear-gradient(180deg, var(--color-background), var(--color-background-secondary));
+}
 .progress-input::-webkit-slider-thumb {
     z-index: 20;
     position: relative;
     @apply appearance-none w-4 h-4 bg-[var(--color-text-secondary)] rounded-full cursor-pointer shadow-md transition-all duration-100 ease-in-out;
 }
 
-.docs-main {
-    @apply text-[var(--color-text)];
-}
-
 .ladle-background {
-    @apply bg-gradient-to-r from-[var(--color-background)] to-[var(--color-background-secondary)] text-[var(--color-text)];
+    @apply bg-gradient-to-r from-[var(--color-background)] to-[var(--color-background-secondary)] text-[var(--color-text)] fixed inset-0;
 }
 
 :root[data-theme='dark'] {
@@ -65,9 +62,15 @@
     margin-right: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    height: fit-content;
+    height: screen;
     gap: 2rem;
+
+    @apply text-[var(--color-text)];
 }
+
+/*** screen size changes docs max-width ***/
+
+
 
 .docs-main h1 {
     @apply text-3xl font-[800] my-8;
@@ -95,19 +98,6 @@
     @apply my-2 bg-[var(--color-border)] h-1 rounded-md;
 }
 
-.docs-main pre {
-    max-width: fit-content;
-    /* Ensures it doesn't exceed the container */
-    overflow-x: auto;
-    /* Enables horizontal scrolling */
-    padding: 10px;
-    /* background-color: var(--color-background-tertiary); */
-    /* Light background for visibility */
-    border-radius: 5px;
-    white-space: pre;
-    /* Prevents wrapping */
-}
-
 .docs-main code {
     display: block;
     /* Makes sure it behaves properly */
@@ -122,7 +112,7 @@
 }
 
 .docs-main a {
-    @apply text-[var(--color-primary)] font-semibold hover:scale-105 transition-all duration-100 ease-in-out focus:ring-2 ring-[var(--color-secondary)] ring-offset-4 rounded;
+    @apply hover:text-[var(--color-primary)] font-semibold hover:scale-105 transition-all duration-100 ease-in-out focus:underline focus:underline-offset-4 focus:text-[var(--color-secondary)];
 }
 
 .docs-main h4 {
@@ -142,7 +132,7 @@
 }
 
 .docs-main table {
-    @apply w-full border-collapse border border-[var(--color-border)] my-4;
+    @apply w-fit border-collapse border border-[var(--color-border)] my-4 overflow-auto;
 }
 
 .docs-main th {
@@ -158,29 +148,24 @@
 }
 
 .docs-main blockquote {
-    @apply border-l-4 border-[var(--color-primary)] bg-[var(--color-background-tertiary)] p-2 my-4;
+    @apply border-l-4 border-[var(--color-primary)] bg-[var(--color-background-tertiary)]/35 p-2 my-4 w-full;
 }
 
-.docs-main blockquote p {
-    @apply my-0;
+.docs-main pre {
+    @apply text-[var(--color-text-secondary)] px-1 rounded;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9em;
 }
 
-.docs-main blockquote p:last-child {
-    @apply mb-0;
+
+.docs-main blockquote pre, a, code {
+    @apply w-fit inline-block;
 }
 
-.docs-main blockquote p:first-child {
-    @apply mt-0;
+.docs-main blockquote ul {
+    @apply list-disc ml-4;
 }
 
-.docs-main blockquote p:not(:first-child):not(:last-child) {
-    @apply my-0;
-}
-
-.docs-main blockquote p:not(:first-child):not(:last-child) {
-    @apply my-0;
-}
-
-.docs-main blockquote p:not(:first-child):not(:last-child) {
-    @apply my-0;
+.docs-main blockquote li {
+    @apply my-2;
 }

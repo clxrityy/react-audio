@@ -27,13 +27,79 @@
       "namedExport": "MDXContent",
       "meta": {}
     },
+    "oscillator--default": {
+      "name": "Default",
+      "levels": [
+        "Oscillator"
+      ],
+      "locStart": 21,
+      "locEnd": 33,
+      "filePath": "src/stories/Oscillator.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "oscillator--frequency": {
+      "name": "Frequency",
+      "levels": [
+        "Oscillator"
+      ],
+      "locStart": 91,
+      "locEnd": 103,
+      "filePath": "src/stories/Oscillator.stories.tsx",
+      "namedExport": "Frequency",
+      "meta": {}
+    },
+    "oscillator--gain": {
+      "name": "Gain",
+      "levels": [
+        "Oscillator"
+      ],
+      "locStart": 77,
+      "locEnd": 89,
+      "filePath": "src/stories/Oscillator.stories.tsx",
+      "namedExport": "Gain",
+      "meta": {}
+    },
+    "oscillator--sawtooth": {
+      "name": "Sawtooth",
+      "levels": [
+        "Oscillator"
+      ],
+      "locStart": 35,
+      "locEnd": 47,
+      "filePath": "src/stories/Oscillator.stories.tsx",
+      "namedExport": "Sawtooth",
+      "meta": {}
+    },
+    "oscillator--square": {
+      "name": "Square",
+      "levels": [
+        "Oscillator"
+      ],
+      "locStart": 49,
+      "locEnd": 61,
+      "filePath": "src/stories/Oscillator.stories.tsx",
+      "namedExport": "Square",
+      "meta": {}
+    },
+    "oscillator--triangle": {
+      "name": "Triangle",
+      "levels": [
+        "Oscillator"
+      ],
+      "locStart": 63,
+      "locEnd": 75,
+      "filePath": "src/stories/Oscillator.stories.tsx",
+      "namedExport": "Triangle",
+      "meta": {}
+    },
     "player--auto-play": {
       "name": "Auto play",
       "levels": [
         "Player"
       ],
-      "locStart": 20,
-      "locEnd": 20,
+      "locStart": 24,
+      "locEnd": 24,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "AutoPlay",
       "meta": {}
@@ -43,8 +109,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 19,
-      "locEnd": 19,
+      "locStart": 23,
+      "locEnd": 23,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "CustomColor",
       "meta": {}
@@ -54,8 +120,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 17,
-      "locEnd": 17,
+      "locStart": 21,
+      "locEnd": 21,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "Default",
       "meta": {}
@@ -65,8 +131,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 18,
-      "locEnd": 18,
+      "locStart": 22,
+      "locEnd": 22,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "NoTrackInfo",
       "meta": {}
@@ -76,8 +142,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 28,
-      "locEnd": 30,
+      "locStart": 27,
+      "locEnd": 29,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "CustomBorder",
       "meta": {}
@@ -87,8 +153,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 25,
-      "locEnd": 27,
+      "locStart": 24,
+      "locEnd": 26,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "CustomColor",
       "meta": {}
@@ -98,8 +164,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 21,
-      "locEnd": 21,
+      "locStart": 20,
+      "locEnd": 20,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "Default",
       "meta": {}
@@ -109,8 +175,8 @@
       "levels": [
         "Shuffleplayer"
       ],
-      "locStart": 22,
-      "locEnd": 24,
+      "locStart": 21,
+      "locEnd": 23,
       "filePath": "src/stories/ShufflePlayer.stories.tsx",
       "namedExport": "DontShowTracks",
       "meta": {}
@@ -197,8 +263,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 27,
-      "locEnd": 27,
+      "locStart": 26,
+      "locEnd": 26,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "CustomColor",
       "meta": {}
@@ -208,8 +274,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 17,
-      "locEnd": 17,
+      "locStart": 16,
+      "locEnd": 16,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "Default",
       "meta": {}
@@ -219,8 +285,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 29,
-      "locEnd": 29,
+      "locStart": 28,
+      "locEnd": 28,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "HigherFFTSize",
       "meta": {}
@@ -230,8 +296,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 21,
-      "locEnd": 23,
+      "locStart": 20,
+      "locEnd": 22,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "Large",
       "meta": {}
@@ -241,8 +307,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 28,
-      "locEnd": 28,
+      "locStart": 27,
+      "locEnd": 27,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "LowerFFTSize",
       "meta": {}
@@ -252,8 +318,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 24,
-      "locEnd": 26,
+      "locStart": 23,
+      "locEnd": 25,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "NoTrackInfo",
       "meta": {}
@@ -263,8 +329,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 18,
-      "locEnd": 20,
+      "locStart": 17,
+      "locEnd": 19,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "Small",
       "meta": {}

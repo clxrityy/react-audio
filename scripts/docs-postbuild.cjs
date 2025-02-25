@@ -16,14 +16,16 @@ fs.readFile(indexPath, "utf8", (err, data) => {
 
   updatedData = updatedData.replace(
     /<meta name="dscription"[^>]*>/,
-    '<meta name="description" content="A collection of audio components for React applications" />'
+    ''
   );
   updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, "");
   updatedData = updatedData.replace(/<link rel="apple-touch-icon"[^>]*>/, "");
   updatedData = updatedData.replace(/<link rel="manifest"[^>]*>/, "");
   updatedData = updatedData.replace(
     /<title>Ladle<\/title>/, ""
-  );
+  )
+
+  updatedData = updatedData.replace(/<link rel="mask-icon"[^>]*>/, "");
 
   fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
     if (err) {

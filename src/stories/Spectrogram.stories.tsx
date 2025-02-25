@@ -27,7 +27,7 @@ export const CustomSize = () => <Spectrogram {...customSizeProps} />
 
 const customColorMapProps: SpectrogramProps = {
     ...defaultProps,
-    colorMap: ['#333', '#255', '#888', '#ddd'],
+    colorMap: ['#222222', '#555555', '#eeeeee'],
 }
 
 export const CustomColorMap = () => <Spectrogram {...customColorMapProps} />
@@ -57,7 +57,7 @@ export const CustomSmoothingTimeConstant = () => (
 
 const customFFTSizeProps: SpectrogramProps = {
     ...defaultProps,
-    fftSize: 2048,
+    fftSize: 32,
 }
 
 export const CustomFFTSize = () => <Spectrogram {...customFFTSizeProps} />

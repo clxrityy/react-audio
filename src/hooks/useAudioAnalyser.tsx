@@ -14,7 +14,6 @@ export function useAudioAnalyzer(
     if (!sourceNodeRef.current) {
         sourceNodeRef.current =
             audioContext.createMediaElementSource(audioElement)
-    } else {
     }
 
     const analyser = audioContext.createAnalyser()
