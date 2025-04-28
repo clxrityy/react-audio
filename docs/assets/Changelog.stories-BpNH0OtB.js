@@ -1,4 +1,47 @@
-import{u as n,j as a}from"./index-CIT5xxdx.js";import{M as r}from"./exports-BZKL1nk1.js";import"./dialog-DnumWtkX.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+import{u as n,j as a}from"./index-Bpmjxhf_.js";import{M as r}from"./exports-2GyQl7ea.js";import"./dialog-CImjmcky.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+`,a.jsx(e.h2,{className:"ladle-markdown",children:"2.6.0"}),`
+`,a.jsx(e.h3,{className:"ladle-markdown",children:"Minor Changes"}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"4ce0d12: Add eslint"}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"79bad00: Add sitemap"}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:["Created ",a.jsx(e.code,{className:"ladle-markdown",children:"scripts/generate-sitemap.cjs"})," that runs after building the docs"]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:["Utilizes ",a.jsx(e.code,{className:"ladle-markdown",children:"ladle"}),"'s ",a.jsx(e.code,{className:"ladle-markdown",children:"meta.json"})," to get the routes"]}),`
+`]}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"fc5d270: add SECURITY.md"}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"8f4fc86: add CODE_OF_CONDUCT.md"}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"fb89952: add vscode extension recommendations"}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"b90bc02: add robots.txt"}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"75fd845: update node version 23.6.0 -> 23.6.1"}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"1ab91ae: add CONTRIBUTING.md"}),`
+`]}),`
+`,a.jsxs(e.li,{className:"ladle-markdown",children:[`
+`,a.jsx(e.p,{className:"ladle-markdown",children:"1574dd6: add code coverage"}),`
+`]}),`
+`]}),`
+`,a.jsx(e.h3,{className:"ladle-markdown",children:"Patch Changes"}),`
+`,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
+`,a.jsx(e.li,{className:"ladle-markdown",children:"5ca96a9: changed prettier tab width to 2"}),`
+`,a.jsx(e.li,{className:"ladle-markdown",children:"624ed09: fix all eslint errors"}),`
+`,a.jsx(e.li,{className:"ladle-markdown",children:"dfadccd: Fix play/pause button for autoplay"}),`
+`,a.jsx(e.li,{className:"ladle-markdown",children:"226e7d6: Remove @mui packages - replace with lucide-react for icons"}),`
+`,a.jsx(e.li,{className:"ladle-markdown",children:"eae2ee1: remove unnecessary props from Spectrogram (realTime & logarithmicScale)"}),`
+`]}),`
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"2.4.0"}),`
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Minor Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
@@ -64,7 +107,10 @@ import{u as n,j as a}from"./index-CIT5xxdx.js";import{M as r}from"./exports-BZKL
 `,a.jsxs(e.table,{className:"ladle-markdown",children:[a.jsx(e.thead,{className:"ladle-markdown",children:a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.th,{className:"ladle-markdown",children:"Param"}),a.jsx(e.th,{className:"ladle-markdown",children:"Type"}),a.jsx(e.th,{className:"ladle-markdown",children:"Description"}),a.jsx(e.th,{className:"ladle-markdown",children:"Default"}),a.jsx(e.th,{className:"ladle-markdown",children:"Required"})]})}),a.jsxs(e.tbody,{className:"ladle-markdown",children:[a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"type"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"OscillatorType"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The type of wave to produce"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"'sine'"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"isPlaying"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"boolean"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Whether the oscillator should be playing"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"false"})}),a.jsx(e.td,{className:"ladle-markdown",children:"✅"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"frequency"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The frequency of the oscillator in hertz"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"440"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"gain"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The gain of the oscillator"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"0.5"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"onFrequencyChange"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"(frequency: number) => void"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Callback when the frequency changes"}),a.jsx(e.td,{className:"ladle-markdown",children:"N/A"}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"onGainChange"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"(gain: number) => void"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Callback when the gain changes"}),a.jsx(e.td,{className:"ladle-markdown",children:"N/A"}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]})]})]}),`
 `,a.jsx(e.h4,{className:"ladle-markdown",children:"Example with Next.js"}),`
 `,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-tsx ladle-markdown",children:`'use client'
-import { Oscillator, type OscillatorProps } from '@clxrity/react-audio'
+import {
+  Oscillator,
+  type OscillatorProps,
+} from '@clxrity/react-audio'
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -267,14 +313,16 @@ import type { GlobalProvider } from '@ladle/react'
 
 const engine = new Styletron()
 
-export const Provider: GlobalProvider = ({ children, globalState }) => (
+export const Provider: GlobalProvider = ({
+  children,
+  globalState,
+}) => (
   <StyletronProvider value={engine}>
     <BaseProvider
       theme={{
         ...(globalState.theme === 'dark' ? DarkTheme : LightTheme),
         direction: globalState.rtl ? 'rtl' : 'ltr',
-      }}
-    >
+      }}>
       <div className="docs-container">
         <div className="docs-main">{children}</div>
       </div>
@@ -325,8 +373,14 @@ fs.readFile(indexPath, 'utf8', (err, data) => {
     '<meta name="description" content="A collection of audio components for React applications" />'
   )
   updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, '')
-  updatedData = updatedData.replace(/<link rel="apple-touch-icon"[^>]*>/, '')
-  updatedData = updatedData.replace(/<link rel="manifest"[^>]*>/, '')
+  updatedData = updatedData.replace(
+    /<link rel="apple-touch-icon"[^>]*>/,
+    ''
+  )
+  updatedData = updatedData.replace(
+    /<link rel="manifest"[^>]*>/,
+    ''
+  )
   updatedData = updatedData.replace(/<title>Ladle<\\/title>/, '')
 
   fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
@@ -367,8 +421,14 @@ const app = async (): Promise<UserConfigExport> => {
       {
         name: 'rename-css-plugin',
         closeBundle() {
-          const oldPath = path.resolve(__dirname, 'dist/react-audio.css')
-          const newPath = path.resolve(__dirname, 'dist/index.css')
+          const oldPath = path.resolve(
+            __dirname,
+            'dist/react-audio.css'
+          )
+          const newPath = path.resolve(
+            __dirname,
+            'dist/index.css'
+          )
 
           try {
             renameSync(oldPath, newPath) // FIX

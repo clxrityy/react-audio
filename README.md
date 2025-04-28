@@ -2,6 +2,8 @@
 
 ## A react audio player component library.
 
+[![coverage](https://codecov.io/gh/clxrityy/react-audio/graph/badge.svg?token=X4NBMSM9ZP)](https://codecov.io/gh/clxrityy/react-audio)
+
 [![MIT license](https://img.shields.io/npm/l/%40clxrity%2Freact-audio?style=for-the-badge&label=LICENSE)](https://github.com/clxrityy/react-audio/blob/main/LICENSE) [![npm module downloads](https://img.shields.io/npm/dm/%40clxrity%2Freact-audio?style=for-the-badge&logo=npm&logoColor=%23CB3837&logoSize=auto&label=DOWNLOADS)](https://www.npmjs.org/package/@clxrity/react-audio)
 
 [![view on npm](https://img.shields.io/npm/v/%40clxrity%2Freact-audio?style=for-the-badge&logo=npm&logoColor=%23CB3837&logoSize=auto&label=NPM)](https://www.npmjs.org/package/@clxrity/react-audio) [![BUILD](https://img.shields.io/github/actions/workflow/status/clxrityy/react-audio/.github%2Fworkflows%2Fmain.yml?branch=main&event=push&style=for-the-badge&logo=github&logoColor=%23181717&logoSize=auto&label=BUILD&color=%232dba4e)](https://github.com/clxrityy/react-audio/actions/workflows/main.yml)
