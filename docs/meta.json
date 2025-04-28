@@ -32,8 +32,8 @@
       "levels": [
         "Oscillator"
       ],
-      "locStart": 21,
-      "locEnd": 33,
+      "locStart": 20,
+      "locEnd": 31,
       "filePath": "src/stories/Oscillator.stories.tsx",
       "namedExport": "Default",
       "meta": {}
@@ -43,8 +43,8 @@
       "levels": [
         "Oscillator"
       ],
-      "locStart": 91,
-      "locEnd": 103,
+      "locStart": 101,
+      "locEnd": 116,
       "filePath": "src/stories/Oscillator.stories.tsx",
       "namedExport": "Frequency",
       "meta": {}
@@ -54,8 +54,8 @@
       "levels": [
         "Oscillator"
       ],
-      "locStart": 77,
-      "locEnd": 89,
+      "locStart": 84,
+      "locEnd": 99,
       "filePath": "src/stories/Oscillator.stories.tsx",
       "namedExport": "Gain",
       "meta": {}
@@ -65,8 +65,8 @@
       "levels": [
         "Oscillator"
       ],
-      "locStart": 35,
-      "locEnd": 47,
+      "locStart": 33,
+      "locEnd": 48,
       "filePath": "src/stories/Oscillator.stories.tsx",
       "namedExport": "Sawtooth",
       "meta": {}
@@ -76,8 +76,8 @@
       "levels": [
         "Oscillator"
       ],
-      "locStart": 49,
-      "locEnd": 61,
+      "locStart": 50,
+      "locEnd": 65,
       "filePath": "src/stories/Oscillator.stories.tsx",
       "namedExport": "Square",
       "meta": {}
@@ -87,8 +87,8 @@
       "levels": [
         "Oscillator"
       ],
-      "locStart": 63,
-      "locEnd": 75,
+      "locStart": 67,
+      "locEnd": 82,
       "filePath": "src/stories/Oscillator.stories.tsx",
       "namedExport": "Triangle",
       "meta": {}
@@ -98,8 +98,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 24,
-      "locEnd": 24,
+      "locStart": 29,
+      "locEnd": 29,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "AutoPlay",
       "meta": {}
@@ -109,8 +109,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 23,
-      "locEnd": 23,
+      "locStart": 28,
+      "locEnd": 28,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "CustomColor",
       "meta": {}
@@ -120,8 +120,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 21,
-      "locEnd": 21,
+      "locStart": 22,
+      "locEnd": 24,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "Default",
       "meta": {}
@@ -131,8 +131,8 @@
       "levels": [
         "Player"
       ],
-      "locStart": 22,
-      "locEnd": 22,
+      "locStart": 25,
+      "locEnd": 27,
       "filePath": "src/stories/Player.stories.tsx",
       "namedExport": "NoTrackInfo",
       "meta": {}
@@ -186,8 +186,8 @@
       "levels": [
         "Spectrogram"
       ],
-      "locStart": 33,
-      "locEnd": 33,
+      "locStart": 32,
+      "locEnd": 34,
       "filePath": "src/stories/Spectrogram.stories.tsx",
       "namedExport": "CustomColorMap",
       "meta": {}
@@ -197,8 +197,8 @@
       "levels": [
         "Spectrogram"
       ],
-      "locStart": 63,
-      "locEnd": 63,
+      "locStart": 66,
+      "locEnd": 68,
       "filePath": "src/stories/Spectrogram.stories.tsx",
       "namedExport": "CustomFFTSize",
       "meta": {}
@@ -208,8 +208,8 @@
       "levels": [
         "Spectrogram"
       ],
-      "locStart": 40,
-      "locEnd": 40,
+      "locStart": 41,
+      "locEnd": 43,
       "filePath": "src/stories/Spectrogram.stories.tsx",
       "namedExport": "CustomFillStyle",
       "meta": {}
@@ -219,8 +219,8 @@
       "levels": [
         "Spectrogram"
       ],
-      "locStart": 26,
-      "locEnd": 26,
+      "locStart": 25,
+      "locEnd": 25,
       "filePath": "src/stories/Spectrogram.stories.tsx",
       "namedExport": "CustomSize",
       "meta": {}
@@ -230,8 +230,8 @@
       "levels": [
         "Spectrogram"
       ],
-      "locStart": 54,
-      "locEnd": 56,
+      "locStart": 57,
+      "locEnd": 59,
       "filePath": "src/stories/Spectrogram.stories.tsx",
       "namedExport": "CustomSmoothingTimeConstant",
       "meta": {}
@@ -241,8 +241,8 @@
       "levels": [
         "Spectrogram"
       ],
-      "locStart": 18,
-      "locEnd": 18,
+      "locStart": 17,
+      "locEnd": 17,
       "filePath": "src/stories/Spectrogram.stories.tsx",
       "namedExport": "Default",
       "meta": {}
@@ -252,8 +252,8 @@
       "levels": [
         "Spectrogram"
       ],
-      "locStart": 47,
-      "locEnd": 47,
+      "locStart": 50,
+      "locEnd": 50,
       "filePath": "src/stories/Spectrogram.stories.tsx",
       "namedExport": "Loop",
       "meta": {}
@@ -264,7 +264,7 @@
         "Waveform"
       ],
       "locStart": 26,
-      "locEnd": 26,
+      "locEnd": 28,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "CustomColor",
       "meta": {}
@@ -285,8 +285,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 28,
-      "locEnd": 28,
+      "locStart": 32,
+      "locEnd": 34,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "HigherFFTSize",
       "meta": {}
@@ -307,8 +307,8 @@
       "levels": [
         "Waveform"
       ],
-      "locStart": 27,
-      "locEnd": 27,
+      "locStart": 29,
+      "locEnd": 31,
       "filePath": "src/stories/Waveform.stories.tsx",
       "namedExport": "LowerFFTSize",
       "meta": {}

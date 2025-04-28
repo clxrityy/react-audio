@@ -6,40 +6,40 @@
 
 - 96b7a45: Add `<Oscillator />` component
 
-    This produces periodic signal with the type of wave specified by the `type` ([`OscillatorType`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/type)) prop. The component is a wrapper around the Web Audio API's [`OscillatorNode`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode).
+  This produces periodic signal with the type of wave specified by the `type` ([`OscillatorType`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/type)) prop. The component is a wrapper around the Web Audio API's [`OscillatorNode`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode).
 
-    You must pass the `isPlaying` boolean prop to start and stop the oscillator.
+  You must pass the `isPlaying` boolean prop to start and stop the oscillator.
 
-    ### Parameters
+  ### Parameters
 
-    | Param             | Type                          | Description                              | Default  | Required |
-    | ----------------- | ----------------------------- | ---------------------------------------- | -------- | -------- |
-    | type              | `OscillatorType`              | The type of wave to produce              | `'sine'` | ❌       |
-    | isPlaying         | `boolean`                     | Whether the oscillator should be playing | `false`  | ✅       |
-    | frequency         | `number`                      | The frequency of the oscillator in hertz | `440`    | ❌       |
-    | gain              | `number`                      | The gain of the oscillator               | `0.5`    | ❌       |
-    | onFrequencyChange | `(frequency: number) => void` | Callback when the frequency changes      | N/A      | ❌       |
-    | onGainChange      | `(gain: number) => void`      | Callback when the gain changes           | N/A      | ❌       |
+  | Param             | Type                          | Description                              | Default  | Required |
+  | ----------------- | ----------------------------- | ---------------------------------------- | -------- | -------- |
+  | type              | `OscillatorType`              | The type of wave to produce              | `'sine'` | ❌       |
+  | isPlaying         | `boolean`                     | Whether the oscillator should be playing | `false`  | ✅       |
+  | frequency         | `number`                      | The frequency of the oscillator in hertz | `440`    | ❌       |
+  | gain              | `number`                      | The gain of the oscillator               | `0.5`    | ❌       |
+  | onFrequencyChange | `(frequency: number) => void` | Callback when the frequency changes      | N/A      | ❌       |
+  | onGainChange      | `(gain: number) => void`      | Callback when the gain changes           | N/A      | ❌       |
 
-    #### Example with Next.js
+  #### Example with Next.js
 
-    ```tsx
-    'use client'
-    import { Oscillator, type OscillatorProps } from '@clxrity/react-audio'
+  ```tsx
+  'use client'
+  import { Oscillator, type OscillatorProps } from '@clxrity/react-audio'
 
-    export default function Home() {
-        const [isPlaying, setIsPlaying] = useState(false)
+  export default function Home() {
+    const [isPlaying, setIsPlaying] = useState(false)
 
-        return (
-            <div>
-                <button onClick={() => setIsPlaying(!isPlaying)}>
-                    {isPlaying ? 'Stop' : 'Start'}
-                </button>
-                <Oscillator type="sine" isPlaying={isPlaying} />
-            </div>
-        )
-    }
-    ```
+    return (
+      <div>
+        <button onClick={() => setIsPlaying(!isPlaying)}>
+          {isPlaying ? 'Stop' : 'Start'}
+        </button>
+        <Oscillator type="sine" isPlaying={isPlaying} />
+      </div>
+    )
+  }
+  ```
 
 ### Patch Changes
 
@@ -57,43 +57,43 @@
 
 - 13b68de: Add the `<Spectrogram />` component.
 
-    #### Parameters
+  #### Parameters
 
-    | Param                 | Type              | Description                                                                                                | Default                                        | Required |
-    | --------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | -------- |
-    | track                 | `Track`           | The track to display the spectrogram of.                                                                   | N/A                                            | ✅       |
-    | fftSize               | `FFTSize`         | The size of the FFT to use.                                                                                | `1024`                                         | ❌       |
-    | width                 | `number`/`string` | The width of the spectrogram.                                                                              | `100%`                                         | ❌       |
-    | height                | `number`/`string` | The height of the spectrogram.                                                                             | `25%`                                          | ❌       |
-    | minDecibels           | `number`          | The minimum decibels to display.                                                                           | `-100`                                         | ❌       |
-    | maxDecibels           | `number`          | The maximum decibels to display.                                                                           | `-30`                                          | ❌       |
-    | colorMap              | `Array<string>`   | The color map to use.                                                                                      | `["#000000", "#ff0000", "#ffff00", "#ffffff"]` | ❌       |
-    | smoothingTimeConstant | `number`          | The smoothing time constant to use.                                                                        | `0.8`                                          | ❌       |
-    | realTime              | `boolean`         | Whether to display the spectrogram in real time.                                                           | `true`                                         | ❌       |
-    | logarithmicScale      | `boolean`         | Whether to use a logarithmic scale.                                                                        | `true`                                         | ❌       |
-    | onFrameUpdate         | `Function`        | A callback to be called when a new frame is available. Accepts a data array (`Uint8Array`) as a parameter. | N/A                                            | ❌       |
-    | loop                  | `boolean`         | Whether to loop the audio.                                                                                 | `false`                                        | ❌       |
-    | fillStyle             | `string`          | The background fill of the canvas                                                                          | `#000000`                                      | ❌       |
+  | Param                 | Type              | Description                                                                                                | Default                                        | Required |
+  | --------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | -------- |
+  | track                 | `Track`           | The track to display the spectrogram of.                                                                   | N/A                                            | ✅       |
+  | fftSize               | `FFTSize`         | The size of the FFT to use.                                                                                | `1024`                                         | ❌       |
+  | width                 | `number`/`string` | The width of the spectrogram.                                                                              | `100%`                                         | ❌       |
+  | height                | `number`/`string` | The height of the spectrogram.                                                                             | `25%`                                          | ❌       |
+  | minDecibels           | `number`          | The minimum decibels to display.                                                                           | `-100`                                         | ❌       |
+  | maxDecibels           | `number`          | The maximum decibels to display.                                                                           | `-30`                                          | ❌       |
+  | colorMap              | `Array<string>`   | The color map to use.                                                                                      | `["#000000", "#ff0000", "#ffff00", "#ffffff"]` | ❌       |
+  | smoothingTimeConstant | `number`          | The smoothing time constant to use.                                                                        | `0.8`                                          | ❌       |
+  | realTime              | `boolean`         | Whether to display the spectrogram in real time.                                                           | `true`                                         | ❌       |
+  | logarithmicScale      | `boolean`         | Whether to use a logarithmic scale.                                                                        | `true`                                         | ❌       |
+  | onFrameUpdate         | `Function`        | A callback to be called when a new frame is available. Accepts a data array (`Uint8Array`) as a parameter. | N/A                                            | ❌       |
+  | loop                  | `boolean`         | Whether to loop the audio.                                                                                 | `false`                                        | ❌       |
+  | fillStyle             | `string`          | The background fill of the canvas                                                                          | `#000000`                                      | ❌       |
 
-    #### Example
+  #### Example
 
-    ```tsx
-    <Spectrogram
-        track={track}
-        fftSize={1024}
-        width={500}
-        height={300}
-        minDecibels={-100}
-        maxDecibels={-30}
-        colorMap={['#000000', '#ff0000', '#ffff00', '#ffffff']}
-        smoothingTimeConstant={0.8}
-        realTime={true}
-        logarithmicScale={true}
-        onFrameUpdate={() => {}}
-        loop={true}
-        fillStyle="rgba(0, 0, 0, 0.5)"
-    />
-    ```
+  ```tsx
+  <Spectrogram
+    track={track}
+    fftSize={1024}
+    width={500}
+    height={300}
+    minDecibels={-100}
+    maxDecibels={-30}
+    colorMap={['#000000', '#ff0000', '#ffff00', '#ffffff']}
+    smoothingTimeConstant={0.8}
+    realTime={true}
+    logarithmicScale={true}
+    onFrameUpdate={() => {}}
+    loop={true}
+    fillStyle="rgba(0, 0, 0, 0.5)"
+  />
+  ```
 
 - 9540893: Update dependencies
 
@@ -104,60 +104,60 @@
 - 910a28d: Add a **border** prop to ShufflePlayer
 - ed9308c: Add more stories for `<ShufflePlayer />`
 
-    - **Dont show tracks** - Example not displaying the track information
-    - **Custom color** - Example of changing the color of the player
-    - **Custom border** - Example of changing the border of the player
+  - **Dont show tracks** - Example not displaying the track information
+  - **Custom color** - Example of changing the color of the player
+  - **Custom border** - Example of changing the border of the player
 
 - c802826: Add some development dependencies to optimize the visibility of the docs, make the default mode dark.
 
-    **New Dependencies:**
+  **New Dependencies:**
 
-    - [`baseui`](https://github.com/uber/baseweb#readme)
-    - [`styletron-react`](https://www.npmjs.com/package/styletron-react)
-    - [`styletron-engine-monolithic`](https://www.npmjs.com/package/styletron-engine-monolithic)
+  - [`baseui`](https://github.com/uber/baseweb#readme)
+  - [`styletron-react`](https://www.npmjs.com/package/styletron-react)
+  - [`styletron-engine-monolithic`](https://www.npmjs.com/package/styletron-engine-monolithic)
 
-    **Changes:**
+  **Changes:**
 
-    ```mjs
-    // .ladle/config.mjs
+  ```mjs
+  // .ladle/config.mjs
 
-    /** @type {import('@ladle/react').UserConfig} */
-    export default {
-        // ...
-        addons: {
-            // ...
-            theme: {
-                enabled: true,
-                defaultState: 'dark',
-            },
-        },
-    }
-    ```
+  /** @type {import('@ladle/react').UserConfig} */
+  export default {
+    // ...
+    addons: {
+      // ...
+      theme: {
+        enabled: true,
+        defaultState: 'dark',
+      },
+    },
+  }
+  ```
 
-    ```tsx
-    // .ladle/components.tsx
-    import { Provider as StyletronProvider } from 'styletron-react'
-    import { Client as Styletron } from 'styletron-engine-monolithic'
-    import { LightTheme, DarkTheme, BaseProvider } from 'baseui'
-    import type { GlobalProvider } from '@ladle/react'
+  ```tsx
+  // .ladle/components.tsx
+  import { Provider as StyletronProvider } from 'styletron-react'
+  import { Client as Styletron } from 'styletron-engine-monolithic'
+  import { LightTheme, DarkTheme, BaseProvider } from 'baseui'
+  import type { GlobalProvider } from '@ladle/react'
 
-    const engine = new Styletron()
+  const engine = new Styletron()
 
-    export const Provider: GlobalProvider = ({ children, globalState }) => (
-        <StyletronProvider value={engine}>
-            <BaseProvider
-                theme={{
-                    ...(globalState.theme === 'dark' ? DarkTheme : LightTheme),
-                    direction: globalState.rtl ? 'rtl' : 'ltr',
-                }}
-            >
-                <div className="docs-container">
-                    <div className="docs-main">{children}</div>
-                </div>
-            </BaseProvider>
-        </StyletronProvider>
-    )
-    ```
+  export const Provider: GlobalProvider = ({ children, globalState }) => (
+    <StyletronProvider value={engine}>
+      <BaseProvider
+        theme={{
+          ...(globalState.theme === 'dark' ? DarkTheme : LightTheme),
+          direction: globalState.rtl ? 'rtl' : 'ltr',
+        }}
+      >
+        <div className="docs-container">
+          <div className="docs-main">{children}</div>
+        </div>
+      </BaseProvider>
+    </StyletronProvider>
+  )
+  ```
 
 - 1f6297b: Update **ShufflePlayer** props to include showTracks which can optionally hide the display of all the tracks
 
@@ -166,57 +166,54 @@
 - 218df0a: Fix docs output (default story, output directory)
 - 11ec0e2: Add a script to run after building the documentation to fix the metadata.
 
-    Before, the `<link />` tags were being generated with the wrong `href` attribute. This script will fix the `href` attribute to point to the correct location.
+  Before, the `<link />` tags were being generated with the wrong `href` attribute. This script will fix the `href` attribute to point to the correct location.
 
-    - The `href` attribute was being generated as `/assets/...` instead of `./assets/...`
+  - The `href` attribute was being generated as `/assets/...` instead of `./assets/...`
 
-    ```json
-    {
-        "scripts": {
-            "build:ladle": "ladle build && node scripts/docs-postbuild.cjs"
-        }
+  ```json
+  {
+    "scripts": {
+      "build:ladle": "ladle build && node scripts/docs-postbuild.cjs"
     }
-    ```
+  }
+  ```
 
-    ```cjs
-    const fs = require('fs')
-    const path = require('path')
+  ```cjs
+  const fs = require('fs')
+  const path = require('path')
 
-    const indexPath = path.join(__dirname, '../docs', 'index.html')
+  const indexPath = path.join(__dirname, '../docs', 'index.html')
 
-    fs.readFile(indexPath, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading index.html', err)
-            process.exit(1)
-        }
+  fs.readFile(indexPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading index.html', err)
+      process.exit(1)
+    }
 
-        // Replace absolute asset paths with relative ones (e.g., '/assets' to './assets')
-        let updatedData = data
-            .replace(/href="\/assets/g, 'href="./assets')
-            .replace(/src="\/assets/g, 'src="./assets')
+    // Replace absolute asset paths with relative ones (e.g., '/assets' to './assets')
+    let updatedData = data
+      .replace(/href="\/assets/g, 'href="./assets')
+      .replace(/src="\/assets/g, 'src="./assets')
 
-        updatedData = updatedData.replace(
-            /<meta name="dscription"[^>]*>/,
-            '<meta name="description" content="A collection of audio components for React applications" />'
-        )
-        updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, '')
-        updatedData = updatedData.replace(
-            /<link rel="apple-touch-icon"[^>]*>/,
-            ''
-        )
-        updatedData = updatedData.replace(/<link rel="manifest"[^>]*>/, '')
-        updatedData = updatedData.replace(/<title>Ladle<\/title>/, '')
+    updatedData = updatedData.replace(
+      /<meta name="dscription"[^>]*>/,
+      '<meta name="description" content="A collection of audio components for React applications" />'
+    )
+    updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, '')
+    updatedData = updatedData.replace(/<link rel="apple-touch-icon"[^>]*>/, '')
+    updatedData = updatedData.replace(/<link rel="manifest"[^>]*>/, '')
+    updatedData = updatedData.replace(/<title>Ladle<\/title>/, '')
 
-        fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
-            if (err) {
-                console.error('Error writing index.html', err)
-                process.exit(1)
-            } else {
-                console.log('index.html updated successfully')
-            }
-        })
+    fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
+      if (err) {
+        console.error('Error writing index.html', err)
+        process.exit(1)
+      } else {
+        console.log('index.html updated successfully')
+      }
     })
-    ```
+  })
+  ```
 
 ## 2.0.2
 
@@ -224,70 +221,64 @@
 
 - 4853714: Fix the ability to import the package's css file.
 
-    Before it was bundling into `dist/src/index.css` which was not being imported correctly.
-    Upon trying to fix it, it would bundle as `react-audio.css` which was not the desired output.
+  Before it was bundling into `dist/src/index.css` which was not being imported correctly.
+  Upon trying to fix it, it would bundle as `react-audio.css` which was not the desired output.
 
-    - Altered `vite.config.ts` to output the css to `dist/index.css`
+  - Altered `vite.config.ts` to output the css to `dist/index.css`
 
-        - Added a custom `rename-css-plugin` to vite plugins:
-
-        ```ts
-        import { UserConfigExport } from 'vite'
-        import { renameSync } from 'fs' // NEW
-        import path from 'path'
-        import { defineConfig } from 'vitest/config'
-        // ...
-
-        const app = async (): Promise<UserConfigExport> => {
-            return defineConfig({
-                plugins: [
-                    //.. prev plugins,
-                    {
-                        name: 'rename-css-plugin',
-                        closeBundle() {
-                            const oldPath = path.resolve(
-                                __dirname,
-                                'dist/react-audio.css'
-                            )
-                            const newPath = path.resolve(
-                                __dirname,
-                                'dist/index.css'
-                            )
-
-                            try {
-                                renameSync(oldPath, newPath) // FIX
-                            } catch (error) {
-                                console.error(error)
-                            }
-                        },
-                    },
-                ],
-            })
-        }
-        ```
-
-    - Also added a way to import within css by updating `css.preprocessorOptions` in `vite.config.ts`:
-        ```ts
-        css: {
-            preprocessorOptions: {
-                scss: {
-                    additionalData: `@import "@clxrity/react-audio/index.css";`
-                }
-            }
-        }
-        ```
-
-    You can now import within your css file like so:
-
-    ```css
-    @import '@clxrity/react-audio/index.css';
-    ```
-
-    And within your js/ts file like so:
+    - Added a custom `rename-css-plugin` to vite plugins:
 
     ```ts
-    import '@clxrity/react-audio/index.css'
+    import { UserConfigExport } from 'vite'
+    import { renameSync } from 'fs' // NEW
+    import path from 'path'
+    import { defineConfig } from 'vitest/config'
+    // ...
+
+    const app = async (): Promise<UserConfigExport> => {
+      return defineConfig({
+        plugins: [
+          //.. prev plugins,
+          {
+            name: 'rename-css-plugin',
+            closeBundle() {
+              const oldPath = path.resolve(__dirname, 'dist/react-audio.css')
+              const newPath = path.resolve(__dirname, 'dist/index.css')
+
+              try {
+                renameSync(oldPath, newPath) // FIX
+              } catch (error) {
+                console.error(error)
+              }
+            },
+          },
+        ],
+      })
+    }
     ```
+
+  - Also added a way to import within css by updating `css.preprocessorOptions` in `vite.config.ts`:
+    ```ts
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@clxrity/react-audio/index.css";`
+        }
+      }
+    }
+    ```
+
+  You can now import within your css file like so:
+
+  ```css
+  @import '@clxrity/react-audio/index.css';
+  ```
+
+  And within your js/ts file like so:
+
+  ```ts
+  import '@clxrity/react-audio/index.css'
+  ```
 
 ## 2.0.0
 
@@ -295,46 +286,46 @@
 
 - b82ecec: - Switched from [storybook](https://storybook.js.org/) to [ladle](https://ladle.dev/) - Much more lightweight and faster - A lot more of a simple UI to work with
 
-    - Text and colors are automatically inherited by the theme.
-        - Dark background = white text
-        - Light background = black text
-    - Components in new working new version so far:
-        - `<Player />` - Replaces `<JustPlayer />` & `<AudioPlayer />`
-        - `<ShufflePlayer />` - Replaces `<LibraryPlayer />`
-        - `<Waveform />`
+  - Text and colors are automatically inherited by the theme.
+    - Dark background = white text
+    - Light background = black text
+  - Components in new working new version so far:
+    - `<Player />` - Replaces `<JustPlayer />` & `<AudioPlayer />`
+    - `<ShufflePlayer />` - Replaces `<LibraryPlayer />`
+    - `<Waveform />`
 
-    Working structure:
+  Working structure:
 
-    ```yaml
-    ~:
-        __tests__/: # Tests with vitest
-        .changeset/: # Changeset version management
-        .github/: # Github workflows
-        .ladle/: # Ladle setup for documenation
-        docs/: # Output from ladle for github pages
-        public/: # Public static directory
-        src/:
-            components/ui/: # Reusable UI components
-            hooks/: # Reusable hooks
-            lib/: # The package exports
-                - ...
-                - index.ts # Main entry point
-            stories/: # Ladle stories
-            util/: # Utility functions
-            - config.ts # Default configurations
-            - index.css # Global CSS
-        ...
-    ```
+  ```yaml
+  ~:
+      __tests__/: # Tests with vitest
+      .changeset/: # Changeset version management
+      .github/: # Github workflows
+      .ladle/: # Ladle setup for documenation
+      docs/: # Output from ladle for github pages
+      public/: # Public static directory
+      src/:
+          components/ui/: # Reusable UI components
+          hooks/: # Reusable hooks
+          lib/: # The package exports
+              - ...
+              - index.ts # Main entry point
+          stories/: # Ladle stories
+          util/: # Utility functions
+          - config.ts # Default configurations
+          - index.css # Global CSS
+      ...
+  ```
 
 - 22f001e: - Update all dependencies
-    - Begin restructuring code
-    - Switch to Vite
-    - Switch from styled components to tailwind
-    - Add new logo
-    - Add new landing page
-    - Add new documentation
-    - Add new examples
-    - Add new audio player
+  - Begin restructuring code
+  - Switch to Vite
+  - Switch from styled components to tailwind
+  - Add new logo
+  - Add new landing page
+  - Add new documentation
+  - Add new examples
+  - Add new audio player
 
 ### Minor Changes
 
@@ -343,9 +334,9 @@
 - e155be4: add functionality to EQ & volume knobs (**AudioInputVisualizer**)
 - 6f1c415: Added a code coverage workflow that indicates whether all [`vitest`](https://vitest.dev/) tests are passing.
 
-    - Utilizes [Codecov](https://about.codecov.io/) to provide an interactive UI for test coverage.
-    - Added an environment variable `CODECOV_TOKEN` to the repository's secrets and local `.env` file.
-    - Added a new script `npm run coverage` to generate and upload the coverage report.
+  - Utilizes [Codecov](https://about.codecov.io/) to provide an interactive UI for test coverage.
+  - Added an environment variable `CODECOV_TOKEN` to the repository's secrets and local `.env` file.
+  - Added a new script `npm run coverage` to generate and upload the coverage report.
 
 - 8172042: added the Waveform component, working perfectly. might need some style tweaks and configurations down the road
 - f1a1c48: Add a new \***\*tests\*\*** directory to contain public tests

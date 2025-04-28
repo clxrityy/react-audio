@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://clxrityy.github.io/react-audio/</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=documentation--changelog</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=home--readme</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=oscillator--default</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=oscillator--frequency</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=oscillator--gain</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=oscillator--sawtooth</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=oscillator--square</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=oscillator--triangle</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=player--auto-play</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=player--custom-color</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=player--default</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=player--no-track-info</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=shuffleplayer--custom-border</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=shuffleplayer--custom-color</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=shuffleplayer--default</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=shuffleplayer--dont-show-tracks</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=spectrogram--custom-color-map</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=spectrogram--custom-fft-size</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=spectrogram--custom-fill-style</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=spectrogram--custom-size</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=spectrogram--custom-smoothing-time-constant</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=spectrogram--default</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=spectrogram--loop</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=waveform--custom-color</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=waveform--default</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=waveform--higher-fft-size</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=waveform--large</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=waveform--lower-fft-size</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=waveform--no-track-info</loc></url>
+  <url><loc>https://clxrityy.github.io/react-audio/?story=waveform--small</loc></url>
+</urlset>

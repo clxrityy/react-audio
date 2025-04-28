@@ -9,8 +9,8 @@ export default {
     },
     theme: {
       enabled: true,
-      defaultState: "dark"
-    }
+      defaultState: "dark",
+    },
   },
   defaultStory: "home--readme",
   viteConfig: process.cwd() + "/vite.ladle.config.ts",

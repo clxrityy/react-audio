@@ -1,4 +1,4 @@
-import{u as n,j as a}from"./index-DNBgkSAg.js";import{M as r}from"./exports-0py7As9s.js";import"./dialog-BlLKB11T.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+import{u as n,j as a}from"./index-CIT5xxdx.js";import{M as r}from"./exports-BZKL1nk1.js";import"./dialog-DnumWtkX.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"2.4.0"}),`
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Minor Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`
@@ -67,16 +67,16 @@ import{u as n,j as a}from"./index-DNBgkSAg.js";import{M as r}from"./exports-0py7
 import { Oscillator, type OscillatorProps } from '@clxrity/react-audio'
 
 export default function Home() {
-    const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
 
-    return (
-        <div>
-            <button onClick={() => setIsPlaying(!isPlaying)}>
-                {isPlaying ? 'Stop' : 'Start'}
-            </button>
-            <Oscillator type="sine" isPlaying={isPlaying} />
-        </div>
-    )
+  return (
+    <div>
+      <button onClick={() => setIsPlaying(!isPlaying)}>
+        {isPlaying ? 'Stop' : 'Start'}
+      </button>
+      <Oscillator type="sine" isPlaying={isPlaying} />
+    </div>
+  )
 }
 `})}),`
 `]}),`
@@ -202,19 +202,19 @@ export default function Home() {
 `,a.jsxs(e.table,{className:"ladle-markdown",children:[a.jsx(e.thead,{className:"ladle-markdown",children:a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.th,{className:"ladle-markdown",children:"Param"}),a.jsx(e.th,{className:"ladle-markdown",children:"Type"}),a.jsx(e.th,{className:"ladle-markdown",children:"Description"}),a.jsx(e.th,{className:"ladle-markdown",children:"Default"}),a.jsx(e.th,{className:"ladle-markdown",children:"Required"})]})}),a.jsxs(e.tbody,{className:"ladle-markdown",children:[a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"track"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"Track"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The track to display the spectrogram of."}),a.jsx(e.td,{className:"ladle-markdown",children:"N/A"}),a.jsx(e.td,{className:"ladle-markdown",children:"✅"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"fftSize"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"FFTSize"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The size of the FFT to use."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"1024"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"width"}),a.jsxs(e.td,{className:"ladle-markdown",children:[a.jsx(e.code,{className:"ladle-markdown",children:"number"}),"/",a.jsx(e.code,{className:"ladle-markdown",children:"string"})]}),a.jsx(e.td,{className:"ladle-markdown",children:"The width of the spectrogram."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"100%"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"height"}),a.jsxs(e.td,{className:"ladle-markdown",children:[a.jsx(e.code,{className:"ladle-markdown",children:"number"}),"/",a.jsx(e.code,{className:"ladle-markdown",children:"string"})]}),a.jsx(e.td,{className:"ladle-markdown",children:"The height of the spectrogram."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"25%"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"minDecibels"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The minimum decibels to display."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"-100"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"maxDecibels"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The maximum decibels to display."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"-30"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"colorMap"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"Array<string>"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The color map to use."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:'["#000000", "#ff0000", "#ffff00", "#ffffff"]'})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"smoothingTimeConstant"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"number"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The smoothing time constant to use."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"0.8"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"realTime"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"boolean"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Whether to display the spectrogram in real time."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"true"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"logarithmicScale"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"boolean"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Whether to use a logarithmic scale."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"true"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"onFrameUpdate"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"Function"})}),a.jsxs(e.td,{className:"ladle-markdown",children:["A callback to be called when a new frame is available. Accepts a data array (",a.jsx(e.code,{className:"ladle-markdown",children:"Uint8Array"}),") as a parameter."]}),a.jsx(e.td,{className:"ladle-markdown",children:"N/A"}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"loop"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"boolean"})}),a.jsx(e.td,{className:"ladle-markdown",children:"Whether to loop the audio."}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"false"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]}),a.jsxs(e.tr,{className:"ladle-markdown",children:[a.jsx(e.td,{className:"ladle-markdown",children:"fillStyle"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"string"})}),a.jsx(e.td,{className:"ladle-markdown",children:"The background fill of the canvas"}),a.jsx(e.td,{className:"ladle-markdown",children:a.jsx(e.code,{className:"ladle-markdown",children:"#000000"})}),a.jsx(e.td,{className:"ladle-markdown",children:"❌"})]})]})]}),`
 `,a.jsx(e.h4,{className:"ladle-markdown",children:"Example"}),`
 `,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-tsx ladle-markdown",children:`<Spectrogram
-    track={track}
-    fftSize={1024}
-    width={500}
-    height={300}
-    minDecibels={-100}
-    maxDecibels={-30}
-    colorMap={['#000000', '#ff0000', '#ffff00', '#ffffff']}
-    smoothingTimeConstant={0.8}
-    realTime={true}
-    logarithmicScale={true}
-    onFrameUpdate={() => {}}
-    loop={true}
-    fillStyle="rgba(0, 0, 0, 0.5)"
+  track={track}
+  fftSize={1024}
+  width={500}
+  height={300}
+  minDecibels={-100}
+  maxDecibels={-30}
+  colorMap={['#000000', '#ff0000', '#ffff00', '#ffffff']}
+  smoothingTimeConstant={0.8}
+  realTime={true}
+  logarithmicScale={true}
+  onFrameUpdate={() => {}}
+  loop={true}
+  fillStyle="rgba(0, 0, 0, 0.5)"
 />
 `})}),`
 `]}),`
@@ -249,14 +249,14 @@ export default function Home() {
 
 /** @type {import('@ladle/react').UserConfig} */
 export default {
+  // ...
+  addons: {
     // ...
-    addons: {
-        // ...
-        theme: {
-            enabled: true,
-            defaultState: 'dark',
-        },
+    theme: {
+      enabled: true,
+      defaultState: 'dark',
     },
+  },
 }
 `})}),`
 `,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-tsx ladle-markdown",children:`// .ladle/components.tsx
@@ -268,18 +268,18 @@ import type { GlobalProvider } from '@ladle/react'
 const engine = new Styletron()
 
 export const Provider: GlobalProvider = ({ children, globalState }) => (
-    <StyletronProvider value={engine}>
-        <BaseProvider
-            theme={{
-                ...(globalState.theme === 'dark' ? DarkTheme : LightTheme),
-                direction: globalState.rtl ? 'rtl' : 'ltr',
-            }}
-        >
-            <div className="docs-container">
-                <div className="docs-main">{children}</div>
-            </div>
-        </BaseProvider>
-    </StyletronProvider>
+  <StyletronProvider value={engine}>
+    <BaseProvider
+      theme={{
+        ...(globalState.theme === 'dark' ? DarkTheme : LightTheme),
+        direction: globalState.rtl ? 'rtl' : 'ltr',
+      }}
+    >
+      <div className="docs-container">
+        <div className="docs-main">{children}</div>
+      </div>
+    </BaseProvider>
+  </StyletronProvider>
 )
 `})}),`
 `]}),`
@@ -299,9 +299,9 @@ export const Provider: GlobalProvider = ({ children, globalState }) => (
 `,a.jsxs(e.li,{className:"ladle-markdown",children:["The ",a.jsx(e.code,{className:"ladle-markdown",children:"href"})," attribute was being generated as ",a.jsx(e.code,{className:"ladle-markdown",children:"/assets/..."})," instead of ",a.jsx(e.code,{className:"ladle-markdown",children:"./assets/..."})]}),`
 `]}),`
 `,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-json ladle-markdown",children:`{
-    "scripts": {
-        "build:ladle": "ladle build && node scripts/docs-postbuild.cjs"
-    }
+  "scripts": {
+    "build:ladle": "ladle build && node scripts/docs-postbuild.cjs"
+  }
 }
 `})}),`
 `,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-cjs ladle-markdown",children:`const fs = require('fs')
@@ -310,36 +310,33 @@ const path = require('path')
 const indexPath = path.join(__dirname, '../docs', 'index.html')
 
 fs.readFile(indexPath, 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading index.html', err)
+    process.exit(1)
+  }
+
+  // Replace absolute asset paths with relative ones (e.g., '/assets' to './assets')
+  let updatedData = data
+    .replace(/href="\\/assets/g, 'href="./assets')
+    .replace(/src="\\/assets/g, 'src="./assets')
+
+  updatedData = updatedData.replace(
+    /<meta name="dscription"[^>]*>/,
+    '<meta name="description" content="A collection of audio components for React applications" />'
+  )
+  updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, '')
+  updatedData = updatedData.replace(/<link rel="apple-touch-icon"[^>]*>/, '')
+  updatedData = updatedData.replace(/<link rel="manifest"[^>]*>/, '')
+  updatedData = updatedData.replace(/<title>Ladle<\\/title>/, '')
+
+  fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
     if (err) {
-        console.error('Error reading index.html', err)
-        process.exit(1)
+      console.error('Error writing index.html', err)
+      process.exit(1)
+    } else {
+      console.log('index.html updated successfully')
     }
-
-    // Replace absolute asset paths with relative ones (e.g., '/assets' to './assets')
-    let updatedData = data
-        .replace(/href="\\/assets/g, 'href="./assets')
-        .replace(/src="\\/assets/g, 'src="./assets')
-
-    updatedData = updatedData.replace(
-        /<meta name="dscription"[^>]*>/,
-        '<meta name="description" content="A collection of audio components for React applications" />'
-    )
-    updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, '')
-    updatedData = updatedData.replace(
-        /<link rel="apple-touch-icon"[^>]*>/,
-        ''
-    )
-    updatedData = updatedData.replace(/<link rel="manifest"[^>]*>/, '')
-    updatedData = updatedData.replace(/<title>Ladle<\\/title>/, '')
-
-    fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
-        if (err) {
-            console.error('Error writing index.html', err)
-            process.exit(1)
-        } else {
-            console.log('index.html updated successfully')
-        }
-    })
+  })
 })
 `})}),`
 `]}),`
@@ -364,41 +361,35 @@ import { defineConfig } from 'vitest/config'
 // ...
 
 const app = async (): Promise<UserConfigExport> => {
-    return defineConfig({
-        plugins: [
-            //.. prev plugins,
-            {
-                name: 'rename-css-plugin',
-                closeBundle() {
-                    const oldPath = path.resolve(
-                        __dirname,
-                        'dist/react-audio.css'
-                    )
-                    const newPath = path.resolve(
-                        __dirname,
-                        'dist/index.css'
-                    )
+  return defineConfig({
+    plugins: [
+      //.. prev plugins,
+      {
+        name: 'rename-css-plugin',
+        closeBundle() {
+          const oldPath = path.resolve(__dirname, 'dist/react-audio.css')
+          const newPath = path.resolve(__dirname, 'dist/index.css')
 
-                    try {
-                        renameSync(oldPath, newPath) // FIX
-                    } catch (error) {
-                        console.error(error)
-                    }
-                },
-            },
-        ],
-    })
+          try {
+            renameSync(oldPath, newPath) // FIX
+          } catch (error) {
+            console.error(error)
+          }
+        },
+      },
+    ],
+  })
 }
 `})}),`
 `]}),`
 `,a.jsxs(e.li,{className:"ladle-markdown",children:[`
 `,a.jsxs(e.p,{className:"ladle-markdown",children:["Also added a way to import within css by updating ",a.jsx(e.code,{className:"ladle-markdown",children:"css.preprocessorOptions"})," in ",a.jsx(e.code,{className:"ladle-markdown",children:"vite.config.ts"}),":"]}),`
 `,a.jsx(e.pre,{className:"ladle-markdown",children:a.jsx(e.code,{className:"language-ts ladle-markdown",children:`css: {
-    preprocessorOptions: {
-        scss: {
-            additionalData: \`@import "@clxrity/react-audio/index.css";\`
-        }
+  preprocessorOptions: {
+    scss: {
+      additionalData: \`@import "@clxrity/react-audio/index.css";\`
     }
+  }
 }
 `})}),`
 `]}),`

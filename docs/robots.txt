@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clxrityy.github.io/react-audio/sitemap.xml
