@@ -1,4 +1,4 @@
-import{u as n,b as a}from"./index-C5WLzH7S.js";import{M as r}from"./exports-DTAI5qOV.js";import"./dialog-CHJ2Wxbh.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
+import{u as n,j as a}from"./index-DNBgkSAg.js";import{M as r}from"./exports-0py7As9s.js";import"./dialog-BlLKB11T.js";function s(l){const e={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",li:"li",p:"p",pre:"pre",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...n(),...l.components};return a.jsxs(a.Fragment,{children:[a.jsx(e.h1,{className:"ladle-markdown",children:"@clxrity/react-audio"}),`
 `,a.jsx(e.h2,{className:"ladle-markdown",children:"2.4.0"}),`
 `,a.jsx(e.h3,{className:"ladle-markdown",children:"Minor Changes"}),`
 `,a.jsxs(e.ul,{className:"ladle-markdown",children:[`

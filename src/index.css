@@ -14,7 +14,11 @@
         'Helvetica Neue',
         sans-serif;
 
-    background-image: linear-gradient(180deg, var(--color-background), var(--color-background-secondary));
+    background-image: linear-gradient(
+        180deg,
+        var(--color-background),
+        var(--color-background-secondary)
+    );
 }
 .progress-input::-webkit-slider-thumb {
     z-index: 20;
@@ -69,8 +73,6 @@
 }
 
 /*** screen size changes docs max-width ***/
-
-
 
 .docs-main h1 {
     @apply text-3xl font-[800] my-8;
@@ -157,8 +159,9 @@
     font-size: 0.9em;
 }
 
-
-.docs-main blockquote pre, a, code {
+.docs-main blockquote pre,
+a,
+code {
     @apply w-fit inline-block;
 }
 

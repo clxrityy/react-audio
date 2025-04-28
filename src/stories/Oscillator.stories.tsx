@@ -1,26 +1,25 @@
-import React from "react";
-import { Oscillator, OscillatorProps } from "../lib";
-import { Button } from "../components/ui/Button";
-import { ICONS } from "../config";
-import { Meta } from "@ladle/react";
+import React from 'react'
+import { Oscillator, OscillatorProps } from '../lib'
+import { Button } from '../components/ui/Button'
+import { ICONS } from '../config'
+import { Meta } from '@ladle/react'
 
-; <Meta title="Components/Oscillator" />
+;<Meta title="Components/Oscillator" />
 
 export default {
-    title: "Oscillator",
+    title: 'Oscillator',
     component: Oscillator,
-};
+}
 
 const defaultProps: OscillatorProps = {
-    type: "sine",
+    type: 'sine',
     frequency: 440,
     gain: 0.5,
     isPlaying: false,
 }
 
 export const Default = () => {
-
-    const [isPlaying, setIsPlaying] = React.useState<boolean>(false);
+    const [isPlaying, setIsPlaying] = React.useState<boolean>(false)
 
     return (
         <div className="flex flex-col items-center gap-4">
@@ -33,22 +32,24 @@ export const Default = () => {
 }
 
 export const Sawtooth = () => {
-    
-    const [isPlaying, setIsPlaying] = React.useState<boolean>(false);
+    const [isPlaying, setIsPlaying] = React.useState<boolean>(false)
 
     return (
         <div className="flex flex-col items-center gap-4">
             <Button onClick={() => setIsPlaying(!isPlaying)}>
                 {isPlaying ? <ICONS.pause /> : <ICONS.play />}
             </Button>
-            <Oscillator {...defaultProps} type="sawtooth" isPlaying={isPlaying} />
+            <Oscillator
+                {...defaultProps}
+                type="sawtooth"
+                isPlaying={isPlaying}
+            />
         </div>
     )
 }
 
 export const Square = () => {
-    
-    const [isPlaying, setIsPlaying] = React.useState<boolean>(false);
+    const [isPlaying, setIsPlaying] = React.useState<boolean>(false)
 
     return (
         <div className="flex flex-col items-center gap-4">
@@ -61,22 +62,24 @@ export const Square = () => {
 }
 
 export const Triangle = () => {
-    
-    const [isPlaying, setIsPlaying] = React.useState<boolean>(false);
+    const [isPlaying, setIsPlaying] = React.useState<boolean>(false)
 
     return (
         <div className="flex flex-col items-center gap-4">
             <Button onClick={() => setIsPlaying(!isPlaying)}>
                 {isPlaying ? <ICONS.pause /> : <ICONS.play />}
             </Button>
-            <Oscillator {...defaultProps} type="triangle" isPlaying={isPlaying} />
+            <Oscillator
+                {...defaultProps}
+                type="triangle"
+                isPlaying={isPlaying}
+            />
         </div>
     )
 }
 
 export const Gain = () => {
-    
-    const [isPlaying, setIsPlaying] = React.useState<boolean>(false);
+    const [isPlaying, setIsPlaying] = React.useState<boolean>(false)
 
     return (
         <div className="flex flex-col items-center gap-4">
@@ -89,15 +92,18 @@ export const Gain = () => {
 }
 
 export const Frequency = () => {
-    
-    const [isPlaying, setIsPlaying] = React.useState<boolean>(false);
+    const [isPlaying, setIsPlaying] = React.useState<boolean>(false)
 
     return (
         <div className="flex flex-col items-center gap-4">
             <Button onClick={() => setIsPlaying(!isPlaying)}>
                 {isPlaying ? <ICONS.pause /> : <ICONS.play />}
             </Button>
-            <Oscillator {...defaultProps} frequency={880} isPlaying={isPlaying} />
+            <Oscillator
+                {...defaultProps}
+                frequency={880}
+                isPlaying={isPlaying}
+            />
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Spectrogram, type SpectrogramProps } from '../lib'
 import { Meta } from '@ladle/react'
-
 ;<Meta title="Components/Spectrogram" />
 
 export default {

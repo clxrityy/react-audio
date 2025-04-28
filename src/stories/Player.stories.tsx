@@ -14,8 +14,9 @@ const track: Track = {
     artist: {
         name: 'SoundHelix',
         url: 'https://www.soundhelix.com/',
-        thumbnail: 'https://www.soundhelix.com/sites/default/files/SoundHelix-logo.png',
-    }
+        thumbnail:
+            'https://www.soundhelix.com/sites/default/files/SoundHelix-logo.png',
+    },
 }
 
 export const Default = () => <Player track={track} showTrackInfo={true} />

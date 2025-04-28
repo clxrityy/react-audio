@@ -1,6 +1,6 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "A simple audio player for React",
   "main": "./dist/index.cjs",
   "module": "./dist/index.es.js",
@@ -28,7 +28,7 @@
       "public"
     ]
   },
-  "packageManager": "pnpm@10.6.4",
+  "packageManager": "pnpm@10.10.0",
   "scripts": {
     "build": "vite build",
     "release": "pnpm clean && pnpm test && pnpm test:cov && pnpm lint && changeset version && changeset publish",

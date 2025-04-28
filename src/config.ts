@@ -13,7 +13,7 @@ import VolumeDownIcon from '@mui/icons-material/VolumeDown'
 import VolumeUpIcon from '@mui/icons-material/VolumeUp'
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked'
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked'
-import SaveIcon from '@mui/icons-material/Save';
+import SaveIcon from '@mui/icons-material/Save'
 
 interface Icons {
     [key: string]: SvgIconComponent
