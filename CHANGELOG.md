@@ -1,5 +1,31 @@
 # @clxrity/react-audio
 
+## 2.6.0
+
+### Minor Changes
+
+- 4ce0d12: Add eslint
+- 79bad00: Add sitemap
+
+  - Created `scripts/generate-sitemap.cjs` that runs after building the docs
+  - Utilizes `ladle`'s `meta.json` to get the routes
+
+- fc5d270: add SECURITY.md
+- 8f4fc86: add CODE_OF_CONDUCT.md
+- fb89952: add vscode extension recommendations
+- b90bc02: add robots.txt
+- 75fd845: update node version 23.6.0 -> 23.6.1
+- 1ab91ae: add CONTRIBUTING.md
+- 1574dd6: add code coverage
+
+### Patch Changes
+
+- 5ca96a9: changed prettier tab width to 2
+- 624ed09: fix all eslint errors
+- dfadccd: Fix play/pause button for autoplay
+- 226e7d6: Remove @mui packages - replace with lucide-react for icons
+- eae2ee1: remove unnecessary props from Spectrogram (realTime & logarithmicScale)
+
 ## 2.4.0
 
 ### Minor Changes
@@ -25,7 +51,10 @@
 
   ```tsx
   'use client'
-  import { Oscillator, type OscillatorProps } from '@clxrity/react-audio'
+  import {
+    Oscillator,
+    type OscillatorProps,
+  } from '@clxrity/react-audio'
 
   export default function Home() {
     const [isPlaying, setIsPlaying] = useState(false)
@@ -143,14 +172,16 @@
 
   const engine = new Styletron()
 
-  export const Provider: GlobalProvider = ({ children, globalState }) => (
+  export const Provider: GlobalProvider = ({
+    children,
+    globalState,
+  }) => (
     <StyletronProvider value={engine}>
       <BaseProvider
         theme={{
           ...(globalState.theme === 'dark' ? DarkTheme : LightTheme),
           direction: globalState.rtl ? 'rtl' : 'ltr',
-        }}
-      >
+        }}>
         <div className="docs-container">
           <div className="docs-main">{children}</div>
         </div>
@@ -200,8 +231,14 @@
       '<meta name="description" content="A collection of audio components for React applications" />'
     )
     updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, '')
-    updatedData = updatedData.replace(/<link rel="apple-touch-icon"[^>]*>/, '')
-    updatedData = updatedData.replace(/<link rel="manifest"[^>]*>/, '')
+    updatedData = updatedData.replace(
+      /<link rel="apple-touch-icon"[^>]*>/,
+      ''
+    )
+    updatedData = updatedData.replace(
+      /<link rel="manifest"[^>]*>/,
+      ''
+    )
     updatedData = updatedData.replace(/<title>Ladle<\/title>/, '')
 
     fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
@@ -242,8 +279,14 @@
           {
             name: 'rename-css-plugin',
             closeBundle() {
-              const oldPath = path.resolve(__dirname, 'dist/react-audio.css')
-              const newPath = path.resolve(__dirname, 'dist/index.css')
+              const oldPath = path.resolve(
+                __dirname,
+                'dist/react-audio.css'
+              )
+              const newPath = path.resolve(
+                __dirname,
+                'dist/index.css'
+              )
 
               try {
                 renameSync(oldPath, newPath) // FIX
