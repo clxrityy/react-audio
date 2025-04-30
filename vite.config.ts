@@ -30,12 +30,6 @@ const app = async (): Promise<UserConfigExport> => {
         closeBundle() {
           const oldPath = path.resolve(__dirname, 'dist/react-audio.css')
           const newPath = path.resolve(__dirname, 'dist/index.css')
-
-          if (newPath) {
-            console.log('New path exists')
-            return
-          }
-
           try {
             renameSync(oldPath, newPath)
             console.log(`Renamed ${oldPath} to ${newPath}`)
@@ -46,19 +40,31 @@ const app = async (): Promise<UserConfigExport> => {
         },
       },
     ],
-    // css: {
-    //   postcss: {
-    //     plugins: [
-    //       tailwindcss,
-    //     ],
-    //   },
-    // },
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@clxrity/react-audio/index.css";`,
+          additionalData: `@import '@clxrity/react-audio/index.css';`,
         },
       },
+      postcss: {
+        plugins: [
+          tailwindcss(),
+        ],
+      },
+      modules: {
+        exportGlobals: true,
+      },
+      transformer: "postcss",
+      lightningcss: {
+        targets: {
+          chrome: 100,
+          firefox: 100,
+          safari: 100,
+          edge: 100,
+          ios_saf: 100,
+          android: 100,
+        }
+      }
     },
     resolve: {
       alias: {
@@ -73,6 +79,10 @@ const app = async (): Promise<UserConfigExport> => {
         'react/jsx-runtime',
         '@tailwindcss/vite',
       ],
+      esbuildOptions: {
+        tsconfig: path.resolve(__dirname, 'tsconfig.json'),
+        format: 'esm'
+      }
     },
     build: {
       lib: {
@@ -113,6 +123,16 @@ const app = async (): Promise<UserConfigExport> => {
           },
         ],
         input: 'src/lib/index.ts',
+        plugins: [
+          {
+            name: 'replace',
+            transform(code, id) {
+              if (id.endsWith('.node')) {
+                return code.replace(/\.node/g, '.wasm')
+              }
+            },
+          },
+        ]
       },
       outDir: 'dist',
       cssCodeSplit: false,

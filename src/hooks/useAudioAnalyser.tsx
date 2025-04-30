@@ -1,9 +1,10 @@
 import { FFTSize } from '../lib/types'
+import { RefObject } from 'react'
 
 export function useAudioAnalyzer(
   audioElement: HTMLAudioElement,
   audioContext: AudioContext,
-  sourceNodeRef: React.RefObject<MediaElementAudioSourceNode | null>,
+  sourceNodeRef: RefObject<MediaElementAudioSourceNode | null>,
   fftSize: FFTSize
 ) {
   if (!audioElement || !audioContext) {

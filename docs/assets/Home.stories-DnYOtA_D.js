@@ -1,4 +1,4 @@
-import{u as o,j as e}from"./index-Bpmjxhf_.js";import{M as t}from"./exports-2GyQl7ea.js";import"./dialog-CImjmcky.js";function s(l){const a={a:"a",blockquote:"blockquote",code:"code",h1:"h1",h2:"h2",h3:"h3",hr:"hr",img:"img",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...o(),...l.components};return e.jsxs(e.Fragment,{children:[e.jsxs(a.h1,{className:"ladle-markdown",children:["@clxrity/react-audio ",e.jsx(a.img,{src:"https://clxrityy.github.io/react-audio/apple-touch-icon.png",width:"32px",height:"32px",style:{display:"inline-block"},className:"ladle-markdown"})]}),`
+import{u as o,j as e}from"./index-DVqOL6h7.js";import{M as t}from"./exports-BtX0FDg0.js";import"./dialog-dL2DTonU.js";function s(l){const a={a:"a",blockquote:"blockquote",code:"code",h1:"h1",h2:"h2",h3:"h3",hr:"hr",img:"img",li:"li",p:"p",pre:"pre",strong:"strong",ul:"ul",...o(),...l.components};return e.jsxs(e.Fragment,{children:[e.jsxs(a.h1,{className:"ladle-markdown",children:["@clxrity/react-audio ",e.jsx(a.img,{src:"https://clxrityy.github.io/react-audio/apple-touch-icon.png",width:"32px",height:"32px",style:{display:"inline-block"},className:"ladle-markdown"})]}),`
 `,e.jsx(a.h2,{className:"ladle-markdown",children:"A react audio player component library."}),`
 `,e.jsx(a.p,{className:"ladle-markdown",children:e.jsx(a.a,{href:"https://codecov.io/gh/clxrityy/react-audio",className:"ladle-markdown",children:e.jsx(a.img,{src:"https://codecov.io/gh/clxrityy/react-audio/graph/badge.svg?token=X4NBMSM9ZP",alt:"coverage",className:"ladle-markdown"})})}),`
 `,e.jsxs(a.p,{className:"ladle-markdown",children:[e.jsx(a.a,{href:"https://github.com/clxrityy/react-audio/blob/main/LICENSE",className:"ladle-markdown",children:e.jsx(a.img,{src:"https://img.shields.io/npm/l/%40clxrity%2Freact-audio?style=for-the-badge&label=LICENSE",alt:"MIT license",className:"ladle-markdown"})})," ",e.jsx(a.a,{href:"https://www.npmjs.org/package/@clxrity/react-audio",className:"ladle-markdown",children:e.jsx(a.img,{src:"https://img.shields.io/npm/dm/%40clxrity%2Freact-audio?style=for-the-badge&logo=npm&logoColor=%23CB3837&logoSize=auto&label=DOWNLOADS",alt:"npm module downloads",className:"ladle-markdown"})})]}),`
@@ -22,14 +22,6 @@ import{u as o,j as e}from"./index-Bpmjxhf_.js";import{M as t}from"./exports-2GyQ
 `,e.jsx(a.h2,{className:"ladle-markdown",children:"Dynamic import example with Next.js"}),`
 `,e.jsx(a.pre,{className:"ladle-markdown",children:e.jsx(a.code,{className:"language-tsx ladle-markdown",children:`'use client' // (REQUIRED)
 import dynamic from 'next/dynamic'
-import '@clxrity/react-audio/index.css' // (optional) import the styles
-
-/**
- * You can also import the CSS within your \`globals.css\` or \`index.css\` file like so:
- * \`\`\`css
- * @import "@clxrity/react-audio/index.css";
- * \`\`\`
- */
 
 const Player = dynamic(
   () => import('@clxrity/react-audio').then((mod) => mod.Player),
@@ -60,5 +52,5 @@ export default function Component() {
 `]}),`
 `]}),`
 `]}),`
-`]})]})}function n(l={}){const{wrapper:a}={...o(),...l.components};return a?e.jsx(a,{...l,children:e.jsx(s,{...l})}):s(l)}function r(l){return e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"Home/Readme"}),`
-`,e.jsx(n,{})]})}function d(l={}){const{wrapper:a}={...o(),...l.components};return a?e.jsx(a,{...l,children:e.jsx(r,{...l})}):r()}const h={title:"Home"};d.storyName="Readme";typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{d as MDXContent,h as default};
+`]})]})}function d(l={}){const{wrapper:a}={...o(),...l.components};return a?e.jsx(a,{...l,children:e.jsx(s,{...l})}):s(l)}function r(l){return e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"Home/Readme"}),`
+`,e.jsx(d,{})]})}function n(l={}){const{wrapper:a}={...o(),...l.components};return a?e.jsx(a,{...l,children:e.jsx(r,{...l})}):r()}const h={title:"Home"};n.storyName="Readme";typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{n as MDXContent,h as default};

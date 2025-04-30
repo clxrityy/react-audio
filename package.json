@@ -1,6 +1,6 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "A simple audio player for React",
   "main": "./dist/index.cjs",
   "module": "./dist/index.es.js",
@@ -18,7 +18,7 @@
   "files": [
     "dist",
     "package.json",
-    "dist/*.css"
+    "dist/index.css"
   ],
   "ladle": {
     "stories": [
@@ -84,7 +84,7 @@
   "bugs": {
     "url": "https://github.com/clxrityy/react-audio/issues"
   },
-  "homepage": "https://clxrityy.github.io/react-audio/?story=home--readme",
+  "homepage": "https://clxrityy.github.io/react-audio",
   "devDependencies": {
     "@changesets/cli": "^2.29.2",
     "@codecov/vite-plugin": "^1.9.0",

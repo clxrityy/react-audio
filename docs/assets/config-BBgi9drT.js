@@ -1,4 +1,4 @@
-import{j as k,r as n}from"./index-Bpmjxhf_.js";import{c as m}from"./cn-B6XnKsZg.js";const Z=({className:o,children:e,...t})=>k.jsx("button",{className:m("disabled:cursor-not-allowed disabled:opacity-50 focus:ring-offset-2 rounded-md px-4 py-2 transition-all duration-200 active:scale-95 disabled:active:scale-100 disabled:focus:ring-0 cursor-pointer",o),...t,children:e});/**
+import{j as k,r as n}from"./index-DVqOL6h7.js";import{c as m}from"./cn-DPK3Nycl.js";const Z=({className:o,children:e,...t})=>k.jsx("button",{className:m("disabled:cursor-not-allowed disabled:opacity-50 focus:ring-offset-2 rounded-md px-4 py-2 transition-all duration-200 active:scale-95 disabled:active:scale-100 disabled:focus:ring-0 cursor-pointer",o),...t,children:e});/**
  * @license lucide-react v0.503.0 - ISC
  *
  * This source code is licensed under the ISC license.

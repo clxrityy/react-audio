@@ -1,5 +1,11 @@
 # @clxrity/react-audio
 
+## 2.5.1
+
+### Patch Changes
+
+- 04149cb: fix docs favicon
+
 ## 2.5.0
 
 ### Minor Changes

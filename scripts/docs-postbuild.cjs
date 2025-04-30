@@ -65,7 +65,7 @@ fs.readFile(indexPath, "utf8", (err, data) => {
   updatedData = updatedData.replace(/<link rel="icon"[^>]*>/g, "");
   updatedData = updatedData.replace(
     /<link rel="apple-touch-icon"[^>]*>/g,
-    `<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />`
+    `<link rel="apple-touch-icon" href="./apple-touch-icon.png" />`
   );
   updatedData = updatedData.replace(/<title>Ladle<\/title>/, "");
   updatedData = updatedData.replace(/<link rel="mask-icon"[^>]*>/g, "");
