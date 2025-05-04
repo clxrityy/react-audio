@@ -40,7 +40,7 @@
     "deploy-docs": "gh-pages -d docs",
     "clean": "rm -rf node_modules pnpm-lock.yaml docs dist && pnpm install && pnpm build && pnpm build:ladle",
     "start": "ladle preview",
-    "coverage": "nx vite:test run --coverage"
+    "coverage": "nx vite:test --coverage"
   },
   "repository": {
     "type": "git",
