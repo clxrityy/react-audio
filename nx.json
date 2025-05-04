@@ -2,9 +2,7 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
     "dev": {
-      "outputs": [
-        "{projectRoot}/.next"
-      ],
+      "outputs": ["{projectRoot}/.next"],
       "cache": true
     }
   },
@@ -30,5 +28,9 @@
       }
     }
   ],
-  "nxCloudId": "68170134581c450c71bd0f81"
+  "nxCloudId": "68170134581c450c71bd0f81",
+  "namedInputs": {
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"],
+    "default": ["sharedGlobals"]
+  }
 }
