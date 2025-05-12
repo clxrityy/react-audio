@@ -108,7 +108,7 @@
     "gh-pages": "^6.3.0",
     "globals": "^16.0.0",
     "jsdom": "^26.1.0",
-    "lucide-react": "^0.503.0",
+    "lucide-react": "^0.509.0",
     "pnpm": "^10.10.0",
     "postcss": "^8.5.3",
     "prettier": "3.5.3",
