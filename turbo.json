@@ -33,6 +33,11 @@
       "dependsOn": ["^coverage"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["coverage/**"]
+    },
+    "pub": {
+      "dependsOn": ["^pub"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**", "package.json", "CHANGELOG.md"]
     }
   }
 }

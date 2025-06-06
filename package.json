@@ -2,14 +2,15 @@
   "name": "react-audio-monorepo",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build && turbo run prettier",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "prettier": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
     "start": "turbo run start",
     "test": "turbo run test",
-    "coverage": "turbo run coverage"
+    "coverage": "turbo run coverage",
+    "pub": "turbo run pub"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
