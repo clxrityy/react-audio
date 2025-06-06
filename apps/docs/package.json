@@ -1,0 +1,35 @@
+{
+  "name": "docs",
+  "version": "0.1.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build && pnpm postbuild",
+    "start": "next start",
+    "lint": "next lint --strict",
+    "check-types": "tsc --noEmit",
+    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind"
+  },
+  "dependencies": {
+    "@clxrity/react-audio": "workspace:*",
+    "next": "^15.3.3",
+    "nextra": "^4.2.17",
+    "nextra-theme-docs": "^4.2.17",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@tailwindcss/postcss": "^4.1.8",
+    "@types/node": "^22.15.29",
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.5",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "15.3.3",
+    "pagefind": "^1.3.0",
+    "tailwindcss": "^4.1.8",
+    "typescript": "5.8.3"
+  }
+}

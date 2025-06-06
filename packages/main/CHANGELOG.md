@@ -1,0 +1,581 @@
+# @clxrity/react-audio
+
+## 3.0.0
+
+### Major Changes
+
+- Switched structure to a [turborepo](https://turbo.build/repo/docs)  structure.
+  - The main package is now in the `packages/main` directory.
+  - The documentation is now in the `packages/docs` directory.
+    - The documentation is now built with [Next.js](https://nextjs.org/) & [nextra](https://nextra.site/).
+- The package is now built with [tsup](https://tsup.dev/) instead of [vite](https://vitejs.dev/).
+  - Refactored the build process to use `tsup` for building the package.
+  - Removed many unnecessary dependencies that were used for the previous build process.
+- Additional utility packages (pre-included by turbo) are utilized thourghout the codebase:
+  - `@repo/typescript-config` - Shared TypeScript configurations
+  - `@repo/eslint-config` - Shared ESLint configurations
+
+## 2.5.1
+
+### Patch Changes
+
+- 04149cb: fix docs favicon
+
+## 2.5.0
+
+### Minor Changes
+
+- 4ce0d12: Add eslint
+- 79bad00: Add sitemap
+
+  - Created `scripts/generate-sitemap.cjs` that runs after building the docs
+  - Utilizes `ladle`'s `meta.json` to get the routes
+
+- fc5d270: add SECURITY.md
+- 8f4fc86: add CODE_OF_CONDUCT.md
+- fb89952: add vscode extension recommendations
+- b90bc02: add robots.txt
+- 75fd845: update node version 23.6.0 -> 23.6.1
+- 1ab91ae: add CONTRIBUTING.md
+- 1574dd6: add code coverage
+
+### Patch Changes
+
+- 5ca96a9: changed prettier tab width to 2
+- 624ed09: fix all eslint errors
+- dfadccd: Fix play/pause button for autoplay
+- 226e7d6: Remove @mui packages - replace with lucide-react for icons
+- eae2ee1: remove unnecessary props from Spectrogram (realTime & logarithmicScale)
+
+## 2.4.0
+
+### Minor Changes
+
+- 96b7a45: Add `<Oscillator />` component
+
+  This produces periodic signal with the type of wave specified by the `type` ([`OscillatorType`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/type)) prop. The component is a wrapper around the Web Audio API's [`OscillatorNode`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode).
+
+  You must pass the `isPlaying` boolean prop to start and stop the oscillator.
+
+  ### Parameters
+
+  | Param             | Type                          | Description                              | Default  | Required |
+  | ----------------- | ----------------------------- | ---------------------------------------- | -------- | -------- |
+  | type              | `OscillatorType`              | The type of wave to produce              | `'sine'` | ❌       |
+  | isPlaying         | `boolean`                     | Whether the oscillator should be playing | `false`  | ✅       |
+  | frequency         | `number`                      | The frequency of the oscillator in hertz | `440`    | ❌       |
+  | gain              | `number`                      | The gain of the oscillator               | `0.5`    | ❌       |
+  | onFrequencyChange | `(frequency: number) => void` | Callback when the frequency changes      | N/A      | ❌       |
+  | onGainChange      | `(gain: number) => void`      | Callback when the gain changes           | N/A      | ❌       |
+
+  #### Example with Next.js
+
+  ```tsx
+  'use client'
+  import {
+    Oscillator,
+    type OscillatorProps,
+  } from '@clxrity/react-audio'
+
+  export default function Home() {
+    const [isPlaying, setIsPlaying] = useState(false)
+
+    return (
+      <div>
+        <button onClick={() => setIsPlaying(!isPlaying)}>
+          {isPlaying ? 'Stop' : 'Start'}
+        </button>
+        <Oscillator type="sine" isPlaying={isPlaying} />
+      </div>
+    )
+  }
+  ```
+
+### Patch Changes
+
+- 72089dd: Fix development environment to support the latest version of pnpm
+
+## 2.2.1
+
+### Patch Changes
+
+- 6959472: fix spectrogram
+
+## 2.2.0
+
+### Minor Changes
+
+- 13b68de: Add the `<Spectrogram />` component.
+
+  #### Parameters
+
+  | Param                 | Type              | Description                                                                                                | Default                                        | Required |
+  | --------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | -------- |
+  | track                 | `Track`           | The track to display the spectrogram of.                                                                   | N/A                                            | ✅       |
+  | fftSize               | `FFTSize`         | The size of the FFT to use.                                                                                | `1024`                                         | ❌       |
+  | width                 | `number`/`string` | The width of the spectrogram.                                                                              | `100%`                                         | ❌       |
+  | height                | `number`/`string` | The height of the spectrogram.                                                                             | `25%`                                          | ❌       |
+  | minDecibels           | `number`          | The minimum decibels to display.                                                                           | `-100`                                         | ❌       |
+  | maxDecibels           | `number`          | The maximum decibels to display.                                                                           | `-30`                                          | ❌       |
+  | colorMap              | `Array<string>`   | The color map to use.                                                                                      | `["#000000", "#ff0000", "#ffff00", "#ffffff"]` | ❌       |
+  | smoothingTimeConstant | `number`          | The smoothing time constant to use.                                                                        | `0.8`                                          | ❌       |
+  | realTime              | `boolean`         | Whether to display the spectrogram in real time.                                                           | `true`                                         | ❌       |
+  | logarithmicScale      | `boolean`         | Whether to use a logarithmic scale.                                                                        | `true`                                         | ❌       |
+  | onFrameUpdate         | `Function`        | A callback to be called when a new frame is available. Accepts a data array (`Uint8Array`) as a parameter. | N/A                                            | ❌       |
+  | loop                  | `boolean`         | Whether to loop the audio.                                                                                 | `false`                                        | ❌       |
+  | fillStyle             | `string`          | The background fill of the canvas                                                                          | `#000000`                                      | ❌       |
+
+  #### Example
+
+  ```tsx
+  <Spectrogram
+    track={track}
+    fftSize={1024}
+    width={500}
+    height={300}
+    minDecibels={-100}
+    maxDecibels={-30}
+    colorMap={['#000000', '#ff0000', '#ffff00', '#ffffff']}
+    smoothingTimeConstant={0.8}
+    realTime={true}
+    logarithmicScale={true}
+    onFrameUpdate={() => {}}
+    loop={true}
+    fillStyle="rgba(0, 0, 0, 0.5)"
+  />
+  ```
+
+- 9540893: Update dependencies
+
+## 2.1.0
+
+### Minor Changes
+
+- 910a28d: Add a **border** prop to ShufflePlayer
+- ed9308c: Add more stories for `<ShufflePlayer />`
+
+  - **Dont show tracks** - Example not displaying the track information
+  - **Custom color** - Example of changing the color of the player
+  - **Custom border** - Example of changing the border of the player
+
+- c802826: Add some development dependencies to optimize the visibility of the docs, make the default mode dark.
+
+  **New Dependencies:**
+
+  - [`baseui`](https://github.com/uber/baseweb#readme)
+  - [`styletron-react`](https://www.npmjs.com/package/styletron-react)
+  - [`styletron-engine-monolithic`](https://www.npmjs.com/package/styletron-engine-monolithic)
+
+  **Changes:**
+
+  ```mjs
+  // .ladle/config.mjs
+
+  /** @type {import('@ladle/react').UserConfig} */
+  export default {
+    // ...
+    addons: {
+      // ...
+      theme: {
+        enabled: true,
+        defaultState: 'dark',
+      },
+    },
+  }
+  ```
+
+  ```tsx
+  // .ladle/components.tsx
+  import { Provider as StyletronProvider } from 'styletron-react'
+  import { Client as Styletron } from 'styletron-engine-monolithic'
+  import { LightTheme, DarkTheme, BaseProvider } from 'baseui'
+  import type { GlobalProvider } from '@ladle/react'
+
+  const engine = new Styletron()
+
+  export const Provider: GlobalProvider = ({
+    children,
+    globalState,
+  }) => (
+    <StyletronProvider value={engine}>
+      <BaseProvider
+        theme={{
+          ...(globalState.theme === 'dark' ? DarkTheme : LightTheme),
+          direction: globalState.rtl ? 'rtl' : 'ltr',
+        }}>
+        <div className="docs-container">
+          <div className="docs-main">{children}</div>
+        </div>
+      </BaseProvider>
+    </StyletronProvider>
+  )
+  ```
+
+- 1f6297b: Update **ShufflePlayer** props to include showTracks which can optionally hide the display of all the tracks
+
+### Patch Changes
+
+- 218df0a: Fix docs output (default story, output directory)
+- 11ec0e2: Add a script to run after building the documentation to fix the metadata.
+
+  Before, the `<link />` tags were being generated with the wrong `href` attribute. This script will fix the `href` attribute to point to the correct location.
+
+  - The `href` attribute was being generated as `/assets/...` instead of `./assets/...`
+
+  ```json
+  {
+    "scripts": {
+      "build:ladle": "ladle build && node scripts/docs-postbuild.cjs"
+    }
+  }
+  ```
+
+  ```cjs
+  const fs = require('fs')
+  const path = require('path')
+
+  const indexPath = path.join(__dirname, '../docs', 'index.html')
+
+  fs.readFile(indexPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading index.html', err)
+      process.exit(1)
+    }
+
+    // Replace absolute asset paths with relative ones (e.g., '/assets' to './assets')
+    let updatedData = data
+      .replace(/href="\/assets/g, 'href="./assets')
+      .replace(/src="\/assets/g, 'src="./assets')
+
+    updatedData = updatedData.replace(
+      /<meta name="dscription"[^>]*>/,
+      '<meta name="description" content="A collection of audio components for React applications" />'
+    )
+    updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, '')
+    updatedData = updatedData.replace(
+      /<link rel="apple-touch-icon"[^>]*>/,
+      ''
+    )
+    updatedData = updatedData.replace(
+      /<link rel="manifest"[^>]*>/,
+      ''
+    )
+    updatedData = updatedData.replace(/<title>Ladle<\/title>/, '')
+
+    fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
+      if (err) {
+        console.error('Error writing index.html', err)
+        process.exit(1)
+      } else {
+        console.log('index.html updated successfully')
+      }
+    })
+  })
+  ```
+
+## 2.0.2
+
+### Patch Changes
+
+- 4853714: Fix the ability to import the package's css file.
+
+  Before it was bundling into `dist/src/index.css` which was not being imported correctly.
+  Upon trying to fix it, it would bundle as `react-audio.css` which was not the desired output.
+
+  - Altered `vite.config.ts` to output the css to `dist/index.css`
+
+    - Added a custom `rename-css-plugin` to vite plugins:
+
+    ```ts
+    import { UserConfigExport } from 'vite'
+    import { renameSync } from 'fs' // NEW
+    import path from 'path'
+    import { defineConfig } from 'vitest/config'
+    // ...
+
+    const app = async (): Promise<UserConfigExport> => {
+      return defineConfig({
+        plugins: [
+          //.. prev plugins,
+          {
+            name: 'rename-css-plugin',
+            closeBundle() {
+              const oldPath = path.resolve(
+                __dirname,
+                'dist/react-audio.css'
+              )
+              const newPath = path.resolve(
+                __dirname,
+                'dist/index.css'
+              )
+
+              try {
+                renameSync(oldPath, newPath) // FIX
+              } catch (error) {
+                console.error(error)
+              }
+            },
+          },
+        ],
+      })
+    }
+    ```
+
+  - Also added a way to import within css by updating `css.preprocessorOptions` in `vite.config.ts`:
+    ```ts
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@clxrity/react-audio/index.css";`
+        }
+      }
+    }
+    ```
+
+  You can now import within your css file like so:
+
+  ```css
+  @import '@clxrity/react-audio/index.css';
+  ```
+
+  And within your js/ts file like so:
+
+  ```ts
+  import '@clxrity/react-audio/index.css'
+  ```
+
+## 2.0.0
+
+### Major Changes
+
+- b82ecec: - Switched from [storybook](https://storybook.js.org/) to [ladle](https://ladle.dev/) - Much more lightweight and faster - A lot more of a simple UI to work with
+
+  - Text and colors are automatically inherited by the theme.
+    - Dark background = white text
+    - Light background = black text
+  - Components in new working new version so far:
+    - `<Player />` - Replaces `<JustPlayer />` & `<AudioPlayer />`
+    - `<ShufflePlayer />` - Replaces `<LibraryPlayer />`
+    - `<Waveform />`
+
+  Working structure:
+
+  ```yaml
+  ~:
+      __tests__/: # Tests with vitest
+      .changeset/: # Changeset version management
+      .github/: # Github workflows
+      .ladle/: # Ladle setup for documenation
+      docs/: # Output from ladle for github pages
+      public/: # Public static directory
+      src/:
+          components/ui/: # Reusable UI components
+          hooks/: # Reusable hooks
+          lib/: # The package exports
+              - ...
+              - index.ts # Main entry point
+          stories/: # Ladle stories
+          util/: # Utility functions
+          - config.ts # Default configurations
+          - index.css # Global CSS
+      ...
+  ```
+
+- 22f001e: - Update all dependencies
+  - Begin restructuring code
+  - Switch to Vite
+  - Switch from styled components to tailwind
+  - Add new logo
+  - Add new landing page
+  - Add new documentation
+  - Add new examples
+  - Add new audio player
+
+### Minor Changes
+
+- e8d4166: update all packages to latest version
+- 149e841: Added the Player component which will replace JustPlayer & AudioPlayer into one component (with props for customization)
+- e155be4: add functionality to EQ & volume knobs (**AudioInputVisualizer**)
+- 6f1c415: Added a code coverage workflow that indicates whether all [`vitest`](https://vitest.dev/) tests are passing.
+
+  - Utilizes [Codecov](https://about.codecov.io/) to provide an interactive UI for test coverage.
+  - Added an environment variable `CODECOV_TOKEN` to the repository's secrets and local `.env` file.
+  - Added a new script `npm run coverage` to generate and upload the coverage report.
+
+- 8172042: added the Waveform component, working perfectly. might need some style tweaks and configurations down the road
+- f1a1c48: Add a new \***\*tests\*\*** directory to contain public tests
+- f102a1f: Finished the Player component with a progress bar, autoplay feature, ability to disable progress bar and track info display
+
+## 1.7.0
+
+### Minor Changes
+
+- f5abd36: added **AudioUploader** functional with no UI display yet
+- d89e093: add **resize()** function to **Waveform**'s canvas if no size prop is present
+- 23839c0: **AudioInputVisualizer** works fully functional
+- ba70a93: began **AudioInput** component where you can input audio mic/guitar
+- bb9f2b5: added prop to **Waveform** & **AudioInputVisualizer**: fftsize
+
+### Patch Changes
+
+- be63b43: re-added imports for libraryplayer & librarytrackitem
+
+## 1.6.0
+
+### Minor Changes
+
+- 9ba3169: update props setup, all now have specific inherited props
+- 0422a54: update storybook
+
+### Patch Changes
+
+- ad13785: fix imports and props passing on
+
+## 1.5.0
+
+### Minor Changes
+
+- dbc2980: add docs
+- 7d930b0: add nextjs app to docs
+- e56a5f9: added a script that generates an api route for creating a waveform image
+
+## 1.4.0
+
+### Minor Changes
+
+- 832989e: added jest, testing ffmpeg features to create waveforms
+- f7f4d6f: restructure files (exports in src/lib/)
+
+### Patch Changes
+
+- c650b27: make all exports default
+- 610d33d: fixed jest interfering with rollup build
+- 3a33cf0: ability to change color in waveforms actually works now
+
+## 1.3.0
+
+### Minor Changes
+
+- 48caa05: change styled-components to devDependency
+- 7560f63: update packages
+- 0dff7df: add **showTrackInfo** prop to **Waveform**
+
+### Patch Changes
+
+- aa2aaa1: remove tailwindcss dependency
+- 3bd6fe5: fix progress bar on waveform
+
+## 0.14.0
+
+### Minor Changes
+
+- cd32bde: more styling updates to library
+- 2061b0b: update readme
+- 596d485: add other components to **Waveform**
+- e95dde9: updated styles for **AudioPlayer** (removed unused thumbnail)
+
+### Patch Changes
+
+- cb432a6: **Waveform** is functional, no errors, need to add other component parts
+- 8ef7746: waveform now works
+- ce890a9: fix dom errors
+
+## 0.13.0
+
+### Minor Changes
+
+- 1659bd6: begin **Waveform** component, existing error: "Uncaught DOMException: Failed to execute 'createMediaElementSource' on 'AudioContext': HTMLMediaElement already connected previously to a different MediaElementSourceNode."
+- fdf559b: style updates to library player
+
+## 0.11.0
+
+### Minor Changes
+
+- 39ed441: add loading states to every component
+
+### Patch Changes
+
+- 7a5aca2: fix error "rounded is not defined" prop with **Button**
+
+## 0.10.0
+
+### Minor Changes
+
+- c1c9610: removed **AudioPlayer** for now
+- 9bb0c8d: added (begun) **`<AudioPlayer />`**
+
+### Patch Changes
+
+- 8cd2ac2: fix "Audio is not defined" error in **`<JustPlayer />`**
+- 4af6757: fix **JustPlayer**: no more useEffect issue
+- 213a90c: fixed "variant" unknown prop in **`<Button /`>**, will find better ways to update styles and theming
+
+## 0.9.0
+
+### Minor Changes
+
+- 4f368d5: **AudioLibrary** is fully functional and styled nicely for now, updated readme & package.json
+- 1f5711c: change library component to **AudioLibrary** with states and styles inside
+
+## 0.8.0
+
+### Minor Changes
+
+- 469f488: add / begin `<LibraryPlayer />` component
+- aec2e66: add styled-components
+
+### Patch Changes
+
+- 60d76fd: `<LibraryPlayer />` now works (somewhat)
+
+## 0.7.0
+
+### Minor Changes
+
+- 62c85bf: update packages
+
+### Patch Changes
+
+- 443185b: `<JustPlayer />` now works (plays audio)
+
+## 0.6.0
+
+### Minor Changes
+
+- 6e7d46f: updated visuals to `<AudioPlayer />`, began `<JustPlayer />`
+
+## 0.5.0
+
+### Minor Changes
+
+- 3dc1f94: add background color param
+- df5f580: add license and npmignore
+
+### Patch Changes
+
+- fc106f5: it works now
+- df5f580: make changeset a dev dependency
+
+## 0.4.0
+
+### Minor Changes
+
+- d184bff: made component export & import into applications properly, `<AudioPlayer />` component is now (semi) functional and visible
+- f5c0d15: structuring `AudioPlayer` component. began exporting compatible types for the (optional) options (styling so far)
+
+## 0.3.0
+
+### Minor Changes
+
+- af6c419: test tailwindcss
+- 7cacb07: begin functionality of audio component
+
+### Patch Changes
+
+- 7cacb07: change name of `Player` to `AudioPlayer`
+
+## 0.2.0
+
+### Minor Changes
+
+- begin testing, add changeset, begin development process

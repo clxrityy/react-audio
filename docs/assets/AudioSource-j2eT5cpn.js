@@ -1,1 +1,0 @@
-import{j as e}from"./index-DVqOL6h7.js";function n({src:t}){if(t.endsWith(".ogg")||t.endsWith(".wav")||t.endsWith(".aac")||t.endsWith(".flac")||t.endsWith(".mp3")||t.endsWith(".webm")||t.endsWith(".m4a"))return e.jsx("source",{src:t,type:`audio/${t.split(".").pop()}`})}export{n as A};
