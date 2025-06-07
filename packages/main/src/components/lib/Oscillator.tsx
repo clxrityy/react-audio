@@ -9,7 +9,6 @@ export interface OscillatorProps extends ComponentProps<"div"> {
   onGainChange?: (gain: number) => void;
 }
 
-
 export function Oscillator({
   type = "sine",
   frequency = 440,
@@ -44,7 +43,7 @@ export function Oscillator({
       audioContextRef.current = null;
       setContextStarted(false);
     }
-  }
+  };
 
   useEffect(() => {
     toggleAudioContext();
@@ -56,7 +55,10 @@ export function Oscillator({
         const gainNode = audioContext.createGain();
 
         oscillator.type = type;
-        oscillator.frequency.setValueAtTime(localFrequency, audioContext.currentTime);
+        oscillator.frequency.setValueAtTime(
+          localFrequency,
+          audioContext.currentTime,
+        );
         gainNode.gain.setValueAtTime(localGain, audioContext.currentTime);
 
         oscillator.connect(gainNode);
@@ -80,22 +82,24 @@ export function Oscillator({
       gainNodeRef.current?.disconnect();
       oscillatorRef.current = null;
       gainNodeRef.current = null;
-    }
+    };
   }, [isPlaying, type, localFrequency, localGain]);
 
   useEffect(() => {
     const handleUserInteraction = () => {
-      if (audioContextRef.current &&
-        audioContextRef.current.state === "suspended") {
+      if (
+        audioContextRef.current &&
+        audioContextRef.current.state === "suspended"
+      ) {
         audioContextRef.current.resume();
       }
-    }
+    };
 
     window.addEventListener("load", handleUserInteraction);
 
     return () => {
       window.removeEventListener("load", handleUserInteraction);
-    }
+    };
   }, []);
 
   return (
@@ -106,10 +110,7 @@ export function Oscillator({
       <div className="flex flex-col gap-2">
         <label className="flex items-center gap-2">
           <span>
-            Frequency:{" "}
-            <span className="font-mono">
-              {localFrequency} Hz
-            </span>
+            Frequency: <span className="font-mono">{localFrequency} Hz</span>
           </span>
           <input
             className="disabled:opacity-50 disabled:cursor-not-allowed"
@@ -125,39 +126,37 @@ export function Oscillator({
               if (oscillatorRef.current) {
                 oscillatorRef.current.frequency.setValueAtTime(
                   newFreq,
-                  audioContextRef.current?.currentTime ?? 0
-                )
+                  audioContextRef.current?.currentTime ?? 0,
+                );
               }
             }}
           />
         </label>
         <label className="flex items-center gap-2">
-            <span>
-              Gain: <span className="font-mono">
-                {localGain}
-              </span>
-            </span>
-            <input
-              type="range"
-              className="disabled:opacity-50 disabled:cursor-not-allowed"
-              min={0}
-              max={1}
-              step={0.01}
-              value={localGain}
-              onChange={(e) => {
-                const newGain = parseFloat(e.target.value);
-                setLocalGain(newGain);
-                onGainChange?.(newGain);
-                if (gainNodeRef.current) {
-                  gainNodeRef.current.gain.setValueAtTime(
-                    newGain,
-                    audioContextRef.current?.currentTime ?? 0
-                  );
-                }
-              }}
-            />
+          <span>
+            Gain: <span className="font-mono">{localGain}</span>
+          </span>
+          <input
+            type="range"
+            className="disabled:opacity-50 disabled:cursor-not-allowed"
+            min={0}
+            max={1}
+            step={0.01}
+            value={localGain}
+            onChange={(e) => {
+              const newGain = parseFloat(e.target.value);
+              setLocalGain(newGain);
+              onGainChange?.(newGain);
+              if (gainNodeRef.current) {
+                gainNodeRef.current.gain.setValueAtTime(
+                  newGain,
+                  audioContextRef.current?.currentTime ?? 0,
+                );
+              }
+            }}
+          />
         </label>
       </div>
     </div>
-  )
+  );
 }

@@ -4,13 +4,11 @@ import { describe, it, expect } from "vitest";
 
 describe("Waveform", () => {
   it("renders correctly", () => {
-    render(<>
-      <Waveform
-        title="waveform"
-        src="drums.wav"
-        autoplay={true}
-      />
-    </>);
+    render(
+      <>
+        <Waveform title="waveform" src="drums.wav" autoplay={true} />
+      </>,
+    );
     expect(screen.getByTitle("waveform")).toBeDefined();
   });
 });

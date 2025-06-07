@@ -1,17 +1,17 @@
-import { ComponentProps, useState } from 'react'
-import { Colors, BaseProps } from '../../util'
-import { Player } from './Player'
+import { ComponentProps, useState } from "react";
+import { Colors, BaseProps } from "../../util";
+import { Player } from "./Player";
 
-export interface ShufflePlayerProps extends ComponentProps<'audio'> {
-  srcs: []
-  autoplay?: BaseProps['autoplay']
-  color?: BaseProps['color']
-  showNextPrevControls?: boolean
-  showProgress?: BaseProps['showProgress']
-  showVolume?: BaseProps['showVolume']
-  shuffle?: boolean
-  onNext?: () => void
-  onPrev?: () => void
+export interface ShufflePlayerProps extends ComponentProps<"audio"> {
+  srcs: [];
+  autoplay?: BaseProps["autoplay"];
+  color?: BaseProps["color"];
+  showNextPrevControls?: boolean;
+  showProgress?: BaseProps["showProgress"];
+  showVolume?: BaseProps["showVolume"];
+  shuffle?: boolean;
+  onNext?: () => void;
+  onPrev?: () => void;
 }
 
 export function ShufflePlayer({
@@ -26,13 +26,11 @@ export function ShufflePlayer({
   onPrev,
   ...props
 }: ShufflePlayerProps) {
-  const [currentIndex, setCurrentIndex] = useState<number>(0)
-  const [currentSrc, setCurrentSrc] = useState<string>(
-    srcs[currentIndex]!
-  )
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [currentSrc, setCurrentSrc] = useState<string>(srcs[currentIndex]!);
 
   if (shuffle) {
-    setCurrentIndex(Math.floor(Math.random() * srcs.length))
+    setCurrentIndex(Math.floor(Math.random() * srcs.length));
   }
 
   return (
@@ -41,17 +39,17 @@ export function ShufflePlayer({
       autoplay={autoplay}
       src={currentSrc}
       onNext={() => {
-        setCurrentIndex((i) => i + 1)
-        setCurrentSrc(srcs[currentIndex]!)
+        setCurrentIndex((i) => i + 1);
+        setCurrentSrc(srcs[currentIndex]!);
         if (onNext) {
-          onNext()
+          onNext();
         }
       }}
       onPrev={() => {
-        setCurrentIndex((i) => i - 1)
-        setCurrentSrc(srcs[currentIndex]!)
+        setCurrentIndex((i) => i - 1);
+        setCurrentSrc(srcs[currentIndex]!);
         if (onPrev) {
-          onPrev()
+          onPrev();
         }
       }}
       showNextPrevControls={showNextPrevControls}
@@ -59,5 +57,5 @@ export function ShufflePlayer({
       showVolume={showVolume}
       {...props}
     />
-  )
+  );
 }

@@ -8,7 +8,8 @@ export const WaveformComponent: Component<"canvas"> = {
   props: {
     src: {
       value: "string",
-      description: "The source URL of the audio file to visualize. (internal unless CORS settings are configured)",
+      description:
+        "The source URL of the audio file to visualize. (internal unless CORS settings are configured)",
       required: true,
       default: undefined,
     },
@@ -26,7 +27,8 @@ export const WaveformComponent: Component<"canvas"> = {
     },
     autoplay: {
       value: "boolean",
-      description: "Whether to autoplay the audio when the component is mounted.",
+      description:
+        "Whether to autoplay the audio when the component is mounted.",
       required: false,
       default: false,
     },
@@ -50,7 +52,8 @@ export const WaveformComponent: Component<"canvas"> = {
     },
     fftSize: {
       value: "number",
-      description: "The size of the FFT (Fast Fourier Transform) used for audio analysis.",
+      description:
+        "The size of the FFT (Fast Fourier Transform) used for audio analysis.",
       required: false,
       default: 2048,
     },
@@ -62,9 +65,10 @@ export const WaveformComponent: Component<"canvas"> = {
     },
     audioRef: {
       value: "RefObject<HTMLAudioElement | null> | null",
-      description: "A reference to the HTML audio element. If not provided, a new ref will be created.",
+      description:
+        "A reference to the HTML audio element. If not provided, a new ref will be created.",
       required: false,
       default: null,
     },
-  }
-}
+  },
+};

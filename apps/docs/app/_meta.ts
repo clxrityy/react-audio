@@ -20,6 +20,6 @@ const meta: Meta = {
     type: "page",
     title: "Documentation",
   },
-}
+};
 
 export default meta;

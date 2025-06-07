@@ -1,6 +1,6 @@
 import {
   // generateStaticParamsFor,
-  importPage
+  importPage,
 } from "nextra/pages";
 import { useMDXComponents as getMDXComponents } from "../../../mdx-components";
 import { Metadata } from "next";
@@ -10,12 +10,12 @@ import { JSX } from "react/jsx-runtime";
 
 type Props = {
   params: Promise<{
-    mdxPath: string[]
+    mdxPath: string[];
   }>;
   searchParams: Promise<{
     [key: string]: string | string[] | undefined;
   }>;
-}
+};
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
@@ -33,11 +33,8 @@ export default async function Page(props: Props): Promise<JSX.Element> {
   const { default: MDXContent, toc, metadata } = result;
 
   return (
-    <Wrapper
-      toc={toc}
-      metadata={metadata}>
-
+    <Wrapper toc={toc} metadata={metadata}>
       <MDXContent {...props} params={params} />
     </Wrapper>
-  )
+  );
 }

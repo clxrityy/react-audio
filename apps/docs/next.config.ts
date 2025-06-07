@@ -7,13 +7,13 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "commondatastorage.googleapis.com",
-      }
-    ]
+      },
+    ],
   },
-  turbopack: {}
+  turbopack: {},
 };
 
 const withNextra = nextra({
-  contentDirBasePath: "/docs"
+  contentDirBasePath: "/docs",
 });
 export default withNextra(nextConfig);

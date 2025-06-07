@@ -5,7 +5,7 @@ export function useAudioAnalyser(
   audioElement: HTMLAudioElement,
   audioContext: AudioContext,
   sourceNodeRef: RefObject<MediaElementAudioSourceNode | null>,
-  fftSize: FFTSze
+  fftSize: FFTSze,
 ) {
   if (!audioElement || !audioContext) {
     return null;
@@ -27,6 +27,6 @@ export function useAudioAnalyser(
       const dataArray = new Uint8Array(bufferLength);
       analyser.getByteFrequencyData(dataArray);
       return dataArray;
-    }
-  }
+    },
+  };
 }

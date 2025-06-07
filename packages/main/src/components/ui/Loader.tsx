@@ -1,13 +1,10 @@
-import { ComponentProps } from 'react'
-import { Icons } from '../../util'
+import { ComponentProps } from "react";
+import { Icons } from "../../util";
 
-export type LoaderProps = ComponentProps<'svg'>
+export type LoaderProps = ComponentProps<"svg">;
 
 export const Loader = ({ ...props }: LoaderProps) => {
   return (
-    <Icons.Loader
-      className={`animate-spin ${props.className}`}
-      {...props}
-    />
-  )
-}
+    <Icons.Loader className={`animate-spin ${props.className}`} {...props} />
+  );
+};

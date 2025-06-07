@@ -2,12 +2,14 @@ import { type Component } from "../../util";
 
 export const OscillatorComponent: Component<"div"> = {
   title: "Oscillator",
-  description: "An oscillator component that generates sound waves based on gain and frequency.",
+  description:
+    "An oscillator component that generates sound waves based on gain and frequency.",
   url: "",
   props: {
     type: {
       value: "OscillatorType",
-      description: "The type of oscillator wave (e.g., sine, square, sawtooth, triangle).",
+      description:
+        "The type of oscillator wave (e.g., sine, square, sawtooth, triangle).",
       required: false,
       default: "sine",
     },
@@ -41,5 +43,5 @@ export const OscillatorComponent: Component<"div"> = {
       required: false,
       default: undefined,
     },
-  }
-}
+  },
+};

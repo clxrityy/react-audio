@@ -14,7 +14,7 @@ import {
   Square,
   SquareSquare,
   LoaderCircle,
-} from 'lucide-react'
+} from "lucide-react";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const Icons: Record<string, any> = {
@@ -33,11 +33,11 @@ export const Icons: Record<string, any> = {
   Selected: Square,
   Unselected: SquareSquare,
   Loader: LoaderCircle,
-}
+};
 
 export const Colors = {
-  primary: 'rgb(236, 106, 177)',
-  secondary: 'rgb(121, 91, 132)',
-  white: '#dddddd',
-  black: '#1111',
-}
+  primary: "rgb(236, 106, 177)",
+  secondary: "rgb(121, 91, 132)",
+  white: "#dddddd",
+  black: "#1111",
+};

@@ -1,3 +1,3 @@
-import { components } from './components/index'
+import { components } from "./components/index";
 
-export { components }
+export { components };

@@ -1,21 +1,21 @@
-import { RefObject } from 'react'
-import { animateBars } from './animate'
+import { RefObject } from "react";
+import { animateBars } from "./animate";
 
 export function draw(
   analyser: AnalyserNode,
   bufferLength: number,
   dataArray: Uint8Array,
   canvasRef: RefObject<HTMLCanvasElement | null>,
-  color: string
+  color: string,
 ) {
-  const canvas = canvasRef.current
-  if (!canvas || !analyser) return
+  const canvas = canvasRef.current;
+  if (!canvas || !analyser) return;
 
-  const canvasContext = canvas.getContext('2d')
+  const canvasContext = canvas.getContext("2d");
 
   const animate = () => {
-    requestAnimationFrame(animate)
-    canvas.width = canvas.width ?? canvas.clientWidth
+    requestAnimationFrame(animate);
+    canvas.width = canvas.width ?? canvas.clientWidth;
 
     if (canvasContext) {
       animateBars({
@@ -25,9 +25,9 @@ export function draw(
         dataArray,
         bufferLength,
         color,
-      })
+      });
     }
-  }
+  };
 
-  animate()
+  animate();
 }

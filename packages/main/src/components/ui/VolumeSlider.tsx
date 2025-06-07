@@ -1,9 +1,9 @@
-import { ComponentProps } from 'react'
+import { ComponentProps } from "react";
 
-export interface VolumeSliderProps extends ComponentProps<'input'> {
-  value: number
-  onVolumeInput: (volume: number) => void
-  color?: string
+export interface VolumeSliderProps extends ComponentProps<"input"> {
+  value: number;
+  onVolumeInput: (volume: number) => void;
+  color?: string;
 }
 
 export function VolumeSlider({
@@ -31,5 +31,5 @@ export function VolumeSlider({
       }}
       {...props}
     />
-  )
+  );
 }

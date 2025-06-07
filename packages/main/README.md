@@ -1,4 +1,4 @@
-# @clxrity/react-audio <img src="https://clxrityy.github.io/react-audio/apple-touch-icon.png" width="32px" height="32px" style="display:inline-block;" />
+# @clxrity/react-audio <img src="https://react-audio-docs.vercel.app/apple-touch-icon.png" width="27.5px" />
 
 ## A react audio player component library.
 
@@ -30,42 +30,24 @@ yarn add @clxrity/react-audio
 
 ---
 
-[![Documentation](https://img.shields.io/badge/clxrityy.github.io%2Freact-audio?style=for-the-badge&logo=readme&logoColor=%23617ab1&logoSize=auto&label=DOCS&color=%23617ab1)
-](https://clxrityy.github.io/react-audio/?story=home--readme)
-[![Changelog](https://img.shields.io/badge/clxrityy.github.io%2Freact-audio%2F%3Fstory%3Dchangelog--readme?style=for-the-badge&logo=stackexchange&logoColor=%23617ab1&logoSize=auto&label=CHANGELOG&color=%23617ab1)](https://clxrityy.github.io/react-audio/?story=documentation--changelog)
-
-[![CONTRIBUTING](<https://img.shields.io/badge/CONTRIBUTE-MD?style=for-the-badge&logo=forgejo&logoColor=%23dddddd&color=rgb(97%2C%20123%2C%20177)&link=https%3A%2F%2Fgithub.com%2Fclxrityy%2Freact-audio%2Fblob%2Fmain%2FCONTRIBUTING.md>)](<https://img.shields.io/badge/CONTRIBUTE-MD?style=for-the-badge&logo=forgejo&logoColor=%23dddddd&color=rgb(97%2C%20123%2C%20177)&link=https%3A%2F%2Fgithub.com%2Fclxrityy%2Freact-audio%2Fblob%2Fmain%2FCONTRIBUTING.md>)
+![Docs](<https://img.shields.io/badge/docs-docs?style=for-the-badge&logo=readthedocs&logoColor=%238CA1AF&logoSize=auto&color=rgb(121%2C%2091%2C%20132)&link=https%3A%2F%2Freact-audio-docs.vercel.app>) ![Changelog](<https://img.shields.io/badge/changelog-changelog?style=for-the-badge&logo=googleforms&logoColor=%238CA1AF&logoSize=auto&color=rgb(121%2C%2091%2C%20132)&link=https%3A%2F%2Freact-audio-docs.vercel.app%2Fdocumentation%2Fchangelog>) ![Contribute](<https://img.shields.io/badge/contribute-contributions?style=for-the-badge&logo=git&logoColor=%238CA1AF&logoSize=auto&color=rgb(121%2C%2091%2C%20132)&link=https%3A%2F%2Fgithub.com%2Fclxrityy%2Freact-audio%2Fblob%2Fmain%2FCONTRIBUTING.md>)
 
 ---
 
 ## Dynamic import example with Next.js
 
 ```tsx
-'use client' // (REQUIRED)
-import dynamic from 'next/dynamic'
+"use client"; // (REQUIRED)
+import dynamic from "next/dynamic";
 
 const Player = dynamic(
-  () => import('@clxrity/react-audio').then((mod) => mod.Player),
-  { ssr: false }
-)
+  () => import("@clxrity/react-audio").then((mod) => mod.Player),
+  { ssr: false },
+);
 
 export default function Component() {
-  const track = {
-    src: '/loop.wav', // (REQUIRED) audio file path (public/loop.wav)
-    title: 'Loop',
-    artist: {
-      name: 'Clxrity',
-      url: 'https://wav.clxrity.xyz',
-    },
-  }
-
-  return <Player track={track} showTrackInfo={true} />
+  return <Player src="/loop.wav" />;
 }
 ```
 
 ---
-
-> - **Note:** You may use external URLs for the **src** property for components such as [`<Player />`](https://clxrityy.github.io/react-audio/??story=player--default) and [`<ShufflePlayer />`](https://clxrityy.github.io/react-audio/?story=shuffleplayer--default) components and experience no CORS issues, as the audio files are fetched and played by the client-side.
-> - However, for components such as [`<Waveform />`](https://clxrityy.github.io/react-audio/?story=waveform--default) and [`<Spectrogram />`](https://clxrityy.github.io/react-audio/?story=spectrogram--default) components, the CORS origins must be set correctly on the server-side to avoid CORS issues. This is only applicable when using external URLs for the **src** property.
-> - For example, if using files served from firebase storage, set the CORS origins to **`*`** to allow all origins to access the files.
->   - [Firebase CORS Configuration](https://firebase.google.com/docs/storage/web/download-files#cors_configuration)

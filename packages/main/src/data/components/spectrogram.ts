@@ -13,7 +13,8 @@ export const SpectrogramComponent: Component<"div"> = {
     },
     fftSize: {
       value: "number",
-      description: "The size of the FFT (Fast Fourier Transform) used for audio analysis.",
+      description:
+        "The size of the FFT (Fast Fourier Transform) used for audio analysis.",
       required: false,
       default: 1024,
     },
@@ -43,9 +44,10 @@ export const SpectrogramComponent: Component<"div"> = {
     },
     colorMap: {
       value: "string[]",
-      description: "An array of colors to use for the spectrogram visualization.",
+      description:
+        "An array of colors to use for the spectrogram visualization.",
       required: false,
-      default: ['#111', '#ff0000', '#ffff00', '#ffffff'],
+      default: ["#111", "#ff0000", "#ffff00", "#ffffff"],
     },
     smoothingTimeConstant: {
       value: "number",
@@ -70,6 +72,6 @@ export const SpectrogramComponent: Component<"div"> = {
       description: "The fill style for the spectrogram canvas.",
       required: false,
       default: undefined,
-    }
+    },
   },
-}
+};

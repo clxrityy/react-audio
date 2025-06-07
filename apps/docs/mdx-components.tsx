@@ -1,9 +1,10 @@
 import { useMDXComponents as getDocsMDXComponents } from "nextra-theme-docs";
 import { MDXComponents } from "nextra/mdx-components";
 
-const docsComponents = getDocsMDXComponents()
+const docsComponents = getDocsMDXComponents();
 
-export const useMDXComponents = (components: MDXComponents) => ({
-  ...docsComponents,
-  ...components,
-}) as MDXComponents;
+export const useMDXComponents = (components: MDXComponents) =>
+  ({
+    ...docsComponents,
+    ...components,
+  }) as MDXComponents;

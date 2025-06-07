@@ -1,7 +1,7 @@
-import { type ComponentProps } from 'react'
+import { type ComponentProps } from "react";
 
-export interface ButtonProps extends ComponentProps<'button'> {
-  children: React.ReactNode
+export interface ButtonProps extends ComponentProps<"button"> {
+  children: React.ReactNode;
 }
 
 export const Button = ({ children, ...props }: ButtonProps) => {
@@ -13,8 +13,9 @@ export const Button = ({ children, ...props }: ButtonProps) => {
         rounded-md px-4 py-2 transition-all duration-200 active:scale-95
         disabled:active:scale-100 disabled:transition-none
         cursor-pointer
-      `}>
+      `}
+    >
       {children}
     </button>
-  )
-}
+  );
+};

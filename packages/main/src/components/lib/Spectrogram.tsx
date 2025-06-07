@@ -3,7 +3,7 @@ import { BaseProps, FFTSze } from "../../util";
 import { AudioSource } from "../ui";
 
 // Display component for the spectrogram
-export interface SpectroGramDisplayProps extends ComponentProps<'canvas'> {
+export interface SpectroGramDisplayProps extends ComponentProps<"canvas"> {
   audioRef: RefObject<HTMLAudioElement>;
   fftSize?: FFTSze;
   width?: number | string;
@@ -24,14 +24,13 @@ export function SpectroGramDisplay({
   height = "25%",
   minDecibels = -100,
   maxDecibels = -25,
-  colorMap = ['#111', '#ff0000', '#ffff00', '#ffffff'],
+  colorMap = ["#111", "#ff0000", "#ffff00", "#ffffff"],
   onFrameUpdate,
   fillStyle,
   loop = false,
   smoothingTimeConstant = 0.8,
   ...props
 }: SpectroGramDisplayProps) {
-
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -66,7 +65,7 @@ export function SpectroGramDisplay({
       analyser.connect(audioContext.destination);
     }
 
-    if (audioContextRef.current.state === 'suspended') {
+    if (audioContextRef.current.state === "suspended") {
       audioContextRef.current.resume();
     }
 
@@ -78,13 +77,13 @@ export function SpectroGramDisplay({
     if (loop) {
       audioRef.current.loop = true;
     }
-  }
+  };
 
   useEffect(() => {
     if (!canvasRef.current || !audioRef.current) return;
 
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
 
     if (!ctx) return;
 
@@ -94,25 +93,27 @@ export function SpectroGramDisplay({
     const interpolateColor = (
       color1: string,
       color2: string,
-      factor: number
+      factor: number,
     ) => {
       const result = color1
         .slice(1)
         .match(/.{2}/g)!
         .map((hex, i) => {
-          const color1Compponent = parseInt(hex, 16);;
-          const color2Component = parseInt(color2.slice(1).match(/.{2}/g)![i]!, 16);
-
-          const interpolatedComponent = Math.round(
-            color1Compponent +
-            factor * (color2Component - color1Compponent)
+          const color1Compponent = parseInt(hex, 16);
+          const color2Component = parseInt(
+            color2.slice(1).match(/.{2}/g)![i]!,
+            16,
           );
 
-          return interpolatedComponent.toString(16).padStart(2, '0');
-        })
+          const interpolatedComponent = Math.round(
+            color1Compponent + factor * (color2Component - color1Compponent),
+          );
 
-      return `#${result.join('')}`;
-    }
+          return interpolatedComponent.toString(16).padStart(2, "0");
+        });
+
+      return `#${result.join("")}`;
+    };
 
     const getColor = (value: number) => {
       const percent = value / 255;
@@ -123,7 +124,7 @@ export function SpectroGramDisplay({
       const color2 = colorMap[index + 1] || color1;
 
       return interpolateColor(color1 as string, color2 as string, factor);
-    }
+    };
 
     const drawSpectrogram = () => {
       if (!canvas || !ctx || !analyserRef.current) return;
@@ -133,12 +134,12 @@ export function SpectroGramDisplay({
 
       analyserRef.current.getByteFrequencyData(dataArray);
 
-      ctx.fillStyle = fillStyle || 'rgba(0, 0, 0, 0.5)';
+      ctx.fillStyle = fillStyle || "rgba(0, 0, 0, 0.5)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      for (let i = 0; i < bufferLength; i++){
+      for (let i = 0; i < bufferLength; i++) {
         const value = dataArray[i];
-        const height = (value as number / 255) * canvas.height;
+        const height = ((value as number) / 255) * canvas.height;
         const offset = canvas.height - height;
         const barWidth = canvas.width / bufferLength;
 
@@ -148,12 +149,11 @@ export function SpectroGramDisplay({
 
       requestAnimationFrame(drawSpectrogram);
       onFrameUpdate?.(dataArray);
-    }
+    };
 
     if (isPlaying) {
       drawSpectrogram();
     }
-
   }, [colorMap, fillStyle, isPlaying, onFrameUpdate]);
 
   return (
@@ -168,13 +168,13 @@ export function SpectroGramDisplay({
         width,
         height,
       }}
-      className={`border border-zinc-800/65 dark:border-zinc-500/65 rounded-md cursor-pointer backdrop:invert-50 ${!clicked && 'bg-zinc-700/50 animate-pulse hover:border-2 transition-all hover:bg-zinc-700/75 hover:animate-none'}`}
+      className={`border border-zinc-800/65 dark:border-zinc-500/65 rounded-md cursor-pointer backdrop:invert-50 ${!clicked && "bg-zinc-700/50 animate-pulse hover:border-2 transition-all hover:bg-zinc-700/75 hover:animate-none"}`}
     />
-  )
+  );
 }
 
-export interface SpectrogramProps extends ComponentProps<'div'> {
-  src: BaseProps['src'];
+export interface SpectrogramProps extends ComponentProps<"div"> {
+  src: BaseProps["src"];
   fftSize?: FFTSze;
   width?: number | string;
   height?: number | string;
@@ -183,7 +183,7 @@ export interface SpectrogramProps extends ComponentProps<'div'> {
   colorMap?: string[];
   smoothingTimeConstant?: number;
   onFrameUpdate?: (data: Uint8Array) => void;
-  loop?: BaseProps['loop'];
+  loop?: BaseProps["loop"];
   fillStyle?: string;
 }
 
@@ -201,32 +201,30 @@ export function Spectrogram({
   fillStyle,
   ...props
 }: SpectrogramProps) {
-  const audioRef = useRef<HTMLAudioElement>(typeof Audio !== 'undefined' ? new Audio() : null);
+  const audioRef = useRef<HTMLAudioElement>(
+    typeof Audio !== "undefined" ? new Audio() : null,
+  );
 
   return (
-    <div
-      {...props}
-    >
+    <div {...props}>
       <audio ref={audioRef}>
         <AudioSource src={src} />
       </audio>
-      {
-        audioRef.current && (
-          <SpectroGramDisplay
-            audioRef={audioRef as RefObject<HTMLAudioElement>}
-            fftSize={fftSize}
-            width={width}
-            height={height}
-            minDecibels={minDecibels}
-            maxDecibels={maxDecibels}
-            colorMap={colorMap}
-            smoothingTimeConstant={smoothingTimeConstant}
-            onFrameUpdate={onFrameUpdate}
-            fillStyle={fillStyle}
-            loop={loop}
-          />
-        )
-      }
+      {audioRef.current && (
+        <SpectroGramDisplay
+          audioRef={audioRef as RefObject<HTMLAudioElement>}
+          fftSize={fftSize}
+          width={width}
+          height={height}
+          minDecibels={minDecibels}
+          maxDecibels={maxDecibels}
+          colorMap={colorMap}
+          smoothingTimeConstant={smoothingTimeConstant}
+          onFrameUpdate={onFrameUpdate}
+          fillStyle={fillStyle}
+          loop={loop}
+        />
+      )}
     </div>
-  )
+  );
 }

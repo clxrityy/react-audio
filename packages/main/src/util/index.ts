@@ -1,8 +1,13 @@
-import { animateBars } from './animate'
-import { Icons, Colors } from './constants'
-import { resizeElement } from './resize'
-import { draw } from './draw'
-import { type Component, type CustomProps, type FFTSze, type BaseProps } from './types'
+import { animateBars } from "./animate";
+import { Icons, Colors } from "./constants";
+import { resizeElement } from "./resize";
+import { draw } from "./draw";
+import {
+  type Component,
+  type CustomProps,
+  type FFTSze,
+  type BaseProps,
+} from "./types";
 
 export {
   animateBars,
@@ -13,5 +18,5 @@ export {
   Component,
   CustomProps,
   FFTSze,
-  BaseProps
-}
+  BaseProps,
+};

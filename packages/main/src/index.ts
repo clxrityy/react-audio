@@ -1,4 +1,4 @@
-import './index.css'
+import "./index.css";
 
 // COMPONENTS
 export {
@@ -13,17 +13,14 @@ export {
   Spectrogram,
   type SpectrogramProps,
   SpectroGramDisplay,
-  type SpectroGramDisplayProps
+  type SpectroGramDisplayProps,
 } from "./components/lib";
 
 // DATA
-export { components } from './data'
+export { components } from "./data";
 
 // HOOKS
-export { useAudioAnalyser } from './hooks/useAudioAnalyser';
+export { useAudioAnalyser } from "./hooks/useAudioAnalyser";
 
 // TYPES
-export type {
-  FFTSze,
-  BaseProps
-} from './util';
+export type { FFTSze, BaseProps } from "./util";

@@ -1,19 +1,19 @@
-import { ComponentProps, JSX } from 'react'
+import { ComponentProps, JSX } from "react";
 
 export interface CustomProps {
   [key: string]: {
-    value: unknown
-    description?: string
-    required: boolean
-    default?: unknown
-  }
+    value: unknown;
+    description?: string;
+    required: boolean;
+    default?: unknown;
+  };
 }
 
 export interface Component<T extends keyof JSX.IntrinsicElements> {
-  title: string
-  url: string
-  description: string
-  props: CustomProps extends ComponentProps<T> ? CustomProps : never
+  title: string;
+  url: string;
+  description: string;
+  props: CustomProps extends ComponentProps<T> ? CustomProps : never;
 }
 
 export interface BaseProps {

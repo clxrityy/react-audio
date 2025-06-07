@@ -1,23 +1,13 @@
-import { Player, type PlayerProps } from './Player'
-import {
-  ShufflePlayer,
-  type ShufflePlayerProps,
-} from './ShufflePlayer';
-import {
-  Waveform,
-  type WaveformProps
-} from "./Waveform";
-import {
-  Oscillator,
-  type OscillatorProps
-} from "./Oscillator";
+import { Player, type PlayerProps } from "./Player";
+import { ShufflePlayer, type ShufflePlayerProps } from "./ShufflePlayer";
+import { Waveform, type WaveformProps } from "./Waveform";
+import { Oscillator, type OscillatorProps } from "./Oscillator";
 import {
   Spectrogram,
   type SpectrogramProps,
   SpectroGramDisplay,
-  type SpectroGramDisplayProps
-} from "./Spectrogram"
-
+  type SpectroGramDisplayProps,
+} from "./Spectrogram";
 
 // EXPORTS
 export {
@@ -32,5 +22,5 @@ export {
   Spectrogram,
   type SpectrogramProps,
   SpectroGramDisplay,
-  type SpectroGramDisplayProps
-}
+  type SpectroGramDisplayProps,
+};

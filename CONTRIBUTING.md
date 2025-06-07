@@ -23,7 +23,7 @@ pnpm dev # Start the development server
 
 ---
 
-## Repository Ecosystem 
+## Repository Ecosystem
 
 - [pnpm v10](https://pnpm.io/) for package management.
   ```bash
@@ -59,8 +59,8 @@ The primary sources of the project are located within `apps/` & `packages/`.
   - `apps/` - Contains the main application and documentation.
     - `docs/` - Documentation application built with Next.js and Nextra.
   - `packages/` - Contains reusable packages and components.
-    - `main/` - The main package containing the core React audio 
-    tools/components.
+    - `main/` - The main package containing the core React audio
+      tools/components.
   - `...` - Configuration and metadata files at the root of the repository.
     - `.editorconfig` - Editor configuration file for consistent coding styles.
     - `.nvmrc` - Node.js version manager configuration file.
@@ -84,6 +84,7 @@ The `packages/` directory contains the main package and any additional packages 
 The source directory (`src/`) contains the core components and utilities of the package. Each component should be organized in its own directory, with a clear naming convention.
 
 **Within, you will find:**
+
 - `components/` - Contains reusable React components.
   - `lib/` - The component library. (**Importable**)
   - `ui/` - The UI components.
@@ -97,6 +98,7 @@ All components, hooks, and utilities that are meant to be used externally should
 The `apps/` directory contains, as you've likely guessed, the applications that use the packages in `packages/`. This includes the documentation application built with Next.js and Nextra (`docs/`).
 
 **Within `apps/docs/`, you will find:**
+
 - `app/` - The Next.js application structure.
   - `docs/[[...mdxPath]]/` - The documentation pages.
     - `page.tsx` - The wrapper for the `.mdx` content.
@@ -105,7 +107,7 @@ The `apps/` directory contains, as you've likely guessed, the applications that 
     ```css
     @import "tailwindcss";
     @import "nextra-theme-docs/style.css";
-    @import "@clxrity/react-audio/index.css"; 
+    @import "@clxrity/react-audio/index.css";
     ```
   - `layout.tsx` - The layout component for the application.
   - `page.tsx` - The main page component for the application.
@@ -131,6 +133,7 @@ The `apps/` directory contains, as you've likely guessed, the applications that 
 This project uses [Changesets](https://github.com/changesets/changesets) to manage versioning and changelogs. When making changes to the codebase, you should create a changeset to describe your changes.
 
 To create a new changeset, run:
+
 ```bash
 pnpm changeset
 ```
@@ -138,6 +141,7 @@ pnpm changeset
 Make sure to follow the prompts and provide a clear description of the changes made. This will aid in generating accurate changelogs and versioning for the project.
 
 > **Note**: Unless you are an author or maintainer of this repository and/or package, please do not run the following commands:
+
 - `pnpm changeset version` - This command is used to update the package versions based on the changesets created.
 - `pnpm publish` - This command is used to publish the package to the npm registry.
 
@@ -158,7 +162,9 @@ To add new documentation pages, create a new Markdown file in the `apps/docs/con
 title: My New Page
 description: A brief description of my new page.
 ---
+
 # My New Page
+
 This is the content of my new page.
 ```
 
@@ -177,6 +183,7 @@ pnpm test
 Whenever you add new features or make changes to existing code, please ensure that you also add or update the corresponding tests to maintain code quality and reliability.
 
 If you add new features or components, please make sure to add corresponding tests for them as well.
+
 - Include unit tests for individual components and hooks.
 - Include integration tests for components that interact with each other.
 - If there is internal logic that needs to be tested, consider adding unit tests for those as well.
@@ -188,6 +195,7 @@ If you add new features or components, please make sure to add corresponding tes
 When you're ready to submit your changes, please follow these guidelines:
 
 ### Code Review Checklist
+
 - [ ] Code follows the [ESlint](https://eslint.org/) and [Prettier](https://prettier.io/) coding standards.
   - Run `pnpm lint` to check for linting errors.
   - Run `pnpm prettier` to format the code.
@@ -199,6 +207,7 @@ When you're ready to submit your changes, please follow these guidelines:
   - Run `pnpm changeset` to create a new changeset.
 
 ### Pull Request Guidelines
+
 - [ ] Pull requests should be opened against the [`main`](https://github.com/clxrityy/react-audio/tree/main) branch.
 - [ ] Pull requests should have a concise title and description of the changes made.
   - [ ] Include a link to the issue being addressed, if applicable.
@@ -209,5 +218,3 @@ When you're ready to submit your changes, please follow these guidelines:
 ---
 
 ##### Thank you for your interest in contributing!
-
-

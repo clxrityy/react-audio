@@ -12,7 +12,7 @@ export interface WaveformProps extends ComponentProps<"div"> {
   loop?: BaseProps["loop"];
   showProgress?: BaseProps["showProgress"];
   showVolume?: BaseProps["showVolume"];
-  fftSize?: FFTSze
+  fftSize?: FFTSze;
   onLoad?: () => void;
   audioRef?: RefObject<HTMLAudioElement | null> | null;
 }
@@ -30,7 +30,6 @@ export function Waveform({
   audioRef = null,
   ...props
 }: WaveformProps) {
-
   if (!audioRef) audioRef = useRef<HTMLAudioElement>(null);
 
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
@@ -46,7 +45,7 @@ export function Waveform({
 
   const initializeAudio = () => {
     if (!audioRef.current) {
-      console.warn('🚨 Audio ref is not ready yet.')
+      console.warn("🚨 Audio ref is not ready yet.");
       return;
     }
 
@@ -66,26 +65,23 @@ export function Waveform({
 
       // Ensure only one source node is created
       if (!sourceNodeRef.current) {
-        sourceNodeRef.current = ctx.createMediaElementSource(
-          audioRef.current
-        );
+        sourceNodeRef.current = ctx.createMediaElementSource(audioRef.current);
       }
 
       const analyser = useAudioAnalyser(
         audioRef.current,
         ctx,
         sourceNodeRef,
-        fftSize
+        fftSize,
       );
 
       if (analyser) {
         setAnalyserNode(analyser.analyser);
       }
-
     } catch (e) {
       console.error("❌ Failed to initalize AudioContext:", e);
     }
-  }
+  };
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -101,15 +97,14 @@ export function Waveform({
       } else if (audioContext.state === "suspended") {
         audioContext.resume();
       }
-    }
+    };
 
     window.addEventListener("click", enableAudio);
 
     return () => {
       window.removeEventListener("click", enableAudio);
       audioContext?.close();
-    }
-
+    };
   }, [audioContext]);
 
   return (
@@ -124,38 +119,36 @@ export function Waveform({
         position: "relative",
         borderRadius: "8px",
         backgroundColor: "transparent",
-        gap: "8px"
+        gap: "8px",
       }}
     >
       <div
         style={{
           position: "relative",
           width: "100%",
-          height: `100px`
+          height: `100px`,
         }}
       >
-        {
-          analyserNode && (
-            <Canvas
-              analyser={analyserNode}
-              bufferLength={analyserNode.frequencyBinCount}
-              dataArray={new Uint8Array(analyserNode.frequencyBinCount)}
-              size={size}
-              color={color}
-              width={size}
-              height={size}
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                opacity: 0.8,
-                pointerEvents: "none",
-                zIndex: 0,
-              }}
-            />
-          )
-        }
+        {analyserNode && (
+          <Canvas
+            analyser={analyserNode}
+            bufferLength={analyserNode.frequencyBinCount}
+            dataArray={new Uint8Array(analyserNode.frequencyBinCount)}
+            size={size}
+            color={color}
+            width={size}
+            height={size}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              opacity: 0.8,
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
+          />
+        )}
         <Player
           src={src}
           audioRef={audioRef}
@@ -170,5 +163,5 @@ export function Waveform({
         />
       </div>
     </div>
-  )
+  );
 }
