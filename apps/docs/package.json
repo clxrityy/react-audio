@@ -1,14 +1,15 @@
 {
   "name": "docs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build && pnpm postbuild",
+    "build": "pnpm prebuild && next build && pnpm postbuild",
     "start": "next start",
     "lint": "next lint --strict",
     "check-types": "tsc --noEmit",
+    "prebuild": "node ../../scripts/changelog.js",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind"
   },
   "dependencies": {

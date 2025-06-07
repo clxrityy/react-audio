@@ -1,10 +1,23 @@
-# @clxrity/react-audio
+# Changelog
+
+## 3.1.0
+
+### Minor Changes
+
+- 836e785: Finished mono-repo move
+
+### Patch Changes
+
+- 87f8047: - Updated documentation to include changelog
+  - Created `prebuild` script to copy the changelog to the docs
+  - Updated `README.md` to include changelog link
+- 1bedd1f: Re-wrote [CONTRIBUTING.md](https://github.com/clxrityy/react-audio/blob/main/CONTRIBUTING.md) to encapsulate the new structure of the repository and the development workflow.
 
 ## 3.0.0
 
 ### Major Changes
 
-- Switched structure to a [turborepo](https://turbo.build/repo/docs)  structure.
+- Switched structure to a [turborepo](https://turbo.build/repo/docs) structure.
   - The main package is now in the `packages/main` directory.
   - The documentation is now in the `packages/docs` directory.
     - The documentation is now built with [Next.js](https://nextjs.org/) & [nextra](https://nextra.site/).
@@ -71,23 +84,20 @@
   #### Example with Next.js
 
   ```tsx
-  'use client'
-  import {
-    Oscillator,
-    type OscillatorProps,
-  } from '@clxrity/react-audio'
+  "use client";
+  import { Oscillator, type OscillatorProps } from "@clxrity/react-audio";
 
   export default function Home() {
-    const [isPlaying, setIsPlaying] = useState(false)
+    const [isPlaying, setIsPlaying] = useState(false);
 
     return (
       <div>
         <button onClick={() => setIsPlaying(!isPlaying)}>
-          {isPlaying ? 'Stop' : 'Start'}
+          {isPlaying ? "Stop" : "Start"}
         </button>
         <Oscillator type="sine" isPlaying={isPlaying} />
       </div>
-    )
+    );
   }
   ```
 
@@ -135,7 +145,7 @@
     height={300}
     minDecibels={-100}
     maxDecibels={-30}
-    colorMap={['#000000', '#ff0000', '#ffff00', '#ffffff']}
+    colorMap={["#000000", "#ff0000", "#ffff00", "#ffffff"]}
     smoothingTimeConstant={0.8}
     realTime={true}
     logarithmicScale={true}
@@ -178,37 +188,35 @@
       // ...
       theme: {
         enabled: true,
-        defaultState: 'dark',
+        defaultState: "dark",
       },
     },
-  }
+  };
   ```
 
   ```tsx
   // .ladle/components.tsx
-  import { Provider as StyletronProvider } from 'styletron-react'
-  import { Client as Styletron } from 'styletron-engine-monolithic'
-  import { LightTheme, DarkTheme, BaseProvider } from 'baseui'
-  import type { GlobalProvider } from '@ladle/react'
+  import { Provider as StyletronProvider } from "styletron-react";
+  import { Client as Styletron } from "styletron-engine-monolithic";
+  import { LightTheme, DarkTheme, BaseProvider } from "baseui";
+  import type { GlobalProvider } from "@ladle/react";
 
-  const engine = new Styletron()
+  const engine = new Styletron();
 
-  export const Provider: GlobalProvider = ({
-    children,
-    globalState,
-  }) => (
+  export const Provider: GlobalProvider = ({ children, globalState }) => (
     <StyletronProvider value={engine}>
       <BaseProvider
         theme={{
-          ...(globalState.theme === 'dark' ? DarkTheme : LightTheme),
-          direction: globalState.rtl ? 'rtl' : 'ltr',
-        }}>
+          ...(globalState.theme === "dark" ? DarkTheme : LightTheme),
+          direction: globalState.rtl ? "rtl" : "ltr",
+        }}
+      >
         <div className="docs-container">
           <div className="docs-main">{children}</div>
         </div>
       </BaseProvider>
     </StyletronProvider>
-  )
+  );
   ```
 
 - 1f6297b: Update **ShufflePlayer** props to include showTracks which can optionally hide the display of all the tracks
@@ -231,46 +239,40 @@
   ```
 
   ```cjs
-  const fs = require('fs')
-  const path = require('path')
+  const fs = require("fs");
+  const path = require("path");
 
-  const indexPath = path.join(__dirname, '../docs', 'index.html')
+  const indexPath = path.join(__dirname, "../docs", "index.html");
 
-  fs.readFile(indexPath, 'utf8', (err, data) => {
+  fs.readFile(indexPath, "utf8", (err, data) => {
     if (err) {
-      console.error('Error reading index.html', err)
-      process.exit(1)
+      console.error("Error reading index.html", err);
+      process.exit(1);
     }
 
     // Replace absolute asset paths with relative ones (e.g., '/assets' to './assets')
     let updatedData = data
       .replace(/href="\/assets/g, 'href="./assets')
-      .replace(/src="\/assets/g, 'src="./assets')
+      .replace(/src="\/assets/g, 'src="./assets');
 
     updatedData = updatedData.replace(
       /<meta name="dscription"[^>]*>/,
-      '<meta name="description" content="A collection of audio components for React applications" />'
-    )
-    updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, '')
-    updatedData = updatedData.replace(
-      /<link rel="apple-touch-icon"[^>]*>/,
-      ''
-    )
-    updatedData = updatedData.replace(
-      /<link rel="manifest"[^>]*>/,
-      ''
-    )
-    updatedData = updatedData.replace(/<title>Ladle<\/title>/, '')
+      '<meta name="description" content="A collection of audio components for React applications" />',
+    );
+    updatedData = updatedData.replace(/<link rel="icon"[^>]*>/, "");
+    updatedData = updatedData.replace(/<link rel="apple-touch-icon"[^>]*>/, "");
+    updatedData = updatedData.replace(/<link rel="manifest"[^>]*>/, "");
+    updatedData = updatedData.replace(/<title>Ladle<\/title>/, "");
 
-    fs.writeFile(indexPath, updatedData, 'utf-8', (err) => {
+    fs.writeFile(indexPath, updatedData, "utf-8", (err) => {
       if (err) {
-        console.error('Error writing index.html', err)
-        process.exit(1)
+        console.error("Error writing index.html", err);
+        process.exit(1);
       } else {
-        console.log('index.html updated successfully')
+        console.log("index.html updated successfully");
       }
-    })
-  })
+    });
+  });
   ```
 
 ## 2.0.2
@@ -287,10 +289,10 @@
     - Added a custom `rename-css-plugin` to vite plugins:
 
     ```ts
-    import { UserConfigExport } from 'vite'
-    import { renameSync } from 'fs' // NEW
-    import path from 'path'
-    import { defineConfig } from 'vitest/config'
+    import { UserConfigExport } from "vite";
+    import { renameSync } from "fs"; // NEW
+    import path from "path";
+    import { defineConfig } from "vitest/config";
     // ...
 
     const app = async (): Promise<UserConfigExport> => {
@@ -298,27 +300,21 @@
         plugins: [
           //.. prev plugins,
           {
-            name: 'rename-css-plugin',
+            name: "rename-css-plugin",
             closeBundle() {
-              const oldPath = path.resolve(
-                __dirname,
-                'dist/react-audio.css'
-              )
-              const newPath = path.resolve(
-                __dirname,
-                'dist/index.css'
-              )
+              const oldPath = path.resolve(__dirname, "dist/react-audio.css");
+              const newPath = path.resolve(__dirname, "dist/index.css");
 
               try {
-                renameSync(oldPath, newPath) // FIX
+                renameSync(oldPath, newPath); // FIX
               } catch (error) {
-                console.error(error)
+                console.error(error);
               }
             },
           },
         ],
-      })
-    }
+      });
+    };
     ```
 
   - Also added a way to import within css by updating `css.preprocessorOptions` in `vite.config.ts`:
@@ -326,7 +322,7 @@
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@clxrity/react-audio/index.css";`
+          additionalData: `@import "@clxrity/react-audio/index.css";`;
         }
       }
     }
@@ -335,13 +331,13 @@
   You can now import within your css file like so:
 
   ```css
-  @import '@clxrity/react-audio/index.css';
+  @import "@clxrity/react-audio/index.css";
   ```
 
   And within your js/ts file like so:
 
   ```ts
-  import '@clxrity/react-audio/index.css'
+  import "@clxrity/react-audio/index.css";
   ```
 
 ## 2.0.0

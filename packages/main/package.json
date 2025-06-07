@@ -1,6 +1,6 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "An audio package for React",
   "private": false,
   "type": "module",
@@ -23,7 +23,10 @@
   },
   "files": [
     "dist",
-    "package.json"
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "packageManager": "pnpm@10.10.0",
   "engines": {
