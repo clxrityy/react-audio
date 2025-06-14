@@ -1,6 +1,6 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "An audio package for React",
   "private": false,
   "type": "module",
@@ -16,10 +16,11 @@
   },
   "scripts": {
     "build": "tsup --config tsup.config.ts",
+    "dev": "tsup --config tsup.config.ts --watch",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "eslint . --fix",
-    "pub": "pnpm build && pnpm test && pnpm lint && npm publish --access=public"
+    "pub": "pnpm build && pnpm lint"
   },
   "files": [
     "dist",
@@ -90,5 +91,6 @@
     "email": "contact@mjanglin.com",
     "url": "https://mjanglin.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://react-audio-docs.vercel.app/"
 }

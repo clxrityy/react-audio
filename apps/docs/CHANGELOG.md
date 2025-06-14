@@ -1,5 +1,19 @@
 # docs
 
+## 0.2.0
+
+### Minor Changes
+
+- f8eedaa: Added sub components section within documentation for pages for each component
+
+### Patch Changes
+
+- Updated dependencies [aaa0719]
+- Updated dependencies [0fac93a]
+- Updated dependencies [f8eedaa]
+- Updated dependencies [cbe9ae1]
+  - @clxrity/react-audio@3.0.2
+
 ## 0.1.2
 
 ### Patch Changes

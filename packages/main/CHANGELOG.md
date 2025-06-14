@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.0.2
+
+### Patch Changes
+
+- aaa0719: Fixed components and hooks to correctly utilize the audio reference for playback and analysis.
+
+  - Updated **Player** component to ensure it uses the audio ref properly for playback control.
+  - Updated **useAudioAnalyser** hook to ensure it correctly accesses the audio element for analysis.
+  - Updated **Waveform** component to ensure it uses the audio ref for waveform rendering.
+
+- 0fac93a: Fixed the style of the progress input bar
+- f8eedaa: Added sub components section within documentation for pages for each component
+- cbe9ae1: Added homepage
+
 ## 3.1.0
 
 ### Minor Changes
