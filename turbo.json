@@ -31,12 +31,15 @@
     },
     "coverage": {
       "dependsOn": ["^coverage"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["coverage/**"]
+      "inputs": ["$TURBO_DEFAULT$", "**/.env*"],
+      "outputs": ["coverage/**"],
+      "env": [
+        "CODECOV_TOKEN"
+      ]
     },
     "pub": {
       "dependsOn": ["^pub"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "inputs": ["$TURBO_DEFAULT$", "**/.env*"],
       "outputs": ["dist/**", "package.json", "CHANGELOG.md"]
     }
   }
