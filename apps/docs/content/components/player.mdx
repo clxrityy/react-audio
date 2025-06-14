@@ -1,0 +1,35 @@
+import { PropsDetails } from "../../components/PropsDetails";
+import { Player } from "../../components/Player";
+
+
+
+# Player
+
+```tsx
+"use client";
+import { Player } from "@clxrity/react-audio";
+
+export default function PlayerExample() {
+  return (
+    <Player
+      src="/drooms.wav"
+    />
+  );
+}
+```
+
+<br />
+
+<Player src="/audio/drums_2.wav" />
+
+## Features
+- Provides a simple audio player interface.
+- Supports play, pause, and stop functionalities.
+- Displays current playback time and duration.
+- Allows volume control and mute functionality.
+
+## Props
+
+<br />
+
+<PropsDetails component="Player" />

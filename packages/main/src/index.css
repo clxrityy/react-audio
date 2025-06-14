@@ -1,16 +1,50 @@
 @import 'tailwindcss';
 
+/* Add to your CSS */
+/* Hide the thumb for WebKit browsers */
 .progress-input::-webkit-slider-thumb {
-  z-index: 20;
-  position: relative;
   appearance: none;
-  width: 1rem;
-  height: 1rem;
-  background: #1a1a1a;
-  border-radius: 9999px;
-  cursor: pointer;
-  box-shadow:
-    0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: none;
+  display: none;
+}
+
+/* Hide the thumb for Firefox */
+.progress-input::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: none;
+  display: none;
+}
+
+/* Hide the thumb for IE/Edge */
+.progress-input::-ms-thumb {
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: none;
+  display: none;
+}
+
+/* Remove default styles for the track as well */
+.progress-input {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+.progress-input::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+.progress-input::-ms-fill-lower,
+.progress-input::-ms-fill-upper {
+  background: transparent;
+}
+
+.progress-input::-moz-range-track {
+  background: transparent;
 }

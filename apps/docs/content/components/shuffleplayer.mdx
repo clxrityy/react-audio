@@ -1,0 +1,47 @@
+import { ShufflePlayer } from "../../components/ShufflePlayer";
+import { PropsDetails } from "../../components/PropsDetails";
+
+# ShufflePlayer
+
+The `<ShufflePlayer />` component is built off of the [Player](/docs/components/player) component, adding the ability to play multiple audio files.
+
+<br />
+
+```tsx
+"use client";
+import { ShufflePlayer } from "@clxrityy/react-audio";
+
+export default function Example() {
+  return (
+    <ShufflePlayer
+      srcs={[
+        "/audio/strings.wav",
+        "/audio/drums_2.wav",
+        "/audio/drums.wav",
+      ]}
+    />
+  );
+}
+```
+
+<br />
+
+<ShufflePlayer
+  srcs={[
+    "/audio/strings.wav",
+    "/audio/drums_2.wav",
+    "/audio/drums.wav",
+  ]}
+/>
+
+<br />
+
+## Props
+
+<br />
+
+>
+
+<br />
+
+<PropsDetails component={"ShufflePlayer"} />

@@ -1,4 +1,4 @@
-import { ComponentProps, RefObject, useEffect, useRef, useState } from "react";
+import { ComponentProps, RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { BaseProps, FFTSze } from "../../util";
 import { AudioSource } from "../ui";
 
@@ -38,9 +38,9 @@ export function SpectroGramDisplay({
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [clicked, setClicked] = useState<boolean>(false);
 
-  const startAudio = () => {
+  const startAudio = useCallback(() => {
     if (isPlaying) {
-      audioRef.current.pause();
+      audioRef.current.pause()
       setIsPlaying(false);
       return;
     }
@@ -70,14 +70,20 @@ export function SpectroGramDisplay({
     }
 
     if (audioRef.current.paused) {
-      audioRef.current.play();
-      setIsPlaying(true);
+      const playPromise =  audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          setIsPlaying(true);
+        }).catch(error => {
+          console.error("Error playing audio:", error);
+        });
+      }
     }
 
     if (loop) {
       audioRef.current.loop = true;
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (!canvasRef.current || !audioRef.current) return;
@@ -168,7 +174,7 @@ export function SpectroGramDisplay({
         width,
         height,
       }}
-      className={`border border-zinc-800/65 dark:border-zinc-500/65 rounded-md cursor-pointer backdrop:invert-50 ${!clicked && "bg-zinc-700/50 animate-pulse hover:border-2 transition-all hover:bg-zinc-700/75 hover:animate-none"}`}
+      className={`border border-zinc-800/65 dark:border-zinc-500/65 rounded-md cursor-pointer backdrop:invert-50 ${!clicked && "bg-zinc-700/50 animate-pulse hover:border-2 transition-all hover:bg-zinc-700/75 hover:animate-none"} cursor-pointer`}
     />
   );
 }
@@ -201,16 +207,14 @@ export function Spectrogram({
   fillStyle,
   ...props
 }: SpectrogramProps) {
-  const audioRef = useRef<HTMLAudioElement>(
-    typeof Audio !== "undefined" ? new Audio() : null,
-  );
+  const audioRef = useRef<HTMLAudioElement>(null);
+
 
   return (
     <div {...props}>
       <audio ref={audioRef}>
         <AudioSource src={src} />
       </audio>
-      {audioRef.current && (
         <SpectroGramDisplay
           audioRef={audioRef as RefObject<HTMLAudioElement>}
           fftSize={fftSize}
@@ -224,7 +228,6 @@ export function Spectrogram({
           fillStyle={fillStyle}
           loop={loop}
         />
-      )}
     </div>
   );
 }

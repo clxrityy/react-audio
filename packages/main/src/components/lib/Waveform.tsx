@@ -1,4 +1,4 @@
-import { ComponentProps, RefObject, useEffect, useRef, useState } from "react";
+import { ComponentProps, useEffect, useRef, useState } from "react";
 import { Colors, BaseProps, FFTSze } from "../../util";
 import { useAudioAnalyser } from "../../hooks/useAudioAnalyser";
 import { Canvas } from "../ui";
@@ -14,96 +14,57 @@ export interface WaveformProps extends ComponentProps<"div"> {
   showVolume?: BaseProps["showVolume"];
   fftSize?: FFTSze;
   onLoad?: () => void;
-  audioRef?: RefObject<HTMLAudioElement | null> | null;
 }
 
+/**
+ * Waveform component renders an audio player and a real-time waveform visualization.
+ */
 export function Waveform({
   src,
   size = 420,
   color = Colors.primary,
   autoplay = false,
   loop = false,
-  showProgress = false,
-  showVolume = false,
+  showProgress = true,
+  showVolume = true,
   fftSize = 2048,
   onLoad,
-  audioRef = null,
   ...props
 }: WaveformProps) {
-  if (!audioRef) audioRef = useRef<HTMLAudioElement>(null);
-
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [audioReady, setAudioReady] = useState(false);
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
-  const [analyserNode, setAnalyserNode] = useState<AnalyserNode | null>(null);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.src = src;
-    }
-  }, [src]);
-
   const sourceNodeRef = useRef<MediaElementAudioSourceNode | null>(null);
 
-  const initializeAudio = () => {
-    if (!audioRef.current) {
-      console.warn("🚨 Audio ref is not ready yet.");
-      return;
-    }
-
-    try {
-      const ctx = audioContext ?? new AudioContext();
-      if (!audioContext) {
-        setAudioContext(ctx);
-      }
-
-      if (!ctx) {
-        throw new Error("AudioContext is not initialized.");
-      }
-
-      if (ctx.state === "suspended") {
-        ctx.resume();
-      }
-
-      // Ensure only one source node is created
-      if (!sourceNodeRef.current) {
-        sourceNodeRef.current = ctx.createMediaElementSource(audioRef.current);
-      }
-
-      const analyser = useAudioAnalyser(
-        audioRef.current,
-        ctx,
-        sourceNodeRef,
-        fftSize,
-      );
-
-      if (analyser) {
-        setAnalyserNode(analyser.analyser);
-      }
-    } catch (e) {
-      console.error("❌ Failed to initalize AudioContext:", e);
-    }
-  };
-
+  // Wait for the audio element to mount
   useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio(src);
-      audioRef.current.load();
-    }
-  }, [src]);
+    if (audioRef.current) setAudioReady(true);
+  }, [audioRef.current]);
 
+  // Create AudioContext only when audio is ready
   useEffect(() => {
-    const enableAudio = () => {
-      if (!audioContext) {
-        initializeAudio();
-      } else if (audioContext.state === "suspended") {
-        audioContext.resume();
-      }
-    };
+    if (!audioReady) return;
+    if (!audioContext || audioContext.state === "closed") {
+      const ctx = new AudioContext();
+      setAudioContext(ctx);
+    }
+  }, [audioReady, audioContext]);
 
-    window.addEventListener("click", enableAudio);
+  // Create analyser node using custom hook (only when everything is ready)
+  const analyser = useAudioAnalyser(
+    audioReady ? audioRef.current : null,
+    audioContext,
+    sourceNodeRef,
+    fftSize
+  );
 
+  // Clean up AudioContext on unmount
+  useEffect(() => {
     return () => {
-      window.removeEventListener("click", enableAudio);
-      audioContext?.close();
+      if (audioContext && audioContext.state !== "closed") {
+        audioContext.close();
+      }
+      sourceNodeRef.current?.disconnect();
     };
   }, [audioContext]);
 
@@ -120,6 +81,8 @@ export function Waveform({
         borderRadius: "8px",
         backgroundColor: "transparent",
         gap: "8px",
+        minHeight: "200px",
+        ...props.style,
       }}
     >
       <div
@@ -129,11 +92,11 @@ export function Waveform({
           height: `100px`,
         }}
       >
-        {analyserNode && (
+        {analyser?.analyser && (
           <Canvas
-            analyser={analyserNode}
-            bufferLength={analyserNode.frequencyBinCount}
-            dataArray={new Uint8Array(analyserNode.frequencyBinCount)}
+            analyser={analyser.analyser}
+            bufferLength={analyser.analyser.frequencyBinCount}
+            dataArray={new Uint8Array(analyser.analyser.frequencyBinCount)}
             size={size}
             color={color}
             width={size}
@@ -151,7 +114,6 @@ export function Waveform({
         )}
         <Player
           src={src}
-          audioRef={audioRef}
           autoplay={autoplay}
           loop={loop}
           showProgress={showProgress}
@@ -160,6 +122,7 @@ export function Waveform({
           onLoad={onLoad}
           showNextPrevControls={false}
           size={size}
+          ref={audioRef}
         />
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Tabs } from 'nextra/components';
+import { Tabs, FileTree } from 'nextra/components';
 
 # Introduction
 
@@ -33,3 +33,44 @@ pnpm add @clxrity/react-audio
 ```
   </Tabs.Tab>
 </Tabs>
+
+---
+
+### Example structure with Next.js
+
+<FileTree>
+  <FileTree.Folder name="app" defaultOpen>
+    <FileTree.File name="page.tsx" />
+    <FileTree.File name="layout.tsx" />
+    <FileTree.File name="globals.css" />
+  </FileTree.Folder>
+  <FileTree.Folder name="public" defaultOpen>
+    <FileTree.Folder name="audio" defaultOpen>
+      <FileTree.File name="drums_2.wav" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+```css
+/* app/globals.css */
+@import "@clxrity/react-audio/index.css";
+/**
+  * Import the main CSS file for the React Audio library.
+  * This will apply the default styles to the components.
+*/
+```
+
+```tsx
+/* app/page.tsx */
+"use client"; // All react-audio components must be used in a client component
+import { Waveform } from "@clxrity/react-audio";
+
+export default function Page() {
+  return (
+    <div>
+      <h1>Welcome to React Audio</h1>
+      <Waveform src="/audio/drums_2.wav" />
+    </div>
+  );
+}
+```

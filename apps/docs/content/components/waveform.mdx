@@ -1,0 +1,29 @@
+import { Waveform } from "../../components/Waveform";
+import { PropsDetails } from "../../components/PropsDetails";
+
+# Waveform
+
+The waveform component is used to display audio waveforms. It can be used to visualize audio files in a user-friendly way.
+
+```tsx
+"use client";
+import { Waveform } from "@clxrity/react-audio";
+
+export default function WaveformExample() {
+  return (
+    <div>
+      <Waveform src="/audio/drums_2.wav" />
+    </div>
+  );
+}
+```
+
+
+<Waveform src="/audio/drums_2.wav" />
+
+## Props
+
+<br />
+
+
+<PropsDetails component={"Waveform"} />

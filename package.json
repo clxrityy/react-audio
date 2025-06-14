@@ -10,13 +10,13 @@
     "start": "turbo run start",
     "test": "turbo run test",
     "coverage": "turbo run coverage",
-    "pub": "turbo run pub"
+    "pub": "turbo run pub && pnpm changeset version && pnpm changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.4",
     "prettier": "^3.5.3",
-    "turbo": "^2.5.3",
-    "typescript": "5.8.3",
-    "@changesets/cli": "^2.29.4"
+    "turbo": "^2.5.4",
+    "typescript": "5.8.3"
   },
   "packageManager": "pnpm@10.10.0",
   "workspaces": [

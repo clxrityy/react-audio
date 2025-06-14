@@ -41,7 +41,6 @@ export function Canvas({
       width={size || 400}
       height={size || 400}
       style={{
-        position: "absolute",
         color: color,
         zIndex: 0,
         ...props.style,

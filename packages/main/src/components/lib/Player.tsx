@@ -5,13 +5,12 @@ import {
   useState,
   ComponentProps,
   ReactEventHandler,
-  RefObject,
   useCallback,
+  forwardRef,
 } from "react";
 import { Colors, Icons, BaseProps } from "../../util";
 
 export interface PlayerProps extends ComponentProps<"audio"> {
-  audioRef?: RefObject<HTMLAudioElement | null>;
   onNext?: () => void;
   onPrev?: () => void;
   src: BaseProps["src"];
@@ -24,115 +23,90 @@ export interface PlayerProps extends ComponentProps<"audio"> {
   size?: number;
 }
 
-export function Player({
-  src,
-  autoplay = false,
-  loop = false,
-  showProgress = true,
-  showVolume = true,
-  audioRef,
-  onNext,
-  onPrev,
-  showNextPrevControls = true,
-  size = 24,
-  color = Colors.primary,
-  ...props
-}: PlayerProps) {
-  const [canPlay, setCanPlay] = useState<boolean>(false);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [volume, setVolume] = useState<number>(0.25);
-  const [buffered, setBuffered] = useState<number>(0);
-  const [duration, setDuration] = useState<number>(0);
-  const [currentTime, setCurrentTime] = useState<number>(0);
-  const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(
-    null,
-  );
+export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
+  {
+    src,
+    autoplay = false,
+    loop = false,
+    showProgress = true,
+    showVolume = true,
+    onNext,
+    onPrev,
+    showNextPrevControls = true,
+    size = 24,
+    color = Colors.primary,
+    ...props
+  },
+  ref
+) {
+  const internalRef = useRef<HTMLAudioElement>(null);
+  // Always use the forwarded ref if provided, otherwise fallback to internalRef
+  const audioRef = (ref && typeof ref === "object" && ref !== null
+    ? ref
+    : internalRef) as React.MutableRefObject<HTMLAudioElement | null>;
 
-  if (!audioRef) audioRef = useRef<HTMLAudioElement>(null);
+  const [canPlay, setCanPlay] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.25);
+  const [buffered, setBuffered] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
+  // Set up audio element properties and events
   useEffect(() => {
-    if (!audioElement) {
-      setAudioElement(audioRef.current);
-    } else {
-      audioElement?.addEventListener("canplaythrough", () => {
-        setCanPlay(true);
-      });
-    }
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    return () => {
-      audioElement?.removeEventListener("canplaythrough", () => {
-        setCanPlay(true);
-      });
-    };
-  }, []);
+    audio.src = src;
+    audio.load();
+    audio.volume = volume;
+    audio.loop = loop;
+    audio.autoplay = autoplay;
+
+    if (autoplay) {
+      audio.play().catch(() => setIsPlaying(false));
+    }
+     
+  }, [src]);
 
   const play: ReactEventHandler<HTMLButtonElement> = useCallback(
     (e) => {
       e.preventDefault();
       e.stopPropagation();
-      if (!audioElement) return;
+      if (!audioRef.current) return;
 
-      try {
-        audioElement!
-          .play()
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch((error) => {
-            console.error("Error playing audio:", error);
-            setIsPlaying(false);
-          });
-      } catch (e) {
-        console.error(e);
-        setIsPlaying(false);
-      }
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => setIsPlaying(false));
     },
-    [audioElement],
+    [audioRef]
   );
-  // useCallback(() => {
-  //   if (!canPlay || !audioElement) return
-
-  //   try {
-  //     audioElement.play().then(() => {
-  //       setIsPlaying(true)
-  //     }).catch((error) => {
-  //       console.error('Error playing audio:', error)
-  //       setIsPlaying(false)
-  //     })
-  //   } catch (e) {
-  //     console.error(e)
-  //     setIsPlaying(false)
-  //   }
-  // }, [canPlay])
 
   const pause = useCallback(() => {
-    if (!audioElement) return;
-
-    audioElement.pause();
+    if (!audioRef.current) return;
+    audioRef.current.pause();
     setIsPlaying(false);
-  }, [audioElement]);
+  }, [audioRef]);
 
   const handleVolumeChange: ReactEventHandler<HTMLAudioElement> = useCallback(
     (e) => {
-      if (!audioElement) return;
-
-      audioElement.volume = e.currentTarget.volume;
+      if (!audioRef.current) return;
       setVolume(e.currentTarget.volume);
     },
-    [],
+    [audioRef]
   );
 
   const handleMuteUnmute = useCallback(() => {
-    if (!audioElement) return;
-
-    if (audioElement.volume !== 0) {
-      audioElement.volume = 0;
+    if (!audioRef.current) return;
+    if (audioRef.current.volume !== 0) {
+      audioRef.current.volume = 0;
       setVolume(0);
     } else {
-      audioElement.volume = 0.25;
+      audioRef.current.volume = 0.25;
       setVolume(0.25);
     }
-  }, [audioElement, volume]);
+  }, [audioRef]);
 
   const handleBufferProgress: ReactEventHandler<HTMLAudioElement> = useCallback(
     (e) => {
@@ -151,7 +125,7 @@ export function Player({
         }
       }
     },
-    [],
+    []
   );
 
   const handleTimeUpdate: ReactEventHandler<HTMLAudioElement> = useCallback(
@@ -159,70 +133,70 @@ export function Player({
       setCurrentTime(e.currentTarget.currentTime);
       handleBufferProgress(e);
     },
-    [handleBufferProgress],
+    [handleBufferProgress]
   );
 
   const handleDurationChange: ReactEventHandler<HTMLAudioElement> = useCallback(
     (e) => {
       setDuration(e.currentTarget.duration);
     },
-    [],
+    []
   );
 
   const handleCanPlay: ReactEventHandler<HTMLAudioElement> = useCallback(
     (e) => {
       setDuration(e.currentTarget.duration);
+      setCanPlay(true);
     },
-    [],
+    []
   );
 
   const handleOnProgressChange: ReactEventHandler<HTMLInputElement> = (e) => {
     const newTime = parseFloat(e.currentTarget.value);
     setCurrentTime(newTime);
 
-    if (audioElement) {
-      audioElement.currentTime = newTime;
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
     }
   };
 
   useEffect(() => {
-    if (autoplay && canPlay && audioElement) {
+    if (autoplay && canPlay && audioRef.current) {
       setIsPlaying(true);
     }
-  }, [autoplay, canPlay]);
+  }, [autoplay, canPlay, audioRef]);
 
   useEffect(() => {
-    if (!audioElement) return;
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    const updateProgress = () => setCurrentTime(audioElement.currentTime);
+    const updateProgress = () => setCurrentTime(audio.currentTime);
     const updateBuffered = () => {
-      if (audioElement.buffered.length > 0) {
-        setBuffered(
-          audioElement.buffered.end(audioElement.buffered.length - 1),
-        );
+      if (audio.buffered.length > 0) {
+        setBuffered(audio.buffered.end(audio.buffered.length - 1));
       }
     };
 
-    audioElement.addEventListener("timeupdate", updateProgress);
-    audioElement.addEventListener("progress", updateBuffered);
-
-    audioElement.addEventListener("loadedmetadata", () =>
-      setDuration(audioElement.duration),
+    audio.addEventListener("timeupdate", updateProgress);
+    audio.addEventListener("progress", updateBuffered);
+    audio.addEventListener("loadedmetadata", () =>
+      setDuration(audio.duration)
     );
 
     return () => {
-      audioElement.removeEventListener("timeupdate", updateProgress);
-      audioElement.removeEventListener("progress", updateBuffered);
-      audioElement.removeEventListener("loadedmetadata", () =>
-        setDuration(audioElement.duration),
+      audio.removeEventListener("timeupdate", updateProgress);
+      audio.removeEventListener("progress", updateBuffered);
+      audio.removeEventListener("loadedmetadata", () =>
+        setDuration(audio.duration)
       );
     };
-  }, [src, audioElement]);
+  }, [src, audioRef]);
 
   return (
-    <div className={`flex flex-col items-center gap-4 relative`}>
+    <div className="flex flex-col items-center gap-5 relative">
       <div className="flex items-center gap-2">
         <audio
+          {...props}
           ref={audioRef}
           onCanPlay={handleCanPlay}
           onTimeUpdate={handleTimeUpdate}
@@ -233,19 +207,14 @@ export function Player({
           loop={loop}
           preload="auto"
           src={src}
-          {...props}
         >
-          <AudioSource src={src} />
+          <AudioSource src={src} type={src?.split(".").pop()} />
         </audio>
       </div>
-      <div className="flex flex-col items-center gap-2 z-30">
+      <div className="flex flex-col items-center gap-4 z-30">
         {!isPlaying && !autoplay ? (
           <Button onClick={play} role="button" name="play" title="play">
             <Icons.Play />
-          </Button>
-        ) : autoplay && isPlaying ? (
-          <Button onClick={pause} role="button" name="pause" title="pause">
-            <Icons.Pause />
           </Button>
         ) : (
           <Button onClick={pause} role="button" name="pause" title="pause">
@@ -273,25 +242,13 @@ export function Player({
               color={color}
               value={volume}
               onVolumeInput={(newVolume) => {
-                if (!audioElement) return;
-                audioElement.volume = newVolume;
+                if (!audioRef.current) return;
+                audioRef.current.volume = newVolume;
                 setVolume(newVolume);
               }}
             />
           </div>
         )}
-        {/* {
-          showNextPrevControls && onNext && onPrev && (
-            <div className="flex items-center gap-2 justify-between">
-              <Button onClick={onPrev}>
-                <Icons.SkipPrevious />
-              </Button>
-              <Button onClick={onNext}>
-                <Icons.SkipNext />
-              </Button>
-            </div>
-          )
-        } */}
       </div>
       <div className="flex items-center gap-2 justify-between relative">
         {showNextPrevControls && onPrev && (
@@ -316,4 +273,323 @@ export function Player({
       </div>
     </div>
   );
-}
+});
+// import { AudioSource, Button, Progress, VolumeSlider } from "../ui";
+// import {
+//   useEffect,
+//   useRef,
+//   useState,
+//   ComponentProps,
+//   ReactEventHandler,
+//   useCallback,
+// } from "react";
+// import { Colors, Icons, BaseProps } from "../../util";
+
+// export interface PlayerProps extends ComponentProps<"audio"> {
+//   onNext?: () => void;
+//   onPrev?: () => void;
+//   src: BaseProps["src"];
+//   autoplay?: BaseProps["autoplay"];
+//   loop?: BaseProps["loop"];
+//   showProgress?: BaseProps["showProgress"];
+//   showVolume?: BaseProps["showVolume"];
+//   color?: BaseProps["color"];
+//   showNextPrevControls?: boolean;
+//   size?: number;
+// }
+
+// export function Player({
+//   src,
+//   autoplay = false,
+//   loop = false,
+//   showProgress = true,
+//   showVolume = true,
+//   onNext,
+//   onPrev,
+//   showNextPrevControls = true,
+//   size = 24,
+//   color = Colors.primary,
+//   ...props
+// }: PlayerProps) {
+//   const [canPlay, setCanPlay] = useState<boolean>(false);
+//   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+//   const [volume, setVolume] = useState<number>(0.25);
+//   const [buffered, setBuffered] = useState<number>(0);
+//   const [duration, setDuration] = useState<number>(0);
+//   const [currentTime, setCurrentTime] = useState<number>(0);
+//   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(
+//     null,
+//   );
+
+//   props.ref = props.ref ?? useRef<HTMLAudioElement>(null);
+
+//   const { ref } = props;
+
+//   useEffect(() => {
+//     if (audioElement) {
+//       audioElement.src = src;
+//       audioElement.load();
+//       audioElement.volume = volume;
+//       audioElement.loop = loop;
+//       audioElement.autoplay = autoplay;
+
+//       if (autoplay) {
+//         audioElement.play().catch((error) => {
+//           console.error('Error playing audio:', error);
+//           setIsPlaying(false);
+//         });
+//       }
+//     }
+//   }, [src]);
+
+//   useEffect(() => {
+//     if (!audioElement && ref.current) {
+//       setAudioElement(ref.current);
+//     } else {
+//       audioElement?.addEventListener("canplaythrough", () => {
+//         setCanPlay(true);
+//       });
+//     }
+
+
+
+//     return () => {
+//       audioElement?.removeEventListener("canplaythrough", () => {
+//         setCanPlay(true);
+//       });
+//     };
+//   }, [ref, audioElement]);
+
+//   const play: ReactEventHandler<HTMLButtonElement> = useCallback(
+//     (e) => {
+//       e.preventDefault();
+//       e.stopPropagation();
+//       if (!audioElement) return;
+
+//       try {
+//         audioElement.play().then(() => {
+//           setIsPlaying(true);
+//         }).catch((error) => {
+//           console.error('Error playing audio:', error);
+//           setIsPlaying(false);
+//         });
+//       } catch (e) {
+//         console.error(e);
+//         setIsPlaying(false);
+//       }
+//     },
+//     [audioElement],
+//   );
+
+//   const pause = useCallback(() => {
+//     if (!audioElement) return;
+
+//     audioElement.pause();
+//     setIsPlaying(false);
+//   }, [audioElement]);
+
+//   const handleVolumeChange: ReactEventHandler<HTMLAudioElement> = useCallback(
+//     (e) => {
+//       if (!audioElement) return;
+
+//       audioElement.volume = e.currentTarget.volume;
+//       setVolume(e.currentTarget.volume);
+//     },
+//     [],
+//   );
+
+//   const handleMuteUnmute = useCallback(() => {
+//     if (!audioElement) return;
+
+//     if (audioElement.volume !== 0) {
+//       audioElement.volume = 0;
+//       setVolume(0);
+//     } else {
+//       audioElement.volume = 0.25;
+//       setVolume(0.25);
+//     }
+//   }, [audioElement, volume]);
+
+//   const handleBufferProgress: ReactEventHandler<HTMLAudioElement> = useCallback(
+//     (e) => {
+//       const audio = e.currentTarget;
+//       const duration = audio.duration;
+
+//       if (duration > 0) {
+//         for (let i = 0; i < audio.buffered.length; i++) {
+//           if (
+//             audio.buffered.start(audio.buffered.length - 1 - i) <
+//             audio.currentTime
+//           ) {
+//             setBuffered(audio.buffered.end(audio.buffered.length - 1 - i));
+//             break;
+//           }
+//         }
+//       }
+//     },
+//     [],
+//   );
+
+//   const handleTimeUpdate: ReactEventHandler<HTMLAudioElement> = useCallback(
+//     (e) => {
+//       setCurrentTime(e.currentTarget.currentTime);
+//       handleBufferProgress(e);
+//     },
+//     [handleBufferProgress],
+//   );
+
+//   const handleDurationChange: ReactEventHandler<HTMLAudioElement> = useCallback(
+//     (e) => {
+//       setDuration(e.currentTarget.duration);
+//     },
+//     [],
+//   );
+
+//   const handleCanPlay: ReactEventHandler<HTMLAudioElement> = useCallback(
+//     (e) => {
+//       setDuration(e.currentTarget.duration);
+//     },
+//     [],
+//   );
+
+//   const handleOnProgressChange: ReactEventHandler<HTMLInputElement> = (e) => {
+//     const newTime = parseFloat(e.currentTarget.value);
+//     setCurrentTime(newTime);
+
+//     if (audioElement) {
+//       audioElement.currentTime = newTime;
+//     }
+//   };
+
+//   useEffect(() => {
+//     if (autoplay && canPlay && audioElement) {
+//       setIsPlaying(true);
+//     }
+//   }, [autoplay, canPlay]);
+
+//   useEffect(() => {
+//     if (!audioElement) return;
+
+//     const updateProgress = () => setCurrentTime(audioElement.currentTime);
+//     const updateBuffered = () => {
+//       if (audioElement.buffered.length > 0) {
+//         setBuffered(
+//           audioElement.buffered.end(audioElement.buffered.length - 1),
+//         );
+//       }
+//     };
+
+//     audioElement.addEventListener("timeupdate", updateProgress);
+//     audioElement.addEventListener("progress", updateBuffered);
+
+//     audioElement.addEventListener("loadedmetadata", () =>
+//       setDuration(audioElement.duration),
+//     );
+
+//     return () => {
+//       audioElement.removeEventListener("timeupdate", updateProgress);
+//       audioElement.removeEventListener("progress", updateBuffered);
+//       audioElement.removeEventListener("loadedmetadata", () =>
+//         setDuration(audioElement.duration),
+//       );
+//     };
+//   }, [src, audioElement]);
+
+//   return (
+//     <div className={`flex flex-col items-center gap-4 relative`}>
+//       <div className="flex items-center gap-2">
+//         <audio
+//           {...props}
+//           ref={props.ref ?? ref}
+//           onCanPlay={handleCanPlay}
+//           onTimeUpdate={handleTimeUpdate}
+//           onDurationChange={handleDurationChange}
+//           onVolumeChange={handleVolumeChange}
+//           onPause={pause}
+//           autoPlay={autoplay}
+//           loop={loop}
+//           preload="auto"
+//           src={src}
+//         >
+//           <AudioSource src={src} type={ref.current?.src.split(".").pop()} />
+//         </audio>
+//       </div>
+//       <div className="flex flex-col items-center gap-2 z-30">
+//         {!isPlaying && !autoplay ? (
+//           <Button onClick={play} role="button" name="play" title="play">
+//             <Icons.Play />
+//           </Button>
+//         ) : autoplay && isPlaying ? (
+//           <Button onClick={pause} role="button" name="pause" title="pause">
+//             <Icons.Pause />
+//           </Button>
+//         ) : (
+//           <Button onClick={pause} role="button" name="pause" title="pause">
+//             <Icons.Pause />
+//           </Button>
+//         )}
+//         {showVolume && (
+//           <div className="flex items-center gap-2">
+//             <Button
+//               onClick={handleMuteUnmute}
+//               role="button"
+//               name="volume"
+//               title="volume"
+//             >
+//               {volume === 0 ? (
+//                 <Icons.VolumeOff />
+//               ) : volume < 0.5 ? (
+//                 <Icons.VolumeDown />
+//               ) : (
+//                 <Icons.VolumeUp />
+//               )}
+//             </Button>
+//             <VolumeSlider
+//               size={size}
+//               color={color}
+//               value={volume}
+//               onVolumeInput={(newVolume) => {
+//                 if (!audioElement) return;
+//                 audioElement.volume = newVolume;
+//                 setVolume(newVolume);
+//               }}
+//             />
+//           </div>
+//         )}
+//         {/* {
+//           showNextPrevControls && onNext && onPrev && (
+//             <div className="flex items-center gap-2 justify-between">
+//               <Button onClick={onPrev}>
+//                 <Icons.SkipPrevious />
+//               </Button>
+//               <Button onClick={onNext}>
+//                 <Icons.SkipNext />
+//               </Button>
+//             </div>
+//           )
+//         } */}
+//       </div>
+//       <div className="flex items-center gap-2 justify-between relative">
+//         {showNextPrevControls && onPrev && (
+//           <Button onClick={onPrev} role="button" name="prev" title="previous">
+//             <Icons.SkipPrevious />
+//           </Button>
+//         )}
+//         {showProgress && (
+//           <Progress
+//             color={color}
+//             value={currentTime}
+//             max={duration}
+//             buffered={buffered}
+//             onChange={handleOnProgressChange}
+//           />
+//         )}
+//         {showNextPrevControls && onNext && (
+//           <Button onClick={onNext} role="button" name="next" title="next">
+//             <Icons.SkipNext />
+//           </Button>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
