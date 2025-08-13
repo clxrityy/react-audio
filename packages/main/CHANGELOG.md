@@ -1,11 +1,50 @@
 # Changelog
 
+## 3.0.4
+
+### Patch Changes
+
+- Added missing documentation for remaining components in the library.
+  - `<Spectrogram />`: A component that visualizes the frequency spectrum of an audio signal.
+    - [Documentation | Spectrogram](https://react-audio-docs.vercel.app/docs/components/spectrogram)
+  - `<Oscillator />`: A component that generates an audio oscillator node for sound synthesis.
+    - [Documentation | Oscillator](https://react-audio-docs.vercel.app/docs/components/oscillator)
+
+- The **`<Oscillator />`** component has been updated to improve its responsiveness to play/pause changes.
+  - Fixed an issue where the `<Oscillator />` component would not properly respond to play/pause changes.
+  - Improved the internal state management of the `<Oscillator />` component to ensure consistent behavior across different playback scenarios.
+
+  Added a prop to control `onPlayChange` behavior.
+
+  ```tsx
+  "use client";
+
+  import { Oscillator } from "@clxrity/react-audio";
+  import { useState } from "react";
+
+  export function OscillatorExample() {
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const handlePlayChange = (playing: boolean) => {
+      setIsPlaying(playing);
+    };
+
+    return <Oscillator onPlayChange={handlePlayChange} isPlaying={isPlaying} />;
+  }
+  ```
+
+- Stabilize seeking via progress slider and improve range input behavior.
+  - Player: Read progress value from `event.target.value` in the seek handler to ensure compatibility with both `change` and `input` events across environments.
+  - Progress: Forward `onInput` to the provided `onChange` handler so range slider updates fire consistently in browsers and jsdom.
+  - Tests: Harden Player interactions seek test by dispatching `loadedmetadata` in `act`, using `input` events, and sanity-checking a writable `currentTime`. Added/used global test stubs for media/canvas APIs to reduce jsdom noise.
+
+  Result: All tests pass; no breaking API changes. This is a bugfix-level patch improving reliability of seeking and slider interactions.
+
 ## 3.0.3
 
 ### Patch Changes
 
 - Refactor: better cleanup, typing, and UI polish across components and utils.
-
   - Player
     - Proper ref forwarding with internal fallback; unified media event handling; cleaned effect deps; synced `isPlaying` via play/pause events.
     - Avoid duplicate type detection on `<source>`; rely on `AudioSource` to infer.
@@ -33,7 +72,6 @@
 ### Patch Changes
 
 - aaa0719: Fixed components and hooks to correctly utilize the audio reference for playback and analysis.
-
   - Updated **Player** component to ensure it uses the audio ref properly for playback control.
   - Updated **useAudioAnalyser** hook to ensure it correctly accesses the audio element for analysis.
   - Updated **Waveform** component to ensure it uses the audio ref for waveform rendering.
@@ -82,7 +120,6 @@
 
 - 4ce0d12: Add eslint
 - 79bad00: Add sitemap
-
   - Created `scripts/generate-sitemap.cjs` that runs after building the docs
   - Utilizes `ladle`'s `meta.json` to get the routes
 
@@ -205,7 +242,6 @@
 
 - 910a28d: Add a **border** prop to ShufflePlayer
 - ed9308c: Add more stories for `<ShufflePlayer />`
-
   - **Dont show tracks** - Example not displaying the track information
   - **Custom color** - Example of changing the color of the player
   - **Custom border** - Example of changing the border of the player
@@ -213,7 +249,6 @@
 - c802826: Add some development dependencies to optimize the visibility of the docs, make the default mode dark.
 
   **New Dependencies:**
-
   - [`baseui`](https://github.com/uber/baseweb#readme)
   - [`styletron-react`](https://www.npmjs.com/package/styletron-react)
   - [`styletron-engine-monolithic`](https://www.npmjs.com/package/styletron-engine-monolithic)
@@ -269,7 +304,6 @@
 - 11ec0e2: Add a script to run after building the documentation to fix the metadata.
 
   Before, the `<link />` tags were being generated with the wrong `href` attribute. This script will fix the `href` attribute to point to the correct location.
-
   - The `href` attribute was being generated as `/assets/...` instead of `./assets/...`
 
   ```json
@@ -325,9 +359,7 @@
 
   Before it was bundling into `dist/src/index.css` which was not being imported correctly.
   Upon trying to fix it, it would bundle as `react-audio.css` which was not the desired output.
-
   - Altered `vite.config.ts` to output the css to `dist/index.css`
-
     - Added a custom `rename-css-plugin` to vite plugins:
 
     ```ts
@@ -387,7 +419,6 @@
 ### Major Changes
 
 - b82ecec: - Switched from [storybook](https://storybook.js.org/) to [ladle](https://ladle.dev/) - Much more lightweight and faster - A lot more of a simple UI to work with
-
   - Text and colors are automatically inherited by the theme.
     - Dark background = white text
     - Light background = black text
@@ -435,7 +466,6 @@
 - 149e841: Added the Player component which will replace JustPlayer & AudioPlayer into one component (with props for customization)
 - e155be4: add functionality to EQ & volume knobs (**AudioInputVisualizer**)
 - 6f1c415: Added a code coverage workflow that indicates whether all [`vitest`](https://vitest.dev/) tests are passing.
-
   - Utilizes [Codecov](https://about.codecov.io/) to provide an interactive UI for test coverage.
   - Added an environment variable `CODECOV_TOKEN` to the repository's secrets and local `.env` file.
   - Added a new script `npm run coverage` to generate and upload the coverage report.

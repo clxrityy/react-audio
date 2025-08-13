@@ -1,7 +1,7 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "3.0.3",
-  "description": "An audio package for React",
+  "version": "3.0.4",
+  "description": "An audio interaction package for React",
   "private": false,
   "type": "module",
   "main": "./dist/index.cjs",
@@ -29,7 +29,7 @@
     "LICENSE",
     "CHANGELOG.md"
   ],
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.14.0",
   "engines": {
     "node": ">=23"
   },
