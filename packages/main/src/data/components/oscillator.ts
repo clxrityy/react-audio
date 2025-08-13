@@ -25,6 +25,12 @@ export const OscillatorComponent: Component<"div"> = {
       required: false,
       default: 0.5,
     },
+    onPlayChange: {
+      value: "(playing: boolean) => void",
+      description: "Callback function to handle play/pause changes.",
+      required: false,
+      default: undefined,
+    },
     isPlaying: {
       value: "boolean",
       description: "Whether the oscillator is currently playing sound.",

@@ -64,6 +64,7 @@ export const Progress = ({
             border: `1px solid ${color}`,
           }}
           onChange={(e) => props.onChange?.(e)}
+          onInput={(e) => props.onChange?.(e as unknown as React.ChangeEvent<HTMLInputElement>)}
           {...props}
         />
       </div>

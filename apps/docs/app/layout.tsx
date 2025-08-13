@@ -78,7 +78,7 @@ const navbar = (
         height={32}
       />
     }
-    projectLink="https://github.com/clxrity/react-audio"
+    projectLink="https://github.com/clxrityy/react-audio"
   />
 );
 

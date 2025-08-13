@@ -10,15 +10,17 @@
     "start": "turbo run start",
     "test": "turbo run test",
     "coverage": "turbo run coverage",
+    "clean:empty": "node scripts/delete-empty-files.js",
+    "clean:empty:dry": "node scripts/delete-empty-files.js --dry-run",
     "pub": "turbo run pub && pnpm changeset version && pnpm changeset publish && node scripts/changelog.js"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.4",
-    "prettier": "^3.5.3",
-    "turbo": "^2.5.4",
-    "typescript": "5.8.3"
+    "@changesets/cli": "^2.29.5",
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.5",
+    "typescript": "5.9.2"
   },
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.14.0",
   "workspaces": [
     "packages/*",
     "apps/*"

@@ -1,1 +1,38 @@
+import { Spectrogram } from '../../components/Spectrogram';
+import { PropsDetails } from '../../components/PropsDetails';
+
 # Spectrogram
+
+The `<Spectrogram />` component visualizes the frequency spectrum of an audio file over time.
+
+<br />
+
+```tsx
+"use client";
+
+import { Spectrogram } from "@clxrityy/react-audio";
+
+export default function Example() {
+  return <Spectrogram src="/audio/drums_2.wav" width={600} height={200} />;
+};
+```
+
+> Click the box below to interact with the spectrogram.
+
+<br />
+
+<Spectrogram
+  src="/audio/drums_2.wav"
+  width={600}
+  height={200}
+/>
+
+<br />
+
+## Props
+
+<br />
+
+<br />
+
+<PropsDetails component={"Spectrogram"} />

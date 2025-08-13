@@ -1,1 +1,46 @@
+import { Oscillator } from "../../components/Oscillator";
+import { PropsDetails } from "../../components/PropsDetails";
+
 # Oscillator
+
+The `<Oscillator />` component generates audio signals at specified frequencies and waveforms.
+
+<br />
+
+```tsx
+"use client";
+
+import { Oscillator } from "@clxrityy/react-audio";
+import { useState } from "react";
+
+export default function Example() {
+
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  return (
+    <Oscillator
+      frequency={440}
+      type="sine"
+      isPlaying={isPlaying}
+      onPlayChange={setIsPlaying}
+    />
+  );
+}
+```
+
+<br />
+
+<Oscillator
+  frequency={440}
+  type="sine"
+/>
+
+<br />
+
+## Props
+
+<br />
+
+<br />
+
+<PropsDetails component={"Oscillator"} />

@@ -33,32 +33,10 @@ export default function Page(): JSX.Element {
             icon={<BookUp2 size={24} />}
           />
         </div>
-        {/* <Link
-          href="/docs"
-          className="mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-        >
-          Get Started ↗
-        </Link>
-        <Link
-          href="/docs/changelog"
-          className="mt-6 px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors"
-        >
-          Changelog ↗
-        </Link> */}
-      </Cards>
-      {/* <div className="mt-8 w-full pb-10">
-        <div className="flex flex-col xl:flex-row gap-6 items-center justify-center w-full">
-          <div className="w-2/5 bg-transparent rounded-md shadow drop-shadow-2xl pt-5">
-            <Waveform src="/audio/drums.wav" size={420} />
-          </div>
-          <div className="w-2/5 shadow drop-shadow-2xl pt-5">
-            <Spectrogram src={`/audio/drums_2.wav`} colorMap={["#ff0000", "#00ff00", "#0000ff"]} />
-          </div>
-          <div className="w-2/5 shadow drop-shadow-2xl pt-5">
-            <Spectrogram src={`/audio/ah.mp3`} />
-          </div>
+        <div className="w-full flex flex-col xl:flex-row items-center justify-stretch gap-6">
+
         </div>
-      </div> */}
+      </Cards>
       <div>
         <Waveform showVolume={false} src="/audio/drums_2.wav" />
       </div>

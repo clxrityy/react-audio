@@ -148,7 +148,8 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
   );
 
   const handleOnProgressChange: ReactEventHandler<HTMLInputElement> = (e) => {
-    const newTime = parseFloat(e.currentTarget.value);
+    const target = e.target as HTMLInputElement;
+    const newTime = parseFloat(target.value);
     setCurrentTime(newTime);
 
     if (audioRef.current) {

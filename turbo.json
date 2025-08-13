@@ -3,44 +3,86 @@
   "ui": "tui",
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**"
+      ]
     },
     "start": {
-      "dependsOn": ["^start"]
+      "dependsOn": [
+        "^start"
+      ]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": [
+        "^lint"
+      ]
     },
     "check-types": {
-      "dependsOn": ["^check-types"]
+      "dependsOn": [
+        "^check-types"
+      ]
     },
     "dev": {
       "cache": false,
       "persistent": true
     },
     "prettier": {
-      "dependsOn": ["^prettier"],
-      "outputs": ["**/*.{ts,tsx,md}"]
+      "dependsOn": [
+        "^prettier"
+      ],
+      "outputs": [
+        "**/*.{ts,tsx,md}"
+      ]
     },
     "test": {
-      "dependsOn": ["^test"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["coverage/**"]
+      "dependsOn": [
+        "^test"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        "coverage/**"
+      ]
     },
     "coverage": {
-      "dependsOn": ["^coverage"],
-      "inputs": ["$TURBO_DEFAULT$", "**/.env*"],
-      "outputs": ["coverage/**"],
+      "dependsOn": [
+        "^coverage"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "**/.env*"
+      ],
+      "outputs": [
+        "coverage/**"
+      ],
       "env": [
         "CODECOV_TOKEN"
       ]
     },
     "pub": {
-      "dependsOn": ["^pub"],
-      "inputs": ["$TURBO_DEFAULT$", "**/.env*"],
-      "outputs": ["dist/**", "package.json", "CHANGELOG.md"]
+      "dependsOn": [
+        "^pub"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "**/.env*"
+      ],
+      "outputs": [
+        "dist/**",
+        "package.json",
+        "CHANGELOG.md"
+      ]
     }
   }
 }

@@ -1,10 +1,14 @@
 import { ComponentProps, useEffect, useRef, useState } from "react";
+import { Button } from "../ui";
+import { Icons } from "../../util";
 
 export interface OscillatorProps extends ComponentProps<"div"> {
   type?: OscillatorType;
   frequency?: number;
   gain?: number;
-  isPlaying: boolean;
+  isPlaying?: boolean;
+  onPlayChange?: (playing: boolean) => void;
+  showControls?: boolean;
   onFrequencyChange?: (frequency: number) => void;
   onGainChange?: (gain: number) => void;
 }
@@ -14,43 +18,46 @@ export function Oscillator({
   frequency = 440,
   gain = 0.5,
   isPlaying = false,
+  onPlayChange,
+  showControls = true,
   onFrequencyChange,
   onGainChange,
   ...props
 }: OscillatorProps) {
-  const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
-
   const audioContextRef = useRef<AudioContext | null>(null);
   const oscillatorRef = useRef<OscillatorNode | null>(null);
   const gainNodeRef = useRef<GainNode | null>(null);
 
   const [localFrequency, setLocalFrequency] = useState<number>(frequency);
   const [localGain, setLocalGain] = useState<number>(gain);
+  const [internalPlaying, setInternalPlaying] = useState<boolean>(!!isPlaying);
 
-  const [contextStarted, setContextStarted] = useState<boolean>(false);
+  // Deterministic playing state: controlled when prop provided, else internal
+  const playing = typeof isPlaying === "boolean" ? isPlaying : internalPlaying;
 
-  const toggleAudioContext = () => {
-    if (!audioContextRef.current || !contextStarted) {
-      const ctx = audioContext ?? new AudioContext();
-      if (!audioContext) {
-        setAudioContext(ctx);
-      }
-
-      audioContextRef.current = audioContext;
-      setContextStarted(true);
-    } else {
-      audioContextRef.current.close();
-      audioContextRef.current = null;
-      setContextStarted(false);
+  const ensureContext = () => {
+    if (!audioContextRef.current) {
+      audioContextRef.current = new AudioContext();
     }
+    return audioContextRef.current;
+  };
+
+  const stopNodes = () => {
+    try {
+      oscillatorRef.current?.stop();
+    } catch {
+      // ignore if already stopped
+    }
+    oscillatorRef.current?.disconnect();
+    gainNodeRef.current?.disconnect();
+    oscillatorRef.current = null;
+    gainNodeRef.current = null;
   };
 
   useEffect(() => {
-    toggleAudioContext();
-
-    if (isPlaying && audioContextRef.current) {
+    if (playing) {
+      const audioContext = ensureContext();
       if (!oscillatorRef.current) {
-        const audioContext = audioContextRef.current;
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
 
@@ -67,23 +74,24 @@ export function Oscillator({
         oscillator.start();
         oscillatorRef.current = oscillator;
         gainNodeRef.current = gainNode;
+      } else {
+        // update existing node params when playing
+        const ctx = audioContextRef.current!;
+        oscillatorRef.current.frequency.setValueAtTime(
+          localFrequency,
+          ctx.currentTime,
+        );
+        gainNodeRef.current!.gain.setValueAtTime(localGain, ctx.currentTime);
       }
     } else {
-      oscillatorRef.current?.stop();
-      oscillatorRef.current?.disconnect();
-      gainNodeRef.current?.disconnect();
-      oscillatorRef.current = null;
-      gainNodeRef.current = null;
+      // stop nodes but keep context; close on unmount
+      stopNodes();
     }
 
     return () => {
-      oscillatorRef.current?.stop();
-      oscillatorRef.current?.disconnect();
-      gainNodeRef.current?.disconnect();
-      oscillatorRef.current = null;
-      gainNodeRef.current = null;
+      // no-op here; full cleanup in unmount effect
     };
-  }, [isPlaying, type, localFrequency, localGain]);
+  }, [playing, type, localFrequency, localGain]);
 
   useEffect(() => {
     const handleUserInteraction = () => {
@@ -91,14 +99,25 @@ export function Oscillator({
         audioContextRef.current &&
         audioContextRef.current.state === "suspended"
       ) {
-        audioContextRef.current.resume();
+        void audioContextRef.current.resume();
       }
     };
 
-    window.addEventListener("load", handleUserInteraction);
-
+    window.addEventListener("pointerdown", handleUserInteraction, { once: true });
     return () => {
-      window.removeEventListener("load", handleUserInteraction);
+      window.removeEventListener("pointerdown", handleUserInteraction);
+    };
+  }, []);
+
+  useEffect(() => {
+    // unmount cleanup: stop nodes and close context if still open
+    return () => {
+      stopNodes();
+      if (audioContextRef.current && audioContextRef.current.state !== "closed") {
+        // Ignore errors if context already closed by the environment
+        audioContextRef.current.close().catch(() => undefined);
+      }
+      audioContextRef.current = null;
     };
   }, []);
 
@@ -107,6 +126,23 @@ export function Oscillator({
       {...props}
       className={`flex flex-col gap-2 items-center ${props.className}`}
     >
+      {showControls && (
+        <div className="flex items-center gap-2">
+          <Button
+            title={playing ? "Pause" : "Play"}
+            aria-label={playing ? "Pause oscillator" : "Play oscillator"}
+            onClick={() => {
+              if (typeof isPlaying === "boolean" && onPlayChange) {
+                onPlayChange(!isPlaying);
+              } else {
+                setInternalPlaying((p) => !p);
+              }
+            }}
+          >
+            {playing ? <Icons.Pause /> : <Icons.Play />}
+          </Button>
+        </div>
+      )}
       <div className="flex flex-col gap-2">
         <label className="flex items-center gap-2">
           <span>

@@ -22,7 +22,7 @@ pnpm add @clxrity/react-audio
 yarn add @clxrity/react-audio
 ```
 
-![Docs](<https://img.shields.io/badge/docs-docs?style=for-the-badge&logo=readthedocs&logoColor=%238CA1AF&logoSize=auto&color=rgb(121%2C%2091%2C%20132)&link=https%3A%2F%2Freact-audio-docs.vercel.app>) ![Changelog](<https://img.shields.io/badge/changelog-changelog?style=for-the-badge&logo=googleforms&logoColor=%238CA1AF&logoSize=auto&color=rgb(121%2C%2091%2C%20132)&link=https%3A%2F%2Freact-audio-docs.vercel.app%2Fdocumentation%2Fchangelog>) ![Contribute](<https://img.shields.io/badge/contribute-contributions?style=for-the-badge&logo=git&logoColor=%238CA1AF&logoSize=auto&color=rgb(121%2C%2091%2C%20132)&link=https%3A%2F%2Fgithub.com%2Fclxrityy%2Freact-audio%2Fblob%2Fmain%2FCONTRIBUTING.md>)
+[![Docs](<https://img.shields.io/badge/docs-docs?style=for-the-badge&logo=readthedocs&logoColor=%238CA1AF&logoSize=auto&color=rgb(121%2C%2091%2C%20132)&link=https%3A%2F%2Freact-audio-docs.vercel.app>)](https://react-audio-docs.vercel.app/docs) [![Changelog](<https://img.shields.io/badge/changelog-changelog?style=for-the-badge&logo=googleforms&logoColor=%238CA1AF&logoSize=auto&color=rgb(121%2C%2091%2C%20132)&link=https%3A%2F%2Freact-audio-docs.vercel.app%2Fdocumentation%2Fchangelog>)](https://react-audio-docs.vercel.app/docs/changelog) [![Contribute](<https://img.shields.io/badge/contribute-contributions?style=for-the-badge&logo=git&logoColor=%238CA1AF&logoSize=auto&color=rgb(121%2C%2091%2C%20132)&link=https%3A%2F%2Fgithub.com%2Fclxrityy%2Freact-audio%2Fblob%2Fmain%2FCONTRIBUTING.md>)](https://github.com/clxrityy/react-audio/blob/main/.github/CONTRIBUTING.md)
 
 ---
 
