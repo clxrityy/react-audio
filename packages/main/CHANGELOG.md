@@ -1,5 +1,33 @@
 # Changelog
 
+## 3.0.3
+
+### Patch Changes
+
+- Refactor: better cleanup, typing, and UI polish across components and utils.
+
+  - Player
+    - Proper ref forwarding with internal fallback; unified media event handling; cleaned effect deps; synced `isPlaying` via play/pause events.
+    - Avoid duplicate type detection on `<source>`; rely on `AudioSource` to infer.
+  - ShufflePlayer
+    - Correct prop typing (`srcs: string[]`), no render-time state updates, robust next/prev index logic, and auto-advance on `ended`.
+  - Waveform / Canvas / draw / animate
+    - `draw()` returns a cleanup function and cancels `requestAnimationFrame` to prevent leaks.
+    - `Canvas` uses the cleanup, memoized resize handler, and initial resize when size not provided.
+    - Avoid re-creating `Uint8Array` per render; memoize based on `frequencyBinCount`.
+  - AudioSource
+    - Derives MIME type from `src` when `type` not provided, defaulting to `audio/*`.
+  - Progress / VolumeSlider
+    - Fix gradient track styling by using `backgroundImage` with correct percentages.
+  - Spectrogram
+    - Tidy class names; no behavior change.
+  - Utils & types
+    - Use type-only exports in barrel; improve docs-`Component` prop typing; minor animate typings.
+  - Constants
+    - Fix `VolumeOff` icon mapping; correct `black` hex.
+
+  Internal: no public API changes expected; minor visual adjustments and runtime stability improvements (cleanup of RAF).
+
 ## 3.0.2
 
 ### Patch Changes

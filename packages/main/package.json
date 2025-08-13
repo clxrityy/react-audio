@@ -1,6 +1,6 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "An audio package for React",
   "private": false,
   "type": "module",
