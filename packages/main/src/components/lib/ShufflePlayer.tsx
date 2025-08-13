@@ -1,9 +1,9 @@
-import { ComponentProps, useState } from "react";
+import { ComponentProps, useCallback, useMemo, useState } from "react";
 import { Colors, BaseProps } from "../../util";
 import { Player } from "./Player";
 
 export interface ShufflePlayerProps extends ComponentProps<"audio"> {
-  srcs: [];
+  srcs: string[];
   autoplay?: BaseProps["autoplay"];
   color?: BaseProps["color"];
   showNextPrevControls?: boolean;
@@ -27,11 +27,19 @@ export function ShufflePlayer({
   ...props
 }: ShufflePlayerProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [currentSrc, setCurrentSrc] = useState<string>(srcs[currentIndex]!);
+  const currentSrc = useMemo(() => srcs[currentIndex] ?? "", [srcs, currentIndex]);
 
-  if (shuffle) {
-    setCurrentIndex(Math.floor(Math.random() * srcs.length));
-  }
+  const nextIndex = useCallback(() => {
+    if (srcs.length === 0) return 0;
+    if (shuffle) return Math.floor(Math.random() * srcs.length);
+    return (currentIndex + 1) % srcs.length;
+  }, [currentIndex, shuffle, srcs]);
+
+  const prevIndex = useCallback(() => {
+    if (srcs.length === 0) return 0;
+    if (shuffle) return Math.floor(Math.random() * srcs.length);
+    return (currentIndex - 1 + srcs.length) % srcs.length;
+  }, [currentIndex, shuffle, srcs]);
 
   return (
     <Player
@@ -39,15 +47,13 @@ export function ShufflePlayer({
       autoplay={autoplay}
       src={currentSrc}
       onNext={() => {
-        setCurrentIndex((i) => i + 1);
-        setCurrentSrc(srcs[currentIndex]!);
+        setCurrentIndex(nextIndex());
         if (onNext) {
           onNext();
         }
       }}
       onPrev={() => {
-        setCurrentIndex((i) => i - 1);
-        setCurrentSrc(srcs[currentIndex]!);
+        setCurrentIndex(prevIndex());
         if (onPrev) {
           onPrev();
         }
@@ -55,6 +61,7 @@ export function ShufflePlayer({
       showNextPrevControls={showNextPrevControls}
       showProgress={showProgress}
       showVolume={showVolume}
+      onEnded={() => setCurrentIndex(nextIndex())}
       {...props}
     />
   );

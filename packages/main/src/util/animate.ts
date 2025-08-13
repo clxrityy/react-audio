@@ -9,10 +9,10 @@ export function animateBars({
   analyser: AnalyserNode;
   canvas: HTMLCanvasElement;
   canvasContext: CanvasRenderingContext2D;
-  dataArray: Uint8Array;
+  dataArray: Uint8Array<ArrayBuffer>;
   bufferLength: number;
   color: string;
-}) {
+}): void {
   if (!canvasContext) {
     return;
   }
@@ -29,7 +29,7 @@ export function animateBars({
   let x = 0;
 
   for (let i = 0; i < bufferLength; i++) {
-    const barHeight = ((dataArray[i] as number) / 255) * HEIGHT;
+    const barHeight = (dataArray[i]! / 255) * HEIGHT;
     canvasContext.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
     x += barWidth + 1;
   }

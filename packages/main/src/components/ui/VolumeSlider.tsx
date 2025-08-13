@@ -26,7 +26,7 @@ export function VolumeSlider({
         ${props.className}
         `}
       style={{
-        backgroundColor: `linear-gradient(to right, ${color} ${value * 100}%, ${color} 0%)`,
+        backgroundImage: `linear-gradient(to right, ${color ?? "#3b82f6"} ${value * 100}%, transparent 0%)`,
         border: `1px solid ${color}`,
       }}
       {...props}

@@ -8,7 +8,6 @@ import {
   SkipBack,
   Hourglass,
   VolumeX,
-  Volume,
   Volume1,
   Volume2,
   Square,
@@ -26,7 +25,7 @@ export const Icons: Record<string, any> = {
   SkipNext: SkipForward,
   SkipPrevious: SkipBack,
   Loading: Hourglass,
-  VolumeOff: Volume,
+  VolumeOff: VolumeX,
   VolumeMute: VolumeX,
   VolumeDown: Volume1,
   VolumeUp: Volume2,
@@ -39,5 +38,5 @@ export const Colors = {
   primary: "rgb(236, 106, 177)",
   secondary: "rgb(121, 91, 132)",
   white: "#dddddd",
-  black: "#1111",
+  black: "#111111",
 };

@@ -60,7 +60,7 @@ export default function Page(): JSX.Element {
         </div>
       </div> */}
       <div>
-        <Waveform showVolume={false} src="/audio/drums_3.wav" />
+        <Waveform showVolume={false} src="/audio/drums_2.wav" />
       </div>
     </div>
   );

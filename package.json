@@ -10,7 +10,7 @@
     "start": "turbo run start",
     "test": "turbo run test",
     "coverage": "turbo run coverage",
-    "pub": "turbo run pub && pnpm changeset version && pnpm changeset publish"
+    "pub": "turbo run pub && pnpm changeset version && pnpm changeset publish && node scripts/changelog.js"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.4",

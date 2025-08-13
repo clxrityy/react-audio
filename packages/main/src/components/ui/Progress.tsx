@@ -60,7 +60,7 @@ export const Progress = ({
           ${props.className}
           `}
           style={{
-            backgroundColor: `linear-gradient(to right, ${color} ${value * 100}%, ${color} 0%)`,
+            backgroundImage: `linear-gradient(to right, ${color ?? "#3b82f6"} ${width}%, transparent 0%)`,
             border: `1px solid ${color}`,
           }}
           onChange={(e) => props.onChange?.(e)}

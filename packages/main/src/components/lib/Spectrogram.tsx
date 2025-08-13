@@ -70,7 +70,7 @@ export function SpectroGramDisplay({
     }
 
     if (audioRef.current.paused) {
-      const playPromise =  audioRef.current.play();
+      const playPromise = audioRef.current.play();
       if (playPromise !== undefined) {
         playPromise.then(() => {
           setIsPlaying(true);
@@ -174,7 +174,7 @@ export function SpectroGramDisplay({
         width,
         height,
       }}
-      className={`border border-zinc-800/65 dark:border-zinc-500/65 rounded-md cursor-pointer backdrop:invert-50 ${!clicked && "bg-zinc-700/50 animate-pulse hover:border-2 transition-all hover:bg-zinc-700/75 hover:animate-none"} cursor-pointer`}
+      className={`border border-zinc-800/65 dark:border-zinc-500/65 rounded-md backdrop:invert-50 cursor-pointer ${!clicked ? "bg-zinc-700/50 animate-pulse hover:border-2 transition-all hover:bg-zinc-700/75 hover:animate-none" : ""}`}
     />
   );
 }
@@ -215,19 +215,19 @@ export function Spectrogram({
       <audio ref={audioRef}>
         <AudioSource src={src} />
       </audio>
-        <SpectroGramDisplay
-          audioRef={audioRef as RefObject<HTMLAudioElement>}
-          fftSize={fftSize}
-          width={width}
-          height={height}
-          minDecibels={minDecibels}
-          maxDecibels={maxDecibels}
-          colorMap={colorMap}
-          smoothingTimeConstant={smoothingTimeConstant}
-          onFrameUpdate={onFrameUpdate}
-          fillStyle={fillStyle}
-          loop={loop}
-        />
+      <SpectroGramDisplay
+        audioRef={audioRef as RefObject<HTMLAudioElement>}
+        fftSize={fftSize}
+        width={width}
+        height={height}
+        minDecibels={minDecibels}
+        maxDecibels={maxDecibels}
+        colorMap={colorMap}
+        smoothingTimeConstant={smoothingTimeConstant}
+        onFrameUpdate={onFrameUpdate}
+        fillStyle={fillStyle}
+        loop={loop}
+      />
     </div>
   );
 }

@@ -16,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9
     },
     {
+      url: "https://react-audio-docs.vercel.app/docs/changelog",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8
+    },
+    {
       url: "https://react-audio-docs.vercel.app/docs/components/overview",
       lastModified: new Date(),
       changeFrequency: "weekly",

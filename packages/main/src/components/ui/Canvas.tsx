@@ -1,4 +1,4 @@
-import { ComponentProps, useEffect, useRef } from "react";
+import { ComponentProps, useEffect, useMemo, useRef } from "react";
 import { resizeElement, draw } from "../../util";
 
 export interface CanvasProps extends ComponentProps<"canvas"> {
@@ -18,22 +18,30 @@ export function Canvas({
   ...props
 }: CanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  function resize() {
-    resizeElement<HTMLCanvasElement>(canvasRef.current);
-  }
+  const resize = useMemo(
+    () => () => resizeElement<HTMLCanvasElement>(canvasRef.current),
+    []
+  );
 
   useEffect(() => {
-    draw(analyser, bufferLength, dataArray, canvasRef, color || "white");
+    const cleanup = draw(
+      analyser,
+      bufferLength,
+      dataArray,
+      canvasRef,
+      color || "white"
+    );
 
     if (!size) {
       window.addEventListener("resize", resize);
+      resize();
     }
 
     return () => {
       window.removeEventListener("resize", resize);
+      cleanup?.();
     };
-  }, [analyser, bufferLength, dataArray, size, color]);
+  }, [analyser, bufferLength, dataArray, size, color, resize]);
 
   return (
     <canvas

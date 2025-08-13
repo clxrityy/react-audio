@@ -1,4 +1,4 @@
-import { ComponentProps, JSX } from "react";
+import type { ComponentProps, JSX } from "react";
 
 export interface CustomProps {
   [key: string]: {
@@ -13,7 +13,8 @@ export interface Component<T extends keyof JSX.IntrinsicElements> {
   title: string;
   url: string;
   description: string;
-  props: CustomProps extends ComponentProps<T> ? CustomProps : never;
+  // Component props shape for documentation/controls. Not a runtime prop type.
+  props: CustomProps & Partial<ComponentProps<T>>;
 }
 
 export interface BaseProps {

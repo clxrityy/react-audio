@@ -1,4 +1,4 @@
-import { ComponentProps, useEffect, useRef, useState } from "react";
+import { ComponentProps, useEffect, useMemo, useRef, useState } from "react";
 import { Colors, BaseProps, FFTSze } from "../../util";
 import { useAudioAnalyser } from "../../hooks/useAudioAnalyser";
 import { Canvas } from "../ui";
@@ -36,10 +36,11 @@ export function Waveform({
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const sourceNodeRef = useRef<MediaElementAudioSourceNode | null>(null);
 
-  // Wait for the audio element to mount
+  // Wait for the audio element to mount (next animation frame)
   useEffect(() => {
-    if (audioRef.current) setAudioReady(true);
-  }, [audioRef.current]);
+    const id = requestAnimationFrame(() => setAudioReady(!!audioRef.current));
+    return () => cancelAnimationFrame(id);
+  }, []);
 
   // Create AudioContext only when audio is ready
   useEffect(() => {
@@ -56,6 +57,12 @@ export function Waveform({
     audioContext,
     sourceNodeRef,
     fftSize
+  );
+
+  const bufferLength = analyser?.analyser.frequencyBinCount;
+  const dataArray = useMemo(
+    () => (bufferLength ? new Uint8Array(bufferLength) : null),
+    [bufferLength]
   );
 
   // Clean up AudioContext on unmount
@@ -92,11 +99,11 @@ export function Waveform({
           height: `100px`,
         }}
       >
-        {analyser?.analyser && (
+        {analyser?.analyser && dataArray && bufferLength && (
           <Canvas
             analyser={analyser.analyser}
-            bufferLength={analyser.analyser.frequencyBinCount}
-            dataArray={new Uint8Array(analyser.analyser.frequencyBinCount)}
+            bufferLength={bufferLength}
+            dataArray={dataArray}
             size={size}
             color={color}
             width={size}

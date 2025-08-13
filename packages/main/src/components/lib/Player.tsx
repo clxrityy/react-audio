@@ -40,10 +40,8 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
   ref
 ) {
   const internalRef = useRef<HTMLAudioElement>(null);
-  // Always use the forwarded ref if provided, otherwise fallback to internalRef
-  const audioRef = (ref && typeof ref === "object" && ref !== null
-    ? ref
-    : internalRef) as React.MutableRefObject<HTMLAudioElement | null>;
+  // Prefer forwarded object ref if provided, else use internal ref.
+  const audioRef = (ref && typeof ref === "object" ? ref : internalRef) as React.MutableRefObject<HTMLAudioElement | null>;
 
   const [canPlay, setCanPlay] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -64,10 +62,11 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
     audio.autoplay = autoplay;
 
     if (autoplay) {
-      audio.play().catch(() => setIsPlaying(false));
+      audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+    } else {
+      setIsPlaying(!audio.paused);
     }
-     
-  }, [src]);
+  }, [src, autoplay, loop, volume]);
 
   const play: ReactEventHandler<HTMLButtonElement> = useCallback(
     (e) => {
@@ -87,26 +86,23 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
     if (!audioRef.current) return;
     audioRef.current.pause();
     setIsPlaying(false);
-  }, [audioRef]);
+  }, []);
 
-  const handleVolumeChange: ReactEventHandler<HTMLAudioElement> = useCallback(
-    (e) => {
-      if (!audioRef.current) return;
-      setVolume(e.currentTarget.volume);
-    },
-    [audioRef]
-  );
+  const handleVolumeChange: ReactEventHandler<HTMLAudioElement> = useCallback((e) => {
+    setVolume(e.currentTarget.volume);
+  }, []);
 
   const handleMuteUnmute = useCallback(() => {
-    if (!audioRef.current) return;
-    if (audioRef.current.volume !== 0) {
-      audioRef.current.volume = 0;
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.volume !== 0) {
+      audio.volume = 0;
       setVolume(0);
     } else {
-      audioRef.current.volume = 0.25;
+      audio.volume = 0.25;
       setVolume(0.25);
     }
-  }, [audioRef]);
+  }, []);
 
   const handleBufferProgress: ReactEventHandler<HTMLAudioElement> = useCallback(
     (e) => {
@@ -164,33 +160,36 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
     if (autoplay && canPlay && audioRef.current) {
       setIsPlaying(true);
     }
-  }, [autoplay, canPlay, audioRef]);
+  }, [autoplay, canPlay]);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
     const updateProgress = () => setCurrentTime(audio.currentTime);
     const updateBuffered = () => {
       if (audio.buffered.length > 0) {
         setBuffered(audio.buffered.end(audio.buffered.length - 1));
       }
     };
+    const onLoadedMetadata = () => setDuration(audio.duration);
 
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
     audio.addEventListener("timeupdate", updateProgress);
     audio.addEventListener("progress", updateBuffered);
-    audio.addEventListener("loadedmetadata", () =>
-      setDuration(audio.duration)
-    );
+    audio.addEventListener("loadedmetadata", onLoadedMetadata);
 
     return () => {
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
       audio.removeEventListener("timeupdate", updateProgress);
       audio.removeEventListener("progress", updateBuffered);
-      audio.removeEventListener("loadedmetadata", () =>
-        setDuration(audio.duration)
-      );
+      audio.removeEventListener("loadedmetadata", onLoadedMetadata);
     };
-  }, [src, audioRef]);
+  }, [src]);
 
   return (
     <div className="flex flex-col items-center gap-5 relative">
@@ -208,7 +207,7 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
           preload="auto"
           src={src}
         >
-          <AudioSource src={src} type={src?.split(".").pop()} />
+          <AudioSource src={src} />
         </audio>
       </div>
       <div className="flex flex-col items-center gap-4 z-30">
