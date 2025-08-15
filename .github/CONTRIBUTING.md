@@ -33,6 +33,7 @@ pnpm dev # Start the development server
   ```bash
   nvm install 23
   ```
+
   - Ensure you have the correct Node.js version by running:
   ```bash
   nvm use

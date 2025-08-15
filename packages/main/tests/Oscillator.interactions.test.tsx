@@ -28,14 +28,17 @@ beforeEach(() => {
       } as unknown as GainNode;
     }
   }
-  (globalThis as unknown as { AudioContext: typeof AudioContext }).AudioContext =
-    MockAudioContext as unknown as typeof AudioContext;
+  (
+    globalThis as unknown as { AudioContext: typeof AudioContext }
+  ).AudioContext = MockAudioContext as unknown as typeof AudioContext;
 });
 
 describe("Oscillator interactions", () => {
   it("calls onPlayChange in controlled mode without toggling UI", () => {
     const onPlayChange = vi.fn();
-    render(<Oscillator isPlaying={false} onPlayChange={onPlayChange} showControls />);
+    render(
+      <Oscillator isPlaying={false} onPlayChange={onPlayChange} showControls />,
+    );
 
     const playBtn = screen.getByTitle("Play");
     fireEvent.click(playBtn);
@@ -54,7 +57,7 @@ describe("Oscillator interactions", () => {
         showControls
         onFrequencyChange={onFrequencyChange}
         onGainChange={onGainChange}
-      />
+      />,
     );
 
     const sliders = screen.getAllByRole("slider");

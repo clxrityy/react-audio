@@ -18,6 +18,9 @@ export interface WaveformProps extends ComponentProps<"div"> {
 
 /**
  * Waveform component renders an audio player and a real-time waveform visualization.
+ * - Supports playback controls (play, pause, next, previous)
+ * - Displays current playback time and duration
+ * - Allows volume control
  */
 export function Waveform({
   src,
@@ -56,13 +59,13 @@ export function Waveform({
     audioReady ? audioRef.current : null,
     audioContext,
     sourceNodeRef,
-    fftSize
+    fftSize,
   );
 
   const bufferLength = analyser?.analyser.frequencyBinCount;
   const dataArray = useMemo(
     () => (bufferLength ? new Uint8Array(bufferLength) : null),
-    [bufferLength]
+    [bufferLength],
   );
 
   // Clean up AudioContext on unmount

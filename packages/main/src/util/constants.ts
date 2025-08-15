@@ -13,6 +13,8 @@ import {
   Square,
   SquareSquare,
   LoaderCircle,
+  Mic,
+  Download,
 } from "lucide-react";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -32,6 +34,8 @@ export const Icons: Record<string, any> = {
   Selected: Square,
   Unselected: SquareSquare,
   Loader: LoaderCircle,
+  Mic,
+  Download,
 };
 
 export const Colors = {

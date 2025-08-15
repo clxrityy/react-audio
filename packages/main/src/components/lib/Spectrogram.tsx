@@ -1,4 +1,11 @@
-import { ComponentProps, RefObject, useCallback, useEffect, useRef, useState } from "react";
+import {
+  ComponentProps,
+  RefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { BaseProps, FFTSze } from "../../util";
 import { AudioSource } from "../ui";
 
@@ -17,6 +24,12 @@ export interface SpectroGramDisplayProps extends ComponentProps<"canvas"> {
   loop?: boolean;
 }
 
+/**
+ * Spectrogram display component for visualizing audio frequency data.
+ * - Supports real-time audio visualization
+ * - Displays frequency data as a color map
+ * - Allows customization of appearance and behavior
+ */
 export function SpectroGramDisplay({
   audioRef,
   fftSize = 1024,
@@ -40,7 +53,7 @@ export function SpectroGramDisplay({
 
   const startAudio = useCallback(() => {
     if (isPlaying) {
-      audioRef.current.pause()
+      audioRef.current.pause();
       setIsPlaying(false);
       return;
     }
@@ -72,11 +85,13 @@ export function SpectroGramDisplay({
     if (audioRef.current.paused) {
       const playPromise = audioRef.current.play();
       if (playPromise !== undefined) {
-        playPromise.then(() => {
-          setIsPlaying(true);
-        }).catch(error => {
-          console.error("Error playing audio:", error);
-        });
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch((error) => {
+            console.error("Error playing audio:", error);
+          });
       }
     }
 
@@ -208,7 +223,6 @@ export function Spectrogram({
   ...props
 }: SpectrogramProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
-
 
   return (
     <div {...props}>

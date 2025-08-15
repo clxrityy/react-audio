@@ -4,9 +4,10 @@ import { Cards } from "nextra/components";
 import { BookAudio, BookUp2 } from "lucide-react";
 import { Waveform } from "../components/Waveform";
 
-
-const BASE_URL = process.env.NODE_ENV === "production" ?
-  "https://react-audio-docs.vercel.app" : "http://localhost:3000";
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://react-audio-docs.vercel.app"
+    : "http://localhost:3000";
 
 export default function Page(): JSX.Element {
   return (
@@ -33,9 +34,7 @@ export default function Page(): JSX.Element {
             icon={<BookUp2 size={24} />}
           />
         </div>
-        <div className="w-full flex flex-col xl:flex-row items-center justify-stretch gap-6">
-
-        </div>
+        <div className="w-full flex flex-col xl:flex-row items-center justify-stretch gap-6"></div>
       </Cards>
       <div>
         <Waveform showVolume={false} src="/audio/drums_2.wav" />

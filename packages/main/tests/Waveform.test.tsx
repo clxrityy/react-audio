@@ -3,8 +3,6 @@ import { Waveform } from "../src";
 import { describe, it, expect, vi } from "vitest";
 
 describe("Waveform", () => {
-
-
   // Mock AudioContext as a constructor function returning the mock instance
   global.AudioContext = vi.fn().mockImplementation(() => ({
     createAnalyser: () => ({
@@ -42,7 +40,6 @@ describe("Waveform", () => {
       disconnect: vi.fn(),
     })),
   })) as unknown as typeof AudioContext;
-
 
   it("renders correctly", () => {
     render(

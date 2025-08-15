@@ -5,6 +5,5 @@ import {
 } from "@clxrity/react-audio";
 
 export function Player(props: PlayerProps) {
-
   return <ReactAudioPlayer {...props} />;
 }

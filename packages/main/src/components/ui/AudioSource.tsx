@@ -6,6 +6,7 @@ export type AudioSourceProps = ComponentProps<"source"> & {
 };
 
 export const AudioSource = ({ src, type, ...props }: AudioSourceProps) => {
-  const derivedType = type ?? (src ? `audio/${src.split(".").pop()}` : "audio/*");
+  const derivedType =
+    type ?? (src ? `audio/${src.split(".").pop()}` : "audio/*");
   return <source src={src} type={derivedType} {...props} />;
 };

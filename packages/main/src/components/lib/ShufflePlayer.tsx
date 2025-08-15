@@ -14,6 +14,13 @@ export interface ShufflePlayerProps extends ComponentProps<"audio"> {
   onPrev?: () => void;
 }
 
+/**
+ * ShufflePlayer component for playing audio files in a shuffled order.
+ * - Supports playback controls (play, pause, next, previous)
+ * - Displays current playback time and duration
+ * - Allows volume control
+ */
+
 export function ShufflePlayer({
   srcs,
   autoplay = false,
@@ -27,7 +34,10 @@ export function ShufflePlayer({
   ...props
 }: ShufflePlayerProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const currentSrc = useMemo(() => srcs[currentIndex] ?? "", [srcs, currentIndex]);
+  const currentSrc = useMemo(
+    () => srcs[currentIndex] ?? "",
+    [srcs, currentIndex],
+  );
 
   const nextIndex = useCallback(() => {
     if (srcs.length === 0) return 0;

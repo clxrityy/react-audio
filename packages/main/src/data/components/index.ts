@@ -3,6 +3,7 @@ import { ShufflePlayerComponent } from "./shufflePlayer";
 import { WaveformComponent } from "./waveform";
 import { OscillatorComponent } from "./oscillator";
 import { SpectrogramComponent } from "./spectrogram";
+import { AudioRecorderComponent } from "./audioRecorder";
 
 export const components = {
   Player: PlayerComponent,
@@ -10,4 +11,5 @@ export const components = {
   Waveform: WaveformComponent,
   Oscillator: OscillatorComponent,
   Spectrogram: SpectrogramComponent,
+  AudioRecorder: AudioRecorderComponent,
 } as const;

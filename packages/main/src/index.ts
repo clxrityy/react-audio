@@ -14,6 +14,8 @@ export {
   type SpectrogramProps,
   SpectroGramDisplay,
   type SpectroGramDisplayProps,
+  AudioRecorder,
+  type AudioRecorderProps,
 } from "./components/lib";
 
 // DATA

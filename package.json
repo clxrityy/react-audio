@@ -12,7 +12,8 @@
     "coverage": "turbo run coverage",
     "clean:empty": "node scripts/delete-empty-files.js",
     "clean:empty:dry": "node scripts/delete-empty-files.js --dry-run",
-    "pub": "turbo run pub && pnpm changeset version && pnpm changeset publish && node scripts/changelog.js"
+    "pub": "turbo run pub && pnpm changeset version && pnpm changeset publish && node scripts/changelog.js",
+    "clean": "turbo run clean"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.5",

@@ -4,7 +4,9 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 
 beforeEach(() => {
   vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue();
-  vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => undefined);
+  vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(
+    () => undefined,
+  );
 });
 
 describe("ShufflePlayer interactions", () => {
@@ -20,7 +22,7 @@ describe("ShufflePlayer interactions", () => {
         onNext={onNext}
         onPrev={onPrev}
         showProgress={false}
-      />
+      />,
     );
 
     const next = screen.getByTitle("next");

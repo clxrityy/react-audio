@@ -13,6 +13,6 @@ export default defineConfig({
       enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
       bundleName: "react-audio",
       uploadToken: process.env.CODECOV_TOKEN,
-    })
-  ]
+    }),
+  ],
 });

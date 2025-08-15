@@ -19,9 +19,7 @@ export const Progress = ({
 
   return (
     <>
-      <div
-        className={`relative w-40 h-2 bg-gray-300 rounded overflow-hidden`}
-      >
+      <div className={`relative w-40 h-2 bg-gray-300 rounded overflow-hidden`}>
         {/**ered progress bar
          * This is a gray bar that shows the buffered progress
          */}
@@ -64,11 +62,14 @@ export const Progress = ({
             border: `1px solid ${color}`,
           }}
           onChange={(e) => props.onChange?.(e)}
-          onInput={(e) => props.onChange?.(e as unknown as React.ChangeEvent<HTMLInputElement>)}
+          onInput={(e) =>
+            props.onChange?.(
+              e as unknown as React.ChangeEvent<HTMLInputElement>,
+            )
+          }
           {...props}
         />
       </div>
     </>
   );
 };
-

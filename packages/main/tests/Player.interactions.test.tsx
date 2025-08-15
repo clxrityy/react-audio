@@ -6,7 +6,9 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 // Basic media element mocks for jsdom
 beforeEach(() => {
   vi.spyOn(HTMLMediaElement.prototype, "play").mockResolvedValue();
-  vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(() => undefined);
+  vi.spyOn(HTMLMediaElement.prototype, "pause").mockImplementation(
+    () => undefined,
+  );
 });
 
 describe("Player interactions", () => {
@@ -16,7 +18,7 @@ describe("Player interactions", () => {
         src="https://example.com/audio.mp3"
         autoplay={false}
         showNextPrevControls={false}
-      />
+      />,
     );
 
     // Initially should show the play button
@@ -40,7 +42,7 @@ describe("Player interactions", () => {
         src="https://example.com/audio.mp3"
         autoplay={false}
         showNextPrevControls={false}
-      />
+      />,
     );
 
     const audio = container.querySelector("audio")! as HTMLAudioElement;
@@ -60,7 +62,7 @@ describe("Player interactions", () => {
         src="https://example.com/audio.mp3"
         autoplay={false}
         showNextPrevControls={false}
-      />
+      />,
     );
 
     const audio = container.querySelector("audio")! as HTMLAudioElement;

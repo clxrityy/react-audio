@@ -23,6 +23,13 @@ export interface PlayerProps extends ComponentProps<"audio"> {
   size?: number;
 }
 
+/**
+ * Audio player component for playing audio files.
+ * - Supports playback controls (play, pause, next, previous)
+ * - Displays current playback time and duration
+ * - Allows volume control
+ */
+
 export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
   {
     src,
@@ -37,11 +44,13 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
     color = Colors.primary,
     ...props
   },
-  ref
+  ref,
 ) {
   const internalRef = useRef<HTMLAudioElement>(null);
   // Prefer forwarded object ref if provided, else use internal ref.
-  const audioRef = (ref && typeof ref === "object" ? ref : internalRef) as React.MutableRefObject<HTMLAudioElement | null>;
+  const audioRef = (
+    ref && typeof ref === "object" ? ref : internalRef
+  ) as React.MutableRefObject<HTMLAudioElement | null>;
 
   const [canPlay, setCanPlay] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -62,7 +71,10 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
     audio.autoplay = autoplay;
 
     if (autoplay) {
-      audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+      audio
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => setIsPlaying(false));
     } else {
       setIsPlaying(!audio.paused);
     }
@@ -79,7 +91,7 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
         .then(() => setIsPlaying(true))
         .catch(() => setIsPlaying(false));
     },
-    [audioRef]
+    [audioRef],
   );
 
   const pause = useCallback(() => {
@@ -88,9 +100,12 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
     setIsPlaying(false);
   }, []);
 
-  const handleVolumeChange: ReactEventHandler<HTMLAudioElement> = useCallback((e) => {
-    setVolume(e.currentTarget.volume);
-  }, []);
+  const handleVolumeChange: ReactEventHandler<HTMLAudioElement> = useCallback(
+    (e) => {
+      setVolume(e.currentTarget.volume);
+    },
+    [],
+  );
 
   const handleMuteUnmute = useCallback(() => {
     const audio = audioRef.current;
@@ -121,7 +136,7 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
         }
       }
     },
-    []
+    [],
   );
 
   const handleTimeUpdate: ReactEventHandler<HTMLAudioElement> = useCallback(
@@ -129,14 +144,14 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
       setCurrentTime(e.currentTarget.currentTime);
       handleBufferProgress(e);
     },
-    [handleBufferProgress]
+    [handleBufferProgress],
   );
 
   const handleDurationChange: ReactEventHandler<HTMLAudioElement> = useCallback(
     (e) => {
       setDuration(e.currentTarget.duration);
     },
-    []
+    [],
   );
 
   const handleCanPlay: ReactEventHandler<HTMLAudioElement> = useCallback(
@@ -144,7 +159,7 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
       setDuration(e.currentTarget.duration);
       setCanPlay(true);
     },
-    []
+    [],
   );
 
   const handleOnProgressChange: ReactEventHandler<HTMLInputElement> = (e) => {
@@ -350,8 +365,6 @@ export const Player = forwardRef<HTMLAudioElement, PlayerProps>(function Player(
 //         setCanPlay(true);
 //       });
 //     }
-
-
 
 //     return () => {
 //       audioElement?.removeEventListener("canplaythrough", () => {

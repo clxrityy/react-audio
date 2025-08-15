@@ -9,7 +9,7 @@ export function draw(
   color: string,
 ): () => void {
   const canvas = canvasRef.current;
-  if (!canvas || !analyser) return () => { };
+  if (!canvas || !analyser) return () => {};
 
   const canvasContext = canvas.getContext("2d");
 

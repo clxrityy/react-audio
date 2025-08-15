@@ -83,6 +83,16 @@
         "package.json",
         "CHANGELOG.md"
       ]
+    },
+    "clean": {
+      "dependsOn": [
+        "^clean"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "coverage/**"
+      ]
     }
   }
 }

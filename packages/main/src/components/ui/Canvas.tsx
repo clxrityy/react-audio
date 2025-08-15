@@ -20,7 +20,7 @@ export function Canvas({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const resize = useMemo(
     () => () => resizeElement<HTMLCanvasElement>(canvasRef.current),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export function Canvas({
       bufferLength,
       dataArray,
       canvasRef,
-      color || "white"
+      color || "white",
     );
 
     if (!size) {

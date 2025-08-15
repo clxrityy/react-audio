@@ -13,6 +13,13 @@ export interface OscillatorProps extends ComponentProps<"div"> {
   onGainChange?: (gain: number) => void;
 }
 
+/**
+ * Oscillator component for generating audio signals.
+ * - Supports various waveforms (sine, square, etc.)
+ * - Allows control over frequency and gain
+ * - Provides play/pause functionality
+ */
+
 export function Oscillator({
   type = "sine",
   frequency = 440,
@@ -103,7 +110,9 @@ export function Oscillator({
       }
     };
 
-    window.addEventListener("pointerdown", handleUserInteraction, { once: true });
+    window.addEventListener("pointerdown", handleUserInteraction, {
+      once: true,
+    });
     return () => {
       window.removeEventListener("pointerdown", handleUserInteraction);
     };
@@ -113,7 +122,10 @@ export function Oscillator({
     // unmount cleanup: stop nodes and close context if still open
     return () => {
       stopNodes();
-      if (audioContextRef.current && audioContextRef.current.state !== "closed") {
+      if (
+        audioContextRef.current &&
+        audioContextRef.current.state !== "closed"
+      ) {
         // Ignore errors if context already closed by the environment
         audioContextRef.current.close().catch(() => undefined);
       }
