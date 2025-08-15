@@ -1,7 +1,7 @@
 {
   "name": "@clxrity/react-audio",
-  "version": "3.0.4",
-  "description": "An audio interaction package for React",
+  "version": "3.1.0",
+  "description": "An interactive audio package for React",
   "private": false,
   "type": "module",
   "main": "./dist/index.cjs",
@@ -20,7 +20,8 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "eslint . --fix",
-    "pub": "pnpm build && pnpm lint"
+    "pub": "pnpm build && pnpm lint",
+    "clean": "rm -rf dist node_modules coverage"
   },
   "files": [
     "dist",

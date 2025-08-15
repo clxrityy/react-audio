@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.1.0
+
+### Minor Changes
+
+- Add new `AudioRecorder` component + `useAudioRecorder` hook integration:
+  - Start/stop microphone capture via MediaRecorder.
+  - Live time-domain waveform visualization while recording.
+  - Automatic object URL generation for playback & download.
+  - Download button to save the recording (`recording.webm`).
+  - Graceful fallbacks & test polyfills (AudioContext optional, URL.createObjectURL mocked in tests).
+
+  Includes internal hook hardening (defensive AudioContext guards, stream track cleanup).
+
+### Patch Changes
+
+- Every component now has TypeScript comments for better documentation and type safety.
+
 ## 3.0.4
 
 ### Patch Changes
@@ -99,7 +116,7 @@
 
 - Switched structure to a [turborepo](https://turbo.build/repo/docs) structure.
   - The main package is now in the `packages/main` directory.
-  - The documentation is now in the `packages/docs` directory.
+  - The documentation is now in the `apps/docs` directory.
     - The documentation is now built with [Next.js](https://nextjs.org/) & [nextra](https://nextra.site/).
 - The package is now built with [tsup](https://tsup.dev/) instead of [vite](https://vitejs.dev/).
   - Refactored the build process to use `tsup` for building the package.

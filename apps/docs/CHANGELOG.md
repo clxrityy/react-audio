@@ -1,5 +1,13 @@
 # docs
 
+## 0.2.4
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - @clxrity/react-audio@3.1.0
+
 ## 0.2.3
 
 ### Patch Changes
