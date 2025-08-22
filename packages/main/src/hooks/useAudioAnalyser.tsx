@@ -1,4 +1,4 @@
-import type { FFTSze } from "../util";
+import type { FFTSize } from "../util";
 import { RefObject, useEffect, useState } from "react";
 
 /**
@@ -9,7 +9,7 @@ export function useAudioAnalyser(
   audioElement: HTMLAudioElement | null,
   audioContext: AudioContext | null,
   sourceNodeRef: RefObject<MediaElementAudioSourceNode | null>,
-  fftSize: FFTSze,
+  fftSize: FFTSize,
 ) {
   const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
 
@@ -48,13 +48,13 @@ export function useAudioAnalyser(
 
   return analyser
     ? {
-        analyser,
-        getFrequencyData: () => {
-          const bufferLength = analyser.frequencyBinCount;
-          const dataArray = new Uint8Array(bufferLength);
-          analyser.getByteFrequencyData(dataArray);
-          return dataArray;
-        },
-      }
+      analyser,
+      getFrequencyData: () => {
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        analyser.getByteFrequencyData(dataArray);
+        return dataArray;
+      },
+    }
     : null;
 }

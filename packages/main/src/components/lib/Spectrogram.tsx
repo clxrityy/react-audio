@@ -6,13 +6,13 @@ import {
   useRef,
   useState,
 } from "react";
-import { BaseProps, FFTSze } from "../../util";
+import { BaseProps, FFTSize } from "../../util";
 import { AudioSource } from "../ui";
 
 // Display component for the spectrogram
 export interface SpectroGramDisplayProps extends ComponentProps<"canvas"> {
   audioRef: RefObject<HTMLAudioElement>;
-  fftSize?: FFTSze;
+  fftSize?: FFTSize;
   width?: number | string;
   height?: number | string;
   minDecibels?: number;
@@ -196,7 +196,7 @@ export function SpectroGramDisplay({
 
 export interface SpectrogramProps extends ComponentProps<"div"> {
   src: BaseProps["src"];
-  fftSize?: FFTSze;
+  fftSize?: FFTSize;
   width?: number | string;
   height?: number | string;
   minDecibels?: number;

@@ -1,0 +1,46 @@
+import { AudioLooper } from "../../components/AudioLooper";
+import { PropsDetails } from "../../components/PropsDetails";
+
+# AudioLooper
+
+The `<AudioLooper />` component allows you to create a looping audio playback experience in your React application. It provides a simple interface for controlling audio playback, including play, pause, and loop functionality.
+
+```tsx
+"use client";
+import { AudioLooper } from "@clxrity/react-audio";
+
+export default function AudioLooperExample() {
+  return (
+    <AudioLooper
+      maxTracks={6}
+      defaultLoopDuration={8}
+      color="#ff6b9d"
+    />
+  )
+}
+```
+
+<br />
+
+<AudioLooper
+  maxTracks={6}
+  defaultLoopDuration={8}
+  color="#ff6b9d"
+/>
+
+## Features
+
+- **Multi-track loop recording** - Record up to 8 synchronized tracks (configurable)
+- **Individual track controls** - Record, play/pause, volume, clear, remove for each track
+- **Master controls** - Add tracks, play/stop all, clear all, master volume
+- **Configurable loop duration** - 1-16 seconds with real-time adjustment
+- **Visual progress indicators** - Shows all playback progress for each active track
+- **Synchronized playback** - All tracks play in perfect sync
+
+<br />
+
+<br />
+
+## Props
+
+<PropsDetails component="AudioLooper" />

@@ -4,6 +4,7 @@ import { WaveformComponent } from "./waveform";
 import { OscillatorComponent } from "./oscillator";
 import { SpectrogramComponent } from "./spectrogram";
 import { AudioRecorderComponent } from "./audioRecorder";
+import { AudioLooperComponent } from "./audioLooper";
 
 export const components = {
   Player: PlayerComponent,
@@ -12,4 +13,5 @@ export const components = {
   Oscillator: OscillatorComponent,
   Spectrogram: SpectrogramComponent,
   AudioRecorder: AudioRecorderComponent,
+  AudioLooper: AudioLooperComponent,
 } as const;

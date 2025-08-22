@@ -15,6 +15,9 @@ import {
   LoaderCircle,
   Mic,
   Download,
+  Plus,
+  Trash2,
+  X,
 } from "lucide-react";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -36,6 +39,9 @@ export const Icons: Record<string, any> = {
   Loader: LoaderCircle,
   Mic,
   Download,
+  Plus,
+  Trash: Trash2,
+  X,
 };
 
 export const Colors = {

@@ -16,6 +16,8 @@ export {
   type SpectroGramDisplayProps,
   AudioRecorder,
   type AudioRecorderProps,
+  AudioLooper,
+  type AudioLooperProps,
 } from "./components/lib";
 
 // DATA
@@ -23,6 +25,8 @@ export { components } from "./data";
 
 // HOOKS
 export { useAudioAnalyser } from "./hooks/useAudioAnalyser";
+export { useAudioLooper } from "./hooks/useAudioLooper";
+export { useAudioRecorder } from "./hooks/useAudioRecorder";
 
 // TYPES
-export type { FFTSze, BaseProps } from "./util";
+export type { FFTSize, BaseProps } from "./util";

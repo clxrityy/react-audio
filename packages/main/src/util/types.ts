@@ -26,7 +26,7 @@ export interface BaseProps {
   showVolume?: boolean;
 }
 
-export type FFTSze =
+export type FFTSize =
   | 32
   | 64
   | 128

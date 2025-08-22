@@ -1,5 +1,5 @@
 import { ComponentProps, useEffect, useMemo, useRef, useState } from "react";
-import { Colors, BaseProps, FFTSze } from "../../util";
+import { Colors, BaseProps, FFTSize } from "../../util";
 import { useAudioAnalyser } from "../../hooks/useAudioAnalyser";
 import { Canvas } from "../ui";
 import { Player } from "./Player";
@@ -12,7 +12,7 @@ export interface WaveformProps extends ComponentProps<"div"> {
   loop?: BaseProps["loop"];
   showProgress?: BaseProps["showProgress"];
   showVolume?: BaseProps["showVolume"];
-  fftSize?: FFTSze;
+  fftSize?: FFTSize;
   onLoad?: () => void;
 }
 

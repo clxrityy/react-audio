@@ -1,5 +1,6 @@
 import { Player, type PlayerProps } from "./Player";
 import { AudioRecorder, type AudioRecorderProps } from "./AudioRecorder";
+import { AudioLooper, type AudioLooperProps } from "./AudioLooper";
 import { ShufflePlayer, type ShufflePlayerProps } from "./ShufflePlayer";
 import { Waveform, type WaveformProps } from "./Waveform";
 import { Oscillator, type OscillatorProps } from "./Oscillator";
@@ -26,4 +27,6 @@ export {
   type SpectroGramDisplayProps,
   AudioRecorder,
   type AudioRecorderProps,
+  AudioLooper,
+  type AudioLooperProps,
 };

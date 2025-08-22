@@ -48,7 +48,7 @@ export function AudioRecorder({
         blobRef.current = b;
         onRecordingComplete?.(b);
       })
-      .catch(() => {});
+      .catch(() => { });
   }, [audioUrl, onRecordingComplete]);
 
   const draw = useCallback(() => {
@@ -122,11 +122,11 @@ export function AudioRecorder({
       }}
     >
       <div style={{ display: "flex", gap: 8 }}>
-        <Button onClick={handleStartStop} title={recording ? "Stop" : "Record"}>
+        <Button onClick={handleStartStop} title={recording ? "Stop" : "Record"} className="cursor-pointer">
           {recording ? <Icons.Stop /> : <Icons.Mic />}
         </Button>
         {audioUrl && (
-          <Button onClick={handleDownload} title="Download">
+          <Button onClick={handleDownload} title="Download" className="cursor-pointer">
             <Icons.Download />
           </Button>
         )}

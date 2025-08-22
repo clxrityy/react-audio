@@ -2,7 +2,7 @@
 import { JSX } from "react";
 import { Cards } from "nextra/components";
 import { BookAudio, BookUp2 } from "lucide-react";
-import { Waveform } from "../components/Waveform";
+import { AudioLooper } from "../components/AudioLooper";
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
@@ -37,7 +37,7 @@ export default function Page(): JSX.Element {
         <div className="w-full flex flex-col xl:flex-row items-center justify-stretch gap-6"></div>
       </Cards>
       <div>
-        <Waveform showVolume={false} src="/audio/drums_2.wav" />
+        <AudioLooper />
       </div>
     </div>
   );

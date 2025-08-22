@@ -5,4 +5,6 @@ export default {
   waveform: "",
   spectrogram: "",
   oscillator: "",
+  audiorecorder: "",
+  audiolooper: ""
 };
