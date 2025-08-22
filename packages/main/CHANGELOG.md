@@ -1,5 +1,29 @@
 # Changelog
 
+## 3.2.0
+
+### Minor Changes
+
+- Add new `AudioLooper` component + `useAudioLooper` hook for multi-track loop recording:
+  - Record multiple synchronized audio loops with configurable duration (1-16 seconds).
+  - Individual track controls: record, play/pause, volume, clear, and remove.
+  - Master controls: volume, play all, stop all, clear all tracks.
+  - Real-time progress visualization for each track during playback.
+  - Automatic loop synchronization across all tracks.
+  - Track limit configuration (default 8, customizable).
+  - Built-in polyfills and error handling for robust operation.
+
+  Perfect for musicians, beat-making, live performance, and creative audio applications.
+
+### Patch Changes
+
+- - Fixed typo in FFTSize type name
+  - Exported all hooks:
+    - useAudioAnalyser
+    - useAudioLooper
+    - useAudioRecorder
+- - Updated all dependencies to latest versions.
+
 ## 3.1.0
 
 ### Minor Changes
