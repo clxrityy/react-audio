@@ -39,7 +39,7 @@ export function useAudioLooper(): UseAudioLooperReturn {
   const audioContextRef = useRef<AudioContext | null>(null);
   const mediaRecordersRef = useRef<Map<string, MediaRecorder>>(new Map());
   const audioElementsRef = useRef<Map<string, HTMLAudioElement>>(new Map());
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(0);
 
   // Initialize audio context
@@ -56,7 +56,7 @@ export function useAudioLooper(): UseAudioLooperReturn {
   useEffect(() => {
     if (tracks.some(t => t.isPlaying) || isRecording) {
       startTimeRef.current = Date.now();
-      intervalRef.current = setInterval(() => {
+      intervalRef.current = window.setInterval(() => {
         const elapsed = (Date.now() - startTimeRef.current) / 1000;
         setCurrentTime(elapsed % loopDuration);
       }, 16); // ~60fps
