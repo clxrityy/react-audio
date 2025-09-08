@@ -43,7 +43,7 @@
     "@types/react": "19.1.12",
     "@types/react-dom": "^19.1.9",
     "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "^9.34.0",
+    "eslint": "^9.35.0",
     "jsdom": "^26.1.0",
     "lucide-react": "^0.541.0",
     "postcss": "^8.5.6",
