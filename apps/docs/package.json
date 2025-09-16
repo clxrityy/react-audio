@@ -29,7 +29,7 @@
     "@types/react-dom": "19.1.9",
     "eslint": "^9.35.0",
     "eslint-config-next": "15.5.0",
-    "lucide-react": "^0.541.0",
+    "lucide-react": "^0.544.0",
     "pagefind": "^1.3.0",
     "tailwindcss": "^4.1.13",
     "typescript": "5.9.2"
