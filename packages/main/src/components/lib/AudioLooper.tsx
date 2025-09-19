@@ -192,8 +192,10 @@ export function AudioLooper({
 
   // Initialize loop duration on mount
   useEffect(() => {
-    setLoopDuration(defaultLoopDuration);
-  }, [defaultLoopDuration, setLoopDuration]);
+    if (loopDuration !== defaultLoopDuration) {
+      setLoopDuration(defaultLoopDuration);
+    }
+  }, [defaultLoopDuration, loopDuration, setLoopDuration]);
 
 
 
@@ -229,19 +231,8 @@ export function AudioLooper({
             max="16"
             step="0.5"
             value={loopDuration}
-            onChange={(e) => {
-              const newDuration = parseFloat(e.target.value);
-              setLoopDuration(newDuration);
-            }}
-            style={{
-              width: 120,
-              height: 20,
-              WebkitAppearance: "none",
-              appearance: "none",
-              background: "#333",
-              borderRadius: 10,
-              outline: "none",
-            }}
+            onChange={(e) => setLoopDuration(parseFloat(e.target.value))}
+            style={{ width: 120 }}
             title="Loop Duration"
             aria-label="Loop Duration in seconds"
             className="cursor-pointer"
